@@ -59,6 +59,46 @@ const LEISTUNGEN = [
   },
 ] as const;
 
+const PRODUKTE = [
+  {
+    name: "Koch-Chemie",
+    text: "Systempflege für Felgen, Innenraum und Lack — entwickelt und produziert in Deutschland.",
+  },
+  {
+    name: "Sonax",
+    text: "Bewährte Produkte für Felgenreinigung, Politur und Glanzfinish im täglichen Einsatz.",
+  },
+  {
+    name: "Menzerna",
+    text: "High-End-Politursysteme für Washline, Hologramme und langanhaltenden Tiefenglan.",
+  },
+  { name: "Gyeon", text: "Keramik-Versiegelungen und hydrophobe Schichten mit starker Perle." },
+  { name: "CarPro", text: "Ceramic Coatings und Detailing-Chemie auf professionellem Niveau." },
+  { name: "Cartec", text: "Effiziente Vorreiniger und Spezialprodukte für gewerbliche Aufbereitung." },
+] as const;
+
+const PARTNER = [
+  { name: "Autohaus-Partner", hint: "Fahrzeugübergabe & Beratung vor Ort" },
+  { name: "Scheiben & Folierung", hint: "Tönung & Steinschlagschutz" },
+  { name: "Werkstatt-Netzwerk", hint: "Mechanik & Vorbereitung" },
+  { name: "Logistik regional", hint: "Abholung nach Vereinbarung" },
+] as const;
+
+const WORK_VIDEOS = [
+  {
+    src: HERO_VIDEO_PRIMARY,
+    poster: HERO_POSTER,
+    title: "Arbeitsausschnitt",
+    text: "Politur, Finish und Lichtspiel am Lack — Platzhalter bis weitere Clips ergänzt werden.",
+  },
+] as const;
+
+const OEFFNUNGSZEITEN = [
+  { tag: "Montag – Freitag", zeit: "09:00 – 18:00" },
+  { tag: "Samstag", zeit: "nach Vereinbarung" },
+  { tag: "Sonntag", zeit: "geschlossen" },
+] as const;
+
 const EASE_OUT_CUBIC = [0.16, 1, 0.3, 1] as const;
 
 function scrollToId(id: string) {
@@ -93,6 +133,7 @@ export default function TonisLanding() {
   const reduceMotion = useReducedMotion();
   const fontsReady = useDemoFonts();
   const heroRef = useRef<HTMLElement | null>(null);
+  const [impressionTab, setImpressionTab] = useState<"fotos" | "videos">("fotos");
 
   const onHomeLogoClick = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -156,23 +197,6 @@ export default function TonisLanding() {
               scale: 1,
               rotateX: 0,
               transition: { type: "spring", stiffness: 120, damping: 18 },
-            },
-          },
-    [reduceMotion],
-  );
-
-  const galleryItem: Variants = useMemo(
-    () =>
-      reduceMotion
-        ? { hidden: { opacity: 1 }, visible: { opacity: 1 } }
-        : {
-            hidden: { opacity: 0, scale: 0.85, y: 60, rotate: -2 },
-            visible: {
-              opacity: 1,
-              scale: 1,
-              y: 0,
-              rotate: 0,
-              transition: { type: "spring", stiffness: 90, damping: 17 },
             },
           },
     [reduceMotion],
@@ -293,8 +317,16 @@ export default function TonisLanding() {
               <span className="sr-only">Zur Startseite — Toni&apos;s Autopflege Demo</span>
             </a>
           </motion.div>
-          <nav className="hidden items-center gap-8 text-[13px] font-semibold uppercase tracking-[0.18em] text-zinc-950 md:flex">
-            {(["leistungen", "galerie", "ueber-uns", "kontakt"] as const).map((id) => (
+          <nav className="hidden flex-wrap items-center justify-end gap-x-6 gap-y-2 text-[12px] font-semibold uppercase tracking-[0.16em] text-zinc-950 lg:flex">
+            {(
+              [
+                ["leistungen", "Leistungen"],
+                ["produkte", "Produkte"],
+                ["impressionen", "Impressionen"],
+                ["ueber-uns", "Über uns"],
+                ["kontakt", "Kontakt"],
+              ] as const
+            ).map(([id, label]) => (
               <button
                 key={id}
                 type="button"
@@ -302,10 +334,7 @@ export default function TonisLanding() {
                 className="group relative text-zinc-950 transition hover:text-black"
               >
                 <span className="absolute -bottom-1 left-0 h-px w-0 bg-gradient-to-r from-[#b8860b] to-[#c9a227] transition-all duration-300 group-hover:w-full" />
-                {id === "leistungen" && "Leistungen"}
-                {id === "galerie" && "Galerie"}
-                {id === "ueber-uns" && "Über uns"}
-                {id === "kontakt" && "Kontakt"}
+                {label}
               </button>
             ))}
           </nav>
@@ -471,80 +500,7 @@ export default function TonisLanding() {
         </motion.div>
       </section>
 
-      <section id="galerie" className="scroll-mt-24 border-t border-white/[0.06] py-24 md:py-32">
-        <div className="mx-auto max-w-7xl px-4 md:px-8">
-          <motion.div
-            initial={reduceMotion ? false : { opacity: 0, y: 28 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7, ease: EASE_OUT_CUBIC }}
-            className="mb-14 text-center"
-          >
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.4em] text-[#c9a227]/80">Portfolio</p>
-            <h2
-              className="text-4xl font-extrabold text-white md:text-5xl"
-              style={{ fontFamily: fontDisplay }}
-            >
-              Galerie
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-zinc-500">
-              Ausgewählte Aufbereitungen — optimiert als WebP für schnelles Laden auf dem Smartphone.
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            variants={{
-              hidden: {},
-              visible: {
-                transition: { staggerChildren: reduceMotion ? 0 : 0.07, delayChildren: 0.05 },
-              },
-            }}
-          >
-            {GALLERY.map((src, i) => (
-              <motion.figure
-                key={src}
-                variants={galleryItem}
-                whileHover={
-                  reduceMotion
-                    ? {}
-                    : {
-                        scale: 1.02,
-                        y: -6,
-                        transition: { type: "spring", stiffness: 400, damping: 22 },
-                      }
-                }
-                className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/[0.08] bg-zinc-900/40 shadow-[0_24px_60px_rgba(0,0,0,0.45)] md:aspect-square"
-              >
-                <div
-                  className="pointer-events-none absolute inset-0 z-10 opacity-0 transition duration-500 group-hover:opacity-100"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, transparent 40%, rgba(201,162,39,0.12) 50%, transparent 60%)",
-                    backgroundSize: "250% 250%",
-                  }}
-                />
-                <img
-                  src={src}
-                  alt={`Referenz ${i + 1}`}
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
-                  loading={i < 3 ? "eager" : "lazy"}
-                  decoding="async"
-                  sizes="(max-width: 768px) 50vw, 33vw"
-                />
-                <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 z-20 translate-y-full bg-gradient-to-t from-black via-black/70 to-transparent p-4 text-left text-xs font-semibold uppercase tracking-wider text-[#f5e6b8] transition duration-500 group-hover:translate-y-0">
-                  Referenz {i + 1}
-                </figcaption>
-              </motion.figure>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      <section id="leistungen" className="scroll-mt-24 border-t border-white/[0.06] bg-[#06060b] py-24 md:py-32">
+      <section id="leistungen" className="scroll-mt-24 border-t border-white/[0.06] bg-[#030306] py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-4 md:px-8">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 28 }}
@@ -557,6 +513,9 @@ export default function TonisLanding() {
             <h2 className="text-4xl font-extrabold text-white md:text-5xl" style={{ fontFamily: fontDisplay }}>
               Leistungen
             </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-sm text-zinc-500 md:text-base">
+              Hochwertige Aufbereitung mit klarer Systematik — Schwarz, Gold und Ruhe im Auftritt.
+            </p>
           </motion.div>
           <motion.div
             className="grid gap-5 md:grid-cols-2 lg:grid-cols-3"
@@ -577,29 +536,188 @@ export default function TonisLanding() {
                     ? {}
                     : {
                         y: -10,
-                        boxShadow: "0 28px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,162,39,0.25)",
+                        boxShadow: "0 28px 60px rgba(0,0,0,0.55), 0 0 0 1px rgba(201,162,39,0.35)",
                       }
                 }
-                className="relative overflow-hidden rounded-2xl border border-white/[0.07] bg-gradient-to-br from-zinc-900/90 to-[#050508] p-7"
+                className="relative overflow-hidden rounded-2xl border border-[#c9a227]/20 bg-gradient-to-br from-[#050508] via-zinc-950/98 to-black p-7 shadow-[inset_0_1px_0_rgba(201,162,39,0.12)] ring-1 ring-black/60"
               >
                 <div
-                  className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-[#c9a227]/10 blur-3xl"
+                  className="absolute -right-8 -top-8 h-36 w-36 rounded-full bg-[#c9a227]/12 blur-3xl"
                   aria-hidden="true"
                 />
-                <div className="mb-4 inline-flex rounded-full border border-[#c9a227]/25 bg-[#c9a227]/10 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-[#e6cf6b]">
+                <div className="mb-4 inline-flex rounded-full border border-[#c9a227]/35 bg-[#c9a227]/12 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-[#f0d78c]">
                   {String(i + 1).padStart(2, "0")}
                 </div>
                 <h3 className="mb-3 text-xl font-bold text-white" style={{ fontFamily: fontDisplay }}>
                   {item.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-zinc-500">{item.text}</p>
+                <p className="text-sm leading-relaxed text-zinc-300">{item.text}</p>
               </motion.article>
             ))}
           </motion.div>
         </div>
       </section>
 
-      <section id="ueber-uns" className="scroll-mt-24 py-24 md:py-32">
+      <section id="produkte" className="scroll-mt-24 border-t border-white/[0.06] bg-[#06060b] py-24 md:py-32">
+        <div className="mx-auto max-w-7xl px-4 md:px-8">
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7, ease: EASE_OUT_CUBIC }}
+            className="mb-14 text-center"
+          >
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.4em] text-[#c9a227]/80">Chemie & Systeme</p>
+            <h2 className="text-4xl font-extrabold text-white md:text-5xl" style={{ fontFamily: fontDisplay }}>
+              Unsere Premium Produkte
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-sm text-zinc-500 md:text-base">
+              Marken, die in Deutschland Vertrauen schaffen — wir arbeiten bewusst mit Profi-Linien statt No-Name.
+            </p>
+          </motion.div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {PRODUKTE.map((p) => (
+              <div
+                key={p.name}
+                className="rounded-2xl border border-[#c9a227]/20 bg-black/50 px-6 py-6 shadow-[0_0_0_1px_rgba(0,0,0,0.5)] transition hover:border-[#c9a227]/45 hover:bg-[#08080c]"
+              >
+                <p className="text-lg font-bold tracking-tight text-[#f5e6b8]" style={{ fontFamily: fontDisplay }}>
+                  {p.name}
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-zinc-400">{p.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="impressionen" className="scroll-mt-24 border-t border-white/[0.06] py-24 md:py-32">
+        <div className="mx-auto max-w-7xl px-4 md:px-8">
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7, ease: EASE_OUT_CUBIC }}
+            className="mb-10 text-center"
+          >
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.4em] text-[#c9a227]/80">Portfolio</p>
+            <h2 className="text-4xl font-extrabold text-white md:text-5xl" style={{ fontFamily: fontDisplay }}>
+              Impressionen
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-sm text-zinc-500 md:text-base">
+              Fotos und Videos aus der Aufbereitung — alles als WebP bzw. schlankes MP4 für schnelle Ladezeiten.
+            </p>
+          </motion.div>
+
+          <div
+            className="mx-auto mb-10 flex max-w-md justify-center gap-2 rounded-2xl border border-white/[0.08] bg-black/40 p-1.5"
+            role="tablist"
+            aria-label="Impressionen Medien"
+          >
+            <button
+              type="button"
+              role="tab"
+              aria-selected={impressionTab === "fotos"}
+              aria-controls="impressionen-panel-fotos"
+              id="impressionen-tab-fotos"
+              onClick={() => setImpressionTab("fotos")}
+              className={`flex-1 rounded-xl px-4 py-2.5 text-sm font-semibold uppercase tracking-wider transition ${
+                impressionTab === "fotos"
+                  ? "bg-gradient-to-r from-[#c9a227] to-[#a67c00] text-black shadow-[0_0_24px_rgba(201,162,39,0.25)]"
+                  : "text-zinc-400 hover:text-white"
+              }`}
+            >
+              Fotos
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={impressionTab === "videos"}
+              aria-controls="impressionen-panel-videos"
+              id="impressionen-tab-videos"
+              onClick={() => setImpressionTab("videos")}
+              className={`flex-1 rounded-xl px-4 py-2.5 text-sm font-semibold uppercase tracking-wider transition ${
+                impressionTab === "videos"
+                  ? "bg-gradient-to-r from-[#c9a227] to-[#a67c00] text-black shadow-[0_0_24px_rgba(201,162,39,0.25)]"
+                  : "text-zinc-400 hover:text-white"
+              }`}
+            >
+              Videos
+            </button>
+          </div>
+
+          {impressionTab === "fotos" && (
+            <div
+              id="impressionen-panel-fotos"
+              role="tabpanel"
+              aria-labelledby="impressionen-tab-fotos"
+              className="columns-1 gap-4 sm:columns-2 lg:columns-3"
+            >
+              {GALLERY.map((src, i) => (
+                <figure key={src} className="mb-4 break-inside-avoid">
+                  <div className="group overflow-hidden rounded-2xl border border-white/[0.08] bg-zinc-900/40 shadow-[0_20px_50px_rgba(0,0,0,0.45)]">
+                    <img
+                      src={src}
+                      alt={`Referenz ${i + 1}, WebP`}
+                      width={900}
+                      height={1200}
+                      className="h-auto w-full object-cover transition duration-700 group-hover:scale-[1.03]"
+                      loading={i < 4 ? "eager" : "lazy"}
+                      decoding="async"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                    <figcaption className="border-t border-white/[0.06] bg-black/50 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-wider text-[#d4b84a]">
+                      Referenz {i + 1} · WebP
+                    </figcaption>
+                  </div>
+                </figure>
+              ))}
+            </div>
+          )}
+
+          {impressionTab === "videos" && (
+            <div
+              id="impressionen-panel-videos"
+              role="tabpanel"
+              aria-labelledby="impressionen-tab-videos"
+              className="grid gap-10 md:grid-cols-2"
+            >
+              {WORK_VIDEOS.map((v) => (
+                <div
+                  key={v.title}
+                  className="overflow-hidden rounded-2xl border border-white/[0.08] bg-black/60 shadow-[0_24px_60px_rgba(0,0,0,0.5)]"
+                >
+                  <div className="aspect-video w-full bg-black">
+                    <video
+                      className="h-full w-full object-cover"
+                      controls
+                      playsInline
+                      preload="metadata"
+                      poster={v.poster}
+                      aria-label={v.title}
+                    >
+                      <source src={v.src} type="video/mp4" />
+                    </video>
+                  </div>
+                  <div className="border-t border-white/[0.06] p-5">
+                    <h3 className="text-lg font-bold text-white" style={{ fontFamily: fontDisplay }}>
+                      {v.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-zinc-400">{v.text}</p>
+                  </div>
+                </div>
+              ))}
+              <p className="text-sm text-zinc-500 md:col-span-2">
+                Weitere Arbeitsvideos können ergänzt werden — bitte MP4-Dateien nach Rücksprache in{" "}
+                <code className="rounded bg-white/5 px-1.5 py-0.5 text-xs text-[#c9a227]">public/assets/videos/</code>{" "}
+                ablegen und im Code verknüpfen.
+              </p>
+            </div>
+          )}
+        </div>
+      </section>
+
+      <section id="ueber-uns" className="scroll-mt-24 border-t border-white/[0.06] bg-[#06060b] py-24 md:py-32">
         <div className="mx-auto max-w-3xl px-4 text-center md:px-8">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 32 }}
@@ -607,14 +725,23 @@ export default function TonisLanding() {
             viewport={{ once: true }}
             transition={{ duration: 0.75, ease: EASE_OUT_CUBIC }}
           >
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.4em] text-[#c9a227]/80">Team</p>
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.4em] text-[#c9a227]/80">Philosophie</p>
             <h2 className="mb-8 text-4xl font-extrabold text-white md:text-5xl" style={{ fontFamily: fontDisplay }}>
               Über uns
             </h2>
-            <p className="text-pretty text-lg leading-relaxed text-zinc-400 md:text-xl">
-              <strong className="font-bold text-white">Toni&apos;s Autopflege</strong> in Göppingen steht für
-              handwerkliche Qualität und ehrliche Beratung — mit Ruhe, Sorgfalt und den richtigen Verfahren für Lack,
-              Interieur und Langzeitschutz.
+            <p className="text-pretty text-lg leading-relaxed text-zinc-300 md:text-xl">
+              <strong className="font-semibold text-white">Toni&apos;s Autopflege</strong> lebt von Ruhe, Konzentration
+              und Respekt vor dem Material: Jede Kante, jede Naht und jeder Lackfilm wird so behandelt, als bliebe das
+              Fahrzeug für Jahre in Ihrer Hand.
+            </p>
+            <p className="mt-6 text-pretty text-base leading-relaxed text-zinc-400 md:text-lg">
+              Wir kombinieren klassisches Handwerk mit modernen Produktsystemen — ohne Schnickschnack, ohne
+              Druckverkauf. Wenn wir polieren, versiegeln oder den Innenraum hygienisch aufbereiten, geht es um messbare
+              Ergebnisse und ein Erlebnis, das man sieht und spürt.
+            </p>
+            <p className="mt-6 text-pretty text-base leading-relaxed text-zinc-400 md:text-lg">
+              Ihr Zeitbudget und Ihre Erwartungen sind die Leitplanken: Wir erklären transparent, was sinnvoll ist, was
+              wir empfehlen — und was wir bewusst nicht versprechen.
             </p>
             <motion.div
               className="mx-auto mt-10 h-px max-w-xs bg-gradient-to-r from-transparent via-[#c9a227]/50 to-transparent"
@@ -623,104 +750,182 @@ export default function TonisLanding() {
               viewport={{ once: true }}
               transition={{ duration: 0.9, ease: EASE_OUT_CUBIC }}
             />
-            <p className="mt-8 text-sm text-zinc-600">
-              Demo-Auftritt · Texte und Kontakt können vor dem Livegang final angepasst werden.
-            </p>
           </motion.div>
         </div>
       </section>
 
-      <section id="kontakt" className="scroll-mt-24 border-t border-white/[0.06] bg-[#06060b] py-24 md:py-32">
-        <div className="mx-auto max-w-lg px-4 md:px-8">
+      <section id="kontakt" className="scroll-mt-24 border-t border-white/[0.06] bg-[#030306] py-24 md:py-32">
+        <div className="mx-auto max-w-6xl px-4 md:px-8">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: EASE_OUT_CUBIC }}
           >
-            <h2 className="mb-2 text-center text-4xl font-extrabold text-white md:text-5xl" style={{ fontFamily: fontDisplay }}>
+            <h2
+              className="mb-2 text-center text-4xl font-extrabold text-white md:text-5xl"
+              style={{ fontFamily: fontDisplay }}
+            >
               Kontakt
             </h2>
-            <p className="mb-10 text-center text-zinc-500">
-              Unverbindliche Anfrage — wir melden uns mit Terminvorschlägen.
+            <p className="mb-12 text-center text-zinc-500">
+              Unverbindliche Anfrage — wir melden uns mit Terminvorschlägen. Alle Angaben können vor dem Livegang
+              finalisiert werden.
             </p>
-            <motion.form
-              className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-zinc-900/30 p-8 shadow-[0_0_80px_rgba(201,162,39,0.06)] backdrop-blur-xl"
-              initial={reduceMotion ? false : { opacity: 0, rotateX: 8 }}
-              whileInView={{ opacity: 1, rotateX: 0 }}
-              viewport={{ once: true }}
-              transition={{ type: "spring", stiffness: 80, damping: 18 }}
-              style={{ transformPerspective: 1200 }}
-              onSubmit={(e) => {
-                e.preventDefault();
-                const fd = new FormData(e.currentTarget);
-                const name = String(fd.get("name") ?? "").trim();
-                const email = String(fd.get("email") ?? "").trim();
-                const msg = String(fd.get("message") ?? "").trim();
-                const body = encodeURIComponent(`Name: ${name}\nE-Mail: ${email}\n\nNachricht:\n${msg}`);
-                window.location.href = `mailto:kontakt@tonis-autopflege.de?subject=${encodeURIComponent("Anfrage Autopflege")}&body=${body}`;
-              }}
-            >
-              {!reduceMotion && (
-                <div
-                  className="pointer-events-none absolute -inset-px rounded-2xl opacity-50"
-                  style={{
-                    background: "conic-gradient(from 0deg, transparent, rgba(201,162,39,0.35), transparent 40%)",
-                    animation: "tonis-border-spin 8s linear infinite",
-                  }}
-                />
-              )}
-              <div className="relative space-y-5">
+
+            <div className="grid gap-12 lg:grid-cols-2 lg:gap-14">
+              <div className="space-y-8">
                 <div>
-                  <label htmlFor="tonis-name" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-zinc-500">
-                    Name
-                  </label>
-                  <input
-                    id="tonis-name"
-                    name="name"
-                    required
-                    className="w-full rounded-xl border border-white/10 bg-[#030306]/80 px-4 py-3 text-white outline-none transition focus:border-[#c9a227]/50 focus:ring-2 focus:ring-[#c9a227]/20"
-                    autoComplete="name"
-                  />
+                  <h3 className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-[#c9a227]/90">Standort</h3>
+                  <div className="aspect-[4/3] w-full max-h-[320px] overflow-hidden rounded-2xl border border-white/[0.1] bg-zinc-900/50 shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
+                    <iframe
+                      title="Karte — Platzhalter Göppingen"
+                      className="h-full min-h-[240px] w-full"
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      src="https://www.google.com/maps?q=G%C3%B6ppingen%2C%20Baden-W%C3%BCrttemberg&z=13&hl=de&output=embed"
+                    />
+                  </div>
+                  <p className="mt-3 text-xs text-zinc-500">
+                    Platzhalter-Karte (Göppingen). Exakte Adresse und Google-Business-Einbindung folgen bei Bedarf.
+                  </p>
                 </div>
+
                 <div>
-                  <label htmlFor="tonis-email" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-zinc-500">
-                    E-Mail
-                  </label>
-                  <input
-                    id="tonis-email"
-                    name="email"
-                    type="email"
-                    required
-                    className="w-full rounded-xl border border-white/10 bg-[#030306]/80 px-4 py-3 text-white outline-none transition focus:border-[#c9a227]/50 focus:ring-2 focus:ring-[#c9a227]/20"
-                    autoComplete="email"
-                  />
+                  <h3 className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-[#c9a227]/90">
+                    Öffnungszeiten
+                  </h3>
+                  <ul className="divide-y divide-white/[0.06] rounded-2xl border border-white/[0.08] bg-black/40">
+                    {OEFFNUNGSZEITEN.map((row) => (
+                      <li key={row.tag} className="flex items-center justify-between gap-4 px-4 py-3 text-sm">
+                        <span className="text-zinc-400">{row.tag}</span>
+                        <span className="font-medium text-white">{row.zeit}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <div>
-                  <label htmlFor="tonis-msg" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-zinc-500">
-                    Nachricht / Fahrzeug
-                  </label>
-                  <textarea
-                    id="tonis-msg"
-                    name="message"
-                    required
-                    rows={4}
-                    className="w-full resize-y rounded-xl border border-white/10 bg-[#030306]/80 px-4 py-3 text-white outline-none transition focus:border-[#c9a227]/50 focus:ring-2 focus:ring-[#c9a227]/20"
-                    placeholder="Modell, Zustand, gewünschte Leistungen …"
-                  />
+
+                <div className="rounded-2xl border border-[#c9a227]/25 bg-gradient-to-br from-[#c9a227]/10 to-black/60 p-6">
+                  <p className="text-sm font-semibold text-[#f5e6b8]">Direkt per WhatsApp</p>
+                  <p className="mt-2 text-sm text-zinc-400">Kurze Fragen, Fotos vom Fahrzeug oder Terminwunsch — wir antworten zeitnah.</p>
+                  <a
+                    href={TONI_WA_HREF}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-sm font-bold text-white shadow-lg transition hover:bg-[#20bd5a]"
+                  >
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    WhatsApp öffnen
+                  </a>
                 </div>
-                <motion.button
-                  type="submit"
-                  whileHover={reduceMotion ? {} : { scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="relative w-full overflow-hidden rounded-full bg-gradient-to-r from-[#c9a227] to-[#a67c00] py-3.5 text-sm font-bold text-black"
-                >
-                  Anfrage senden
-                </motion.button>
-                <p className="text-center text-xs text-zinc-600">Öffnet Ihr E-Mail-Programm.</p>
               </div>
-            </motion.form>
+
+              <motion.form
+                className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-zinc-900/30 p-8 shadow-[0_0_80px_rgba(201,162,39,0.06)] backdrop-blur-xl"
+                initial={reduceMotion ? false : { opacity: 0, rotateX: 8 }}
+                whileInView={{ opacity: 1, rotateX: 0 }}
+                viewport={{ once: true }}
+                transition={{ type: "spring", stiffness: 80, damping: 18 }}
+                style={{ transformPerspective: 1200 }}
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const fd = new FormData(e.currentTarget);
+                  const name = String(fd.get("name") ?? "").trim();
+                  const email = String(fd.get("email") ?? "").trim();
+                  const msg = String(fd.get("message") ?? "").trim();
+                  const body = encodeURIComponent(`Name: ${name}\nE-Mail: ${email}\n\nNachricht:\n${msg}`);
+                  window.location.href = `mailto:kontakt@tonis-autopflege.de?subject=${encodeURIComponent("Anfrage Autopflege")}&body=${body}`;
+                }}
+              >
+                {!reduceMotion && (
+                  <div
+                    className="pointer-events-none absolute -inset-px rounded-2xl opacity-50"
+                    style={{
+                      background: "conic-gradient(from 0deg, transparent, rgba(201,162,39,0.35), transparent 40%)",
+                      animation: "tonis-border-spin 8s linear infinite",
+                    }}
+                  />
+                )}
+                <div className="relative space-y-5">
+                  <h3 className="text-center text-sm font-bold uppercase tracking-wider text-zinc-400">E-Mail-Anfrage</h3>
+                  <div>
+                    <label htmlFor="tonis-name" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-zinc-500">
+                      Name
+                    </label>
+                    <input
+                      id="tonis-name"
+                      name="name"
+                      required
+                      className="w-full rounded-xl border border-white/10 bg-[#030306]/80 px-4 py-3 text-white outline-none transition focus:border-[#c9a227]/50 focus:ring-2 focus:ring-[#c9a227]/20"
+                      autoComplete="name"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="tonis-email" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-zinc-500">
+                      E-Mail
+                    </label>
+                    <input
+                      id="tonis-email"
+                      name="email"
+                      type="email"
+                      required
+                      className="w-full rounded-xl border border-white/10 bg-[#030306]/80 px-4 py-3 text-white outline-none transition focus:border-[#c9a227]/50 focus:ring-2 focus:ring-[#c9a227]/20"
+                      autoComplete="email"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="tonis-msg" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-zinc-500">
+                      Nachricht / Fahrzeug
+                    </label>
+                    <textarea
+                      id="tonis-msg"
+                      name="message"
+                      required
+                      rows={4}
+                      className="w-full resize-y rounded-xl border border-white/10 bg-[#030306]/80 px-4 py-3 text-white outline-none transition focus:border-[#c9a227]/50 focus:ring-2 focus:ring-[#c9a227]/20"
+                      placeholder="Modell, Zustand, gewünschte Leistungen …"
+                    />
+                  </div>
+                  <motion.button
+                    type="submit"
+                    whileHover={reduceMotion ? {} : { scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="relative w-full overflow-hidden rounded-full bg-gradient-to-r from-[#c9a227] to-[#a67c00] py-3.5 text-sm font-bold text-black"
+                  >
+                    Anfrage senden
+                  </motion.button>
+                  <p className="text-center text-xs text-zinc-600">Öffnet Ihr E-Mail-Programm.</p>
+                </div>
+              </motion.form>
+            </div>
           </motion.div>
+        </div>
+      </section>
+
+      <section id="partner" className="scroll-mt-24 border-t border-white/[0.06] bg-[#06060b] py-16 md:py-20">
+        <div className="mx-auto max-w-6xl px-4 md:px-8">
+          <div className="mb-10 text-center">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.4em] text-[#c9a227]/80">Netzwerk</p>
+            <h2 className="text-2xl font-extrabold text-white md:text-3xl" style={{ fontFamily: fontDisplay }}>
+              Partner
+            </h2>
+            <p className="mx-auto mt-3 max-w-xl text-sm text-zinc-500">
+              Verlässliche Zusammenarbeit rund ums Fahrzeug — Platzhalter bis finale Logos und Verlinkungen stehen.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            {PARTNER.map((p) => (
+              <div
+                key={p.name}
+                className="flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-black/40 px-4 py-5 text-center transition hover:border-[#c9a227]/30"
+              >
+                <p className="text-sm font-bold text-white">{p.name}</p>
+                <p className="mt-2 text-[11px] leading-snug text-zinc-500">{p.hint}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

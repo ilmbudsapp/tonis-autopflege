@@ -602,7 +602,7 @@ export default function TonisLanding() {
               Impressionen
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-sm text-zinc-500 md:text-base">
-              Fotos und Videos aus der Aufbereitung — alles als WebP bzw. schlankes MP4 für schnelle Ladezeiten.
+              Fotos und Videos aus der Aufbereitung — optimiert für schnelles Laden.
             </p>
           </motion.div>
 
@@ -655,7 +655,7 @@ export default function TonisLanding() {
                   <div className="group overflow-hidden rounded-2xl border border-white/[0.08] bg-zinc-900/40 shadow-[0_20px_50px_rgba(0,0,0,0.45)]">
                     <img
                       src={src}
-                      alt={`Referenz ${i + 1}, WebP`}
+                      alt={`Referenz ${i + 1}`}
                       width={900}
                       height={1200}
                       className="h-auto w-full object-cover transition duration-700 group-hover:scale-[1.03]"
@@ -664,7 +664,7 @@ export default function TonisLanding() {
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                     <figcaption className="border-t border-white/[0.06] bg-black/50 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-wider text-[#d4b84a]">
-                      Referenz {i + 1} · WebP
+                      Referenz {i + 1}
                     </figcaption>
                   </div>
                 </figure>

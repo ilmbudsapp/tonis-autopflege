@@ -16,6 +16,10 @@ Izdvojen landing iz **AGRMULTIMEDIA** (`/demo/tonis-autopflege`): ista vizuelna 
 | `src/lib/contact.ts` | Fallback WhatsApp cifre ako nije setovan Toni u `.env` |
 | `scripts/convert-tonis-assets.mjs` | Stari tok: JPEG u `images/` → `gallery-XX.webp` + poster iz videa |
 | `scripts/build-gallery-from-galeria.mjs` | **`public/GALERIA/`** → dedupe (SHA-256) → **`public/assets/gallery-webp/`** + `galleryWebp.ts` |
+| `public/VIDEO 1/` | Izvorni radni video klipovi (lokalno, gitignored) |
+| `public/assets/videos/work/` | Izlaz: `clip-*.mp4` + `posters/*.webp` (generisano) |
+| `src/generated/workVideos.ts` | Auto-lista klipova za tab **Videos** |
+| `scripts/build-work-videos-from-folder.mjs` | **`public/VIDEO 1/`** → dedupe + FFmpeg (CRF 18) → **`assets/videos/work/`** |
 
 ## Lokalno
 
@@ -36,6 +40,18 @@ npm run gallery:galeria
 
 - Duplikati **istog fajla** (identični bajtovi) se automatski izbacuju.
 - WebP: **quality 94**, `effort: 6`, bez agresivnog smanjenja; ako je duža strana preko 5200 px, slika se umanjuje uz `fit: inside` da ostane upotrebljiva na webu.
+
+### Arbeitsvideos aus `public/VIDEO 1/`
+
+MP4/MOV/MKV u **`public/VIDEO 1/`** (rekurzivno). Zatim:
+
+```bash
+npm run videos:work
+```
+
+- **Duplikati** (identični bajtovi kao drugi fajl ili kao hero `Tony Video Klip kompresovan.mp4`) se preskaču.
+- **Kompresija:** H.264, **CRF 18**, `preset slow`, `faststart`, max širina **1920** (Lanczos) — dobar balans veličine i kvaliteta.
+- Posteri: WebP iz kadra ~0,8 s.
 
 ### Regeneracija starog toka (poster iz hero videa)
 

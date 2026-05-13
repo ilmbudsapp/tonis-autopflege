@@ -26,3 +26,6 @@ dist-ssr
 
 # Lokalni izvorni album (JPEG); WebP izlaz je u public/assets/gallery-webp/ — vidi npm run gallery:galeria
 public/GALERIA/
+
+# Rohe Arbeitsvideos (Quelle) — Web-Ausgabe: npm run videos:work → public/assets/videos/work/
+public/VIDEO 1/

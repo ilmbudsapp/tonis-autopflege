@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "tonis:convert": "node scripts/convert-tonis-assets.mjs",
-    "gallery:galeria": "node scripts/build-gallery-from-galeria.mjs"
+    "gallery:galeria": "node scripts/build-gallery-from-galeria.mjs",
+    "videos:work": "node scripts/build-work-videos-from-folder.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.38.0",

@@ -9,6 +9,7 @@ import {
 } from "framer-motion";
 import { WHATSAPP_E164_DIGITS } from "@/lib/contact";
 import { GALLERY_WEBP_FILENAMES } from "@/generated/galleryWebp";
+import { WORK_VIDEO_CLIPS } from "@/generated/workVideos";
 
 const BASE = import.meta.env.BASE_URL;
 const asset = (dir: string, file: string) => `${BASE}assets/${dir}/${encodeURIComponent(file)}`;
@@ -81,14 +82,13 @@ const PARTNER = [
   { name: "Logistik regional", hint: "Abholung nach Vereinbarung" },
 ] as const;
 
-const WORK_VIDEOS = [
-  {
-    src: HERO_VIDEO_PRIMARY,
-    poster: HERO_POSTER,
-    title: "Arbeitsausschnitt",
-    text: "Politur, Finish und Lichtspiel am Lack — Platzhalter bis weitere Clips ergänzt werden.",
-  },
-] as const;
+const WORK_VIDEO_BASE = `${BASE}assets/videos/work/`;
+const WORK_VIDEOS = WORK_VIDEO_CLIPS.map((c, i) => ({
+  src: `${WORK_VIDEO_BASE}${c.file}`,
+  poster: `${WORK_VIDEO_BASE}posters/${c.poster}`,
+  title: `Referenzvideo ${i + 1}`,
+  text: "Ausschnitt aus der Aufbereitung — Politur, Innenraum oder Finish.",
+}));
 
 const OEFFNUNGSZEITEN = [
   { tag: "Montag – Freitag", zeit: "09:00 – 18:00" },
@@ -778,7 +778,7 @@ export default function TonisLanding() {
             >
               {WORK_VIDEOS.map((v) => (
                 <div
-                  key={v.title}
+                  key={v.src}
                   className="overflow-hidden rounded-2xl border border-white/[0.08] bg-black/60 shadow-[0_24px_60px_rgba(0,0,0,0.5)]"
                 >
                   <div className="aspect-video w-full bg-black">
@@ -801,11 +801,22 @@ export default function TonisLanding() {
                   </div>
                 </div>
               ))}
-              <p className="text-sm text-zinc-500 md:col-span-2">
-                Weitere Arbeitsvideos können ergänzt werden — bitte MP4-Dateien nach Rücksprache in{" "}
-                <code className="rounded bg-white/5 px-1.5 py-0.5 text-xs text-[#c9a227]">public/assets/videos/</code>{" "}
-                ablegen und im Code verknüpfen.
-              </p>
+              {WORK_VIDEOS.length === 0 && (
+                <p className="text-sm text-zinc-500 md:col-span-2">
+                  Noch keine Clips — lege MP4/MOV in{" "}
+                  <code className="rounded bg-white/5 px-1.5 py-0.5 text-xs text-[#c9a227]">public/VIDEO 1/</code> und
+                  führe lokal{" "}
+                  <code className="rounded bg-white/5 px-1.5 py-0.5 text-xs text-[#c9a227]">npm run videos:work</code>{" "}
+                  aus (komprimiert mit hoher Qualität, ohne Byte-Duplikate).
+                </p>
+              )}
+              {WORK_VIDEOS.length > 0 && (
+                <p className="text-sm text-zinc-500 md:col-span-2">
+                  Weitere Clips: Dateien in{" "}
+                  <code className="rounded bg-white/5 px-1.5 py-0.5 text-xs text-[#c9a227]">public/VIDEO 1/</code>, dann{" "}
+                  <code className="rounded bg-white/5 px-1.5 py-0.5 text-xs text-[#c9a227]">npm run videos:work</code>.
+                </p>
+              )}
             </div>
           )}
         </div>

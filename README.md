@@ -6,12 +6,16 @@ Izdvojen landing iz **AGRMULTIMEDIA** (`/demo/tonis-autopflege`): ista vizuelna 
 
 | Put | Sadržaj |
 |-----|--------|
-| `public/assets/images/` | WebP galerija, logotipi, `hero-poster.webp`, opciono izvorni JPEG za konverziju |
+| `public/GALERIA/` | Izvorne fotografije (JPEG/PNG) — skripta ih deduplikuje i pretvara u WebP |
+| `public/assets/gallery-webp/` | Izlaz: `gal-00001.webp` … (visok kvalitet, generisano) |
+| `public/assets/images/` | Logotipi, `hero-poster.webp` |
+| `src/generated/galleryWebp.ts` | Auto-lista imena WebP fajlova (ne ručno) |
 | `public/assets/videos/` | Hero MP4 (`Tony Video Klip kompresovan.mp4`) |
 | `public/assets/fonts/` | Opciono `EurostileExtd-Black.woff2` (inače sistemski / Orbitron) |
 | `src/components/TonisLanding.tsx` | Glavna stranica |
 | `src/lib/contact.ts` | Fallback WhatsApp cifre ako nije setovan Toni u `.env` |
-| `scripts/convert-tonis-assets.mjs` | JPEG → `gallery-XX.webp` + poster iz videa |
+| `scripts/convert-tonis-assets.mjs` | Stari tok: JPEG u `images/` → `gallery-XX.webp` + poster iz videa |
+| `scripts/build-gallery-from-galeria.mjs` | **`public/GALERIA/`** → dedupe (SHA-256) → **`public/assets/gallery-webp/`** + `galleryWebp.ts` |
 
 ## Lokalno
 
@@ -22,7 +26,18 @@ npm run dev
 
 Kopiraj `.env.example` u `.env` i po potrebi postavi `VITE_TONI_WHATSAPP_E164` i `VITE_AGR_SITE_URL`.
 
-### Regeneracija galerije / postera
+### Velika galerija iz `public/GALERIA/`
+
+Nakon što dodaš ili promeniš slike u **`public/GALERIA/`** (rekurzivno, samo slike — MP4 se preskače):
+
+```bash
+npm run gallery:galeria
+```
+
+- Duplikati **istog fajla** (identični bajtovi) se automatski izbacuju.
+- WebP: **quality 94**, `effort: 6`, bez agresivnog smanjenja; ako je duža strana preko 5200 px, slika se umanjuje uz `fit: inside` da ostane upotrebljiva na webu.
+
+### Regeneracija starog toka (poster iz hero videa)
 
 ```bash
 npm run tonis:convert

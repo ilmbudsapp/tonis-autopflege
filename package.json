@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "tonis:convert": "node scripts/convert-tonis-assets.mjs"
+    "tonis:convert": "node scripts/convert-tonis-assets.mjs",
+    "gallery:galeria": "node scripts/build-gallery-from-galeria.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.38.0",

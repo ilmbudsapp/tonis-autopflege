@@ -8,6 +8,7 @@ import {
   type Variants,
 } from "framer-motion";
 import { WHATSAPP_E164_DIGITS } from "@/lib/contact";
+import { GALLERY_WEBP_FILENAMES } from "@/generated/galleryWebp";
 
 const BASE = import.meta.env.BASE_URL;
 const asset = (dir: string, file: string) => `${BASE}assets/${dir}/${encodeURIComponent(file)}`;
@@ -26,11 +27,7 @@ const HERO_VIDEO_PRIMARY = asset("videos", "Tony Video Klip kompresovan.mp4");
 const HERO_POSTER = `${BASE}assets/images/hero-poster.webp`;
 
 const AGR_SITE_URL = import.meta.env.VITE_AGR_SITE_URL ?? "https://agrmultimedia.eu";
-const GALLERY_COUNT = 13;
-const GALLERY = Array.from({ length: GALLERY_COUNT }, (_, i) => {
-  const n = String(i + 1).padStart(2, "0");
-  return `${BASE}assets/images/gallery-${n}.webp`;
-});
+const GALLERY = GALLERY_WEBP_FILENAMES.map((f) => `${BASE}assets/gallery-webp/${f}`);
 
 const LEISTUNGEN = [
   {
@@ -662,7 +659,7 @@ export default function TonisLanding() {
                       width={900}
                       height={1200}
                       className="h-auto w-full object-cover transition duration-700 group-hover:scale-[1.03]"
-                      loading={i < 4 ? "eager" : "lazy"}
+                      loading={i < 8 ? "eager" : "lazy"}
                       decoding="async"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />

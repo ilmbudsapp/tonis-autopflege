@@ -12,8 +12,11 @@ import {
   Armchair,
   BrushCleaning,
   Building2,
+  Car,
   Check,
   Droplets,
+  Focus,
+  Hammer,
   Mail,
   MapPin,
   Music2,
@@ -21,6 +24,8 @@ import {
   Shield,
   Sparkles,
   Star,
+  Sun,
+  Tags,
   type LucideIcon,
 } from "lucide-react";
 import { WHATSAPP_E164_DIGITS } from "@/lib/contact";
@@ -145,6 +150,46 @@ const INNENRAUM_CATEGORIES: readonly InnenraumKategorie[] = [
     Icon: AirVent,
     title: "Geruchsentfernung & Ozonbehandlung",
     description: "Professionelle Neutralisierung von Rauch, Tiergerüchen und Feuchtigkeit.",
+  },
+];
+
+type ReparaturSpezialItem = {
+  id: string;
+  Icon: LucideIcon;
+  title: string;
+  text: string;
+};
+
+const REPARATUR_SPEZIAL_SERVICES: readonly ReparaturSpezialItem[] = [
+  {
+    id: "smart-repair",
+    Icon: Hammer,
+    title: "Smart Repair",
+    text: "Punktuelle Beseitigung von Lackkratzern und Schrammen – kosteneffizient und schnell, ohne teure Komplettlackierung.",
+  },
+  {
+    id: "dellenentfernung",
+    Icon: Focus,
+    title: "Dellenentfernung",
+    text: "Sanfte Ausbeultechnik ohne Lackieren. Professionelle Entfernung von Parkdellen, wobei der Originallack vollständig erhalten bleibt.",
+  },
+  {
+    id: "steinschlag-scheiben",
+    Icon: Car,
+    title: "Steinschlag & Scheibenservice",
+    text: "Fachgerechte Reparatur von Steinschlägen und Rissen. Bei Bedarf führen wir einen kompletten Scheibenaustausch durch.",
+  },
+  {
+    id: "scheibentoenung",
+    Icon: Sun,
+    title: "Scheibentönung",
+    text: "Hochwertige Tönungsfolien für Hitze- und UV-Schutz. Verleiht dem Fahrzeug eine sportliche Optik und sorgt für Privatsphäre.",
+  },
+  {
+    id: "fahrzeugbeschriftung",
+    Icon: Tags,
+    title: "Fahrzeugbeschriftung",
+    text: "Individuelle Werbe- und Designbeschriftungen für Firmen- und Privatautos. Hochwertige Folienlösungen nach Maß.",
   },
 ];
 
@@ -939,6 +984,67 @@ export default function TonisLanding() {
                       </li>
                     ))}
                   </ul>
+                </motion.article>
+              );
+            })}
+          </motion.div>
+
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 22 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.65, ease: EASE_OUT_CUBIC }}
+            className="mt-16 border-t border-white/[0.06] pt-14 text-center md:mt-20 md:pt-16"
+            aria-labelledby="reparatur-spezial-heading"
+          >
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.35em] text-[#c9a227]/75">Spezial</p>
+            <h3
+              id="reparatur-spezial-heading"
+              className="text-2xl font-extrabold leading-tight text-white md:text-3xl lg:text-4xl"
+              style={{ fontFamily: fontDisplay }}
+            >
+              Reparatur &amp; Spezial-Services
+            </h3>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-zinc-500 md:text-base">
+              Punktuelle Reparaturen und Speziallösungen — präzise, wertbewusst und ohne unnötige Komplettarbeiten.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-7 md:mt-12"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-40px" }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: reduceMotion ? 0 : 0.1 } },
+            }}
+          >
+            {REPARATUR_SPEZIAL_SERVICES.map((svc) => {
+              const Icon = svc.Icon;
+              return (
+                <motion.article
+                  key={svc.id}
+                  variants={cardPop}
+                  whileHover={reduceMotion ? {} : { y: -8 }}
+                  className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#c9a227]/40 bg-[#050508] p-6 shadow-[inset_0_1px_0_rgba(201,162,39,0.1)] transition-[background-color,border-color,box-shadow] duration-300 hover:border-[#d4af37]/70 hover:bg-[#0c0c10] hover:shadow-[0_0_36px_rgba(201,162,39,0.18),0_24px_56px_rgba(0,0,0,0.55)] md:p-7"
+                >
+                  <div
+                    className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-[#c9a227]/10 opacity-80 blur-3xl transition-opacity duration-300 group-hover:opacity-100"
+                    aria-hidden="true"
+                  />
+                  <div className="relative mb-4 flex items-start gap-4">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#c9a227]/50 bg-[#c9a227]/12 text-[#f0d78c] shadow-[0_0_24px_rgba(201,162,39,0.15)]">
+                      <Icon className="h-6 w-6" strokeWidth={1.75} aria-hidden />
+                    </div>
+                    <h4
+                      className="min-w-0 pt-1 text-left text-lg font-bold leading-snug text-white md:text-xl"
+                      style={{ fontFamily: fontDisplay }}
+                    >
+                      {svc.title}
+                    </h4>
+                  </div>
+                  <p className="relative text-sm leading-relaxed text-zinc-400">{svc.text}</p>
                 </motion.article>
               );
             })}

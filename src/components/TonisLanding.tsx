@@ -79,6 +79,18 @@ const GUTSCHEIN_BETRAEGE = [
     label: "30,00€",
     text: "Hallo Toni, ich habe Interesse an einem Gutschein im Wert von 30,00€.",
   },
+  {
+    label: "50,00€",
+    text: "Hallo Toni, ich habe Interesse an einem Gutschein im Wert von 50,00 €.",
+  },
+  {
+    label: "100,00€",
+    text: "Hallo Toni, ich habe Interesse an einem Gutschein im Wert von 100,00 €.",
+  },
+  {
+    label: "200,00€",
+    text: "Hallo Toni, ich habe Interesse an einem Gutschein im Wert von 200,00 €.",
+  },
 ] as const;
 const HERO_POSTER = `${BASE}assets/images/hero-poster.webp`;
 
@@ -1866,7 +1878,7 @@ export default function TonisLanding() {
             </p>
           </motion.div>
 
-          <div className="mx-auto grid max-w-md grid-cols-2 justify-items-center gap-x-4 gap-y-5 sm:max-w-2xl sm:grid-cols-3 sm:gap-x-5 sm:gap-y-6 md:max-w-none md:grid-cols-5 md:gap-6 [&>a:last-of-type]:col-span-2 [&>a:last-of-type]:justify-self-center sm:[&>a:last-of-type]:col-span-1 sm:[&>a:last-of-type]:justify-self-auto">
+          <div className="mx-auto grid w-full max-w-sm grid-cols-2 justify-items-center gap-x-4 gap-y-5 sm:max-w-md md:max-w-5xl md:grid-cols-4 md:gap-x-6 md:gap-y-6">
             {GUTSCHEIN_BETRAEGE.map((g, i) => (
               <motion.a
                 key={g.label}

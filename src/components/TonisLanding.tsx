@@ -322,7 +322,20 @@ const NAV_LINKS = [
   ["produkte", "Produkte"],
   ["impressionen", "Impressionen"],
   ["ueber-uns", "Über mich"],
+  ["partner-netzwerk", "Partner"],
   ["kontakt", "Kontakt"],
+] as const;
+
+/** Text-based partner wall (no logos yet). */
+const PARTNER_NETZWERK_NAMEN = [
+  "Autohaus Gross und Geis GmbH",
+  "KRAFT Lackmanufaktur",
+  "Waschkraft",
+  "HYLA Germany GmbH",
+  "MH-CARCOLLECTION",
+  "Edi's Smart Repair",
+  "Marinkovic Zoran Karosserie und Lackierungen",
+  "vip-shuttle.com GmbH",
 ] as const;
 
 /** Mobile / iOS in-page nav: fixed offset below viewport top (header zone), per layout spec. */
@@ -2012,6 +2025,50 @@ export default function TonisLanding() {
               </motion.a>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section
+        id="partner-netzwerk"
+        lang="de"
+        className="max-md:scroll-mt-[100px] md:scroll-mt-24 border-t border-white/[0.06] bg-[#050508] py-24 md:py-32"
+        aria-labelledby="partner-netzwerk-heading"
+      >
+        <div className="mx-auto max-w-6xl px-5 sm:px-6 md:px-8">
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.65, ease: EASE_OUT_CUBIC }}
+            className="mb-12 text-center"
+          >
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.35em] text-[#c9a227]/75">Netzwerk</p>
+            <h2
+              id="partner-netzwerk-heading"
+              className="text-balance break-words text-2xl font-extrabold leading-[1.15] tracking-tight text-white md:text-4xl md:leading-tight md:tracking-normal lg:text-5xl"
+              style={{ fontFamily: fontDisplay }}
+            >
+              Partner &amp; Netzwerk
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-pretty text-sm text-zinc-500 md:text-base">
+              Starke Partner rund um Fahrzeugpflege, Lack und Service — gemeinsam für beste Ergebnisse.
+            </p>
+          </motion.div>
+
+          <ul className="mx-auto grid max-w-5xl grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
+            {PARTNER_NETZWERK_NAMEN.map((name) => (
+              <li key={name}>
+                <div
+                  className="group flex min-h-[4.5rem] items-center justify-center rounded-xl border border-white/[0.08] bg-black/25 px-3 py-3.5 text-center transition duration-300 hover:border-[#c9a227]/35 hover:bg-black/40 sm:min-h-[4.75rem] sm:px-4 sm:py-4"
+                  style={{ fontFamily: fontSans }}
+                >
+                  <span className="text-[11px] font-extralight leading-snug tracking-wide text-zinc-500 transition-colors duration-300 group-hover:text-[#d4b84a] sm:text-xs md:text-[13px] md:leading-tight">
+                    {name}
+                  </span>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

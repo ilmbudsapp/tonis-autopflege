@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type MouseEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type MouseEvent, type ReactNode, type SVGProps } from "react";
 import {
   motion,
   useReducedMotion,
@@ -11,8 +11,13 @@ import {
   AirVent,
   Armchair,
   BrushCleaning,
+  Building2,
   Check,
   Droplets,
+  Mail,
+  MapPin,
+  Music2,
+  Phone,
   Shield,
   Sparkles,
   type LucideIcon,
@@ -234,6 +239,56 @@ const NAV_LINKS = [
 function scrollToId(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
+
+/** Gold „3D“ tile behind Lucide icons (depth via gradient + bottom shadow). */
+function GoldIconFrame({ children, className = "" }: { children: ReactNode; className?: string }) {
+  return (
+    <span
+      className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-b from-[#4a4a55] via-[#2a2a32] to-[#14141c] text-[#f2dc98] shadow-[0_5px_0_rgb(6,6,8),0_12px_28px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.16)] ring-1 ring-[#c9a227]/40 md:h-12 md:w-12 ${className}`}
+      aria-hidden
+    >
+      {children}
+    </span>
+  );
+}
+
+function LucideInGold({ Icon }: { Icon: LucideIcon }) {
+  return (
+    <GoldIconFrame>
+      <Icon className="h-5 w-5" strokeWidth={1.85} />
+    </GoldIconFrame>
+  );
+}
+
+function SvgFacebookGold(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M24 12.073C24 5.405 18.627.073 12 .073S0 5.405 0 12.073c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+    </svg>
+  );
+}
+
+function SvgInstagramGold(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM16.396 5.02a1.44 1.44 0 11-2.881 0 1.44 1.44 0 012.881 0z" />
+    </svg>
+  );
+}
+
+const FIRMENFOOTER = {
+  firma: "Toni's Autopflege",
+  inhaber: "Jeton Shala — Toni",
+  branche: "Autoaufbereitung",
+  strasse: "Boschstraße 23/1",
+  ort: "73119 Zell unter Aichelberg",
+  telefonLabel: "0176 22887384",
+  telefonHref: "tel:+4917622887384",
+  email: "info.tonisautopflege@gmx.de",
+  facebook: { label: "Toni's Autopflege", href: "https://www.facebook.com/TonisAutopflege" },
+  instagram: { label: "tonisautopflege1", href: "https://www.instagram.com/tonisautopflege1/" },
+  tiktok: { label: "toni03_3", href: "https://www.tiktok.com/@toni03_3" },
+} as const;
 
 function useDemoFonts() {
   const [ready, setReady] = useState(false);
@@ -1423,15 +1478,15 @@ export default function TonisLanding() {
                   <h3 className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-[#c9a227]/90">Standort</h3>
                   <div className="aspect-[4/3] w-full max-h-[320px] overflow-hidden rounded-2xl border border-white/[0.1] bg-zinc-900/50 shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
                     <iframe
-                      title="Karte — Platzhalter Göppingen"
+                      title="Karte — Toni's Autopflege, Zell unter Aichelberg"
                       className="h-full min-h-[240px] w-full"
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
-                      src="https://www.google.com/maps?q=G%C3%B6ppingen%2C%20Baden-W%C3%BCrttemberg&z=13&hl=de&output=embed"
+                      src="https://www.google.com/maps?q=Boschstra%C3%9Fe%2023%2C%2073119%20Zell%20unter%20Aichelberg&z=15&hl=de&output=embed"
                     />
                   </div>
                   <p className="mt-3 text-xs text-zinc-500">
-                    Platzhalter-Karte (Göppingen). Exakte Adresse und Google-Business-Einbindung folgen bei Bedarf.
+                    Boschstraße 23/1, 73119 Zell unter Aichelberg — Standort der Autopflege.
                   </p>
                 </div>
 
@@ -1573,18 +1628,127 @@ export default function TonisLanding() {
         </div>
       </section>
 
-      <footer className="border-t border-white/[0.06] py-12 text-center text-sm text-zinc-600">
-        <p>
-          Demo-Entwicklung:{" "}
-          <a
-            href={AGR_SITE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-semibold text-[#c9a227]/90 underline-offset-4 hover:text-[#f0d78c] hover:underline"
+      <footer className="border-t border-white/[0.06] bg-[#020208] py-14 md:py-16">
+        <div className="mx-auto max-w-4xl px-4 md:px-8">
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6, ease: EASE_OUT_CUBIC }}
+            className="mb-10 text-center"
           >
-            AGR Multimedia
-          </a>
-        </p>
+            <p className="mb-2 text-xs font-bold uppercase tracking-[0.35em] text-[#c9a227]/70">Impressum &amp; Anfahrt</p>
+            <h2 className="text-xl font-bold text-white md:text-2xl" style={{ fontFamily: fontDisplay }}>
+              Toni&apos;s Autopflege
+            </h2>
+          </motion.div>
+
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-30px" }}
+            transition={{ duration: 0.55, ease: EASE_OUT_CUBIC, delay: reduceMotion ? 0 : 0.05 }}
+            className="space-y-5 rounded-2xl border border-[#c9a227]/20 bg-black/35 px-4 py-8 shadow-[inset_0_1px_0_rgba(201,162,39,0.06)] md:px-8"
+          >
+            <div className="flex gap-4">
+              <LucideInGold Icon={Building2} />
+              <div className="min-w-0 text-left">
+                <p className="text-base font-bold text-white" style={{ fontFamily: fontDisplay }}>
+                  {FIRMENFOOTER.firma}
+                </p>
+                <p className="mt-1 text-sm text-zinc-400">{FIRMENFOOTER.inhaber}</p>
+                <p className="text-sm font-medium text-[#c9a227]/90">{FIRMENFOOTER.branche}</p>
+              </div>
+            </div>
+
+            <div className="flex gap-4">
+              <LucideInGold Icon={MapPin} />
+              <div className="min-w-0 text-left text-sm leading-relaxed text-zinc-300">
+                <p className="font-medium text-zinc-200">{FIRMENFOOTER.strasse}</p>
+                <p>{FIRMENFOOTER.ort}</p>
+              </div>
+            </div>
+
+            <div className="flex gap-4">
+              <LucideInGold Icon={Phone} />
+              <div className="min-w-0 text-left">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-zinc-500">Telefon</p>
+                <a
+                  href={FIRMENFOOTER.telefonHref}
+                  className="text-sm font-semibold text-[#f0d78c] underline-offset-2 hover:text-white hover:underline"
+                >
+                  {FIRMENFOOTER.telefonLabel}
+                </a>
+              </div>
+            </div>
+
+            <div className="flex gap-4">
+              <LucideInGold Icon={Mail} />
+              <div className="min-w-0 text-left">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-zinc-500">E-Mail</p>
+                <a
+                  href={`mailto:${FIRMENFOOTER.email}`}
+                  className="break-all text-sm font-semibold text-[#f0d78c] underline-offset-2 hover:text-white hover:underline"
+                >
+                  {FIRMENFOOTER.email}
+                </a>
+              </div>
+            </div>
+
+            <div className="border-t border-white/[0.06] pt-6">
+              <p className="mb-4 text-center text-[11px] font-semibold uppercase tracking-[0.25em] text-zinc-500">
+                Social Media
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8">
+                <a
+                  href={FIRMENFOOTER.facebook.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/s flex flex-col items-center gap-2 text-center transition hover:opacity-95"
+                >
+                  <GoldIconFrame className="transition-transform duration-200 group-hover/s:-translate-y-0.5">
+                    <SvgFacebookGold className="h-5 w-5" />
+                  </GoldIconFrame>
+                  <span className="max-w-[10rem] text-xs font-medium text-zinc-400">Facebook · {FIRMENFOOTER.facebook.label}</span>
+                </a>
+                <a
+                  href={FIRMENFOOTER.instagram.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/s flex flex-col items-center gap-2 text-center transition hover:opacity-95"
+                >
+                  <GoldIconFrame className="transition-transform duration-200 group-hover/s:-translate-y-0.5">
+                    <SvgInstagramGold className="h-5 w-5" />
+                  </GoldIconFrame>
+                  <span className="max-w-[10rem] text-xs font-medium text-zinc-400">Instagram · {FIRMENFOOTER.instagram.label}</span>
+                </a>
+                <a
+                  href={FIRMENFOOTER.tiktok.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/s flex flex-col items-center gap-2 text-center transition hover:opacity-95"
+                >
+                  <div className="transition-transform duration-200 group-hover/s:-translate-y-0.5">
+                    <LucideInGold Icon={Music2} />
+                  </div>
+                  <span className="max-w-[10rem] text-xs font-medium text-zinc-400">TikTok · {FIRMENFOOTER.tiktok.label}</span>
+                </a>
+              </div>
+            </div>
+          </motion.div>
+
+          <p className="mt-12 text-center text-sm text-zinc-600">
+            Demo-Entwicklung:{" "}
+            <a
+              href={AGR_SITE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-[#c9a227]/90 underline-offset-4 hover:text-[#f0d78c] hover:underline"
+            >
+              AGR Multimedia
+            </a>
+          </p>
+        </div>
       </footer>
 
       <motion.a

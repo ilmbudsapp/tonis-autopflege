@@ -817,7 +817,7 @@ export default function TonisLanding() {
           aria-hidden="true"
         />
 
-        <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-5 pb-24 pt-6 text-center md:px-10 md:pt-10">
+        <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-5 pb-24 pt-6 text-center sm:px-6 md:px-10 md:pt-10">
           <motion.div
             className="mb-6 md:mb-10"
             initial={reduceMotion ? false : { opacity: 0, scale: 0.9, y: 24 }}
@@ -856,7 +856,7 @@ export default function TonisLanding() {
             </motion.p>
             <motion.h1
               variants={fadeUp}
-              className="text-balance text-4xl font-black leading-[1.08] tracking-[0.02em] text-white md:text-6xl lg:text-7xl"
+              className="text-balance break-words text-3xl font-black leading-[1.1] tracking-tight text-white sm:text-4xl md:text-6xl md:leading-[1.08] md:tracking-[0.02em] lg:text-7xl"
               style={{
                 fontFamily: fontHeroHeadline,
                 fontWeight: 900,
@@ -918,7 +918,7 @@ export default function TonisLanding() {
       </section>
 
       <section id="leistungen" className="scroll-mt-24 border-t border-white/[0.06] bg-[#020203] py-24 md:py-32">
-        <div className="mx-auto max-w-7xl px-4 md:px-8">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -928,7 +928,7 @@ export default function TonisLanding() {
           >
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.4em] text-[#c9a227]/80">Premium</p>
             <h2
-              className="mx-auto max-w-4xl text-3xl font-extrabold leading-tight text-white md:text-4xl lg:text-5xl"
+              className="mx-auto max-w-4xl text-balance break-words text-2xl font-extrabold leading-[1.15] tracking-tight text-white md:text-4xl md:leading-tight md:tracking-normal lg:text-5xl"
               style={{ fontFamily: fontDisplay }}
             >
               Unsere Leistungen – Premium Fahrzeugaufbereitung in Göppingen
@@ -1014,7 +1014,7 @@ export default function TonisLanding() {
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.35em] text-[#c9a227]/75">Spezial</p>
             <h3
               id="reparatur-spezial-heading"
-              className="text-2xl font-extrabold leading-tight text-white md:text-3xl lg:text-4xl"
+              className="text-balance break-words text-xl font-extrabold leading-tight tracking-tight text-white md:text-3xl md:tracking-normal lg:text-4xl"
               style={{ fontFamily: fontDisplay }}
             >
               Reparatur &amp; Spezial-Services
@@ -1071,7 +1071,7 @@ export default function TonisLanding() {
         className="scroll-mt-24 border-t border-white/[0.06] bg-[#06060b] py-24 md:py-32"
         aria-labelledby="premium-partner-heading"
       >
-        <div className="mx-auto max-w-7xl px-4 md:px-8">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1084,7 +1084,7 @@ export default function TonisLanding() {
             </p>
             <h2
               id="premium-partner-heading"
-              className="mx-auto max-w-4xl text-3xl font-extrabold leading-tight text-white md:text-4xl lg:text-5xl"
+              className="mx-auto max-w-4xl text-balance break-words text-2xl font-extrabold leading-[1.15] tracking-tight text-white md:text-4xl md:leading-tight md:tracking-normal lg:text-5xl"
               style={{ fontFamily: fontDisplay }}
             >
               Qualität ohne Kompromisse
@@ -1171,7 +1171,7 @@ export default function TonisLanding() {
         className="scroll-mt-24 border-t border-white/[0.06] bg-[#04040a] py-20 md:py-28"
         aria-labelledby="partner-netzwerk-heading"
       >
-        <div className="mx-auto max-w-7xl px-4 md:px-8">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1184,7 +1184,7 @@ export default function TonisLanding() {
             </p>
             <h2
               id="partner-netzwerk-heading"
-              className="text-2xl font-bold leading-snug text-white md:text-3xl lg:text-4xl"
+              className="text-balance break-words text-xl font-bold leading-snug tracking-tight text-white sm:text-2xl md:text-3xl md:tracking-normal lg:text-4xl"
               style={{ fontFamily: fontDisplay }}
             >
               Starke Partner für Ihr Fahrzeug
@@ -1227,7 +1227,7 @@ export default function TonisLanding() {
         className="scroll-mt-24 border-t border-white/[0.06] bg-[#030306] py-24 md:py-32"
         aria-labelledby="warum-tonis-heading"
       >
-        <div className="mx-auto max-w-7xl px-4 md:px-8">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1238,7 +1238,7 @@ export default function TonisLanding() {
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.4em] text-[#c9a227]/80">Vertrauen</p>
             <h2
               id="warum-tonis-heading"
-              className="text-3xl font-extrabold leading-tight text-white md:text-4xl lg:text-5xl"
+              className="text-balance break-words text-2xl font-extrabold leading-[1.15] tracking-tight text-white md:text-4xl md:leading-tight md:tracking-normal lg:text-5xl"
               style={{ fontFamily: fontDisplay }}
             >
               Warum Toni&apos;s Autopflege?
@@ -1274,7 +1274,7 @@ export default function TonisLanding() {
       </section>
 
       <section id="innenraum" className="scroll-mt-24 border-t border-white/[0.06] bg-[#020203] py-24 md:py-32">
-        <div className="mx-auto max-w-7xl px-4 md:px-8">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1284,7 +1284,7 @@ export default function TonisLanding() {
           >
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.4em] text-[#c9a227]/80">Innenraum</p>
             <h2
-              className="text-3xl font-extrabold leading-tight text-white md:text-4xl lg:text-5xl"
+              className="text-balance break-words text-2xl font-extrabold leading-[1.15] tracking-tight text-white md:text-4xl md:leading-tight md:tracking-normal lg:text-5xl"
               style={{ fontFamily: fontDisplay }}
             >
               Innenraumaufbereitung
@@ -1333,7 +1333,7 @@ export default function TonisLanding() {
       </section>
 
       <section id="premium-services" className="scroll-mt-24 border-t border-white/[0.06] bg-[#030306] py-24 md:py-32">
-        <div className="mx-auto max-w-7xl px-4 md:px-8">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1343,7 +1343,7 @@ export default function TonisLanding() {
           >
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.4em] text-[#c9a227]/80">Spezial</p>
             <h2
-              className="text-3xl font-extrabold text-white md:text-4xl lg:text-5xl"
+              className="text-balance break-words text-2xl font-extrabold leading-[1.15] tracking-tight text-white md:text-4xl md:leading-tight md:tracking-normal lg:text-5xl"
               style={{ fontFamily: fontDisplay }}
             >
               Premium Services
@@ -1392,7 +1392,7 @@ export default function TonisLanding() {
       </section>
 
       <section id="produkte" className="scroll-mt-24 border-t border-white/[0.06] bg-[#06060b] py-24 md:py-32">
-        <div className="mx-auto max-w-7xl px-4 md:px-8">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1401,7 +1401,10 @@ export default function TonisLanding() {
             className="mb-14 text-center"
           >
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.4em] text-[#c9a227]/80">Chemie & Systeme</p>
-            <h2 className="text-4xl font-extrabold text-white md:text-5xl" style={{ fontFamily: fontDisplay }}>
+            <h2
+              className="text-balance break-words text-2xl font-extrabold leading-[1.15] tracking-tight text-white md:text-4xl md:leading-tight md:tracking-normal lg:text-5xl"
+              style={{ fontFamily: fontDisplay }}
+            >
               Unsere Premium Produkte
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-sm text-zinc-500 md:text-base">
@@ -1425,7 +1428,7 @@ export default function TonisLanding() {
       </section>
 
       <section id="impressionen" className="scroll-mt-24 border-t border-white/[0.06] py-24 md:py-32">
-        <div className="mx-auto max-w-7xl px-4 md:px-8">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1434,7 +1437,10 @@ export default function TonisLanding() {
             className="mb-10 text-center"
           >
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.4em] text-[#c9a227]/80">Portfolio</p>
-            <h2 className="text-4xl font-extrabold text-white md:text-5xl" style={{ fontFamily: fontDisplay }}>
+            <h2
+              className="text-balance break-words text-2xl font-extrabold leading-[1.15] tracking-tight text-white md:text-4xl md:leading-tight md:tracking-normal lg:text-5xl"
+              style={{ fontFamily: fontDisplay }}
+            >
               Impressionen
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-sm text-zinc-500 md:text-base">
@@ -1562,7 +1568,7 @@ export default function TonisLanding() {
       </section>
 
       <section id="ueber-uns" className="scroll-mt-24 border-t border-white/[0.06] bg-[#06060b] py-24 md:py-32">
-        <div className="mx-auto max-w-3xl px-4 text-center md:px-8">
+        <div className="mx-auto max-w-3xl px-5 sm:px-6 text-center md:px-8">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1570,7 +1576,10 @@ export default function TonisLanding() {
             transition={{ duration: 0.75, ease: EASE_OUT_CUBIC }}
           >
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.4em] text-[#c9a227]/80">Philosophie</p>
-            <h2 className="mb-8 text-4xl font-extrabold text-white md:text-5xl" style={{ fontFamily: fontDisplay }}>
+            <h2
+              className="mb-8 text-balance break-words text-2xl font-extrabold leading-[1.15] tracking-tight text-white md:text-4xl md:leading-tight md:tracking-normal lg:text-5xl"
+              style={{ fontFamily: fontDisplay }}
+            >
               Über uns
             </h2>
             <p className="text-pretty text-lg leading-relaxed text-zinc-300 md:text-xl">
@@ -1603,7 +1612,7 @@ export default function TonisLanding() {
         className="scroll-mt-24 border-t border-[#c9a227]/25 bg-gradient-to-b from-[#0a0a0f] via-[#050508] to-[#030306] py-20 md:py-28"
         aria-label="Termin per WhatsApp"
       >
-        <div className="mx-auto max-w-3xl px-4 text-center md:px-8">
+        <div className="mx-auto max-w-3xl px-5 sm:px-6 text-center md:px-8">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 22 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1634,7 +1643,7 @@ export default function TonisLanding() {
         className="scroll-mt-24 border-t border-white/[0.06] bg-[#050508] py-24 md:py-32"
         aria-labelledby="kundenstimmen-heading"
       >
-        <div className="mx-auto max-w-6xl px-4 md:px-8">
+        <div className="mx-auto max-w-6xl px-5 sm:px-6 md:px-8">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1645,7 +1654,7 @@ export default function TonisLanding() {
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.35em] text-[#c9a227]/75">Google Rezensionen</p>
             <h2
               id="kundenstimmen-heading"
-              className="text-4xl font-extrabold text-white md:text-5xl"
+              className="text-balance break-words text-2xl font-extrabold leading-[1.15] tracking-tight text-white md:text-4xl md:leading-tight md:tracking-normal lg:text-5xl"
               style={{ fontFamily: fontDisplay }}
             >
               Was unsere Kunden sagen
@@ -1718,7 +1727,7 @@ export default function TonisLanding() {
       </section>
 
       <section id="kontakt" className="scroll-mt-24 border-t border-white/[0.06] bg-[#030306] py-24 md:py-32">
-        <div className="mx-auto max-w-6xl px-4 md:px-8">
+        <div className="mx-auto max-w-6xl px-5 sm:px-6 md:px-8">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1726,7 +1735,7 @@ export default function TonisLanding() {
             transition={{ duration: 0.7, ease: EASE_OUT_CUBIC }}
           >
             <h2
-              className="mb-2 text-center text-4xl font-extrabold text-white md:text-5xl"
+              className="mb-2 text-balance break-words text-center text-3xl font-extrabold leading-[1.15] tracking-tight text-white md:text-4xl md:leading-tight md:tracking-normal lg:text-5xl"
               style={{ fontFamily: fontDisplay }}
             >
               Kontakt
@@ -1868,10 +1877,13 @@ export default function TonisLanding() {
       </section>
 
       <section id="partner" className="scroll-mt-24 border-t border-white/[0.06] bg-[#06060b] py-16 md:py-20">
-        <div className="mx-auto max-w-6xl px-4 md:px-8">
+        <div className="mx-auto max-w-6xl px-5 sm:px-6 md:px-8">
           <div className="mb-10 text-center">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.4em] text-[#c9a227]/80">Netzwerk</p>
-            <h2 className="text-2xl font-extrabold text-white md:text-3xl" style={{ fontFamily: fontDisplay }}>
+            <h2
+              className="text-balance break-words text-xl font-extrabold leading-tight tracking-tight text-white md:text-2xl md:tracking-normal lg:text-3xl"
+              style={{ fontFamily: fontDisplay }}
+            >
               Partner
             </h2>
             <p className="mx-auto mt-3 max-w-xl text-sm text-zinc-500">
@@ -1893,7 +1905,7 @@ export default function TonisLanding() {
       </section>
 
       <footer className="border-t border-white/[0.06] bg-[#020208] py-14 md:py-16">
-        <div className="mx-auto max-w-4xl px-4 md:px-8">
+        <div className="mx-auto max-w-4xl px-5 sm:px-6 md:px-8">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1902,7 +1914,7 @@ export default function TonisLanding() {
             className="mb-10 text-center"
           >
             <p className="mb-2 text-xs font-bold uppercase tracking-[0.35em] text-[#c9a227]/70">Impressum &amp; Anfahrt</p>
-            <h2 className="text-xl font-bold text-white md:text-2xl" style={{ fontFamily: fontDisplay }}>
+            <h2 className="text-balance break-words text-lg font-bold leading-tight tracking-tight text-white md:text-xl md:tracking-normal lg:text-2xl" style={{ fontFamily: fontDisplay }}>
               Toni&apos;s Autopflege
             </h2>
           </motion.div>

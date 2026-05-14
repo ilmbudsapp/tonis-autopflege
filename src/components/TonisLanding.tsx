@@ -7,6 +7,7 @@ import {
   useTransform,
   type Variants,
 } from "framer-motion";
+import { Check, Droplets, Shield, Sparkles, type LucideIcon } from "lucide-react";
 import { WHATSAPP_E164_DIGITS } from "@/lib/contact";
 import { GALLERY_WEBP_FILENAMES } from "@/generated/galleryWebp";
 import { WORK_VIDEO_CLIPS } from "@/generated/workVideos";
@@ -30,32 +31,66 @@ const HERO_POSTER = `${BASE}assets/images/hero-poster.webp`;
 const AGR_SITE_URL = import.meta.env.VITE_AGR_SITE_URL ?? "https://agrmultimedia.eu";
 const GALLERY = GALLERY_WEBP_FILENAMES.map((f) => `${BASE}assets/gallery-webp/${f}`);
 
-const LEISTUNGEN = [
+type LeistungKategorie = {
+  id: string;
+  Icon: LucideIcon;
+  title: string;
+  subtitle: string;
+  description: string;
+  listLabel: "Leistungen" | "Vorteile";
+  items: readonly string[];
+  highlight?: boolean;
+};
+
+const LEISTUNGEN_CATEGORIES: readonly LeistungKategorie[] = [
   {
-    title: "Innenreinigung & Hygiene",
-    text: "Tiefenreinigung von Cockpit, Sitzen, Teppichen und Verkleidungen — inklusive Geruchsbeseitigung und schonender Materialpflege.",
+    id: "aussen",
+    Icon: Droplets,
+    title: "Außenaufbereitung",
+    subtitle: "Handwäsche & Lackreinigung",
+    description:
+      "Schonende Handwäsche für eine kratzfreie und gründliche Reinigung Ihres Fahrzeugs. Hartnäckiger Schmutz, Insektenreste und Ablagerungen werden professionell entfernt.",
+    listLabel: "Leistungen",
+    items: [
+      "Premium Handwäsche",
+      "Tiefenwirksame Felgenreinigung",
+      "Reifenpflege & Glanzfinish",
+      "Flugrostentfernung & Lackdekontamination",
+      "Kunststoffpflege im Außenbereich",
+    ],
   },
   {
-    title: "Außenwäsche & Vorbehandlung",
-    text: "pH-neutrale Reinigung, Felgenreinigung und sorgfältige Vorbehandlung von Insekten und Umweltverschmutzung vor der Lackpflege.",
+    id: "lack",
+    Icon: Sparkles,
+    title: "Lackpolitur & Glanzaufbereitung",
+    subtitle: "Professionelle Lackveredelung",
+    description:
+      "Professionelle Politur zur Entfernung feiner Kratzer, Hologramme und matter Stellen. Wir verleihen Ihrem Lack neuen Tiefenglanz und ein hochwertiges Finish.",
+    listLabel: "Vorteile",
+    items: [
+      "Spiegelnder Hochglanz",
+      "Maximale Farbauffrischung",
+      "Beseitigung von Lackdefekten",
+      "Langfristige Lackveredelung",
+    ],
   },
   {
-    title: "Lackaufbereitung & Politur",
-    text: "Entfernung von Washline, Feinkratzern und Oxidation — mehrschichtige Politur für wiederkehrenden Tiefenglan.",
-  },
-  {
+    id: "keramik",
+    Icon: Shield,
     title: "Keramikversiegelung",
-    text: "Langanhaltender Schutz mit hydrophober Oberfläche: weniger Verschmutzung, bessere Perleffekt und UV-Stabilität.",
+    subtitle: "Das Premium-Highlight",
+    description:
+      "Langfristiger Schutz durch modernste Keramikbeschichtung. Diese High-End-Versiegelung schützt vor UV-Strahlen, Umwelteinflüssen und sorgt für den ultimativen Wasserabperleffekt (Beading).",
+    listLabel: "Vorteile",
+    items: [
+      "Ultimativer Langzeitschutz",
+      "Extremer Tiefenglanz",
+      "Easy-to-Clean Effekt (leichtere Wäsche)",
+      "Schutz vor aggressiven Umwelteinflüssen",
+    ],
+    highlight: true,
   },
-  {
-    title: "Detailing & Feinarbeit",
-    text: "Einstiegsleisten, Tankdeckel, Motorraum-Optikpflege und Finisharbeiten für ein durchgängig hochwertiges Erscheinungsbild.",
-  },
-  {
-    title: "Tierhaarentfernung & Spezial",
-    text: "Gezielte Entfernung von Tierhaaren sowie Aufbereitung von Cabrio-Verdeck und Kunststoffoberflächen auf Wunsch.",
-  },
-] as const;
+];
 
 const PRODUKTE = [
   {
@@ -594,60 +629,90 @@ export default function TonisLanding() {
         </motion.div>
       </section>
 
-      <section id="leistungen" className="scroll-mt-24 border-t border-white/[0.06] bg-[#030306] py-24 md:py-32">
+      <section id="leistungen" className="scroll-mt-24 border-t border-white/[0.06] bg-[#020203] py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-4 md:px-8">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7, ease: EASE_OUT_CUBIC }}
-            className="mb-16 text-center"
+            className="mb-14 text-center md:mb-16"
           >
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.4em] text-[#c9a227]/80">Service</p>
-            <h2 className="text-4xl font-extrabold text-white md:text-5xl" style={{ fontFamily: fontDisplay }}>
-              Leistungen
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.4em] text-[#c9a227]/80">Premium</p>
+            <h2
+              className="mx-auto max-w-4xl text-3xl font-extrabold leading-tight text-white md:text-4xl lg:text-5xl"
+              style={{ fontFamily: fontDisplay }}
+            >
+              Unsere Leistungen – Premium Fahrzeugaufbereitung in Göppingen
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-sm text-zinc-500 md:text-base">
-              Hochwertige Aufbereitung mit klarer Systematik — Schwarz, Gold und Ruhe im Auftritt.
+            <p className="mx-auto mt-5 max-w-3xl text-sm leading-relaxed text-zinc-400 md:text-base">
+              Bei Toni&apos;s Autopflege erhalten Sie professionelle Fahrzeugpflege auf höchstem Niveau – für maximalen
+              Glanz, Werterhalt und einen perfekten ersten Eindruck. Wir kombinieren hochwertige Pflegeprodukte mit
+              modernsten Techniken und der Liebe zum Detail.
             </p>
           </motion.div>
           <motion.div
-            className="grid gap-5 md:grid-cols-2 lg:grid-cols-3"
+            className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-7"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-40px" }}
             variants={{
               hidden: {},
-              visible: { transition: { staggerChildren: reduceMotion ? 0 : 0.1 } },
+              visible: { transition: { staggerChildren: reduceMotion ? 0 : 0.12 } },
             }}
           >
-            {LEISTUNGEN.map((item, i) => (
-              <motion.article
-                key={item.title}
-                variants={cardPop}
-                whileHover={
-                  reduceMotion
-                    ? {}
-                    : {
-                        y: -10,
-                        boxShadow: "0 28px 60px rgba(0,0,0,0.55), 0 0 0 1px rgba(201,162,39,0.35)",
-                      }
-                }
-                className="relative overflow-hidden rounded-2xl border border-[#c9a227]/20 bg-gradient-to-br from-[#050508] via-zinc-950/98 to-black p-7 shadow-[inset_0_1px_0_rgba(201,162,39,0.12)] ring-1 ring-black/60"
-              >
-                <div
-                  className="absolute -right-8 -top-8 h-36 w-36 rounded-full bg-[#c9a227]/12 blur-3xl"
-                  aria-hidden="true"
-                />
-                <div className="mb-4 inline-flex rounded-full border border-[#c9a227]/35 bg-[#c9a227]/12 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-[#f0d78c]">
-                  {String(i + 1).padStart(2, "0")}
-                </div>
-                <h3 className="mb-3 text-xl font-bold text-white" style={{ fontFamily: fontDisplay }}>
-                  {item.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-zinc-300">{item.text}</p>
-              </motion.article>
-            ))}
+            {LEISTUNGEN_CATEGORIES.map((cat) => {
+              const Icon = cat.Icon;
+              return (
+                <motion.article
+                  key={cat.id}
+                  variants={cardPop}
+                  whileHover={reduceMotion ? {} : { y: -8 }}
+                  className={`group relative flex flex-col overflow-hidden rounded-2xl border bg-[#050508] p-6 shadow-[inset_0_1px_0_rgba(201,162,39,0.1)] transition-[background-color,border-color,box-shadow] duration-300 hover:bg-[#0c0c10] hover:shadow-[0_24px_56px_rgba(0,0,0,0.55)] md:p-7 ${
+                    cat.highlight
+                      ? "border-[#c9a227]/55 ring-1 ring-[#c9a227]/25 hover:border-[#e8c766]/80 hover:ring-[#c9a227]/40"
+                      : "border-[#c9a227]/40 hover:border-[#d4af37]/70"
+                  }`}
+                >
+                  <div
+                    className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-[#c9a227]/10 opacity-80 blur-3xl transition-opacity duration-300 group-hover:opacity-100"
+                    aria-hidden="true"
+                  />
+                  <div className="relative mb-5 flex items-start gap-4">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#c9a227]/50 bg-[#c9a227]/12 text-[#f0d78c] shadow-[0_0_24px_rgba(201,162,39,0.15)]">
+                      <Icon className="h-6 w-6" strokeWidth={1.75} aria-hidden />
+                    </div>
+                    <div className="min-w-0 text-left">
+                      <h3
+                        className="text-lg font-bold leading-snug text-white md:text-xl"
+                        style={{ fontFamily: fontDisplay }}
+                      >
+                        {cat.title}
+                      </h3>
+                      <p className="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#c9a227]/90">
+                        {cat.subtitle}
+                      </p>
+                    </div>
+                  </div>
+                  <p className="relative mb-6 text-sm leading-relaxed text-zinc-400">{cat.description}</p>
+                  <p className="relative mb-3 text-[10px] font-bold uppercase tracking-[0.35em] text-[#c9a227]/75">
+                    {cat.listLabel}
+                  </p>
+                  <ul className="relative mt-auto space-y-3">
+                    {cat.items.map((line) => (
+                      <li key={line} className="flex gap-3 text-sm leading-snug text-zinc-200">
+                        <Check
+                          className="mt-0.5 h-4 w-4 shrink-0 text-[#c9a227]"
+                          strokeWidth={2.75}
+                          aria-hidden
+                        />
+                        <span>{line}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.article>
+              );
+            })}
           </motion.div>
         </div>
       </section>

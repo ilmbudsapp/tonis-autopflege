@@ -1,6 +1,14 @@
 @import "tailwindcss";
 
-/* Mobile: match in-page nav offset (see MOBILE_NAV_SCROLL_OFFSET_PX + section scroll-margin). */
+/* iOS scroll: reduce rubber-band stutter; momentum scrolling (Gemini mobile fix). */
+html,
+body {
+  overscroll-behavior-y: none;
+  -webkit-overflow-scrolling: touch;
+  height: auto;
+  min-height: 100%;
+}
+
 html {
   scroll-padding-top: 100px;
 }
@@ -17,10 +25,8 @@ html {
   }
 }
 
-body,
-#root,
-.tonis-site-shell {
-  -webkit-overflow-scrolling: touch;
+#root {
+  min-height: 100%;
 }
 
 /* iOS Safari: avoid automatic text zoom reflow during scroll. */
@@ -30,10 +36,11 @@ body,
   }
 }
 
-/* No horizontal scroll-snap on small screens (gallery / columns — avoids iOS “jumping” while scrolling vertically). */
+/* Mobile: disable all scroll-snap (avoids jump/stutter with columns, carousels, etc.). */
 @media (max-width: 767px) {
-  .tonis-impressionen-panel,
-  .tonis-impressionen-panel * {
+  *,
+  *::before,
+  *::after {
     scroll-snap-type: none !important;
     scroll-snap-align: unset !important;
   }

@@ -608,11 +608,29 @@ export default function TonisLanding() {
     window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
   };
 
+  const [heroParallaxDesktop, setHeroParallaxDesktop] = useState(
+    () => typeof window !== "undefined" && window.matchMedia("(min-width: 768px)").matches,
+  );
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const sync = () => setHeroParallaxDesktop(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
+
+  const heroParallaxDesktopRef = useRef(heroParallaxDesktop);
+  const reduceMotionRef = useRef(reduceMotion);
+  heroParallaxDesktopRef.current = heroParallaxDesktop;
+  reduceMotionRef.current = reduceMotion;
+
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"],
   });
-  const rawParallax = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
+  const rawParallax = useTransform(scrollYProgress, (v) =>
+    heroParallaxDesktopRef.current && !reduceMotionRef.current ? `${v * 22}%` : "0%",
+  );
   const videoY = useSpring(rawParallax, { stiffness: 100, damping: 28, mass: 0.6 });
 
   useEffect(() => {
@@ -953,8 +971,8 @@ export default function TonisLanding() {
         <div className="pointer-events-none absolute inset-0 z-0 bg-[#030306]" aria-hidden="true" />
 
         <motion.div
-          className="pointer-events-none absolute left-0 right-0 top-24 z-0 flex justify-center px-2 sm:px-4 md:px-6 lg:top-[4.75rem] lg:px-10"
-          style={reduceMotion ? undefined : { y: videoY }}
+          className="tonis-hero-parallax-layer pointer-events-none absolute left-0 right-0 top-24 z-0 flex justify-center px-2 sm:px-4 md:px-6 lg:top-[4.75rem] lg:px-10 max-md:will-change-transform md:will-change-auto"
+          style={reduceMotion || !heroParallaxDesktop ? undefined : { y: videoY }}
         >
           <div className="relative w-full max-w-[min(100%,1680px)] overflow-hidden rounded-xl border border-white/[0.07] bg-black shadow-[0_28px_90px_rgba(0,0,0,0.65)] ring-1 ring-black/40 sm:rounded-2xl">
             <div className="relative mx-auto aspect-[21/9] w-full min-h-[220px] max-h-[min(64vh,820px)] sm:min-h-[260px] sm:max-h-[min(68vh,880px)] md:max-h-[min(72vh,920px)]">
@@ -2031,7 +2049,7 @@ export default function TonisLanding() {
       <section
         id="partner-netzwerk"
         lang="de"
-        className="max-md:scroll-mt-[100px] md:scroll-mt-24 border-t border-white/[0.06] bg-[#050508] py-24 md:py-32"
+        className="tonis-partner-wall max-md:scroll-mt-[100px] md:scroll-mt-24 border-t border-white/[0.06] bg-[#050508] py-24 md:py-32 max-md:will-change-transform md:will-change-auto"
         aria-labelledby="partner-netzwerk-heading"
       >
         <div className="mx-auto max-w-6xl px-5 sm:px-6 md:px-8">

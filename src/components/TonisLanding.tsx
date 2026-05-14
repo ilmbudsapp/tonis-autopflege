@@ -337,6 +337,14 @@ function isIosBrowser(): boolean {
   return navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1;
 }
 
+/** DOM node that in-page nav scrolls to (stable layout — not inside transformed parents). */
+function resolveNavScrollTarget(navId: string): HTMLElement | null {
+  if (navId === "ueber-uns") {
+    return document.getElementById("ueber-uns-scroll") ?? document.getElementById("ueber-uns");
+  }
+  return document.getElementById(navId);
+}
+
 /** Align element top edge to just below fixed header. */
 function alignElementBelowHeader(el: HTMLElement, gapPx: number) {
   const headerEl = document.getElementById("site-header");
@@ -347,36 +355,34 @@ function alignElementBelowHeader(el: HTMLElement, gapPx: number) {
   window.scrollBy({ top: correction, left: 0, behavior: "auto" });
 }
 
-function scrollToId(id: string) {
-  const mobile = isMobileNavViewport();
-  const ios = isIosBrowser();
-  let el: HTMLElement | null = null;
-  if (id === "ueber-uns" && mobile) {
-    el = document.getElementById("ueber-mich-heading");
+/** iOS / mobile: Safari handles scrollIntoView + html scroll-padding more reliably than scrollTo + smooth. */
+function settleScrollBelowHeader(el: HTMLElement, gap: number, passes: readonly number[]) {
+  const run = () => alignElementBelowHeader(el, gap);
+  el.scrollIntoView({ block: "start", inline: "nearest", behavior: "auto" });
+  run();
+  requestAnimationFrame(() => {
+    run();
+    requestAnimationFrame(run);
+  });
+  for (const ms of passes) {
+    window.setTimeout(run, ms);
   }
-  if (!el) el = document.getElementById(id);
+}
+
+function scrollToId(id: string) {
+  const el = resolveNavScrollTarget(id);
   if (!el) return;
 
+  const mobile = isMobileNavViewport();
+  const ios = isIosBrowser();
   const reduce =
     typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const gap = mobile ? 14 : 12;
   const useInstantMobilePath = mobile || ios;
 
   if (useInstantMobilePath) {
-    const headerEl = document.getElementById("site-header");
-    const headerH = headerEl?.getBoundingClientRect().height ?? 96;
-    const y = el.getBoundingClientRect().top + window.scrollY - headerH - gap;
-    window.scrollTo({ left: 0, top: Math.max(0, y), behavior: "auto" });
-    const refine = () => alignElementBelowHeader(el, gap);
-    requestAnimationFrame(() => {
-      refine();
-      requestAnimationFrame(refine);
-    });
-    if (ios) {
-      window.setTimeout(refine, 120);
-      window.setTimeout(refine, 280);
-      window.setTimeout(refine, 450);
-    }
+    const passes = ios ? ([80, 160, 280, 420, 600] as const) : ([60, 140, 260] as const);
+    settleScrollBelowHeader(el, gap, passes);
     return;
   }
 
@@ -657,12 +663,14 @@ export default function TonisLanding() {
       mobileNavScrollTimeoutRef.current = null;
     }
     const mobile = isMobileNavViewport();
-    const delay = isIosBrowser() ? 520 : mobile ? 400 : 120;
+    const delay = isIosBrowser() ? 620 : mobile ? 480 : 120;
     mobileNavScrollTimeoutRef.current = setTimeout(() => {
       mobileNavScrollTimeoutRef.current = null;
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-          scrollToId(id);
+          requestAnimationFrame(() => {
+            scrollToId(id);
+          });
         });
       });
     }, delay);
@@ -1758,16 +1766,26 @@ export default function TonisLanding() {
       >
         <div className="mx-auto max-w-2xl pl-[max(1.25rem,env(safe-area-inset-left))] pr-[max(1.25rem,env(safe-area-inset-right))] text-center sm:px-6 md:px-8">
           <motion.div
-            initial={reduceMotion ? false : { opacity: 0, y: 32 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.75, ease: EASE_OUT_CUBIC }}
+            initial={reduceMotion ? false : { opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.55, ease: EASE_OUT_CUBIC }}
             className="flex flex-col items-center"
           >
             <div className="mb-5 flex justify-center" aria-hidden>
               <LucideInGold Icon={Quote} />
             </div>
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.4em] text-[#c9a227]/80">Persönlich</p>
+          </motion.div>
+          {/* In-page nav anchor: outside Framer Motion (avoids transform/layout mismatch on iOS). */}
+          <div id="ueber-uns-scroll" tabIndex={-1} className="h-px w-full shrink-0 overflow-hidden" aria-hidden />
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.12 }}
+            transition={{ duration: 0.6, ease: EASE_OUT_CUBIC, delay: reduceMotion ? 0 : 0.04 }}
+            className="flex flex-col items-center"
+          >
             <h2
               id="ueber-mich-heading"
               className="mb-8 text-balance break-words text-2xl font-extrabold leading-[1.15] tracking-tight text-white md:text-4xl md:leading-tight md:tracking-normal lg:text-5xl"

@@ -11,10 +11,9 @@ html {
   }
 }
 
-/* iOS Safari: calmer vertical scroll (avoid fighting rubber-band / subpixel jitter). */
+/* iOS Safari: avoid automatic text zoom reflow during scroll. */
 @supports (-webkit-touch-callout: none) {
   html {
     -webkit-text-size-adjust: 100%;
-    overscroll-behavior-y: none;
   }
 }

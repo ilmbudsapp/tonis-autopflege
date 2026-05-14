@@ -325,25 +325,64 @@ const NAV_LINKS = [
   ["kontakt", "Kontakt"],
 ] as const;
 
-/** Matches `lg:hidden` mobile menu — scroll fixes below apply only here. */
+/** Matches `lg:hidden` mobile menu. */
 function isMobileNavViewport(): boolean {
   return typeof window !== "undefined" && window.matchMedia("(max-width: 1023px)").matches;
 }
 
+/** iPhone / iPadOS Safari — smooth programmatic scroll is unreliable; use instant + correction passes. */
+function isIosBrowser(): boolean {
+  if (typeof navigator === "undefined") return false;
+  if (/iP(ad|hone|od)/.test(navigator.userAgent)) return true;
+  return navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1;
+}
+
+/** Align element top edge to just below fixed header. */
+function alignElementBelowHeader(el: HTMLElement, gapPx: number) {
+  const headerEl = document.getElementById("site-header");
+  const headerH = headerEl?.getBoundingClientRect().height ?? 96;
+  const top = el.getBoundingClientRect().top;
+  const correction = headerH + gapPx - top;
+  if (Math.abs(correction) < 2) return;
+  window.scrollBy({ top: correction, left: 0, behavior: "auto" });
+}
+
 function scrollToId(id: string) {
   const mobile = isMobileNavViewport();
+  const ios = isIosBrowser();
   let el: HTMLElement | null = null;
   if (id === "ueber-uns" && mobile) {
     el = document.getElementById("ueber-mich-heading");
   }
   if (!el) el = document.getElementById(id);
   if (!el) return;
-  const headerEl = document.getElementById("site-header");
-  const headerH = headerEl?.getBoundingClientRect().height ?? 96;
-  const pad = mobile ? 18 : 12;
-  const y = el.getBoundingClientRect().top + window.scrollY - headerH - pad;
+
   const reduce =
     typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const gap = mobile ? 14 : 12;
+  const useInstantMobilePath = mobile || ios;
+
+  if (useInstantMobilePath) {
+    const headerEl = document.getElementById("site-header");
+    const headerH = headerEl?.getBoundingClientRect().height ?? 96;
+    const y = el.getBoundingClientRect().top + window.scrollY - headerH - gap;
+    window.scrollTo({ left: 0, top: Math.max(0, y), behavior: "auto" });
+    const refine = () => alignElementBelowHeader(el, gap);
+    requestAnimationFrame(() => {
+      refine();
+      requestAnimationFrame(refine);
+    });
+    if (ios) {
+      window.setTimeout(refine, 120);
+      window.setTimeout(refine, 280);
+      window.setTimeout(refine, 450);
+    }
+    return;
+  }
+
+  const headerEl = document.getElementById("site-header");
+  const headerH = headerEl?.getBoundingClientRect().height ?? 96;
+  const y = el.getBoundingClientRect().top + window.scrollY - headerH - gap;
   window.scrollTo({ top: Math.max(0, y), behavior: reduce ? "auto" : "smooth" });
 }
 
@@ -547,6 +586,7 @@ export default function TonisLanding() {
   /** Touch / coarse UI: which premium brand card mirrors desktop :hover (glow + logo colour). */
   const [premiumCardTap, setPremiumCardTap] = useState<string | null>(null);
   const premiumBrandsGridRef = useRef<HTMLDivElement | null>(null);
+  const mobileNavScrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const onHomeLogoClick = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -585,6 +625,15 @@ export default function TonisLanding() {
   }, [mobileNavOpen]);
 
   useEffect(() => {
+    return () => {
+      if (mobileNavScrollTimeoutRef.current !== null) {
+        clearTimeout(mobileNavScrollTimeoutRef.current);
+        mobileNavScrollTimeoutRef.current = null;
+      }
+    };
+  }, []);
+
+  useEffect(() => {
     if (premiumCardTap === null) return;
     const onPointerDown = (e: PointerEvent) => {
       const root = premiumBrandsGridRef.current;
@@ -603,8 +652,14 @@ export default function TonisLanding() {
 
   const navigateToSection = (id: string) => {
     setMobileNavOpen(false);
-    const delay = isMobileNavViewport() ? 340 : 120;
-    window.setTimeout(() => {
+    if (mobileNavScrollTimeoutRef.current !== null) {
+      clearTimeout(mobileNavScrollTimeoutRef.current);
+      mobileNavScrollTimeoutRef.current = null;
+    }
+    const mobile = isMobileNavViewport();
+    const delay = isIosBrowser() ? 520 : mobile ? 400 : 120;
+    mobileNavScrollTimeoutRef.current = setTimeout(() => {
+      mobileNavScrollTimeoutRef.current = null;
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           scrollToId(id);

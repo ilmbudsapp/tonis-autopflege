@@ -839,22 +839,22 @@ export default function TonisLanding() {
                 <motion.article
                   key={brand.slug}
                   variants={cardPop}
-                  className="group flex flex-col rounded-2xl border border-[#c9a227]/30 bg-[#050508] p-6 shadow-[inset_0_1px_0_rgba(201,162,39,0.08)] transition-[border-color,box-shadow,background-color] duration-300 hover:border-[#d4af37]/65 hover:bg-[#0c0c10] hover:shadow-[0_20px_50px_rgba(0,0,0,0.5),0_0_24px_rgba(201,162,39,0.12)] md:p-7"
+                  className="group flex flex-col rounded-2xl border border-[#c9a227]/30 bg-[#050508] p-4 shadow-[inset_0_1px_0_rgba(201,162,39,0.08)] transition-[border-color,box-shadow,background-color] duration-300 hover:border-[#d4af37]/65 hover:bg-[#0c0c10] hover:shadow-[0_20px_50px_rgba(0,0,0,0.5),0_0_24px_rgba(201,162,39,0.12)] sm:p-6 md:p-7"
                 >
-                  <div className="relative flex min-h-[120px] flex-1 items-center justify-center rounded-xl border border-white/[0.08] bg-black/50 px-4 py-8 transition duration-300 group-hover:border-[#c9a227]/35 group-hover:shadow-[inset_0_0_32px_rgba(201,162,39,0.08)]">
+                  <div className="relative flex aspect-square w-full items-center justify-center rounded-2xl border-[3px] border-black bg-black px-3 py-5 shadow-[inset_0_0_0_1px_rgba(201,162,39,0.12)] transition duration-300 group-hover:border-[#c9a227]/40 group-hover:shadow-[inset_0_0_40px_rgba(201,162,39,0.06)] md:aspect-auto md:min-h-[148px] md:rounded-xl md:border-2 md:border-white/[0.1] md:bg-black/60 md:px-6 md:py-9">
                     {logoSrc ? (
                       <img
                         src={logoSrc}
                         alt={brand.brandName}
-                        width={320}
-                        height={120}
+                        width={400}
+                        height={400}
                         loading="lazy"
                         decoding="async"
-                        className="max-h-16 w-auto max-w-[90%] object-contain grayscale transition-[filter,transform,box-shadow] duration-300 group-hover:scale-[1.04] group-hover:grayscale-0 group-hover:drop-shadow-[0_0_20px_rgba(201,162,39,0.55)]"
+                        className="max-h-[85%] max-w-[90%] object-contain grayscale transition-[filter,transform,box-shadow] duration-300 group-hover:scale-[1.03] group-hover:grayscale-0 group-hover:drop-shadow-[0_0_20px_rgba(201,162,39,0.55)] md:max-h-28 md:max-w-[92%] lg:max-h-32"
                       />
                     ) : (
                       <span
-                        className="text-center text-lg font-bold tracking-tight text-zinc-600 transition group-hover:text-[#c9a227]/80"
+                        className="text-center text-2xl font-bold tracking-tight text-zinc-500 transition group-hover:text-[#c9a227]/80 sm:text-3xl md:text-lg"
                         style={{ fontFamily: fontDisplay }}
                       >
                         {brand.brandName}

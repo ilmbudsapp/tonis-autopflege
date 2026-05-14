@@ -19,7 +19,6 @@ import {
 } from "lucide-react";
 import { WHATSAPP_E164_DIGITS } from "@/lib/contact";
 import { GALLERY_WEBP_FILENAMES } from "@/generated/galleryWebp";
-import { BRAND_LOGO_FILENAMES } from "@/generated/brandLogos";
 import { WORK_VIDEO_CLIPS } from "@/generated/workVideos";
 import { PREMIUM_BRANDS } from "@/data/premiumBrands";
 
@@ -833,8 +832,7 @@ export default function TonisLanding() {
             }}
           >
             {PREMIUM_BRANDS.map((brand) => {
-              const file = BRAND_LOGO_FILENAMES[brand.slug];
-              const logoSrc = file ? asset("images/brands", file) : undefined;
+              const logoSrc = asset("images/brands", brand.logoWebp);
               return (
                 <motion.article
                   key={brand.slug}

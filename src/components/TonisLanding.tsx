@@ -1,4 +1,13 @@
-import { useEffect, useMemo, useRef, useState, type MouseEvent, type ReactNode, type SVGProps } from "react";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type MouseEvent,
+  type ReactNode,
+  type SVGProps,
+} from "react";
 import {
   motion,
   useReducedMotion,
@@ -377,6 +386,75 @@ const FIRMENFOOTER = {
   tiktok: { label: "toni03_3", href: "https://www.tiktok.com/@toni03_3" },
 } as const;
 
+/** Kleinunternehmer-Angabe fürs Impressum (Finanzamt). */
+const KLEINUNTERNEHMER_STEUERNUMMER = "6339616878";
+
+function LegalTextModal({
+  open,
+  title,
+  titleId,
+  onClose,
+  children,
+}: {
+  open: boolean;
+  title: string;
+  titleId: string;
+  onClose: () => void;
+  children: ReactNode;
+}) {
+  const closeBtnRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    queueMicrotask(() => closeBtnRef.current?.focus());
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [open, onClose]);
+
+  if (!open) return null;
+
+  return (
+    <div className="fixed inset-0 z-[90] flex items-end justify-center p-4 sm:items-center sm:p-6">
+      <button
+        type="button"
+        className="absolute inset-0 bg-black/60 backdrop-blur-[1px]"
+        aria-label="Schließen"
+        onClick={onClose}
+      />
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        className="relative max-h-[min(85vh,720px)] w-full max-w-lg overflow-y-auto rounded-2xl border border-white/[0.08] bg-[#07070d] px-5 py-5 shadow-2xl sm:px-6 sm:py-6"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="mb-4 flex items-start justify-between gap-4 border-b border-white/[0.06] pb-3">
+          <h2 id={titleId} className="text-left text-sm font-semibold tracking-tight text-zinc-200 sm:text-base">
+            {title}
+          </h2>
+          <button
+            ref={closeBtnRef}
+            type="button"
+            onClick={onClose}
+            className="shrink-0 rounded-lg px-2 py-1 text-xs font-medium text-zinc-500 transition hover:bg-white/[0.06] hover:text-zinc-300"
+          >
+            Schließen
+          </button>
+        </div>
+        <div className="space-y-3 text-left text-[13px] leading-relaxed text-zinc-400 sm:text-sm">{children}</div>
+      </div>
+    </div>
+  );
+}
+
 /** Google Maps (Unternehmensprofil) — Suche nach Standort; Rezensionen dort einsehbar. */
 const GOOGLE_MAPS_BUSINESS_URL =
   "https://www.google.com/maps/search/?api=1&query=Tonis+Autopflege+Boschstra%C3%9Fe+23%2F1+73119+Zell+unter+Aichelberg";
@@ -454,6 +532,7 @@ export default function TonisLanding() {
   const heroRef = useRef<HTMLElement | null>(null);
   const [impressionTab, setImpressionTab] = useState<"fotos" | "videos">("fotos");
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [legalModal, setLegalModal] = useState<null | "impressum" | "datenschutz">(null);
   /** Touch / coarse UI: which premium brand card mirrors desktop :hover (glow + logo colour). */
   const [premiumCardTap, setPremiumCardTap] = useState<string | null>(null);
   const premiumBrandsGridRef = useRef<HTMLDivElement | null>(null);
@@ -517,6 +596,8 @@ export default function TonisLanding() {
       scrollToId(id);
     }, 120);
   };
+
+  const closeLegalModal = useCallback(() => setLegalModal(null), []);
 
   const containerSlow: Variants = useMemo(
     () =>
@@ -2098,19 +2179,97 @@ export default function TonisLanding() {
             </div>
           </motion.div>
 
-          <p className="mt-12 text-center text-sm text-zinc-600">
-            Demo-Entwicklung:{" "}
-            <a
-              href={AGR_SITE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold text-[#c9a227]/90 underline-offset-4 hover:text-[#f0d78c] hover:underline"
+          <div className="mt-12 border-t border-white/[0.05] pt-6">
+            <nav
+              className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center font-sans text-[11px] leading-snug text-zinc-500 sm:text-xs"
+              aria-label="Rechtliches"
             >
-              AGR Multimedia
-            </a>
-          </p>
+              <button
+                type="button"
+                className="text-zinc-500 underline-offset-2 transition hover:text-zinc-300 hover:underline"
+                onClick={() => setLegalModal("impressum")}
+              >
+                Impressum
+              </button>
+              <span className="select-none text-zinc-700" aria-hidden>
+                |
+              </span>
+              <button
+                type="button"
+                className="text-zinc-500 underline-offset-2 transition hover:text-zinc-300 hover:underline"
+                onClick={() => setLegalModal("datenschutz")}
+              >
+                Datenschutz
+              </button>
+            </nav>
+            <p className="mt-3 text-center text-[10px] text-zinc-600 sm:text-[11px]">
+              <a
+                href={AGR_SITE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-zinc-500 underline-offset-2 transition hover:text-zinc-400 hover:underline"
+              >
+                Web Design by AGRMULTIMEDIA
+              </a>
+            </p>
+          </div>
         </div>
       </footer>
+
+      <LegalTextModal
+        open={legalModal === "impressum"}
+        title="Impressum"
+        titleId="legal-impressum-title"
+        onClose={closeLegalModal}
+      >
+        <p className="text-[11px] font-semibold uppercase tracking-wider text-zinc-500">Angaben gemäß § 5 TMG</p>
+        <p className="text-zinc-300">
+          {FIRMENFOOTER.firma}
+          <br />
+          {FIRMENFOOTER.inhaber}
+          <br />
+          {FIRMENFOOTER.strasse}
+          <br />
+          {FIRMENFOOTER.ort}
+        </p>
+        <p className="text-[11px] font-semibold uppercase tracking-wider text-zinc-500">Kontakt</p>
+        <p>
+          Telefon:{" "}
+          <a
+            href={FIRMENFOOTER.telefonHref}
+            className="text-[#c9a227]/85 underline-offset-2 hover:underline"
+          >
+            {FIRMENFOOTER.telefonLabel}
+          </a>
+          <br />
+          E-Mail:{" "}
+          <a
+            href={`mailto:${FIRMENFOOTER.email}`}
+            className="break-all text-[#c9a227]/85 underline-offset-2 hover:underline"
+          >
+            {FIRMENFOOTER.email}
+          </a>
+        </p>
+        <p>
+          <span className="text-zinc-500">Steuernummer: </span>
+          {KLEINUNTERNEHMER_STEUERNUMMER}
+        </p>
+        <p>
+          <span className="text-zinc-500">Umsatzsteuer-Hinweis: </span>
+          Umsatzsteuer nicht erhoben gemäß §19 UStG.
+        </p>
+      </LegalTextModal>
+      <LegalTextModal
+        open={legalModal === "datenschutz"}
+        title="Datenschutzerklärung"
+        titleId="legal-datenschutz-title"
+        onClose={closeLegalModal}
+      >
+        <p>
+          Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften
+          (DSGVO). Kontaktanfragen über WhatsApp erfolgen freiwillig.
+        </p>
+      </LegalTextModal>
 
       <motion.a
         href={TONI_WA_HREF}

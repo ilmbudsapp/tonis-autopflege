@@ -58,6 +58,9 @@ function toniWaHrefWithPrefill(message: string): string {
   return `https://wa.me/${TONI_WA_DIGITS}?text=${encodeURIComponent(message)}`;
 }
 
+const KONTAKT_TERMIN_ANFRAGE_WA_TEXT =
+  "Hallo Toni, ich würde gerne einen Termin für eine Beratung oder Reinigung vereinbaren.";
+
 const GUTSCHEIN_BETRAEGE = [
   {
     label: "5,00€",
@@ -320,12 +323,6 @@ const WORK_VIDEOS = WORK_VIDEO_CLIPS.map((c, i) => ({
   title: `Referenzvideo ${i + 1}`,
   text: "Ausschnitt aus der Aufbereitung — Politur, Innenraum oder Finish.",
 }));
-
-const OEFFNUNGSZEITEN = [
-  { tag: "Montag – Freitag", zeit: "09:00 – 18:00" },
-  { tag: "Samstag", zeit: "nach Vereinbarung" },
-  { tag: "Sonntag", zeit: "geschlossen" },
-] as const;
 
 const EASE_OUT_CUBIC = [0.16, 1, 0.3, 1] as const;
 
@@ -1972,14 +1969,18 @@ export default function TonisLanding() {
                   <h3 className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-[#c9a227]/90">
                     Öffnungszeiten
                   </h3>
-                  <ul className="divide-y divide-white/[0.06] rounded-2xl border border-white/[0.08] bg-black/40">
-                    {OEFFNUNGSZEITEN.map((row) => (
-                      <li key={row.tag} className="flex items-center justify-between gap-4 px-4 py-3 text-sm">
-                        <span className="text-zinc-400">{row.tag}</span>
-                        <span className="font-medium text-white">{row.zeit}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <p className="text-sm leading-relaxed text-zinc-400">
+                    Termine ausschließlich nach vorheriger Vereinbarung.
+                  </p>
+                  <a
+                    href={toniWaHrefWithPrefill(KONTAKT_TERMIN_ANFRAGE_WA_TEXT)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex w-full max-w-xs items-center justify-center gap-2 rounded-full border border-[#c9a227]/35 bg-black/50 px-4 py-2.5 text-xs font-semibold text-[#f0d78c] shadow-[inset_0_1px_0_rgba(201,162,39,0.08),0_0_20px_rgba(201,162,39,0.08)] transition hover:border-[#25D366]/50 hover:bg-[#25D366]/10 hover:text-white hover:shadow-[0_0_24px_rgba(37,211,102,0.18)] sm:text-sm"
+                  >
+                    <MessageCircle className="h-4 w-4 shrink-0 text-[#25D366]" strokeWidth={2.25} aria-hidden />
+                    Jetzt Termin anfragen
+                  </a>
                 </div>
 
                 <div className="rounded-2xl border border-[#c9a227]/25 bg-gradient-to-br from-[#c9a227]/10 to-black/60 p-6">

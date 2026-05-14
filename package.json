@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "tonis:convert": "node scripts/convert-tonis-assets.mjs",
     "gallery:galeria": "node scripts/build-gallery-from-galeria.mjs",
-    "videos:work": "node scripts/build-work-videos-from-folder.mjs"
+    "videos:work": "node scripts/build-work-videos-from-folder.mjs",
+    "brands:proizvodi": "node scripts/build-brands-from-proizvodi.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.38.0",

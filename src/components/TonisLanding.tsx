@@ -19,7 +19,9 @@ import {
 } from "lucide-react";
 import { WHATSAPP_E164_DIGITS } from "@/lib/contact";
 import { GALLERY_WEBP_FILENAMES } from "@/generated/galleryWebp";
+import { BRAND_LOGO_FILENAMES } from "@/generated/brandLogos";
 import { WORK_VIDEO_CLIPS } from "@/generated/workVideos";
+import { PREMIUM_BRANDS } from "@/data/premiumBrands";
 
 const BASE = import.meta.env.BASE_URL;
 const asset = (dir: string, file: string) => `${BASE}assets/${dir}/${encodeURIComponent(file)}`;
@@ -785,6 +787,89 @@ export default function TonisLanding() {
                       </li>
                     ))}
                   </ul>
+                </motion.article>
+              );
+            })}
+          </motion.div>
+        </div>
+      </section>
+
+      <section
+        id="premium-partner-produkte"
+        className="scroll-mt-24 border-t border-white/[0.06] bg-[#06060b] py-24 md:py-32"
+        aria-labelledby="premium-partner-heading"
+      >
+        <div className="mx-auto max-w-7xl px-4 md:px-8">
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7, ease: EASE_OUT_CUBIC }}
+            className="mb-14 text-center md:mb-16"
+          >
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.4em] text-[#c9a227]/80">
+              Unsere Premium Partner &amp; Produkte
+            </p>
+            <h2
+              id="premium-partner-heading"
+              className="mx-auto max-w-4xl text-3xl font-extrabold leading-tight text-white md:text-4xl lg:text-5xl"
+              style={{ fontFamily: fontDisplay }}
+            >
+              Qualität ohne Kompromisse
+            </h2>
+            <p className="mx-auto mt-5 max-w-3xl text-sm leading-relaxed text-zinc-400 md:text-base">
+              Wir arbeiten ausschließlich mit den weltweit führenden Herstellern der Fahrzeugpflege.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-40px" }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: reduceMotion ? 0 : 0.1 } },
+            }}
+          >
+            {PREMIUM_BRANDS.map((brand) => {
+              const file = BRAND_LOGO_FILENAMES[brand.slug];
+              const logoSrc = file ? asset("images/brands", file) : undefined;
+              return (
+                <motion.article
+                  key={brand.slug}
+                  variants={cardPop}
+                  className="group flex flex-col rounded-2xl border border-[#c9a227]/30 bg-[#050508] p-6 shadow-[inset_0_1px_0_rgba(201,162,39,0.08)] transition-[border-color,box-shadow,background-color] duration-300 hover:border-[#d4af37]/65 hover:bg-[#0c0c10] hover:shadow-[0_20px_50px_rgba(0,0,0,0.5),0_0_24px_rgba(201,162,39,0.12)] md:p-7"
+                >
+                  <div className="relative flex min-h-[120px] flex-1 items-center justify-center rounded-xl border border-white/[0.08] bg-black/50 px-4 py-8 transition duration-300 group-hover:border-[#c9a227]/35 group-hover:shadow-[inset_0_0_32px_rgba(201,162,39,0.08)]">
+                    {logoSrc ? (
+                      <img
+                        src={logoSrc}
+                        alt={brand.brandName}
+                        width={320}
+                        height={120}
+                        loading="lazy"
+                        decoding="async"
+                        className="max-h-16 w-auto max-w-[90%] object-contain grayscale transition-[filter,transform,box-shadow] duration-300 group-hover:scale-[1.04] group-hover:grayscale-0 group-hover:drop-shadow-[0_0_20px_rgba(201,162,39,0.55)]"
+                      />
+                    ) : (
+                      <span
+                        className="text-center text-lg font-bold tracking-tight text-zinc-600 transition group-hover:text-[#c9a227]/80"
+                        style={{ fontFamily: fontDisplay }}
+                      >
+                        {brand.brandName}
+                      </span>
+                    )}
+                  </div>
+                  <h3
+                    className="mt-5 text-center text-sm font-bold uppercase tracking-[0.2em] text-[#d4af37]"
+                    style={{ fontFamily: fontDisplay }}
+                  >
+                    {brand.brandName}
+                  </h3>
+                  <p className="mt-3 flex-1 text-pretty text-left text-sm leading-relaxed text-zinc-400 md:text-[15px]">
+                    {brand.text}
+                  </p>
                 </motion.article>
               );
             })}

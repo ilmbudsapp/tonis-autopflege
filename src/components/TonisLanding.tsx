@@ -332,6 +332,7 @@ const EASE_OUT_CUBIC = [0.16, 1, 0.3, 1] as const;
 const NAV_LINKS = [
   ["leistungen", "Leistungen"],
   ["mobiler-service", "Mobiler Service"],
+  ["gutschein-service", "Gutscheine"],
   ["produkte", "Produkte"],
   ["impressionen", "Impressionen"],
   ["ueber-uns", "Über uns"],

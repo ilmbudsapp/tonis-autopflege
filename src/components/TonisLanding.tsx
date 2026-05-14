@@ -440,8 +440,8 @@ const FIRMENFOOTER = {
   firma: "Toni's Autopflege",
   inhaber: "Jeton Shala — Toni",
   branche: "Autoaufbereitung",
-  strasse: "Boschstraße 23/1",
-  ort: "73119 Zell unter Aichelberg",
+  strasse: "Hammerweg 16",
+  ort: "73035 Göppingen",
   telefonLabel: "+49 174 8564830",
   telefonHref: "tel:+491748564830",
   email: "info.tonisautopflege@gmx.de",
@@ -521,7 +521,7 @@ function LegalTextModal({
 
 /** Google Maps (Unternehmensprofil) — Suche nach Standort; Rezensionen dort einsehbar. */
 const GOOGLE_MAPS_BUSINESS_URL =
-  "https://www.google.com/maps/search/?api=1&query=Tonis+Autopflege+Boschstra%C3%9Fe+23%2F1+73119+Zell+unter+Aichelberg";
+  "https://www.google.com/maps/search/?api=1&query=Tonis+Autopflege+Hammerweg+16+73035+G%C3%B6ppingen";
 
 const KUNDEN_TESTIMONIALS = [
   {
@@ -1052,7 +1052,19 @@ export default function TonisLanding() {
             </motion.p>
             <motion.h1
               variants={fadeUp}
-              className="text-balance break-words text-3xl font-black leading-[1.1] tracking-tight text-white sm:text-4xl md:text-6xl md:leading-[1.08] md:tracking-[0.02em] lg:text-7xl"
+              className="text-balance break-words text-2xl font-black leading-tight tracking-tight text-white sm:text-3xl md:text-5xl md:leading-tight"
+              style={{
+                fontFamily: fontDisplay,
+                fontWeight: 800,
+                textShadow:
+                  "0 2px 3px rgba(0,0,0,0.85), 0 12px 48px rgba(0,0,0,0.75), 0 0 1px rgba(0,0,0,1)",
+              }}
+            >
+              Toni&apos;s Autopflege
+            </motion.h1>
+            <motion.h2
+              variants={fadeUp}
+              className="mt-4 text-balance break-words text-3xl font-black leading-[1.1] tracking-tight text-white sm:text-4xl md:mt-5 md:text-6xl md:leading-[1.08] md:tracking-[0.02em] lg:text-7xl"
               style={{
                 fontFamily: fontHeroHeadline,
                 fontWeight: 900,
@@ -1064,7 +1076,7 @@ export default function TonisLanding() {
               <span className="mt-2 block text-[#f4e4a8] md:text-[#fcefb7]" style={{ textShadow: "0 2px 4px rgba(0,0,0,0.9), 0 0 40px rgba(201,162,39,0.45)" }}>
                 Perfektion im Detail.
               </span>
-            </motion.h1>
+            </motion.h2>
             <motion.p
               variants={fadeUp}
               className="mx-auto mt-6 max-w-xl text-pretty text-base leading-relaxed text-zinc-300 [text-shadow:0_1px_14px_rgba(0,0,0,0.78)] md:text-lg"
@@ -1127,10 +1139,7 @@ export default function TonisLanding() {
               className="mx-auto max-w-4xl text-pretty px-1 text-[13px] font-extrabold leading-[1.22] tracking-tight text-white min-[361px]:text-base sm:text-lg md:px-0 md:text-4xl md:leading-tight md:tracking-normal lg:text-5xl"
               style={{ fontFamily: fontDisplay }}
             >
-              Unsere Leistungen – Premium{" "}
-              <span className="whitespace-nowrap">Fahrzeugaufbereitung</span>
-              {" "}
-              in Göppingen
+              Welche Leistungen bietet Toni&apos;s Autopflege?
             </h2>
             <p className="mx-auto mt-5 max-w-3xl text-sm leading-relaxed text-zinc-400 md:text-base">
               Bei Toni&apos;s Autopflege erhalten Sie professionelle Fahrzeugpflege auf höchstem Niveau – für maximalen
@@ -1811,7 +1820,7 @@ export default function TonisLanding() {
               className="mb-8 text-balance break-words text-2xl font-extrabold leading-[1.15] tracking-tight text-white md:text-4xl md:leading-tight md:tracking-normal lg:text-5xl"
               style={{ fontFamily: fontDisplay }}
             >
-              Über mich
+              Wer steckt hinter Toni&apos;s Autopflege?
             </h2>
             <div className="w-full space-y-5 text-left sm:space-y-6">
               <p className="text-pretty text-base leading-relaxed text-zinc-300 md:text-lg">
@@ -1834,6 +1843,16 @@ export default function TonisLanding() {
               </p>
               <p className="text-pretty text-base leading-relaxed text-zinc-400 md:text-lg">
                 Ich freue mich darauf, auch Ihr Fahrzeug professionell aufzubereiten.
+              </p>
+              <p className="text-pretty text-base leading-relaxed text-zinc-400 md:text-lg">
+                In enger Abstimmung mit Ihnen definieren wir den passenden Umfang — von der schnellen Auffrischung bis
+                zur umfassenden Aufbereitung — und dokumentieren den Fortschritt transparent. So behalten Sie die
+                Kontrolle über Budget und Zeitplan, ohne Kompromisse bei der Qualität eingehen zu müssen.
+              </p>
+              <p className="text-pretty text-base leading-relaxed text-zinc-400 md:text-lg">
+                Als inhabergeführtes Unternehmen in Göppingen stehe ich persönlich für saubere Arbeitsabläufe,
+                hochwertige Materialien und eine ehrliche Beratung: Wir zeigen, was sinnvoll ist — und was sich für
+                Ihr Fahrzeug wirklich lohnt.
               </p>
             </div>
             <p className="mt-8 text-pretty text-sm text-zinc-500 md:text-base">
@@ -1900,7 +1919,7 @@ export default function TonisLanding() {
               className="text-balance break-words text-2xl font-extrabold leading-[1.15] tracking-tight text-white md:text-4xl md:leading-tight md:tracking-normal lg:text-5xl"
               style={{ fontFamily: fontDisplay }}
             >
-              Was unsere Kunden sagen
+              Was berichten Kunden über Toni&apos;s Autopflege?
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-pretty text-sm text-zinc-500 md:text-base">
               Echte Stimmen von Google — Qualität und Zuverlässigkeit, die man spürt.
@@ -2066,10 +2085,10 @@ export default function TonisLanding() {
               className="text-balance break-words text-2xl font-extrabold leading-[1.15] tracking-tight text-white md:text-4xl md:leading-tight md:tracking-normal lg:text-5xl"
               style={{ fontFamily: fontDisplay }}
             >
-              Partner &amp; Netzwerk
+              Mit wem arbeitet Toni&apos;s Autopflege zusammen?
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-pretty text-sm text-zinc-500 md:text-base">
-              Starke Partner rund um Fahrzeugpflege, Lack und Service — gemeinsam für beste Ergebnisse.
+              Partner &amp; Netzwerk — ausgewählte Betriebe rund um Lack, Service und Fahrzeugpflege.
             </p>
           </motion.div>
 
@@ -2115,15 +2134,15 @@ export default function TonisLanding() {
                   <h3 className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-[#c9a227]/90">Standort</h3>
                   <div className="aspect-[4/3] w-full max-h-[320px] overflow-hidden rounded-2xl border border-white/[0.1] bg-zinc-900/50 shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
                     <iframe
-                      title="Karte — Toni's Autopflege, Zell unter Aichelberg"
+                      title="Karte — Toni's Autopflege, Göppingen"
                       className="h-full min-h-[240px] w-full"
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
-                      src="https://www.google.com/maps?q=Boschstra%C3%9Fe%2023%2C%2073119%20Zell%20unter%20Aichelberg&z=15&hl=de&output=embed"
+                      src="https://www.google.com/maps?q=Hammerweg+16%2C+73035+G%C3%B6ppingen&z=15&hl=de&output=embed"
                     />
                   </div>
                   <p className="mt-3 text-xs text-zinc-500">
-                    Boschstraße 23/1, 73119 Zell unter Aichelberg — Standort der Autopflege.
+                    Hammerweg 16, 73035 Göppingen — Standort der Autopflege.
                   </p>
                 </div>
 

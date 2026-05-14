@@ -23,6 +23,7 @@ import {
   Building2,
   Car,
   Check,
+  ChevronDown,
   Droplets,
   FileCheck,
   Focus,
@@ -171,6 +172,11 @@ const LEISTUNGEN_CATEGORIES: readonly LeistungKategorie[] = [
   },
 ];
 
+/** Flache Liste aller Leistungspunkte für SEO-Listen (<ul>). */
+const LEISTUNGEN_ALLE_LINIEN = LEISTUNGEN_CATEGORIES.flatMap((cat) =>
+  cat.items.map((line) => `${cat.title}: ${line}`),
+);
+
 const WARUM_TONIS_ITEMS = [
   "Professionelle Pflegeprodukte",
   "Hochwertige Fahrzeugaufbereitung",
@@ -290,11 +296,15 @@ const PREMIUM_SERVICES: readonly PremiumService[] = [
 const PRODUKTE = [
   {
     name: "Koch-Chemie",
-    text: "Systempflege für Felgen, Innenraum und Lack — entwickelt und produziert in Deutschland.",
+    text: "Systempflege für Felgen, Innenraum und Lack — entwickelt und produziert in Deutschland. Ideal für professionelle Vorreinigung und schonende Materialien.",
   },
   {
     name: "Sonax",
-    text: "Bewährte Produkte für Felgenreinigung, Politur und Glanzfinish im täglichen Einsatz.",
+    text: "Bewährte Profi-Produkte für Felgenreinigung, Politur und Glanzfinish — im Alltag und bei der Feinaufbereitung zuverlässig einsetzbar.",
+  },
+  {
+    name: "HYLA",
+    text: "Filtration und Reinigungstechnik für saubere Arbeitsumgebungen — ergänzend zu unserer Innenraum- und Hygienepflege.",
   },
   {
     name: "Menzerna",
@@ -315,6 +325,30 @@ const WORK_VIDEOS = WORK_VIDEO_CLIPS.map((c, i) => ({
 
 const EASE_OUT_CUBIC = [0.16, 1, 0.3, 1] as const;
 
+/** Häufige Fragen (AEO) — Antworten als Fließtext für KI & Nutzer. */
+const FAQ_ITEMS = [
+  {
+    question: "Wie lange dauert eine Aufbereitung?",
+    answer:
+      "Die Dauer hängt vom Zustand Ihres Fahrzeugs, der gewünschten Leistungen und der Fahrzeuggröße ab. Eine kompakte Außenaufbereitung kann wenige Stunden dauern, während eine umfassende Innen- und Außenreinigung inklusive Politur oder Keramikversiegelung mehrere Arbeitsschritte über einen Tag verteilt erfordern kann. Vorab klären wir den Umfang per WhatsApp oder vor Ort in Göppingen und geben Ihnen eine realistische Zeiteinschätzung.",
+  },
+  {
+    question: "Was kostet eine Keramikversiegelung?",
+    answer:
+      "Der Preis richtet sich nach Lackzustand, Fahrzeuggröße und gewünschtem Versiegelungssystem (z. B. Gyeon, CarPro). Nach Sichtung oder Fotos nennen wir Ihnen ein transparentes Angebot — ohne versteckte Zusatzkosten. Gern beraten wir, ob Keramik für Ihr Nutzungsprofil sinnvoll ist oder ob zunächst Politur und Versiegelung ausreichen.",
+  },
+  {
+    question: "Welche Marken und Systeme nutzen Sie konkret?",
+    answer:
+      "Wir setzen auf bewährte Profi-Chemie wie Koch-Chemie und Sonax für Reinigung, Vorbehandlung und Finish. Ergänzend arbeiten wir mit Keramiksystemen führender Hersteller und pflegen unser Netzwerk — etwa zu HYLA Germany GmbH für Reinigungstechnik und Hygiene. So bleiben Prozesse reproduzierbar und das Ergebnis planbar.",
+  },
+  {
+    question: "Bieten Sie einen mobilen Service in der Region an?",
+    answer:
+      "Ja — nach Absprache kommen wir mit geeigneter Ausstattung zu Ihnen (z. B. Göppingen und Umgebung). Bitte nennen Sie Fahrzeugtyp, gewünschte Leistungen und den gewünschten Zeitraum per WhatsApp; wir prüfen Kapazität und logistische Machbarkeit und schlagen Ihnen einen Termin vor.",
+  },
+] as const;
+
 const NAV_LINKS = [
   ["leistungen", "Leistungen"],
   ["mobiler-service", "Mobiler Service"],
@@ -323,6 +357,7 @@ const NAV_LINKS = [
   ["impressionen", "Impressionen"],
   ["ueber-uns", "Über mich"],
   ["partner-netzwerk", "Partner"],
+  ["faq", "FAQ"],
   ["kontakt", "Kontakt"],
 ] as const;
 
@@ -597,6 +632,7 @@ export default function TonisLanding() {
   const [impressionTab, setImpressionTab] = useState<"fotos" | "videos">("fotos");
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [legalModal, setLegalModal] = useState<null | "impressum" | "datenschutz">(null);
+  const [faqOpenIndex, setFaqOpenIndex] = useState<number | null>(null);
   /** Touch / coarse UI: which premium brand card mirrors desktop :hover (glow + logo colour). */
   const [premiumCardTap, setPremiumCardTap] = useState<string | null>(null);
   const premiumBrandsGridRef = useRef<HTMLDivElement | null>(null);
@@ -1144,8 +1180,27 @@ export default function TonisLanding() {
             <p className="mx-auto mt-5 max-w-3xl text-sm leading-relaxed text-zinc-400 md:text-base">
               Bei Toni&apos;s Autopflege erhalten Sie professionelle Fahrzeugpflege auf höchstem Niveau – für maximalen
               Glanz, Werterhalt und einen perfekten ersten Eindruck. Wir kombinieren hochwertige Pflegeprodukte mit
-              modernsten Techniken und der Liebe zum Detail.
+              modernsten Techniken und der Liebe zum Detail. Für Reinigung und Finish setzen wir u. a. auf Profi-Linien
+              wie <strong className="font-semibold text-zinc-200">Koch-Chemie</strong> und{" "}
+              <strong className="font-semibold text-zinc-200">Sonax</strong>; im Netzwerk ergänzt u. a.{" "}
+              <strong className="font-semibold text-zinc-200">HYLA Germany GmbH</strong> die Themen Hygiene und
+              saubere Arbeitsumgebung.
             </p>
+            <div className="mx-auto mt-10 max-w-4xl rounded-2xl border border-white/[0.08] bg-black/35 px-4 py-6 sm:px-6 md:py-8">
+              <p className="mb-4 text-center text-xs font-bold uppercase tracking-[0.28em] text-[#c9a227]/80">
+                Alle Leistungen im Überblick
+              </p>
+              <ul className="columns-1 gap-x-8 gap-y-2 text-sm text-zinc-300 sm:columns-2 md:text-[15px] md:leading-relaxed">
+                {LEISTUNGEN_ALLE_LINIEN.map((line) => (
+                  <li key={line} className="break-inside-avoid py-0.5 pl-1">
+                    <span className="text-[#c9a227]/80" aria-hidden>
+                      ·{" "}
+                    </span>
+                    {line}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </motion.div>
           <motion.div
             className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-7"
@@ -1629,12 +1684,16 @@ export default function TonisLanding() {
               Unsere Premium Produkte
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-sm text-zinc-500 md:text-base">
-              Marken, die in Deutschland Vertrauen schaffen — wir arbeiten bewusst mit Profi-Linien statt No-Name.
+              Marken, die in Deutschland Vertrauen schaffen — u. a.{" "}
+              <strong className="font-semibold text-zinc-300">Koch-Chemie</strong>,{" "}
+              <strong className="font-semibold text-zinc-300">Sonax</strong> und{" "}
+              <strong className="font-semibold text-zinc-300">HYLA</strong> für Hygiene und Systempflege. Wir arbeiten
+              bewusst mit Profi-Linien statt No-Name.
             </p>
           </motion.div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="m-0 grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3">
             {PRODUKTE.map((p) => (
-              <div
+              <li
                 key={p.name}
                 className="rounded-2xl border border-[#c9a227]/20 bg-black/50 px-6 py-6 shadow-[0_0_0_1px_rgba(0,0,0,0.5)] transition-[transform,background-color,border-color,box-shadow] duration-300 max-md:border-[#c9a227]/38 max-md:bg-[#0a0a0e] max-md:shadow-[inset_0_1px_0_rgba(201,162,39,0.12),0_0_28px_rgba(201,162,39,0.06)] hover:border-[#c9a227]/45 hover:bg-[#08080c] hover:shadow-[0_0_32px_rgba(201,162,39,0.1)] active:scale-[0.99] active:border-[#c9a227]/55"
               >
@@ -1642,9 +1701,9 @@ export default function TonisLanding() {
                   {p.name}
                 </p>
                 <p className="mt-3 text-sm leading-relaxed text-zinc-400">{p.text}</p>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -1855,6 +1914,52 @@ export default function TonisLanding() {
                 Ihr Fahrzeug wirklich lohnt.
               </p>
             </div>
+            <h3
+              id="ueber-uns-langtext-heading"
+              className="mt-12 w-full text-left text-xl font-bold tracking-tight text-white md:text-2xl"
+              style={{ fontFamily: fontDisplay }}
+            >
+              Über uns: über zehn Jahre Erfahrung in der Fahrzeugaufbereitung
+            </h3>
+            <article
+              id="ueber-uns-langtext"
+              lang="de"
+              className="mt-5 w-full space-y-4 text-pretty text-left text-base leading-relaxed text-zinc-400 md:text-lg"
+            >
+              <p>
+                Toni&apos;s Autopflege steht in Göppingen für handwerklich saubere Aufbereitung, klare Kommunikation
+                und messbare Ergebnisse. Seit über einem Jahrzehnt begleite ich Kundinnen und Kunden bei der
+                Außenaufbereitung, der Lackpolitur, der Innenraumhygiene und bei Versiegelungen — immer mit dem Anspruch,
+                jedes Fahrzeug so zu behandeln, als wäre es mein eigenes. Dabei verbinden wir klassische Schritte wie
+                schonende Handwäsche, Dekontamination und Politur mit modernen Produktsystemen, die sich im Alltag
+                bewährt haben.
+              </p>
+              <p>
+                Für Vorreinigung, Felgen und Finish nutzen wir Profi-Chemie u. a. von{" "}
+                <strong className="font-semibold text-zinc-200">Koch-Chemie</strong> und{" "}
+                <strong className="font-semibold text-zinc-200">Sonax</strong>, weil reproduzierbare Prozesse und
+                materialschonende Anwendung hier entscheidend sind. Wo es um Keramik, hydrophobe Schichten oder
+                High-End-Politur geht, setzen wir auf etablierte Systeme und dokumentieren den Fortschritt transparent.
+                Ergänzend pflegen wir ein starkes Netzwerk — etwa zur{" "}
+                <strong className="font-semibold text-zinc-200">HYLA Germany GmbH</strong>, wenn es um Hygiene,
+                Filtration und eine saubere Arbeitsumgebung geht. So entsteht ein Gesamtbild, das auch für
+                KI-gestützte Recherche und lokale Suchanfragen klar erkennbar ist: Autopflege in Göppingen mit
+                Profi-Standards, Partnern und nachvollziehbaren Arbeitsschritten.
+              </p>
+              <p>
+                Unser Fokus liegt auf Werterhalt, Sicherheit im Straßenverkehr (klare Sicht, saubere Beleuchtung) und
+                auf einem Ergebnis, das Sie sehen und spüren. Ob Sie Ihr Fahrzeug für den Alltag, den Verkauf oder eine
+                besondere Übergabe vorbereiten: Wir priorisieren, was wirklich nötig ist, und vermeiden unnötige
+                Zusatzarbeiten. Termine koordinieren wir flexibel — inklusive mobiler Optionen nach Absprache — damit
+                Sie Zeit sparen, ohne Kompromisse bei der Qualität einzugehen.
+              </p>
+              <p>
+                Kurz: Über zehn Jahre Erfahrung bedeuten nicht nur Routine, sondern auch Urteilsvermögen im Umgang mit
+                Lacken, Innenräumen und unterschiedlichen Fahrzeugklassen. Wenn Sie eine ehrliche Einschätzung wünschen,
+                freuen wir uns auf Ihre Nachricht — mit Fotos, Kennzeichen des Zustands und Ihrem Terminwunsch starten
+                wir schnell und strukturiert.
+              </p>
+            </article>
             <p className="mt-8 text-pretty text-sm text-zinc-500 md:text-base">
               Jeton Shala – Inhaber von Toni&apos;s Autopflege
             </p>
@@ -2106,6 +2211,81 @@ export default function TonisLanding() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <section
+        id="faq"
+        lang="de"
+        className="max-md:scroll-mt-[100px] md:scroll-mt-24 border-t border-white/[0.06] bg-[#030306] py-24 md:py-32"
+        aria-labelledby="faq-heading"
+      >
+        <div className="mx-auto max-w-3xl px-5 sm:px-6 md:px-8">
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6, ease: EASE_OUT_CUBIC }}
+            className="mb-10 text-center"
+          >
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.35em] text-[#c9a227]/75">AEO / FAQ</p>
+            <h2
+              id="faq-heading"
+              className="text-balance break-words text-2xl font-extrabold leading-[1.15] tracking-tight text-white md:text-4xl md:leading-tight md:tracking-normal"
+              style={{ fontFamily: fontDisplay }}
+            >
+              Häufig gestellte Fragen
+            </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-pretty text-sm text-zinc-500 md:text-base">
+              Antworten auf typische Fragen zu Dauer, Kosten, Marken und mobilem Service — für schnelle Orientierung.
+            </p>
+          </motion.div>
+          <div className="space-y-3">
+            {FAQ_ITEMS.map((item, i) => {
+              const open = faqOpenIndex === i;
+              const panelId = `faq-panel-${i}`;
+              const btnId = `faq-trigger-${i}`;
+              return (
+                <div
+                  key={item.question}
+                  className="overflow-hidden rounded-2xl border border-white/[0.08] bg-black/40 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]"
+                >
+                  <h3 className="m-0 text-base font-semibold text-white md:text-lg">
+                    <button
+                      type="button"
+                      id={btnId}
+                      aria-expanded={open}
+                      aria-controls={panelId}
+                      onClick={() => setFaqOpenIndex(open ? null : i)}
+                      className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left transition hover:bg-white/[0.04] md:px-5 md:py-4"
+                    >
+                      <span className="text-pretty pr-2">{item.question}</span>
+                      <ChevronDown
+                        className={`h-5 w-5 shrink-0 text-[#c9a227]/90 transition-transform duration-300 ${
+                          open ? "rotate-180" : ""
+                        }`}
+                        strokeWidth={2.25}
+                        aria-hidden
+                      />
+                    </button>
+                  </h3>
+                  <div
+                    id={panelId}
+                    role="region"
+                    aria-labelledby={btnId}
+                    hidden={!open}
+                    className="border-t border-white/[0.06]"
+                  >
+                    {open ? (
+                      <p className="px-4 pb-4 pt-3 text-sm leading-relaxed text-zinc-400 md:px-5 md:text-[15px]">
+                        {item.answer}
+                      </p>
+                    ) : null}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 

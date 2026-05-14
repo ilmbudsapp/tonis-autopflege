@@ -340,7 +340,15 @@ const NAV_LINKS = [
 ] as const;
 
 function scrollToId(id: string) {
-  document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  const el = document.getElementById(id);
+  if (!el) return;
+  const headerEl = document.getElementById("site-header");
+  const headerH = headerEl?.getBoundingClientRect().height ?? 96;
+  const pad = 12;
+  const y = el.getBoundingClientRect().top + window.scrollY - headerH - pad;
+  const reduce =
+    typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  window.scrollTo({ top: Math.max(0, y), behavior: reduce ? "auto" : "smooth" });
 }
 
 /** Gold „3D“ tile behind Lucide icons (depth via gradient + bottom shadow). */
@@ -528,8 +536,10 @@ export default function TonisLanding() {
   }, [premiumCardTap]);
 
   const navigateToSection = (id: string) => {
-    scrollToId(id);
     setMobileNavOpen(false);
+    window.setTimeout(() => {
+      scrollToId(id);
+    }, 120);
   };
 
   const containerSlow: Variants = useMemo(
@@ -696,7 +706,10 @@ export default function TonisLanding() {
         Zum Kontaktformular springen
       </a>
 
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-zinc-200/90 bg-zinc-100/95 shadow-[0_1px_0_rgba(255,255,255,0.8),0_8px_30px_rgba(0,0,0,0.06)] backdrop-blur-xl backdrop-saturate-150">
+      <header
+        id="site-header"
+        className="fixed inset-x-0 top-0 z-50 border-b border-zinc-200/90 bg-zinc-100/95 shadow-[0_1px_0_rgba(255,255,255,0.8),0_8px_30px_rgba(0,0,0,0.06)] backdrop-blur-xl backdrop-saturate-150"
+      >
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-3 py-3 md:gap-3 md:px-8 md:py-3.5">
           <motion.div whileHover={reduceMotion ? {} : { scale: 1.02 }} whileTap={{ scale: 0.98 }}>
             <a

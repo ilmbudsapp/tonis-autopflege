@@ -1,9 +1,10 @@
 @import "tailwindcss";
 
-/* iOS scroll: reduce rubber-band stutter; momentum scrolling (Gemini mobile fix). */
+/* Momentum scrolling on iOS. Do not set overscroll-behavior-y: none on the root — it blocks
+   the browser’s pull-to-refresh on many mobile browsers (e.g. Chrome Android). */
 html,
 body {
-  overscroll-behavior-y: none;
+  overscroll-behavior-y: auto;
   -webkit-overflow-scrolling: touch;
   height: auto;
   min-height: 100%;

@@ -26,6 +26,7 @@ import {
   Star,
   Sun,
   Tags,
+  Wind,
   type LucideIcon,
 } from "lucide-react";
 import { WHATSAPP_E164_DIGITS } from "@/lib/contact";
@@ -190,6 +191,12 @@ const REPARATUR_SPEZIAL_SERVICES: readonly ReparaturSpezialItem[] = [
     Icon: Tags,
     title: "Fahrzeugbeschriftung",
     text: "Individuelle Werbe- und Designbeschriftungen für Firmen- und Privatautos. Hochwertige Folienlösungen nach Maß.",
+  },
+  {
+    id: "geruchsentfernung-ozon-spezial",
+    Icon: Wind,
+    title: "Geruchsentfernung & Ozonbehandlung",
+    text: "Professionelle Neutralisierung unangenehmer Gerüche wie Rauch, Tiergeruch oder Feuchtigkeit mittels Ozonbehandlung. Ideal für Gebrauchtwagen, Raucherfahrzeuge und zur allgemeinen Wohnhygiene im Innenraum.",
   },
 ];
 

@@ -782,11 +782,11 @@ export default function TonisLanding() {
           background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
         }
         .tonis-hero-video {
-          filter: contrast(1.05) saturate(1.09) brightness(1.1);
+          filter: contrast(1.05) saturate(1.08) brightness(1.18);
         }
         @media (prefers-reduced-motion: reduce) {
           .tonis-hero-video {
-            filter: brightness(1.08);
+            filter: contrast(1.03) brightness(1.12);
           }
         }
         .tonis-hero-cinema-mesh {
@@ -958,15 +958,15 @@ export default function TonisLanding() {
                 <source src={HERO_VIDEO_PRIMARY} type="video/mp4" />
               </video>
               <div
-                className="tonis-hero-cinema-mesh pointer-events-none absolute inset-0 z-[2] opacity-[0.38] mix-blend-overlay"
+                className="tonis-hero-cinema-mesh pointer-events-none absolute inset-0 z-[2] opacity-[0.26] mix-blend-overlay"
                 aria-hidden="true"
               />
               <div
-                className="pointer-events-none absolute inset-0 z-[3] bg-gradient-to-b from-black/18 via-transparent to-black/32"
+                className="pointer-events-none absolute inset-0 z-[3] bg-gradient-to-b from-black/12 via-transparent to-black/20"
                 aria-hidden="true"
               />
               <div
-                className="pointer-events-none absolute inset-0 z-[4] shadow-[inset_0_0_80px_rgba(0,0,0,0.38),inset_0_0_28px_rgba(0,0,0,0.22)]"
+                className="pointer-events-none absolute inset-0 z-[4] shadow-[inset_0_0_80px_rgba(0,0,0,0.22),inset_0_0_28px_rgba(0,0,0,0.12)]"
                 aria-hidden="true"
               />
             </div>
@@ -974,7 +974,7 @@ export default function TonisLanding() {
         </motion.div>
 
         <div
-          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-[#030306]/85 via-[#030306]/45 to-[#030306]"
+          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-[#030306]/58 via-[#030306]/26 to-[#030306]/72"
           aria-hidden="true"
         />
         <div
@@ -1036,7 +1036,7 @@ export default function TonisLanding() {
             </motion.h1>
             <motion.p
               variants={fadeUp}
-              className="mx-auto mt-6 max-w-xl text-pretty text-base leading-relaxed text-zinc-400 md:text-lg"
+              className="mx-auto mt-6 max-w-xl text-pretty text-base leading-relaxed text-zinc-300 [text-shadow:0_1px_14px_rgba(0,0,0,0.78)] md:text-lg"
             >
               Lackaufbereitung, Innenreinigung, Politur und Keramikversiegelung — mit professionellen Produkten und
               ruhiger Handarbeit.

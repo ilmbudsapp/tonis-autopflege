@@ -193,6 +193,20 @@ const PARTNER = [
   { name: "Logistik regional", hint: "Abholung nach Vereinbarung" },
 ] as const;
 
+/** Kooperationspartner — Textkarten bis Logos vorliegen (Unser Partner-Netzwerk). */
+const PARTNER_NETZWERK = [
+  "DB Avantgarde GmbH",
+  "vip-shuttle.com GmbH",
+  "Gebr. Welchner GmbH",
+  "SSK-Fahrzeugservice GbR (Mühlhäuser & Weil)",
+  "Waschkraft",
+  "Gross u. Geis GmbH",
+  "KRAFT Lackmanufaktur",
+  "Edis Smart Repair",
+  "Hyla Germany GmbH",
+  "MH Carcollection",
+] as const;
+
 const WORK_VIDEO_BASE = `${BASE}assets/videos/work/`;
 const WORK_VIDEOS = WORK_VIDEO_CLIPS.map((c, i) => ({
   src: `${WORK_VIDEO_BASE}${c.file}`,
@@ -354,6 +368,22 @@ export default function TonisLanding() {
               scale: 1,
               rotateX: 0,
               transition: { type: "spring", stiffness: 120, damping: 18 },
+            },
+          },
+    [reduceMotion],
+  );
+
+  /** Subtle scroll fade for partner name cards (Partner-Netzwerk). */
+  const partnerNetFade: Variants = useMemo(
+    () =>
+      reduceMotion
+        ? { hidden: { opacity: 1, y: 0 }, visible: { opacity: 1, y: 0 } }
+        : {
+            hidden: { opacity: 0, y: 14 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.5, ease: EASE_OUT_CUBIC },
             },
           },
     [reduceMotion],
@@ -909,6 +939,62 @@ export default function TonisLanding() {
                 </motion.article>
               );
             })}
+          </motion.div>
+        </div>
+      </section>
+
+      <section
+        id="partner-netzwerk"
+        className="scroll-mt-24 border-t border-white/[0.06] bg-[#04040a] py-20 md:py-28"
+        aria-labelledby="partner-netzwerk-heading"
+      >
+        <div className="mx-auto max-w-7xl px-4 md:px-8">
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.65, ease: EASE_OUT_CUBIC }}
+            className="mb-12 text-center md:mb-14"
+          >
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.35em] text-[#c9a227]/65">
+              Unser Partner-Netzwerk
+            </p>
+            <h2
+              id="partner-netzwerk-heading"
+              className="text-2xl font-bold leading-snug text-white md:text-3xl lg:text-4xl"
+              style={{ fontFamily: fontDisplay }}
+            >
+              Starke Partner für Ihr Fahrzeug
+            </h2>
+            <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-zinc-500 md:text-base">
+              Gemeinsam mit unseren Partnern bieten wir Ihnen einen Rundum-Service auf höchstem Niveau.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-5"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: reduceMotion ? 0 : 0.06, delayChildren: 0.04 } },
+            }}
+          >
+            {PARTNER_NETZWERK.map((name) => (
+              <motion.article
+                key={name}
+                variants={partnerNetFade}
+                className="flex min-h-[4.5rem] items-center justify-center rounded-xl border border-[#c9a227]/20 bg-black/25 px-2 py-3 text-center shadow-[inset_0_1px_0_rgba(201,162,39,0.04)] transition-[border-color,background-color,box-shadow] duration-300 hover:border-[#c9a227]/32 hover:bg-black/40 md:min-h-[5rem] md:px-3 md:py-4"
+              >
+                <p
+                  className="text-[11px] font-semibold leading-snug tracking-tight text-zinc-400 sm:text-xs md:text-[13px]"
+                  style={{ fontFamily: fontDisplay }}
+                >
+                  {name}
+                </p>
+              </motion.article>
+            ))}
           </motion.div>
         </div>
       </section>

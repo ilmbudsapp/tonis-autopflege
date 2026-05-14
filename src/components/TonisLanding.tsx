@@ -2112,7 +2112,7 @@ export default function TonisLanding() {
             </p>
           </motion.div>
 
-          <div className="mx-auto grid w-full max-w-sm grid-cols-2 justify-items-center gap-x-4 gap-y-5 sm:max-w-md md:max-w-5xl md:grid-cols-4 md:gap-x-6 md:gap-y-6">
+          <div className="mx-auto grid w-full max-w-sm grid-cols-2 justify-items-stretch gap-x-3 gap-y-4 sm:max-w-md sm:gap-x-4 sm:gap-y-5 md:max-w-5xl md:grid-cols-4 md:gap-x-5 md:gap-y-6">
             {GUTSCHEIN_BETRAEGE.map((g, i) => (
               <motion.a
                 key={g.label}
@@ -2126,7 +2126,7 @@ export default function TonisLanding() {
                 whileHover={reduceMotion ? {} : { scale: 1.04 }}
                 whileTap={{ scale: 0.98 }}
                 aria-label={`WhatsApp: Gutschein ${g.label}`}
-                className="group relative flex aspect-square w-full max-w-[148px] flex-col items-center justify-center rounded-3xl border border-white/12 bg-black/40 px-2 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.07),0_8px_32px_rgba(0,0,0,0.35)] backdrop-blur-xl transition-[border-color,box-shadow,background-color] duration-300 hover:border-[#c9a227]/50 hover:bg-black/50 hover:shadow-[0_0_42px_rgba(201,162,39,0.42),0_0_96px_rgba(201,162,39,0.12),inset_0_1px_0_rgba(255,255,255,0.1)] sm:max-w-[158px] md:max-w-[168px]"
+                className="group @container relative mx-auto flex aspect-square w-full max-w-[148px] min-w-0 flex-col items-center justify-center overflow-hidden rounded-3xl border border-white/12 bg-black/40 px-1.5 py-2.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.07),0_8px_32px_rgba(0,0,0,0.35)] backdrop-blur-xl transition-[border-color,box-shadow,background-color] duration-300 hover:border-[#c9a227]/50 hover:bg-black/50 hover:shadow-[0_0_42px_rgba(201,162,39,0.42),0_0_96px_rgba(201,162,39,0.12),inset_0_1px_0_rgba(255,255,255,0.1)] sm:max-w-[158px] sm:px-2 sm:py-3 md:max-w-[172px] md:px-2.5"
               >
                 <span
                   className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100"
@@ -2137,12 +2137,12 @@ export default function TonisLanding() {
                   aria-hidden
                 />
                 <span
-                  className="relative text-center font-extrabold tabular-nums tracking-tight text-[#f0d78c] max-md:text-[clamp(1.125rem,4.8vw,1.65rem)] sm:text-3xl md:text-[1.85rem]"
+                  className="relative w-full min-w-0 max-w-full px-0.5 text-center font-extrabold tabular-nums tracking-tight leading-none text-[#f0d78c] [font-size:clamp(0.68rem,min(11.5cqw,4.6vw),1.22rem)] sm:[font-size:clamp(0.72rem,min(10.5cqw,3.9vw),1.26rem)] md:[font-size:clamp(0.74rem,min(9.5cqw,3.1vw),1.22rem)]"
                   style={{ fontFamily: fontDisplay }}
                 >
                   {g.label}
                 </span>
-                <span className="relative mt-1.5 text-center text-[10px] font-semibold uppercase tracking-wider text-zinc-500 transition group-hover:text-[#c9a227]/90">
+                <span className="relative mt-1.5 shrink-0 text-center text-[10px] font-semibold uppercase tracking-wider text-zinc-500 transition group-hover:text-[#c9a227]/90">
                   WhatsApp
                 </span>
               </motion.a>

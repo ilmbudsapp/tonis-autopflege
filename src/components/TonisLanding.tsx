@@ -7,7 +7,16 @@ import {
   useTransform,
   type Variants,
 } from "framer-motion";
-import { Check, Droplets, Shield, Sparkles, type LucideIcon } from "lucide-react";
+import {
+  AirVent,
+  Armchair,
+  BrushCleaning,
+  Check,
+  Droplets,
+  Shield,
+  Sparkles,
+  type LucideIcon,
+} from "lucide-react";
 import { WHATSAPP_E164_DIGITS } from "@/lib/contact";
 import { GALLERY_WEBP_FILENAMES } from "@/generated/galleryWebp";
 import { WORK_VIDEO_CLIPS } from "@/generated/workVideos";
@@ -89,6 +98,72 @@ const LEISTUNGEN_CATEGORIES: readonly LeistungKategorie[] = [
       "Schutz vor aggressiven Umwelteinflüssen",
     ],
     highlight: true,
+  },
+];
+
+const WARUM_TONIS_ITEMS = [
+  "Professionelle Pflegeprodukte",
+  "Hochwertige Fahrzeugaufbereitung",
+  "Liebe zum Detail",
+  "Schonende Handarbeit",
+  "Faire Preise",
+  "Individuelle Beratung",
+  "Perfekter Glanz & Werterhalt",
+] as const;
+
+type InnenraumKategorie = {
+  id: string;
+  Icon: LucideIcon;
+  title: string;
+  description: string;
+};
+
+const INNENRAUM_CATEGORIES: readonly InnenraumKategorie[] = [
+  {
+    id: "tiefenreinigung",
+    Icon: BrushCleaning,
+    title: "Innenraum-Tiefenreinigung",
+    description:
+      "Staubsaugen, Teppich- & Polsterreinigung, Leder- & Kunststoffpflege, Kofferraum- & Scheibenreinigung.",
+  },
+  {
+    id: "polster-leder",
+    Icon: Armchair,
+    title: "Polster- & Lederpflege",
+    description:
+      "Schonende Reinigung für Stoff, Alcantara und Leder. Ideal bei Flecken, Gebrauchsspuren und Tierhaaren.",
+  },
+  {
+    id: "geruch-ozon",
+    Icon: AirVent,
+    title: "Geruchsentfernung & Ozonbehandlung",
+    description: "Professionelle Neutralisierung von Rauch, Tiergerüchen und Feuchtigkeit.",
+  },
+];
+
+type PremiumService = {
+  id: string;
+  title: string;
+  text: string;
+  vorteile?: string;
+};
+
+const PREMIUM_SERVICES: readonly PremiumService[] = [
+  {
+    id: "leasing",
+    title: "Leasingrückgabe-Aufbereitung",
+    text: "Optimale Vorbereitung für den Verkauf oder die Rückgabe.",
+    vorteile: "Werterhalt, höhere Verkaufschancen",
+  },
+  {
+    id: "motorraum",
+    title: "Motorraumreinigung",
+    text: "Schonende Reinigung für ein gepflegtes Gesamtbild.",
+  },
+  {
+    id: "verkauf",
+    title: "Fahrzeugaufbereitung für Verkauf",
+    text: "Perfekter erster Eindruck für maximalen Fahrzeugwert.",
   },
 ];
 
@@ -717,6 +792,167 @@ export default function TonisLanding() {
         </div>
       </section>
 
+      <section
+        id="warum-tonis"
+        className="scroll-mt-24 border-t border-white/[0.06] bg-[#030306] py-24 md:py-32"
+        aria-labelledby="warum-tonis-heading"
+      >
+        <div className="mx-auto max-w-7xl px-4 md:px-8">
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7, ease: EASE_OUT_CUBIC }}
+            className="mb-10 text-center md:mb-12"
+          >
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.4em] text-[#c9a227]/80">Vertrauen</p>
+            <h2
+              id="warum-tonis-heading"
+              className="text-3xl font-extrabold leading-tight text-white md:text-4xl lg:text-5xl"
+              style={{ fontFamily: fontDisplay }}
+            >
+              Warum Toni&apos;s Autopflege?
+            </h2>
+          </motion.div>
+
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.65, ease: EASE_OUT_CUBIC }}
+            className="rounded-3xl border-2 border-[#c9a227]/35 bg-[#050508]/90 p-5 shadow-[inset_0_1px_0_rgba(201,162,39,0.14),0_24px_80px_rgba(0,0,0,0.45)] md:p-8"
+          >
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-12 lg:gap-4">
+              {WARUM_TONIS_ITEMS.map((label, i) => (
+                <div
+                  key={label}
+                  className={`flex items-start gap-3 rounded-2xl border border-[#c9a227]/25 bg-black/40 p-4 transition duration-300 hover:border-[#d4af37]/55 hover:bg-[#0c0c10] md:p-5 ${
+                    i < 4 ? "lg:col-span-3" : "lg:col-span-4"
+                  }`}
+                >
+                  <Check
+                    className="mt-0.5 h-5 w-5 shrink-0 text-[#c9a227]"
+                    strokeWidth={2.75}
+                    aria-hidden
+                  />
+                  <p className="text-left text-sm font-semibold leading-snug text-zinc-100 md:text-base">{label}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section id="innenraum" className="scroll-mt-24 border-t border-white/[0.06] bg-[#020203] py-24 md:py-32">
+        <div className="mx-auto max-w-7xl px-4 md:px-8">
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7, ease: EASE_OUT_CUBIC }}
+            className="mb-14 text-center md:mb-16"
+          >
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.4em] text-[#c9a227]/80">Innenraum</p>
+            <h2
+              className="text-3xl font-extrabold leading-tight text-white md:text-4xl lg:text-5xl"
+              style={{ fontFamily: fontDisplay }}
+            >
+              Innenraumaufbereitung
+            </h2>
+          </motion.div>
+          <motion.div
+            className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-7"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-40px" }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: reduceMotion ? 0 : 0.12 } },
+            }}
+          >
+            {INNENRAUM_CATEGORIES.map((cat) => {
+              const Icon = cat.Icon;
+              return (
+                <motion.article
+                  key={cat.id}
+                  variants={cardPop}
+                  whileHover={reduceMotion ? {} : { y: -8 }}
+                  className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#c9a227]/40 bg-[#050508] p-6 shadow-[inset_0_1px_0_rgba(201,162,39,0.1)] transition-[background-color,border-color,box-shadow] duration-300 hover:border-[#d4af37]/70 hover:bg-[#0c0c10] hover:shadow-[0_24px_56px_rgba(0,0,0,0.55)] md:p-7"
+                >
+                  <div
+                    className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-[#c9a227]/10 opacity-80 blur-3xl transition-opacity duration-300 group-hover:opacity-100"
+                    aria-hidden="true"
+                  />
+                  <div className="relative mb-4 flex items-start gap-4">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#c9a227]/50 bg-[#c9a227]/12 text-[#f0d78c] shadow-[0_0_24px_rgba(201,162,39,0.15)]">
+                      <Icon className="h-6 w-6" strokeWidth={1.75} aria-hidden />
+                    </div>
+                    <h3
+                      className="min-w-0 pt-1 text-left text-lg font-bold leading-snug text-white md:text-xl"
+                      style={{ fontFamily: fontDisplay }}
+                    >
+                      {cat.title}
+                    </h3>
+                  </div>
+                  <p className="relative text-sm leading-relaxed text-zinc-400">{cat.description}</p>
+                </motion.article>
+              );
+            })}
+          </motion.div>
+        </div>
+      </section>
+
+      <section id="premium-services" className="scroll-mt-24 border-t border-white/[0.06] bg-[#030306] py-24 md:py-32">
+        <div className="mx-auto max-w-7xl px-4 md:px-8">
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7, ease: EASE_OUT_CUBIC }}
+            className="mb-12 text-center md:mb-14"
+          >
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.4em] text-[#c9a227]/80">Spezial</p>
+            <h2
+              className="text-3xl font-extrabold text-white md:text-4xl lg:text-5xl"
+              style={{ fontFamily: fontDisplay }}
+            >
+              Premium Services
+            </h2>
+          </motion.div>
+
+          <div className="flex flex-col gap-4 lg:flex-row lg:gap-5">
+            {PREMIUM_SERVICES.map((svc) => (
+              <motion.article
+                key={svc.id}
+                initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.55, ease: EASE_OUT_CUBIC }}
+                className="group flex min-h-0 flex-1 flex-col rounded-2xl border border-[#c9a227]/35 bg-[#050508] p-6 shadow-[inset_0_1px_0_rgba(201,162,39,0.1)] transition duration-300 hover:border-[#d4af37]/65 hover:bg-[#0c0c10] md:p-7"
+              >
+                <div
+                  className="pointer-events-none mb-4 h-px w-full bg-gradient-to-r from-transparent via-[#c9a227]/40 to-transparent opacity-70 transition-opacity group-hover:opacity-100"
+                  aria-hidden
+                />
+                <h3
+                  className="text-lg font-bold text-white md:text-xl"
+                  style={{ fontFamily: fontDisplay }}
+                >
+                  {svc.title}
+                </h3>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-zinc-400">{svc.text}</p>
+                {svc.vorteile ? (
+                  <p className="mt-4 border-t border-white/[0.06] pt-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#c9a227]/85">
+                    Vorteile:{" "}
+                    <span className="font-medium normal-case tracking-normal text-zinc-300">{svc.vorteile}</span>
+                  </p>
+                ) : null}
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="produkte" className="scroll-mt-24 border-t border-white/[0.06] bg-[#06060b] py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-4 md:px-8">
           <motion.div
@@ -920,6 +1156,37 @@ export default function TonisLanding() {
               viewport={{ once: true }}
               transition={{ duration: 0.9, ease: EASE_OUT_CUBIC }}
             />
+          </motion.div>
+        </div>
+      </section>
+
+      <section
+        id="termin-cta"
+        className="scroll-mt-24 border-t border-[#c9a227]/25 bg-gradient-to-b from-[#0a0a0f] via-[#050508] to-[#030306] py-20 md:py-28"
+        aria-label="Termin per WhatsApp"
+      >
+        <div className="mx-auto max-w-3xl px-4 text-center md:px-8">
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 22 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.65, ease: EASE_OUT_CUBIC }}
+            className="rounded-3xl border border-[#c9a227]/30 bg-black/35 px-6 py-10 shadow-[0_0_60px_rgba(201,162,39,0.08)] backdrop-blur-sm md:px-12 md:py-12"
+          >
+            <p className="text-pretty text-base font-medium leading-relaxed text-zinc-200 md:text-lg">
+              Ihr Fahrzeug verdient die beste Pflege. Ob Innenraumreinigung, Lackaufbereitung oder Keramikversiegelung —
+              wir bringen Ihr Fahrzeug wieder auf Hochglanz.
+            </p>
+            <motion.a
+              href={TONI_WA_HREF}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={reduceMotion ? {} : { scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#c9a227] via-[#f0d78c] to-[#c9a227] px-10 py-3.5 text-sm font-bold text-black shadow-[0_0_36px_rgba(201,162,39,0.35)] transition hover:shadow-[0_0_48px_rgba(201,162,39,0.5)]"
+            >
+              Jetzt Termin sichern
+            </motion.a>
           </motion.div>
         </div>
       </section>

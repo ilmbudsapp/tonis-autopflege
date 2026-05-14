@@ -15,6 +15,7 @@ import {
   Car,
   Check,
   Droplets,
+  FileCheck,
   Focus,
   Hammer,
   Mail,
@@ -26,7 +27,9 @@ import {
   Star,
   Sun,
   Tags,
+  TrendingUp,
   Wind,
+  Wrench,
   type LucideIcon,
 } from "lucide-react";
 import { WHATSAPP_E164_DIGITS } from "@/lib/contact";
@@ -196,12 +199,13 @@ const REPARATUR_SPEZIAL_SERVICES: readonly ReparaturSpezialItem[] = [
     id: "geruchsentfernung-ozon-spezial",
     Icon: Wind,
     title: "Geruchsentfernung & Ozonbehandlung",
-    text: "Professionelle Neutralisierung unangenehmer Gerüche wie Rauch, Tiergeruch oder Feuchtigkeit mittels Ozonbehandlung. Ideal für Gebrauchtwagen, Raucherfahrzeuge und zur allgemeinen Wohnhygiene im Innenraum.",
+    text: "Professionelle Neutralisierung unangenehmer Gerüche wie Rauch, Tiergeruch oder Feuchtigkeit mittels Ozonbehandlung. Ideal für Gebrauchtwagen und Raucherfahrzeuge.",
   },
 ];
 
 type PremiumService = {
   id: string;
+  Icon: LucideIcon;
   title: string;
   text: string;
   vorteile?: string;
@@ -210,17 +214,20 @@ type PremiumService = {
 const PREMIUM_SERVICES: readonly PremiumService[] = [
   {
     id: "leasing",
+    Icon: FileCheck,
     title: "Leasingrückgabe-Aufbereitung",
     text: "Optimale Vorbereitung für den Verkauf oder die Rückgabe.",
     vorteile: "Werterhalt, höhere Verkaufschancen",
   },
   {
     id: "motorraum",
+    Icon: Wrench,
     title: "Motorraumreinigung",
     text: "Schonende Reinigung für ein gepflegtes Gesamtbild.",
   },
   {
     id: "verkauf",
+    Icon: TrendingUp,
     title: "Fahrzeugaufbereitung für Verkauf",
     text: "Perfekter erster Eindruck für maximalen Fahrzeugwert.",
   },
@@ -647,15 +654,15 @@ export default function TonisLanding() {
       </a>
 
       <header className="fixed inset-x-0 top-0 z-50 border-b border-zinc-200/90 bg-zinc-100/95 shadow-[0_1px_0_rgba(255,255,255,0.8),0_8px_30px_rgba(0,0,0,0.06)] backdrop-blur-xl backdrop-saturate-150">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3.5 md:px-8">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-3 py-3 md:gap-3 md:px-8 md:py-3.5">
           <motion.div whileHover={reduceMotion ? {} : { scale: 1.02 }} whileTap={{ scale: 0.98 }}>
             <a
               href={BASE}
               onClick={onHomeLogoClick}
-              className="group block rounded-sm outline-none ring-offset-2 ring-offset-zinc-100 transition focus-visible:ring-2 focus-visible:ring-[#c9a227]/80"
+              className="group block rounded-sm pb-2.5 outline-none ring-offset-2 ring-offset-zinc-100 transition focus-visible:ring-2 focus-visible:ring-[#c9a227]/80 md:pb-1"
               title="Zur Startseite (Diese Seite)"
             >
-              <HeaderLogoImg className="h-[52px] w-auto object-contain object-left md:h-[60px] md:min-h-[60px]" />
+              <HeaderLogoImg className="h-[68px] w-auto object-contain object-left md:h-[60px] md:min-h-[60px]" />
               <span className="sr-only">Zur Startseite — Toni&apos;s Autopflege Demo</span>
             </a>
           </motion.div>
@@ -682,7 +689,7 @@ export default function TonisLanding() {
                 onClick={() => navigateToSection("kontakt")}
                 whileHover={reduceMotion ? {} : { scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
-                className="rounded-full bg-gradient-to-r from-[#c9a227] via-[#e8cf72] to-[#c9a227] px-4 py-2.5 text-[11px] font-bold uppercase tracking-wider text-black shadow-[0_0_28px_rgba(201,162,39,0.35)] sm:px-5 sm:text-xs"
+                className="rounded-full bg-gradient-to-r from-[#c9a227] via-[#e8cf72] to-[#c9a227] px-2.5 py-2 text-[10px] font-bold uppercase leading-tight tracking-wide text-black shadow-[0_0_28px_rgba(201,162,39,0.35)] sm:px-5 sm:py-2.5 sm:text-xs sm:tracking-wider"
               >
                 Anfrage
               </motion.button>
@@ -723,7 +730,7 @@ export default function TonisLanding() {
 
       {mobileNavOpen && (
         <div
-          className="fixed inset-x-0 bottom-0 top-[4.75rem] z-[55] flex flex-col lg:hidden"
+          className="fixed inset-x-0 bottom-0 top-24 z-[55] flex flex-col lg:hidden"
           role="dialog"
           aria-modal="true"
           aria-label="Menü"
@@ -738,7 +745,7 @@ export default function TonisLanding() {
             id="mobile-nav-panel"
             role="navigation"
             aria-label="Hauptmenü mobil"
-            className="relative z-10 mt-auto flex max-h-[min(82dvh,calc(100dvh-4.75rem))] w-full flex-col overflow-hidden rounded-t-2xl border border-b-0 border-zinc-200 bg-zinc-50 shadow-[0_-12px_48px_rgba(0,0,0,0.2)]"
+            className="relative z-10 mt-auto flex max-h-[min(82dvh,calc(100dvh-6rem))] w-full flex-col overflow-hidden rounded-t-2xl border border-b-0 border-zinc-200 bg-zinc-50 shadow-[0_-12px_48px_rgba(0,0,0,0.2)]"
           >
             <ul className="max-h-[min(70dvh,520px)] space-y-0.5 overflow-y-auto overscroll-contain px-3 py-4">
               {NAV_LINKS.map(([id, label]) => (
@@ -763,12 +770,12 @@ export default function TonisLanding() {
       <section
         id="hero"
         ref={heroRef}
-        className="relative flex min-h-[100dvh] flex-col items-center justify-center overflow-hidden bg-[#030306] pt-20"
+        className="relative flex min-h-[100dvh] flex-col items-center justify-center overflow-hidden bg-[#030306] pt-24 lg:pt-20"
       >
         <div className="pointer-events-none absolute inset-0 z-0 bg-[#030306]" aria-hidden="true" />
 
         <motion.div
-          className="pointer-events-none absolute left-0 right-0 top-[4.5rem] z-0 flex justify-center px-2 sm:px-4 md:top-[4.75rem] md:px-6 lg:px-10"
+          className="pointer-events-none absolute left-0 right-0 top-24 z-0 flex justify-center px-2 sm:px-4 md:px-6 lg:top-[4.75rem] lg:px-10"
           style={reduceMotion ? undefined : { y: videoY }}
         >
           <div className="relative w-full max-w-[min(100%,1680px)] overflow-hidden rounded-xl border border-white/[0.07] bg-black shadow-[0_28px_90px_rgba(0,0,0,0.65)] ring-1 ring-black/40 sm:rounded-2xl">
@@ -933,7 +940,7 @@ export default function TonisLanding() {
             </p>
           </motion.div>
           <motion.div
-            className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-7"
+            className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-7"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-40px" }}
@@ -959,7 +966,7 @@ export default function TonisLanding() {
                     className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-[#c9a227]/10 opacity-80 blur-3xl transition-opacity duration-300 group-hover:opacity-100"
                     aria-hidden="true"
                   />
-                  <div className="relative mb-5 flex items-start gap-4">
+                  <div className="relative mb-5 flex items-center gap-4">
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#c9a227]/50 bg-[#c9a227]/12 text-[#f0d78c] shadow-[0_0_24px_rgba(201,162,39,0.15)]">
                       <Icon className="h-6 w-6" strokeWidth={1.75} aria-hidden />
                     </div>
@@ -1018,7 +1025,7 @@ export default function TonisLanding() {
           </motion.div>
 
           <motion.div
-            className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-7 md:mt-12"
+            className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-7 md:mt-12"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-40px" }}
@@ -1040,12 +1047,12 @@ export default function TonisLanding() {
                     className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-[#c9a227]/10 opacity-80 blur-3xl transition-opacity duration-300 group-hover:opacity-100"
                     aria-hidden="true"
                   />
-                  <div className="relative mb-4 flex items-start gap-4">
+                  <div className="relative mb-4 flex items-center gap-4">
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#c9a227]/50 bg-[#c9a227]/12 text-[#f0d78c] shadow-[0_0_24px_rgba(201,162,39,0.15)]">
                       <Icon className="h-6 w-6" strokeWidth={1.75} aria-hidden />
                     </div>
                     <h4
-                      className="min-w-0 pt-1 text-left text-lg font-bold leading-snug text-white md:text-xl"
+                      className="min-w-0 text-left text-lg font-bold leading-snug text-white md:text-xl"
                       style={{ fontFamily: fontDisplay }}
                     >
                       {svc.title}
@@ -1284,7 +1291,7 @@ export default function TonisLanding() {
             </h2>
           </motion.div>
           <motion.div
-            className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-7"
+            className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-7"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-40px" }}
@@ -1306,12 +1313,12 @@ export default function TonisLanding() {
                     className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-[#c9a227]/10 opacity-80 blur-3xl transition-opacity duration-300 group-hover:opacity-100"
                     aria-hidden="true"
                   />
-                  <div className="relative mb-4 flex items-start gap-4">
+                  <div className="relative mb-4 flex items-center gap-4">
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#c9a227]/50 bg-[#c9a227]/12 text-[#f0d78c] shadow-[0_0_24px_rgba(201,162,39,0.15)]">
                       <Icon className="h-6 w-6" strokeWidth={1.75} aria-hidden />
                     </div>
                     <h3
-                      className="min-w-0 pt-1 text-left text-lg font-bold leading-snug text-white md:text-xl"
+                      className="min-w-0 text-left text-lg font-bold leading-snug text-white md:text-xl"
                       style={{ fontFamily: fontDisplay }}
                     >
                       {cat.title}
@@ -1343,27 +1350,34 @@ export default function TonisLanding() {
             </h2>
           </motion.div>
 
-          <div className="flex flex-col gap-4 lg:flex-row lg:gap-5">
-            {PREMIUM_SERVICES.map((svc) => (
+          <div className="flex flex-col gap-8 lg:flex-row lg:gap-5">
+            {PREMIUM_SERVICES.map((svc) => {
+              const Icon = svc.Icon;
+              return (
               <motion.article
                 key={svc.id}
                 initial={reduceMotion ? false : { opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.55, ease: EASE_OUT_CUBIC }}
-                className="group flex min-h-0 flex-1 flex-col rounded-2xl border border-[#c9a227]/35 bg-[#050508] p-6 shadow-[inset_0_1px_0_rgba(201,162,39,0.1)] transition duration-300 hover:border-[#d4af37]/65 hover:bg-[#0c0c10] md:p-7"
+                className="group relative flex min-h-0 flex-1 flex-col overflow-hidden rounded-2xl border border-[#c9a227]/35 bg-[#050508] p-6 shadow-[inset_0_1px_0_rgba(201,162,39,0.1)] transition duration-300 hover:border-[#d4af37]/65 hover:bg-[#0c0c10] md:p-7"
               >
                 <div
-                  className="pointer-events-none mb-4 h-px w-full bg-gradient-to-r from-transparent via-[#c9a227]/40 to-transparent opacity-70 transition-opacity group-hover:opacity-100"
-                  aria-hidden
+                  className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-[#c9a227]/10 opacity-80 blur-3xl transition-opacity duration-300 group-hover:opacity-100"
+                  aria-hidden="true"
                 />
-                <h3
-                  className="text-lg font-bold text-white md:text-xl"
-                  style={{ fontFamily: fontDisplay }}
-                >
-                  {svc.title}
-                </h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-zinc-400">{svc.text}</p>
+                <div className="relative mb-4 flex items-center gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#c9a227]/50 bg-[#c9a227]/12 text-[#f0d78c] shadow-[0_0_24px_rgba(201,162,39,0.15)]">
+                    <Icon className="h-6 w-6" strokeWidth={1.75} aria-hidden />
+                  </div>
+                  <h3
+                    className="min-w-0 text-left text-lg font-bold text-white md:text-xl"
+                    style={{ fontFamily: fontDisplay }}
+                  >
+                    {svc.title}
+                  </h3>
+                </div>
+                <p className="relative mt-0 flex-1 text-sm leading-relaxed text-zinc-400">{svc.text}</p>
                 {svc.vorteile ? (
                   <p className="mt-4 border-t border-white/[0.06] pt-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#c9a227]/85">
                     Vorteile:{" "}
@@ -1371,7 +1385,8 @@ export default function TonisLanding() {
                   </p>
                 ) : null}
               </motion.article>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

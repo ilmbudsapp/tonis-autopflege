@@ -342,8 +342,8 @@ const FIRMENFOOTER = {
   branche: "Autoaufbereitung",
   strasse: "Boschstraße 23/1",
   ort: "73119 Zell unter Aichelberg",
-  telefonLabel: "0176 22887384",
-  telefonHref: "tel:+4917622887384",
+  telefonLabel: "+49 174 8564830",
+  telefonHref: "tel:+491748564830",
   email: "info.tonisautopflege@gmx.de",
   facebook: { label: "Toni's Autopflege", href: "https://www.facebook.com/TonisAutopflege" },
   instagram: { label: "tonisautopflege1", href: "https://www.instagram.com/tonisautopflege1/" },
@@ -1287,7 +1287,7 @@ export default function TonisLanding() {
           >
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.4em] text-[#c9a227]/80">Innenraum</p>
             <h2
-              className="text-pretty px-1 font-extrabold leading-[1.22] tracking-tight text-white max-md:whitespace-nowrap max-md:text-[clamp(9px,2.45vw,0.8125rem)] md:whitespace-normal md:px-0 md:text-4xl md:leading-tight md:tracking-normal lg:text-5xl"
+              className="text-pretty px-1 font-extrabold leading-[1.22] tracking-tight text-white max-md:whitespace-nowrap max-md:text-[clamp(11px,3.35vw,1.125rem)] md:whitespace-normal md:px-0 md:text-4xl md:leading-tight md:tracking-normal lg:text-5xl"
               style={{ fontFamily: fontDisplay }}
             >
               Innenraum{"\u00ad"}aufbereitung

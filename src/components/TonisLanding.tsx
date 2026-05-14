@@ -837,9 +837,9 @@ export default function TonisLanding() {
                 <motion.article
                   key={brand.slug}
                   variants={cardPop}
-                  className="group flex flex-col rounded-2xl border border-[#c9a227]/30 bg-[#050508] p-4 shadow-[inset_0_1px_0_rgba(201,162,39,0.08)] transition-[border-color,box-shadow,background-color] duration-300 hover:border-[#d4af37]/65 hover:bg-[#0c0c10] hover:shadow-[0_20px_50px_rgba(0,0,0,0.5),0_0_24px_rgba(201,162,39,0.12)] sm:p-6 md:p-7"
+                  className="group flex flex-col rounded-2xl border border-[#c9a227]/30 bg-[#050508] p-4 shadow-[inset_0_1px_0_rgba(201,162,39,0.08)] transition-[border-color,box-shadow,background-color,transform] duration-300 max-md:border-[#c9a227]/45 max-md:shadow-[0_0_28px_rgba(201,162,39,0.08),inset_0_1px_0_rgba(201,162,39,0.1)] hover:border-[#d4af37]/65 hover:bg-[#0c0c10] hover:shadow-[0_20px_50px_rgba(0,0,0,0.5),0_0_24px_rgba(201,162,39,0.12)] active:scale-[0.99] sm:p-6 md:p-7"
                 >
-                  <div className="relative flex aspect-square w-full items-center justify-center rounded-2xl border-[3px] border-black bg-black px-3 py-5 shadow-[inset_0_0_0_1px_rgba(201,162,39,0.12)] transition duration-300 group-hover:border-[#c9a227]/40 group-hover:shadow-[inset_0_0_40px_rgba(201,162,39,0.06)] md:aspect-auto md:min-h-[148px] md:rounded-xl md:border-2 md:border-white/[0.1] md:bg-black/60 md:px-6 md:py-9">
+                  <div className="relative flex aspect-square w-full items-center justify-center rounded-2xl border-[3px] border-black bg-black px-3 py-5 shadow-[inset_0_0_0_1px_rgba(201,162,39,0.12)] transition duration-300 max-md:border-[#c9a227]/35 max-md:shadow-[inset_0_0_32px_rgba(201,162,39,0.1)] group-hover:border-[#c9a227]/40 group-hover:shadow-[inset_0_0_40px_rgba(201,162,39,0.06)] md:aspect-auto md:min-h-[148px] md:rounded-xl md:border-2 md:border-white/[0.1] md:bg-black/60 md:px-6 md:py-9">
                     {logoSrc ? (
                       <img
                         src={logoSrc}
@@ -848,7 +848,7 @@ export default function TonisLanding() {
                         height={400}
                         loading="lazy"
                         decoding="async"
-                        className="max-h-[85%] max-w-[90%] object-contain grayscale transition-[filter,transform,box-shadow] duration-300 group-hover:scale-[1.03] group-hover:grayscale-0 group-hover:drop-shadow-[0_0_20px_rgba(201,162,39,0.55)] md:max-h-28 md:max-w-[92%] lg:max-h-32"
+                        className="max-h-[85%] max-w-[90%] object-contain grayscale transition-[filter,transform,box-shadow] duration-300 max-md:scale-[1.02] max-md:grayscale-0 max-md:drop-shadow-[0_0_16px_rgba(201,162,39,0.4)] group-hover:scale-[1.03] group-hover:grayscale-0 group-hover:drop-shadow-[0_0_20px_rgba(201,162,39,0.55)] md:grayscale md:max-h-28 md:max-w-[92%] lg:max-h-32"
                       />
                     ) : (
                       <span
@@ -1057,7 +1057,7 @@ export default function TonisLanding() {
             {PRODUKTE.map((p) => (
               <div
                 key={p.name}
-                className="rounded-2xl border border-[#c9a227]/20 bg-black/50 px-6 py-6 shadow-[0_0_0_1px_rgba(0,0,0,0.5)] transition hover:border-[#c9a227]/45 hover:bg-[#08080c]"
+                className="rounded-2xl border border-[#c9a227]/20 bg-black/50 px-6 py-6 shadow-[0_0_0_1px_rgba(0,0,0,0.5)] transition-[transform,background-color,border-color,box-shadow] duration-300 max-md:border-[#c9a227]/38 max-md:bg-[#0a0a0e] max-md:shadow-[inset_0_1px_0_rgba(201,162,39,0.12),0_0_28px_rgba(201,162,39,0.06)] hover:border-[#c9a227]/45 hover:bg-[#08080c] hover:shadow-[0_0_32px_rgba(201,162,39,0.1)] active:scale-[0.99] active:border-[#c9a227]/55"
               >
                 <p className="text-lg font-bold tracking-tight text-[#f5e6b8]" style={{ fontFamily: fontDisplay }}>
                   {p.name}

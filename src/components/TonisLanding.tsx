@@ -295,27 +295,6 @@ const PRODUKTE = [
   { name: "Cartec", text: "Effiziente Vorreiniger und Spezialprodukte für gewerbliche Aufbereitung." },
 ] as const;
 
-const PARTNER = [
-  { name: "Autohaus-Partner", hint: "Fahrzeugübergabe & Beratung vor Ort" },
-  { name: "Scheiben & Folierung", hint: "Tönung & Steinschlagschutz" },
-  { name: "Werkstatt-Netzwerk", hint: "Mechanik & Vorbereitung" },
-  { name: "Logistik regional", hint: "Abholung nach Vereinbarung" },
-] as const;
-
-/** Kooperationspartner — Textkarten bis Logos vorliegen (Unser Partner-Netzwerk). */
-const PARTNER_NETZWERK = [
-  "DB Avantgarde GmbH",
-  "vip-shuttle.com GmbH",
-  "Gebr. Welchner GmbH",
-  "SSK-Fahrzeugservice GbR (Mühlhäuser & Weil)",
-  "Waschkraft",
-  "Gross u. Geis GmbH",
-  "KRAFT Lackmanufaktur",
-  "Edis Smart Repair",
-  "Hyla Germany GmbH",
-  "MH Carcollection",
-] as const;
-
 const WORK_VIDEO_BASE = `${BASE}assets/videos/work/`;
 const WORK_VIDEOS = WORK_VIDEO_CLIPS.map((c, i) => ({
   src: `${WORK_VIDEO_BASE}${c.file}`,
@@ -580,22 +559,6 @@ export default function TonisLanding() {
               scale: 1,
               rotateX: 0,
               transition: { type: "spring", stiffness: 120, damping: 18 },
-            },
-          },
-    [reduceMotion],
-  );
-
-  /** Subtle scroll fade for partner name cards (Partner-Netzwerk). */
-  const partnerNetFade: Variants = useMemo(
-    () =>
-      reduceMotion
-        ? { hidden: { opacity: 1, y: 0 }, visible: { opacity: 1, y: 0 } }
-        : {
-            hidden: { opacity: 0, y: 14 },
-            visible: {
-              opacity: 1,
-              y: 0,
-              transition: { duration: 0.5, ease: EASE_OUT_CUBIC },
             },
           },
     [reduceMotion],
@@ -1287,62 +1250,6 @@ export default function TonisLanding() {
                 </motion.article>
               );
             })}
-          </motion.div>
-        </div>
-      </section>
-
-      <section
-        id="partner-netzwerk"
-        className="scroll-mt-24 border-t border-white/[0.06] bg-[#04040a] py-20 md:py-28"
-        aria-labelledby="partner-netzwerk-heading"
-      >
-        <div className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8">
-          <motion.div
-            initial={reduceMotion ? false : { opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.65, ease: EASE_OUT_CUBIC }}
-            className="mb-12 text-center md:mb-14"
-          >
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.35em] text-[#c9a227]/65">
-              Unser Partner-Netzwerk
-            </p>
-            <h2
-              id="partner-netzwerk-heading"
-              className="text-balance break-words text-xl font-bold leading-snug tracking-tight text-white sm:text-2xl md:text-3xl md:tracking-normal lg:text-4xl"
-              style={{ fontFamily: fontDisplay }}
-            >
-              Starke Partner für Ihr Fahrzeug
-            </h2>
-            <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-zinc-500 md:text-base">
-              Gemeinsam mit unseren Partnern bieten wir Ihnen einen Rundum-Service auf höchstem Niveau.
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-5"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={{
-              hidden: {},
-              visible: { transition: { staggerChildren: reduceMotion ? 0 : 0.06, delayChildren: 0.04 } },
-            }}
-          >
-            {PARTNER_NETZWERK.map((name) => (
-              <motion.article
-                key={name}
-                variants={partnerNetFade}
-                className="flex min-h-[4.5rem] items-center justify-center rounded-xl border border-[#c9a227]/20 bg-black/25 px-2 py-3 text-center shadow-[inset_0_1px_0_rgba(201,162,39,0.04)] transition-[border-color,background-color,box-shadow] duration-300 hover:border-[#c9a227]/32 hover:bg-black/40 md:min-h-[5rem] md:px-3 md:py-4"
-              >
-                <p
-                  className="text-[11px] font-semibold leading-snug tracking-tight text-zinc-400 sm:text-xs md:text-[13px]"
-                  style={{ fontFamily: fontDisplay }}
-                >
-                  {name}
-                </p>
-              </motion.article>
-            ))}
           </motion.div>
         </div>
       </section>
@@ -2079,34 +1986,6 @@ export default function TonisLanding() {
               </motion.form>
             </div>
           </motion.div>
-        </div>
-      </section>
-
-      <section id="partner" className="scroll-mt-24 border-t border-white/[0.06] bg-[#06060b] py-16 md:py-20">
-        <div className="mx-auto max-w-6xl px-5 sm:px-6 md:px-8">
-          <div className="mb-10 text-center">
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.4em] text-[#c9a227]/80">Netzwerk</p>
-            <h2
-              className="text-balance break-words text-xl font-extrabold leading-tight tracking-tight text-white md:text-2xl md:tracking-normal lg:text-3xl"
-              style={{ fontFamily: fontDisplay }}
-            >
-              Partner
-            </h2>
-            <p className="mx-auto mt-3 max-w-xl text-sm text-zinc-500">
-              Verlässliche Zusammenarbeit rund ums Fahrzeug — Platzhalter bis finale Logos und Verlinkungen stehen.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-            {PARTNER.map((p) => (
-              <div
-                key={p.name}
-                className="flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-black/40 px-4 py-5 text-center transition hover:border-[#c9a227]/30"
-              >
-                <p className="text-sm font-bold text-white">{p.name}</p>
-                <p className="mt-2 text-[11px] leading-snug text-zinc-500">{p.hint}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 

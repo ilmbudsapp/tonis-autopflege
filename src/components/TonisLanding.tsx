@@ -2126,7 +2126,7 @@ export default function TonisLanding() {
                 whileHover={reduceMotion ? {} : { scale: 1.04 }}
                 whileTap={{ scale: 0.98 }}
                 aria-label={`WhatsApp: Gutschein ${g.label}`}
-                className="group @container relative mx-auto flex aspect-square w-full max-w-[152px] min-w-0 flex-col items-center justify-center overflow-hidden rounded-3xl border border-white/12 bg-black/40 px-1.5 py-2.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.07),0_8px_32px_rgba(0,0,0,0.35)] backdrop-blur-xl transition-[border-color,box-shadow,background-color] duration-300 hover:border-[#c9a227]/50 hover:bg-black/50 hover:shadow-[0_0_42px_rgba(201,162,39,0.42),0_0_96px_rgba(201,162,39,0.12),inset_0_1px_0_rgba(255,255,255,0.1)] sm:max-w-[164px] sm:px-2 sm:py-3 md:max-w-[182px] md:px-2.5"
+                className="group @container relative mx-auto flex aspect-square w-full max-w-[156px] min-w-0 flex-col items-center justify-center overflow-hidden rounded-3xl border border-white/12 bg-black/40 px-1.5 py-2.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.07),0_8px_32px_rgba(0,0,0,0.35)] backdrop-blur-xl transition-[border-color,box-shadow,background-color] duration-300 hover:border-[#c9a227]/50 hover:bg-black/50 hover:shadow-[0_0_42px_rgba(201,162,39,0.42),0_0_96px_rgba(201,162,39,0.12),inset_0_1px_0_rgba(255,255,255,0.1)] sm:max-w-[170px] sm:px-2 sm:py-3 md:max-w-[190px] md:px-2.5"
               >
                 <span
                   className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100"
@@ -2137,7 +2137,7 @@ export default function TonisLanding() {
                   aria-hidden
                 />
                 <span
-                  className="relative w-full min-w-0 max-w-full px-0.5 text-center font-extrabold tabular-nums tracking-tight leading-none text-[#f0d78c] [font-size:clamp(0.78rem,min(13.5cqw,5.2vw),1.36rem)] sm:[font-size:clamp(0.85rem,min(12.5cqw,4.6vw),1.48rem)] md:[font-size:clamp(0.88rem,min(11.2cqw,3.7vw),1.52rem)]"
+                  className="relative w-full min-w-0 max-w-full px-0.5 text-center font-extrabold tabular-nums tracking-tight leading-none text-[#f0d78c] [font-size:clamp(0.82rem,min(14.5cqw,5.4vw),1.44rem)] sm:[font-size:clamp(0.9rem,min(13.5cqw,4.85vw),1.56rem)] md:[font-size:clamp(0.93rem,min(12cqw,3.9vw),1.62rem)]"
                   style={{ fontFamily: fontDisplay }}
                 >
                   {g.label}

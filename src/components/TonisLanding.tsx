@@ -335,7 +335,7 @@ const FAQ_ITEMS = [
   {
     question: "Wie lange dauert eine Aufbereitung?",
     answer:
-      "Die Dauer hängt vom Zustand Ihres Fahrzeugs, der gewünschten Leistungen und der Fahrzeuggröße ab. Eine kompakte Außenaufbereitung kann wenige Stunden dauern, während eine umfassende Innen- und Außenreinigung inklusive Politur oder Keramikversiegelung mehrere Arbeitsschritte über einen Tag verteilt erfordern kann. Vorab klären wir den Umfang per WhatsApp oder vor Ort in Göppingen und geben Ihnen eine realistische Zeiteinschätzung.",
+      "Die Dauer hängt vom Zustand Ihres Fahrzeugs, der gewünschten Leistungen und der Fahrzeuggröße ab. Eine kompakte Außenaufbereitung kann wenige Stunden dauern, während eine umfassende Innen- und Außenreinigung inklusive Politur oder Keramikversiegelung mehrere Arbeitsschritte über einen Tag verteilt erfordern kann. Vorab klären wir den Umfang per WhatsApp oder vor Ort in Zell unter Aichelberg und geben Ihnen eine realistische Zeiteinschätzung.",
   },
   {
     question: "Was kostet eine Keramikversiegelung?",
@@ -350,7 +350,7 @@ const FAQ_ITEMS = [
   {
     question: "Bieten Sie einen mobilen Service in der Region an?",
     answer:
-      "Ja — nach Absprache kommen wir mit geeigneter Ausstattung zu Ihnen (z. B. Göppingen und Umgebung). Bitte nennen Sie Fahrzeugtyp, gewünschte Leistungen und den gewünschten Zeitraum per WhatsApp; wir prüfen Kapazität und logistische Machbarkeit und schlagen Ihnen einen Termin vor.",
+      "Ja — nach Absprache kommen wir mit geeigneter Ausstattung zu Ihnen (z. B. Zell unter Aichelberg, Göppingen und Umgebung). Bitte nennen Sie Fahrzeugtyp, gewünschte Leistungen und den gewünschten Zeitraum per WhatsApp; wir prüfen Kapazität und logistische Machbarkeit und schlagen Ihnen einen Termin vor.",
   },
 ] as const;
 
@@ -480,8 +480,8 @@ const FIRMENFOOTER = {
   firma: "Toni's Autopflege",
   inhaber: "Jeton Shala — Toni",
   branche: "Autoaufbereitung",
-  strasse: "Hammerweg 16",
-  ort: "73035 Göppingen",
+  strasse: "Boschstr. 23/1",
+  ort: "73119 Zell unter Aichelberg",
   telefonLabel: "+49 174 8564830",
   telefonHref: "tel:+491748564830",
   email: "info.tonisautopflege@gmx.de",
@@ -495,7 +495,7 @@ const KLEINUNTERNEHMER_STEUERNUMMER = "6339616878";
 
 /** Google Maps (Unternehmensprofil) — Suche nach Standort; Rezensionen dort einsehbar. */
 const GOOGLE_MAPS_BUSINESS_URL =
-  "https://www.google.com/maps/search/?api=1&query=Tonis+Autopflege+Hammerweg+16+73035+G%C3%B6ppingen";
+  "https://www.google.com/maps/search/?api=1&query=Tonis+Autopflege+Boschstr+23%2F1+73119+Zell+unter+Aichelberg";
 
 const KUNDEN_TESTIMONIALS = [
   {
@@ -1030,7 +1030,7 @@ export default function TonisLanding() {
               variants={fadeUp}
               className="mb-4 text-xs font-bold uppercase tracking-[0.45em] text-[#d4b84a] md:text-sm"
             >
-              Premium Autopflege · Göppingen
+              Premium Autopflege · Zell unter Aichelberg
             </motion.p>
             <motion.h1
               variants={fadeUp}
@@ -1351,7 +1351,7 @@ export default function TonisLanding() {
                 zu Hause, in Ihrer Firma oder an einem Ort Ihrer Wahl – wir sind für Sie mobiler denn je.
               </p>
               <p>
-                Neben der Region Göppingen und ganz Deutschland sind wir auch für exklusive Einsätze in den{" "}
+                Neben Zell unter Aichelberg, der Region um Göppingen und ganz Deutschland sind wir auch für exklusive Einsätze in den{" "}
                 <span className="whitespace-nowrap">Nachbarländern</span> für Sie da: Österreich, Schweiz, Italien,
                 Frankreich und Belgien.
               </p>
@@ -1890,7 +1890,7 @@ export default function TonisLanding() {
                 Kontrolle über Budget und Zeitplan, ohne Kompromisse bei der Qualität eingehen zu müssen.
               </p>
               <p className="text-pretty text-base leading-relaxed text-zinc-400 md:text-lg">
-                Als inhabergeführtes Unternehmen in Göppingen stehe ich persönlich für saubere Arbeitsabläufe,
+                Als inhabergeführtes Unternehmen in Zell unter Aichelberg stehe ich persönlich für saubere Arbeitsabläufe,
                 hochwertige Materialien und eine ehrliche Beratung: Wir zeigen, was sinnvoll ist — und was sich für
                 Ihr Fahrzeug wirklich lohnt.
               </p>
@@ -1908,7 +1908,7 @@ export default function TonisLanding() {
               className="mt-5 w-full space-y-4 text-pretty text-left text-base leading-relaxed text-zinc-400 md:text-lg"
             >
               <p>
-                Toni&apos;s Autopflege steht in Göppingen für handwerklich saubere Aufbereitung, klare Kommunikation
+                Toni&apos;s Autopflege steht in Zell unter Aichelberg für handwerklich saubere Aufbereitung, klare Kommunikation
                 und messbare Ergebnisse. Seit über einem Jahrzehnt begleite ich Kundinnen und Kunden bei der
                 Außenaufbereitung, der Lackpolitur, der Innenraumhygiene und bei Versiegelungen — immer mit dem Anspruch,
                 jedes Fahrzeug so zu behandeln, als wäre es mein eigenes. Dabei verbinden wir klassische Schritte wie
@@ -1924,7 +1924,7 @@ export default function TonisLanding() {
                 Ergänzend pflegen wir ein starkes Netzwerk — etwa zur{" "}
                 <strong className="font-semibold text-zinc-200">HYLA Germany GmbH</strong>, wenn es um Hygiene,
                 Filtration und eine saubere Arbeitsumgebung geht. So entsteht ein Gesamtbild, das auch für
-                KI-gestützte Recherche und lokale Suchanfragen klar erkennbar ist: Autopflege in Göppingen mit
+                KI-gestützte Recherche und lokale Suchanfragen klar erkennbar ist: Autopflege in Zell unter Aichelberg mit
                 Profi-Standards, Partnern und nachvollziehbaren Arbeitsschritten.
               </p>
               <p>
@@ -2295,15 +2295,15 @@ export default function TonisLanding() {
                   <h3 className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-[#c9a227]/90">Standort</h3>
                   <div className="aspect-[4/3] w-full max-h-[320px] overflow-hidden rounded-2xl border border-white/[0.1] bg-zinc-900/50 shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
                     <iframe
-                      title="Karte — Toni's Autopflege, Göppingen"
+                      title="Karte — Toni's Autopflege, Zell unter Aichelberg"
                       className="h-full min-h-[240px] w-full"
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
-                      src="https://www.google.com/maps?q=Hammerweg+16%2C+73035+G%C3%B6ppingen&z=15&hl=de&output=embed"
+                      src="https://www.google.com/maps?q=Boschstr.+23%2F1%2C+73119+Zell+unter+Aichelberg&z=15&hl=de&output=embed"
                     />
                   </div>
                   <p className="mt-3 text-xs text-zinc-500">
-                    Hammerweg 16, 73035 Göppingen — Standort der Autopflege.
+                    Boschstr. 23/1, 73119 Zell unter Aichelberg — Standort der Autopflege.
                   </p>
                 </div>
 
@@ -2446,7 +2446,7 @@ export default function TonisLanding() {
             <p>
               Unsere Leidenschaft ist Ihr Glanz. Wir setzen auf Premium-Produkte von Koch-Chemie und Sonax.
             </p>
-            <footer className="mt-2 text-xs not-italic text-zinc-500">— Toni, Toni&apos;s Autopflege Göppingen</footer>
+            <footer className="mt-2 text-xs not-italic text-zinc-500">— Toni, Toni&apos;s Autopflege Zell unter Aichelberg</footer>
           </blockquote>
 
           <motion.article

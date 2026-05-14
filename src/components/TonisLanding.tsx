@@ -928,10 +928,13 @@ export default function TonisLanding() {
           >
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.4em] text-[#c9a227]/80">Premium</p>
             <h2
-              className="mx-auto max-w-4xl text-balance break-words text-2xl font-extrabold leading-[1.15] tracking-tight text-white md:text-4xl md:leading-tight md:tracking-normal lg:text-5xl"
+              className="mx-auto max-w-4xl text-pretty px-1 text-[13px] font-extrabold leading-[1.22] tracking-tight text-white min-[361px]:text-base sm:text-lg md:px-0 md:text-4xl md:leading-tight md:tracking-normal lg:text-5xl"
               style={{ fontFamily: fontDisplay }}
             >
-              Unsere Leistungen – Premium Fahrzeugaufbereitung in Göppingen
+              Unsere Leistungen – Premium{" "}
+              <span className="whitespace-nowrap">Fahrzeugaufbereitung</span>
+              {" "}
+              in Göppingen
             </h2>
             <p className="mx-auto mt-5 max-w-3xl text-sm leading-relaxed text-zinc-400 md:text-base">
               Bei Toni&apos;s Autopflege erhalten Sie professionelle Fahrzeugpflege auf höchstem Niveau – für maximalen
@@ -1284,10 +1287,10 @@ export default function TonisLanding() {
           >
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.4em] text-[#c9a227]/80">Innenraum</p>
             <h2
-              className="text-balance break-words text-2xl font-extrabold leading-[1.15] tracking-tight text-white md:text-4xl md:leading-tight md:tracking-normal lg:text-5xl"
+              className="text-pretty px-1 font-extrabold leading-[1.22] tracking-tight text-white max-md:whitespace-nowrap max-md:text-[clamp(9px,2.45vw,0.8125rem)] md:whitespace-normal md:px-0 md:text-4xl md:leading-tight md:tracking-normal lg:text-5xl"
               style={{ fontFamily: fontDisplay }}
             >
-              Innenraumaufbereitung
+              Innenraum{"\u00ad"}aufbereitung
             </h2>
           </motion.div>
           <motion.div

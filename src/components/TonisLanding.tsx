@@ -325,12 +325,22 @@ const NAV_LINKS = [
   ["kontakt", "Kontakt"],
 ] as const;
 
+/** Matches `lg:hidden` mobile menu — scroll fixes below apply only here. */
+function isMobileNavViewport(): boolean {
+  return typeof window !== "undefined" && window.matchMedia("(max-width: 1023px)").matches;
+}
+
 function scrollToId(id: string) {
-  const el = document.getElementById(id);
+  const mobile = isMobileNavViewport();
+  let el: HTMLElement | null = null;
+  if (id === "ueber-uns" && mobile) {
+    el = document.getElementById("ueber-mich-heading");
+  }
+  if (!el) el = document.getElementById(id);
   if (!el) return;
   const headerEl = document.getElementById("site-header");
   const headerH = headerEl?.getBoundingClientRect().height ?? 96;
-  const pad = 12;
+  const pad = mobile ? 18 : 12;
   const y = el.getBoundingClientRect().top + window.scrollY - headerH - pad;
   const reduce =
     typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -593,9 +603,14 @@ export default function TonisLanding() {
 
   const navigateToSection = (id: string) => {
     setMobileNavOpen(false);
+    const delay = isMobileNavViewport() ? 340 : 120;
     window.setTimeout(() => {
-      scrollToId(id);
-    }, 120);
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          scrollToId(id);
+        });
+      });
+    }, delay);
   };
 
   const closeLegalModal = useCallback(() => setLegalModal(null), []);

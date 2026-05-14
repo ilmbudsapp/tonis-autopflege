@@ -17,6 +17,7 @@ import {
   Droplets,
   FileCheck,
   Focus,
+  Gift,
   Hammer,
   Mail,
   MapPin,
@@ -52,6 +53,33 @@ const TONI_WA_DIGITS_RAW = digitsOnly(String(import.meta.env.VITE_TONI_WHATSAPP_
 const TONI_WA_DIGITS = TONI_WA_DIGITS_RAW.length >= 10 ? TONI_WA_DIGITS_RAW : WHATSAPP_E164_DIGITS;
 const TONI_WA_HREF = `https://wa.me/${TONI_WA_DIGITS}`;
 const HERO_VIDEO_PRIMARY = asset("videos", "Tony Video Klip kompresovan.mp4");
+
+function toniWaHrefWithPrefill(message: string): string {
+  return `https://wa.me/${TONI_WA_DIGITS}?text=${encodeURIComponent(message)}`;
+}
+
+const GUTSCHEIN_BETRAEGE = [
+  {
+    label: "5,00€",
+    text: "Hallo Toni, ich habe Interesse an einem Gutschein im Wert von 5,00€.",
+  },
+  {
+    label: "10,00€",
+    text: "Hallo Toni, ich habe Interesse an einem Gutschein im Wert von 10,00€.",
+  },
+  {
+    label: "15,00€",
+    text: "Hallo Toni, ich habe Interesse an einem Gutschein im Wert von 15,00€.",
+  },
+  {
+    label: "20,00€",
+    text: "Hallo Toni, ich habe Interesse an einem Gutschein im Wert von 20,00€.",
+  },
+  {
+    label: "30,00€",
+    text: "Hallo Toni, ich habe Interesse an einem Gutschein im Wert von 30,00€.",
+  },
+] as const;
 const HERO_POSTER = `${BASE}assets/images/hero-poster.webp`;
 
 const AGR_SITE_URL = import.meta.env.VITE_AGR_SITE_URL ?? "https://agrmultimedia.eu";
@@ -1797,6 +1825,83 @@ export default function TonisLanding() {
               Alle 55 Rezensionen auf Google lesen
             </motion.a>
           </motion.div>
+        </div>
+      </section>
+
+      <section
+        id="gutschein-service"
+        lang="de"
+        className="relative scroll-mt-24 overflow-hidden border-t border-[#c9a227]/20 bg-gradient-to-b from-[#06060c] via-[#04040a] to-[#030306] py-24 md:py-32"
+        aria-labelledby="gutschein-heading"
+      >
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#c9a227]/25 to-transparent"
+          aria-hidden
+        />
+        <div className="relative mx-auto max-w-6xl px-5 sm:px-6 md:px-8">
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.65, ease: EASE_OUT_CUBIC }}
+            className="mb-12 text-center md:mb-14"
+          >
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-[#c9a227]/85 sm:tracking-[0.38em]">
+              Gutschein-Service
+            </p>
+            <div className="mx-auto mb-5 flex flex-col items-center justify-center gap-4 md:flex-row md:gap-5">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#c9a227]/45 bg-[#c9a227]/10 text-[#f0d78c] shadow-[0_0_28px_rgba(201,162,39,0.2)]">
+                <Gift className="h-6 w-6" strokeWidth={1.75} aria-hidden />
+              </div>
+              <h2
+                id="gutschein-heading"
+                className="max-w-4xl text-pretty font-extrabold leading-[1.15] tracking-tight text-white max-md:px-0.5 max-md:text-[clamp(13px,3.5vw,1.25rem)] md:text-4xl md:leading-tight lg:text-5xl"
+                style={{ fontFamily: fontDisplay }}
+              >
+                Verschenken Sie Glanz: Unsere Gutscheine
+              </h2>
+            </div>
+            <p className="mx-auto max-w-2xl text-pretty text-sm leading-relaxed text-zinc-400 md:text-base">
+              Das perfekte Geschenk für Autoliebhaber. Wählen Sie einen Wert und kontaktieren Sie uns direkt.
+            </p>
+          </motion.div>
+
+          <div className="mx-auto grid max-w-md grid-cols-2 justify-items-center gap-x-4 gap-y-5 sm:max-w-2xl sm:grid-cols-3 sm:gap-x-5 sm:gap-y-6 md:max-w-none md:grid-cols-5 md:gap-6 [&>a:last-of-type]:col-span-2 [&>a:last-of-type]:justify-self-center sm:[&>a:last-of-type]:col-span-1 sm:[&>a:last-of-type]:justify-self-auto">
+            {GUTSCHEIN_BETRAEGE.map((g, i) => (
+              <motion.a
+                key={g.label}
+                href={toniWaHrefWithPrefill(g.text)}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-20px" }}
+                transition={{ duration: 0.45, ease: EASE_OUT_CUBIC, delay: reduceMotion ? 0 : i * 0.06 }}
+                whileHover={reduceMotion ? {} : { scale: 1.04 }}
+                whileTap={{ scale: 0.98 }}
+                aria-label={`WhatsApp: Gutschein ${g.label}`}
+                className="group relative flex aspect-square w-full max-w-[148px] flex-col items-center justify-center rounded-3xl border border-white/12 bg-black/40 px-2 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.07),0_8px_32px_rgba(0,0,0,0.35)] backdrop-blur-xl transition-[border-color,box-shadow,background-color] duration-300 hover:border-[#c9a227]/50 hover:bg-black/50 hover:shadow-[0_0_42px_rgba(201,162,39,0.42),0_0_96px_rgba(201,162,39,0.12),inset_0_1px_0_rgba(255,255,255,0.1)] sm:max-w-[158px] md:max-w-[168px]"
+              >
+                <span
+                  className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100"
+                  style={{
+                    background:
+                      "radial-gradient(closest-side, rgba(201,162,39,0.35), transparent 70%)",
+                  }}
+                  aria-hidden
+                />
+                <span
+                  className="relative text-center font-extrabold tabular-nums tracking-tight text-[#f0d78c] max-md:text-[clamp(1.125rem,4.8vw,1.65rem)] sm:text-3xl md:text-[1.85rem]"
+                  style={{ fontFamily: fontDisplay }}
+                >
+                  {g.label}
+                </span>
+                <span className="relative mt-1.5 text-center text-[10px] font-semibold uppercase tracking-wider text-zinc-500 transition group-hover:text-[#c9a227]/90">
+                  WhatsApp
+                </span>
+              </motion.a>
+            ))}
+          </div>
         </div>
       </section>
 

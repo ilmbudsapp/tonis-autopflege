@@ -33,6 +33,7 @@ import {
   MessageCircle,
   Music2,
   Phone,
+  Quote,
   Shield,
   Sparkles,
   Star,
@@ -320,7 +321,7 @@ const NAV_LINKS = [
   ["gutschein-service", "Gutscheine"],
   ["produkte", "Produkte"],
   ["impressionen", "Impressionen"],
-  ["ueber-uns", "Über uns"],
+  ["ueber-uns", "Über mich"],
   ["kontakt", "Kontakt"],
 ] as const;
 
@@ -1680,34 +1681,55 @@ export default function TonisLanding() {
         </div>
       </section>
 
-      <section id="ueber-uns" className="scroll-mt-24 border-t border-white/[0.06] bg-[#06060b] py-24 md:py-32">
-        <div className="mx-auto max-w-3xl px-5 sm:px-6 text-center md:px-8">
+      <section
+        id="ueber-uns"
+        className="scroll-mt-24 border-t border-white/[0.06] bg-[#06060b] py-24 md:py-32"
+        aria-labelledby="ueber-mich-heading"
+      >
+        <div className="mx-auto max-w-2xl pl-[max(1.25rem,env(safe-area-inset-left))] pr-[max(1.25rem,env(safe-area-inset-right))] text-center sm:px-6 md:px-8">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.75, ease: EASE_OUT_CUBIC }}
+            className="flex flex-col items-center"
           >
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.4em] text-[#c9a227]/80">Philosophie</p>
+            <div className="mb-5 flex justify-center" aria-hidden>
+              <LucideInGold Icon={Quote} />
+            </div>
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.4em] text-[#c9a227]/80">Persönlich</p>
             <h2
+              id="ueber-mich-heading"
               className="mb-8 text-balance break-words text-2xl font-extrabold leading-[1.15] tracking-tight text-white md:text-4xl md:leading-tight md:tracking-normal lg:text-5xl"
               style={{ fontFamily: fontDisplay }}
             >
-              Über uns
+              Über mich
             </h2>
-            <p className="text-pretty text-lg leading-relaxed text-zinc-300 md:text-xl">
-              <strong className="font-semibold text-white">Toni&apos;s Autopflege</strong> lebt von Ruhe, Konzentration
-              und Respekt vor dem Material: Jede Kante, jede Naht und jeder Lackfilm wird so behandelt, als bliebe das
-              Fahrzeug für Jahre in Ihrer Hand.
-            </p>
-            <p className="mt-6 text-pretty text-base leading-relaxed text-zinc-400 md:text-lg">
-              Wir kombinieren klassisches Handwerk mit modernen Produktsystemen — ohne Schnickschnack, ohne
-              Druckverkauf. Wenn wir polieren, versiegeln oder den Innenraum hygienisch aufbereiten, geht es um messbare
-              Ergebnisse und ein Erlebnis, das man sieht und spürt.
-            </p>
-            <p className="mt-6 text-pretty text-base leading-relaxed text-zinc-400 md:text-lg">
-              Ihr Zeitbudget und Ihre Erwartungen sind die Leitplanken: Wir erklären transparent, was sinnvoll ist, was
-              wir empfehlen — und was wir bewusst nicht versprechen.
+            <div className="w-full space-y-5 text-left sm:space-y-6">
+              <p className="text-pretty text-base leading-relaxed text-zinc-300 md:text-lg">
+                Mein Name ist Jeton Shala und ich arbeite seit über{" "}
+                <strong className="font-semibold text-[#e8cf7a]">10 Jahren</strong> mit{" "}
+                <strong className="font-semibold text-[#e8cf7a]">Leidenschaft</strong> in der Autoaufbereitung. Für
+                mich sind Autos nicht nur Fahrzeuge – sie sind eine{" "}
+                <strong className="font-semibold text-[#e8cf7a]">Leidenschaft</strong>, die Pflege, Qualität und{" "}
+                <strong className="font-semibold text-[#e8cf7a]">Wertschätzung</strong> verdient.
+              </p>
+              <p className="text-pretty text-base leading-relaxed text-zinc-400 md:text-lg">
+                Mit viel Erfahrung, Präzision und Liebe zum Detail sorge ich dafür, dass jedes Fahrzeug wieder in neuem
+                Glanz erstrahlt. Ob Innenreinigung, Lackpflege oder professionelle Aufbereitung – ich lege großen Wert
+                auf saubere Arbeit und zufriedene Kunden.
+              </p>
+              <p className="text-pretty text-base leading-relaxed text-zinc-400 md:text-lg">
+                Die <strong className="font-semibold text-[#e8cf7a]">Wertschätzung</strong> für jedes Auto steht bei
+                mir an erster Stelle. Jedes Fahrzeug wird behandelt, als wäre es mein eigenes. Mein Ziel ist es,
+                Qualität, Vertrauen und perfekte Ergebnisse zu bieten.
+              </p>
+              <p className="text-pretty text-base leading-relaxed text-zinc-400 md:text-lg">
+                Ich freue mich darauf, auch Ihr Fahrzeug professionell aufzubereiten.
+              </p>
+            </div>
+            <p className="mt-8 text-pretty text-sm text-zinc-500 md:text-base">
+              Jeton Shala – Inhaber von Toni&apos;s Autopflege
             </p>
             <motion.div
               className="mx-auto mt-10 h-px max-w-xs bg-gradient-to-r from-transparent via-[#c9a227]/50 to-transparent"

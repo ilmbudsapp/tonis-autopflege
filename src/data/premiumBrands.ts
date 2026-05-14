@@ -1,9 +1,7 @@
 /**
- * Premium brand cards — order is the on-page display order.
- * `logoWebp` is the exact basename under public/assets/images/brands/ (manual visual match).
- * If a logo drifts after re-import, only edit `logoWebp` here (do not rely on filename = slug).
- */
-export const PREMIUM_BRAND_SLUGS = [
+ * Display order + manual `logoWebp` (basename in public/assets/images/brands/). Legacy filenames may
+ * differ from the brand drawn in the image — always verify after replacing source files.
+ */export const PREMIUM_BRAND_SLUGS = [
   "swissvax",
   "rupes",
   "servfaces",
@@ -42,19 +40,19 @@ export const PREMIUM_BRANDS: readonly {
   {
     slug: "koch-chemie",
     brandName: "Koch-Chemie",
-    logoWebp: "servfaces.webp",
+    logoWebp: "3m.webp",
     text: "Herausragende Reinigungschemie und Polituren – Made in Germany. Die erste Wahl für Profis.",
   },
   {
     slug: "3m",
     brandName: "3M",
-    logoWebp: "colourlock.webp",
+    logoWebp: "servfaces.webp",
     text: "Weltweit führend in der Schleifmittel- und Poliertechnologie für makellose Ergebnisse.",
   },
   {
     slug: "colourlock",
     brandName: "Colourlock",
-    logoWebp: "3m.webp",
+    logoWebp: "colourlock.webp",
     text: "Der Spezialist für Lederpflege und -reparatur. Sorgt für langlebige und geschmeidige Lederausstattungen.",
   },
 ];

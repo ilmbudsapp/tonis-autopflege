@@ -1,8 +1,14 @@
 @import "tailwindcss";
 
-/* Fixed header + iOS: scrollIntoView / in-page links land below the bar (see scrollToId). */
+/* Mobile: match in-page nav offset (see MOBILE_NAV_SCROLL_OFFSET_PX + section scroll-margin). */
 html {
-  scroll-padding-top: max(5.75rem, calc(4.25rem + env(safe-area-inset-top, 0px)));
+  scroll-padding-top: 100px;
+}
+
+@media (min-width: 768px) {
+  html {
+    scroll-padding-top: max(5.75rem, calc(4.25rem + env(safe-area-inset-top, 0px)));
+  }
 }
 
 @media (min-width: 1024px) {
@@ -11,9 +17,24 @@ html {
   }
 }
 
+body,
+#root,
+.tonis-site-shell {
+  -webkit-overflow-scrolling: touch;
+}
+
 /* iOS Safari: avoid automatic text zoom reflow during scroll. */
 @supports (-webkit-touch-callout: none) {
   html {
     -webkit-text-size-adjust: 100%;
+  }
+}
+
+/* No horizontal scroll-snap on small screens (gallery / columns — avoids iOS “jumping” while scrolling vertically). */
+@media (max-width: 767px) {
+  .tonis-impressionen-panel,
+  .tonis-impressionen-panel * {
+    scroll-snap-type: none !important;
+    scroll-snap-align: unset !important;
   }
 }

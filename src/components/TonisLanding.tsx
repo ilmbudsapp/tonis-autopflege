@@ -325,6 +325,9 @@ const NAV_LINKS = [
   ["kontakt", "Kontakt"],
 ] as const;
 
+/** Mobile / iOS in-page nav: fixed offset below viewport top (header zone), per layout spec. */
+const MOBILE_NAV_SCROLL_OFFSET_PX = 80;
+
 /** Matches `lg:hidden` mobile menu. */
 function isMobileNavViewport(): boolean {
   return typeof window !== "undefined" && window.matchMedia("(max-width: 1023px)").matches;
@@ -345,28 +348,12 @@ function resolveNavScrollTarget(navId: string): HTMLElement | null {
   return document.getElementById(navId);
 }
 
-/** Align element top edge to just below fixed header. */
-function alignElementBelowHeader(el: HTMLElement, gapPx: number) {
-  const headerEl = document.getElementById("site-header");
-  const headerH = headerEl?.getBoundingClientRect().height ?? 96;
+/** Align element top to `MOBILE_NAV_SCROLL_OFFSET_PX` from viewport top (instant). */
+function alignElementToNavOffset(el: HTMLElement) {
   const top = el.getBoundingClientRect().top;
-  const correction = headerH + gapPx - top;
+  const correction = MOBILE_NAV_SCROLL_OFFSET_PX - top;
   if (Math.abs(correction) < 2) return;
   window.scrollBy({ top: correction, left: 0, behavior: "auto" });
-}
-
-/** iOS / mobile: Safari handles scrollIntoView + html scroll-padding more reliably than scrollTo + smooth. */
-function settleScrollBelowHeader(el: HTMLElement, gap: number, passes: readonly number[]) {
-  const run = () => alignElementBelowHeader(el, gap);
-  el.scrollIntoView({ block: "start", inline: "nearest", behavior: "auto" });
-  run();
-  requestAnimationFrame(() => {
-    run();
-    requestAnimationFrame(run);
-  });
-  for (const ms of passes) {
-    window.setTimeout(run, ms);
-  }
 }
 
 function scrollToId(id: string) {
@@ -377,18 +364,26 @@ function scrollToId(id: string) {
   const ios = isIosBrowser();
   const reduce =
     typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const gap = mobile ? 14 : 12;
-  const useInstantMobilePath = mobile || ios;
 
-  if (useInstantMobilePath) {
-    const passes = ios ? ([80, 160, 280, 420, 600] as const) : ([60, 140, 260] as const);
-    settleScrollBelowHeader(el, gap, passes);
+  if (mobile || ios) {
+    const top = el.getBoundingClientRect().top;
+    const y = top + window.scrollY - MOBILE_NAV_SCROLL_OFFSET_PX;
+    window.scrollTo({ left: 0, top: Math.max(0, y), behavior: "auto" });
+    const refine = () => alignElementToNavOffset(el);
+    requestAnimationFrame(() => {
+      refine();
+      requestAnimationFrame(refine);
+    });
+    const delays = ios ? ([40, 100, 220, 380] as const) : ([30, 90, 180] as const);
+    for (const ms of delays) {
+      window.setTimeout(refine, ms);
+    }
     return;
   }
 
   const headerEl = document.getElementById("site-header");
   const headerH = headerEl?.getBoundingClientRect().height ?? 96;
-  const y = el.getBoundingClientRect().top + window.scrollY - headerH - gap;
+  const y = el.getBoundingClientRect().top + window.scrollY - headerH - 12;
   window.scrollTo({ top: Math.max(0, y), behavior: reduce ? "auto" : "smooth" });
 }
 
@@ -592,13 +587,12 @@ export default function TonisLanding() {
   /** Touch / coarse UI: which premium brand card mirrors desktop :hover (glow + logo colour). */
   const [premiumCardTap, setPremiumCardTap] = useState<string | null>(null);
   const premiumBrandsGridRef = useRef<HTMLDivElement | null>(null);
-  const mobileNavScrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const mobileNavScrollTimeoutRef = useRef<number | null>(null);
 
   const onHomeLogoClick = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     setMobileNavOpen(false);
     window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
-    scrollToId("hero");
   };
 
   const { scrollYProgress } = useScroll({
@@ -657,23 +651,18 @@ export default function TonisLanding() {
   }, [premiumCardTap]);
 
   const navigateToSection = (id: string) => {
-    setMobileNavOpen(false);
     if (mobileNavScrollTimeoutRef.current !== null) {
       clearTimeout(mobileNavScrollTimeoutRef.current);
       mobileNavScrollTimeoutRef.current = null;
     }
-    const mobile = isMobileNavViewport();
-    const delay = isIosBrowser() ? 620 : mobile ? 480 : 120;
-    mobileNavScrollTimeoutRef.current = setTimeout(() => {
-      mobileNavScrollTimeoutRef.current = null;
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            scrollToId(id);
-          });
-        });
-      });
-    }, delay);
+    document.body.style.overflow = "";
+    requestAnimationFrame(() => {
+      scrollToId(id);
+      mobileNavScrollTimeoutRef.current = window.setTimeout(() => {
+        setMobileNavOpen(false);
+        mobileNavScrollTimeoutRef.current = null;
+      }, 10);
+    });
   };
 
   const closeLegalModal = useCallback(() => setLegalModal(null), []);
@@ -755,7 +744,7 @@ export default function TonisLanding() {
 
   return (
     <div
-      className="relative min-h-[100dvh] overflow-x-hidden bg-[#030306] text-[#ece8e2] antialiased selection:bg-[#c9a227]/35 selection:text-white"
+      className="tonis-site-shell relative min-h-[100dvh] overflow-x-hidden bg-[#030306] text-[#ece8e2] antialiased selection:bg-[#c9a227]/35 selection:text-white"
       style={{ fontFamily: fontSans }}
     >
       <style>{`
@@ -946,7 +935,7 @@ export default function TonisLanding() {
       <section
         id="hero"
         ref={heroRef}
-        className="relative flex min-h-[100dvh] flex-col items-center justify-center overflow-hidden bg-[#030306] pt-24 lg:pt-20"
+        className="max-md:scroll-mt-[100px] md:scroll-mt-0 relative flex min-h-[100dvh] flex-col items-center justify-center overflow-hidden bg-[#030306] pt-24 lg:pt-20"
       >
         <div className="pointer-events-none absolute inset-0 z-0 bg-[#030306]" aria-hidden="true" />
 
@@ -1093,7 +1082,7 @@ export default function TonisLanding() {
         </motion.div>
       </section>
 
-      <section id="leistungen" className="scroll-mt-24 border-t border-white/[0.06] bg-[#020203] py-24 md:py-32">
+      <section id="leistungen" className="max-md:scroll-mt-[100px] md:scroll-mt-24 border-t border-white/[0.06] bg-[#020203] py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 28 }}
@@ -1248,7 +1237,7 @@ export default function TonisLanding() {
       <section
         id="mobiler-service"
         lang="de"
-        className="scroll-mt-24 relative overflow-hidden border-y border-[#c9a227]/25 bg-gradient-to-b from-[#0c0a06] via-[#050508] to-[#020204] py-24 shadow-[inset_0_0_100px_rgba(201,162,39,0.07),0_0_80px_rgba(201,162,39,0.1)] md:py-32"
+        className="max-md:scroll-mt-[100px] md:scroll-mt-24 relative overflow-hidden border-y border-[#c9a227]/25 bg-gradient-to-b from-[#0c0a06] via-[#050508] to-[#020204] py-24 shadow-[inset_0_0_100px_rgba(201,162,39,0.07),0_0_80px_rgba(201,162,39,0.1)] md:py-32"
         aria-labelledby="mobiler-service-heading"
       >
         <div
@@ -1316,7 +1305,7 @@ export default function TonisLanding() {
 
       <section
         id="premium-partner-produkte"
-        className="scroll-mt-24 border-t border-white/[0.06] bg-[#06060b] py-24 md:py-32"
+        className="max-md:scroll-mt-[100px] md:scroll-mt-24 border-t border-white/[0.06] bg-[#06060b] py-24 md:py-32"
         aria-labelledby="premium-partner-heading"
       >
         <div className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8">
@@ -1416,7 +1405,7 @@ export default function TonisLanding() {
 
       <section
         id="warum-tonis"
-        className="scroll-mt-24 border-t border-white/[0.06] bg-[#030306] py-24 md:py-32"
+        className="max-md:scroll-mt-[100px] md:scroll-mt-24 border-t border-white/[0.06] bg-[#030306] py-24 md:py-32"
         aria-labelledby="warum-tonis-heading"
       >
         <div className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8">
@@ -1465,7 +1454,7 @@ export default function TonisLanding() {
         </div>
       </section>
 
-      <section id="innenraum" className="scroll-mt-24 border-t border-white/[0.06] bg-[#020203] py-24 md:py-32">
+      <section id="innenraum" className="max-md:scroll-mt-[100px] md:scroll-mt-24 border-t border-white/[0.06] bg-[#020203] py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 28 }}
@@ -1524,7 +1513,7 @@ export default function TonisLanding() {
         </div>
       </section>
 
-      <section id="premium-services" className="scroll-mt-24 border-t border-white/[0.06] bg-[#030306] py-24 md:py-32">
+      <section id="premium-services" className="max-md:scroll-mt-[100px] md:scroll-mt-24 border-t border-white/[0.06] bg-[#030306] py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 28 }}
@@ -1583,7 +1572,7 @@ export default function TonisLanding() {
         </div>
       </section>
 
-      <section id="produkte" className="scroll-mt-24 border-t border-white/[0.06] bg-[#06060b] py-24 md:py-32">
+      <section id="produkte" className="max-md:scroll-mt-[100px] md:scroll-mt-24 border-t border-white/[0.06] bg-[#06060b] py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 28 }}
@@ -1619,7 +1608,7 @@ export default function TonisLanding() {
         </div>
       </section>
 
-      <section id="impressionen" className="scroll-mt-24 border-t border-white/[0.06] py-24 md:py-32">
+      <section id="impressionen" className="max-md:scroll-mt-[100px] md:scroll-mt-24 border-t border-white/[0.06] py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 28 }}
@@ -1682,7 +1671,7 @@ export default function TonisLanding() {
               id="impressionen-panel-fotos"
               role="tabpanel"
               aria-labelledby="impressionen-tab-fotos"
-              className="columns-1 gap-4 sm:columns-2 lg:columns-3"
+              className="tonis-impressionen-panel columns-1 gap-4 sm:columns-2 lg:columns-3"
             >
               {GALLERY.map((src, i) => (
                 <figure key={src} className="mb-4 break-inside-avoid">
@@ -1761,7 +1750,7 @@ export default function TonisLanding() {
 
       <section
         id="ueber-uns"
-        className="scroll-mt-24 border-t border-white/[0.06] bg-[#06060b] py-24 md:py-32"
+        className="max-md:scroll-mt-[100px] md:scroll-mt-24 border-t border-white/[0.06] bg-[#06060b] py-24 md:py-32"
         aria-labelledby="ueber-mich-heading"
       >
         <div className="mx-auto max-w-2xl pl-[max(1.25rem,env(safe-area-inset-left))] pr-[max(1.25rem,env(safe-area-inset-right))] text-center sm:px-6 md:px-8">
@@ -1832,7 +1821,7 @@ export default function TonisLanding() {
 
       <section
         id="termin-cta"
-        className="scroll-mt-24 border-t border-[#c9a227]/25 bg-gradient-to-b from-[#0a0a0f] via-[#050508] to-[#030306] py-20 md:py-28"
+        className="max-md:scroll-mt-[100px] md:scroll-mt-24 border-t border-[#c9a227]/25 bg-gradient-to-b from-[#0a0a0f] via-[#050508] to-[#030306] py-20 md:py-28"
         aria-label="Termin per WhatsApp"
       >
         <div className="mx-auto max-w-3xl px-5 sm:px-6 text-center md:px-8">
@@ -1863,7 +1852,7 @@ export default function TonisLanding() {
 
       <section
         id="kundenstimmen"
-        className="scroll-mt-24 border-t border-white/[0.06] bg-[#050508] py-24 md:py-32"
+        className="max-md:scroll-mt-[100px] md:scroll-mt-24 border-t border-white/[0.06] bg-[#050508] py-24 md:py-32"
         aria-labelledby="kundenstimmen-heading"
       >
         <div className="mx-auto max-w-6xl px-5 sm:px-6 md:px-8">
@@ -1952,7 +1941,7 @@ export default function TonisLanding() {
       <section
         id="gutschein-service"
         lang="de"
-        className="relative scroll-mt-24 overflow-hidden border-t border-[#c9a227]/20 bg-gradient-to-b from-[#06060c] via-[#04040a] to-[#030306] py-24 md:py-32"
+        className="relative max-md:scroll-mt-[100px] md:scroll-mt-24 overflow-hidden border-t border-[#c9a227]/20 bg-gradient-to-b from-[#06060c] via-[#04040a] to-[#030306] py-24 md:py-32"
         aria-labelledby="gutschein-heading"
       >
         <div
@@ -2026,7 +2015,7 @@ export default function TonisLanding() {
         </div>
       </section>
 
-      <section id="kontakt" className="scroll-mt-24 border-t border-white/[0.06] bg-[#030306] py-24 md:py-32">
+      <section id="kontakt" className="max-md:scroll-mt-[100px] md:scroll-mt-24 border-t border-white/[0.06] bg-[#030306] py-24 md:py-32">
         <div className="mx-auto max-w-6xl px-5 sm:px-6 md:px-8">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 28 }}

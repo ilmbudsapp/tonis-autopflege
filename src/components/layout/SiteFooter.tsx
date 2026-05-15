@@ -160,6 +160,12 @@ export default function SiteFooter() {
           <Link to={ROUTES.datenschutz} className="underline-offset-2 transition hover:text-zinc-300 hover:underline">
             Datenschutz
           </Link>
+          <span className="select-none text-zinc-700" aria-hidden>
+            |
+          </span>
+          <Link to={ROUTES.agb} className="underline-offset-2 transition hover:text-zinc-300 hover:underline">
+            AGB
+          </Link>
         </nav>
 
         <p className="mt-3 text-center text-[10px] text-zinc-600 sm:text-[11px]">

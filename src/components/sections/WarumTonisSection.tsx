@@ -63,7 +63,8 @@ export function WarumTonisSection() {
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-sm text-zinc-500 md:text-base">
               Ich arbeite mit ruhiger Hand und klaren Abläufen — unser Team setzt auf Profi-Produkte, damit Ihr Fahrzeug
-              langfristig glänzt und an Wert gewinnt.
+              langfristig glänzt und an Wert gewinnt. Schließlich ist Vertrauen die Basis jeder guten Aufbereitung;
+              deshalb erklären wir jeden Schritt verständlich.
             </p>
           </motion.div>
 

@@ -3,6 +3,7 @@ import ScrollToTop from "@/components/layout/ScrollToTop";
 import SiteLayout from "@/components/layout/SiteLayout";
 import { useDemoFonts } from "@/hooks/useDemoFonts";
 import BewertungenPage from "@/pages/BewertungenPage";
+import AgbPage from "@/pages/AgbPage";
 import DatenschutzPage from "@/pages/DatenschutzPage";
 import FaqPage from "@/pages/FaqPage";
 import GaleriePage from "@/pages/GaleriePage";
@@ -35,6 +36,7 @@ export default function App() {
           <Route path={ROUTES.kontakt} element={<KontaktPage />} />
           <Route path={ROUTES.impressum} element={<ImpressumPage />} />
           <Route path={ROUTES.datenschutz} element={<DatenschutzPage />} />
+          <Route path={ROUTES.agb} element={<AgbPage />} />
           <Route path={ROUTES.gutscheine} element={<GutscheinePage />} />
         </Route>
       </Routes>

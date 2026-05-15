@@ -1,29 +1,40 @@
-import { useEffect } from "react";
-import { CANONICAL_ORIGIN, type PageMetaConfig } from "@/lib/site";
-
-type PageMetaProps = PageMetaConfig;
-
-export default function PageMeta({ title, description, path }: PageMetaProps) {
-  useEffect(() => {
-    document.title = title;
-
-    let meta = document.querySelector('meta[name="description"]');
-    if (!meta) {
-      meta = document.createElement("meta");
-      meta.setAttribute("name", "description");
-      document.head.appendChild(meta);
-    }
-    meta.setAttribute("content", description);
-
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement("link");
-      canonical.setAttribute("rel", "canonical");
-      document.head.appendChild(canonical);
-    }
-    const href = path === "/" ? `${CANONICAL_ORIGIN}/` : `${CANONICAL_ORIGIN}${path}`;
-    canonical.setAttribute("href", href);
-  }, [title, description, path]);
-
-  return null;
-}
+import { useEffect } from "react";
+import { CANONICAL_ORIGIN, SITE_NAME, type PageMetaConfig } from "@/lib/site";
+
+type PageMetaProps = PageMetaConfig;
+
+function upsertMeta(attr: "name" | "property", key: string, content: string) {
+  let el = document.querySelector(`meta[${attr}="${key}"]`);
+  if (!el) {
+    el = document.createElement("meta");
+    el.setAttribute(attr, key);
+    document.head.appendChild(el);
+  }
+  el.setAttribute("content", content);
+}
+
+export default function PageMeta({ title, description, path }: PageMetaProps) {
+  useEffect(() => {
+    document.title = title;
+    upsertMeta("name", "description", description);
+
+    const canonicalHref = path === "/" ? `${CANONICAL_ORIGIN}/` : `${CANONICAL_ORIGIN}${path}`;
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.setAttribute("rel", "canonical");
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute("href", canonicalHref);
+
+    upsertMeta("property", "og:site_name", SITE_NAME);
+    upsertMeta("property", "og:title", title);
+    upsertMeta("property", "og:description", description);
+    upsertMeta("property", "og:url", canonicalHref);
+    upsertMeta("name", "twitter:title", title);
+    upsertMeta("name", "twitter:description", description);
+  }, [title, description, path]);
+
+  return null;
+}
+

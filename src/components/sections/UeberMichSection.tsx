@@ -81,12 +81,17 @@ export function UeberMichSection() {
                 <strong className="font-semibold text-[#e8cf7a]">Leidenschaft</strong> in der Autoaufbereitung. Für
                 mich sind Autos nicht nur Fahrzeuge – sie sind eine{" "}
                 <strong className="font-semibold text-[#e8cf7a]">Leidenschaft</strong>, die Pflege, Qualität und{" "}
-                <strong className="font-semibold text-[#e8cf7a]">Wertschätzung</strong> verdient.
+                <strong className="font-semibold text-[#e8cf7a]">Wertschätzung</strong> verdient. Darüber hinaus lege ich
+                Wert auf ehrliche Beratung statt unnötiger Zusatzpakete.
               </p>
+              <blockquote className="border-l-2 border-[#c9a227]/60 pl-4 text-base italic text-zinc-300 md:text-lg">
+                „Qualität ist kein Zufall, sondern das Ergebnis von Präzision.“
+                <footer className="mt-2 text-sm not-italic text-zinc-500">— Jeton Shala (Toni)</footer>
+              </blockquote>
               <p className="text-pretty text-base leading-relaxed text-zinc-400 md:text-lg">
                 Mit viel Erfahrung, Präzision und Liebe zum Detail sorge ich dafür, dass jedes Fahrzeug wieder in neuem
-                Glanz erstrahlt. Ob Innenreinigung, Lackpflege oder professionelle Aufbereitung – ich lege großen Wert
-                auf saubere Arbeit und zufriedene Kunden.
+                Glanz erstrahlt. Schließlich zählt für uns nicht nur der erste Eindruck, sondern ein Ergebnis, das Sie
+                langfristig überzeugt — ob Innenreinigung, Lackpflege oder professionelle Aufbereitung.
               </p>
               <p className="text-pretty text-base leading-relaxed text-zinc-400 md:text-lg">
                 Die <strong className="font-semibold text-[#e8cf7a]">Wertschätzung</strong> für jedes Auto steht bei
@@ -96,6 +101,10 @@ export function UeberMichSection() {
               <p className="text-pretty text-base leading-relaxed text-zinc-400 md:text-lg">
                 Ich freue mich darauf, auch Ihr Fahrzeug professionell aufzubereiten.
               </p>
+              <blockquote className="border-l-2 border-[#c9a227]/60 pl-4 text-base italic text-zinc-300 md:text-lg">
+                „Jedes Fahrzeug behandle ich so, als wäre es mein eigenes — deshalb planen wir jeden Schritt bewusst.“
+                <footer className="mt-2 text-sm not-italic text-zinc-500">— Toni, Toni&apos;s Autopflege</footer>
+              </blockquote>
               <p className="text-pretty text-base leading-relaxed text-zinc-400 md:text-lg">
                 In enger Abstimmung mit Ihnen definieren wir den passenden Umfang — von der schnellen Auffrischung bis
                 zur umfassenden Aufbereitung — und dokumentieren den Fortschritt transparent. So behalten Sie die
@@ -103,8 +112,8 @@ export function UeberMichSection() {
               </p>
               <p className="text-pretty text-base leading-relaxed text-zinc-400 md:text-lg">
                 Als inhabergeführtes Unternehmen in Zell unter Aichelberg stehe ich persönlich für saubere Arbeitsabläufe,
-                hochwertige Materialien und eine ehrliche Beratung: Wir zeigen, was sinnvoll ist — und was sich für
-                Ihr Fahrzeug wirklich lohnt.
+                hochwertige Materialien und eine ehrliche Beratung. Folglich zeigen wir, was sinnvoll ist — und was sich
+                für Ihr Fahrzeug wirklich lohnt.
               </p>
             </div>
             <h3
@@ -121,7 +130,8 @@ export function UeberMichSection() {
             >
               <p>
                 Toni&apos;s Autopflege steht in Zell unter Aichelberg für handwerklich saubere Aufbereitung, klare Kommunikation
-                und messbare Ergebnisse. Seit über einem Jahrzehnt begleite ich Kundinnen und Kunden bei der
+                und messbare Ergebnisse. Darüber hinaus verbinden wir traditionelle Handarbeit mit modernen Produktsystemen.
+                Seit über einem Jahrzehnt begleite ich Kundinnen und Kunden bei der
                 Außenaufbereitung, der Lackpolitur, der Innenraumhygiene und bei Versiegelungen — immer mit dem Anspruch,
                 jedes Fahrzeug so zu behandeln, als wäre es mein eigenes. Dabei verbinden wir klassische Schritte wie
                 schonende Handwäsche, Dekontamination und Politur mit modernen Produktsystemen, die sich im Alltag

@@ -2,7 +2,12 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Building2, Mail, MapPin, Music2, Phone } from "lucide-react";
 import { EASE_OUT_CUBIC } from "@/lib/motion";
-import { LAST_UPDATED_LABEL } from "@/lib/seoContent";
+import {
+  EXPERTISE_FOOTER_LINE,
+  GOOGLE_REVIEWS_STATIC_HREF,
+  GOOGLE_REVIEWS_STATIC_LABEL,
+  LAST_UPDATED_LABEL,
+} from "@/lib/seoContent";
 import { AGR_SITE_URL, CANONICAL_ORIGIN, FIRMENFOOTER, NAV_LINKS, ROUTES } from "@/lib/site";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
@@ -175,6 +180,18 @@ export default function SiteFooter() {
             AGB
           </Link>
         </nav>
+
+        <p className="mt-8 text-center text-xs font-semibold text-[#c9a227]/85">{EXPERTISE_FOOTER_LINE}</p>
+        <p className="mt-3 text-center text-sm">
+          <a
+            href={GOOGLE_REVIEWS_STATIC_HREF}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-[#f0d78c] underline-offset-2 hover:text-white hover:underline"
+          >
+            {GOOGLE_REVIEWS_STATIC_LABEL}
+          </a>
+        </p>
 
         <p className="mt-6 text-center text-[11px] text-zinc-500">
           <time dateTime="2026-05">{LAST_UPDATED_LABEL}</time>

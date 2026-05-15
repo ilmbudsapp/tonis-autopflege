@@ -1,0 +1,114 @@
+export const CANONICAL_ORIGIN = "https://www.tonis-autopflege-goeppingen.de";
+
+export const ROUTES = {
+  home: "/",
+  leistungen: "/leistungen",
+  ueberMich: "/ueber-mich",
+  faq: "/faq",
+  partner: "/partner",
+  bewertungen: "/bewertungen",
+  kontakt: "/kontakt",
+  impressum: "/impressum",
+  datenschutz: "/datenschutz",
+  gutscheine: "/gutscheine",
+} as const;
+
+export type RoutePath = (typeof ROUTES)[keyof typeof ROUTES];
+
+export const NAV_LINKS: { to: RoutePath; label: string }[] = [
+  { to: ROUTES.leistungen, label: "Leistungen" },
+  { to: ROUTES.gutscheine, label: "Gutscheine" },
+  { to: ROUTES.partner, label: "Partner" },
+  { to: ROUTES.ueberMich, label: "Über mich" },
+  { to: ROUTES.bewertungen, label: "Bewertungen" },
+  { to: ROUTES.faq, label: "FAQ" },
+  { to: ROUTES.kontakt, label: "Kontakt" },
+];
+
+export const FIRMENFOOTER = {
+  firma: "Toni's Autopflege",
+  inhaber: "Jeton Shala — Toni",
+  branche: "Autoaufbereitung",
+  strasse: "Boschstr. 23/1",
+  ort: "73119 Zell unter Aichelberg",
+  telefonLabel: "+49 174 8564830",
+  telefonHref: "tel:+491748564830",
+  email: "info.tonisautopflege@gmx.de",
+  facebook: { label: "Toni's Autopflege", href: "https://www.facebook.com/TonisAutopflege" },
+  instagram: { label: "tonisautopflege1", href: "https://www.instagram.com/tonisautopflege1/" },
+  tiktok: { label: "toni03_3", href: "https://www.tiktok.com/@toni03_3" },
+} as const;
+
+export const KLEINUNTERNEHMER_STEUERNUMMER = "6339616878";
+
+export const GOOGLE_MAPS_BUSINESS_URL =
+  "https://www.google.com/maps/search/?api=1&query=Tonis+Autopflege+Boschstr+23%2F1+73119+Zell+unter+Aichelberg";
+
+export const AGR_SITE_URL = import.meta.env.VITE_AGR_SITE_URL ?? "https://agrmultimedia.eu";
+
+export type PageMetaConfig = {
+  title: string;
+  description: string;
+  path: RoutePath;
+};
+
+export const PAGE_META: Record<string, PageMetaConfig> = {
+  home: {
+    path: ROUTES.home,
+    title: "Toni's Autopflege | Professionelle Aufbereitung Zell unter Aichelberg",
+    description:
+      "Toni's Autopflege in Zell unter Aichelberg (Boschstr. 23/1): Profi-Lackpolitur, Innenreinigung & Keramikversiegelung. Region Göppingen — jetzt glänzendes Ergebnis sichern!",
+  },
+  leistungen: {
+    path: ROUTES.leistungen,
+    title: "Leistungen Politur & Reinigung | Toni's Autopflege",
+    description:
+      "Außenaufbereitung, Lackpolitur, Keramikversiegelung, Innenraumreinigung und Spezial-Services — professionelle Autoaufbereitung in Zell unter Aichelberg.",
+  },
+  ueberMich: {
+    path: ROUTES.ueberMich,
+    title: "Über Toni | Toni's Autopflege Zell unter Aichelberg",
+    description:
+      "Jeton Shala (Toni) — über 10 Jahre Erfahrung in Fahrzeugaufbereitung, Koch-Chemie, Sonax und handwerkliche Qualität in Zell unter Aichelberg.",
+  },
+  faq: {
+    path: ROUTES.faq,
+    title: "FAQ Autoaufbereitung | Toni's Autopflege",
+    description:
+      "Häufige Fragen zu Dauer, Keramikversiegelung, Marken und mobilem Service — Toni's Autopflege Göppingen / Zell unter Aichelberg.",
+  },
+  partner: {
+    path: ROUTES.partner,
+    title: "Partner & Premium-Marken | Toni's Autopflege",
+    description:
+      "Koch-Chemie, Sonax, Gyeon, CarPro, HYLA und starkes Partnernetzwerk — Premium-Produkte für reproduzierbare Aufbereitungsergebnisse.",
+  },
+  bewertungen: {
+    path: ROUTES.bewertungen,
+    title: "Kundenbewertungen | Toni's Autopflege",
+    description:
+      "Google-Rezensionen und Kundenstimmen zu Lackpolitur, Keramik und Innenraum — Toni's Autopflege in Zell unter Aichelberg.",
+  },
+  kontakt: {
+    path: ROUTES.kontakt,
+    title: "Kontakt & Termin | Toni's Autopflege",
+    description:
+      "Termin anfragen: Boschstr. 23/1, 73119 Zell unter Aichelberg. Telefon, E-Mail, WhatsApp und Karte — Toni's Autopflege.",
+  },
+  impressum: {
+    path: ROUTES.impressum,
+    title: "Impressum | Toni's Autopflege",
+    description: "Impressum und Anbieterkennzeichnung — Toni's Autopflege, Jeton Shala, Boschstr. 23/1, 73119 Zell unter Aichelberg.",
+  },
+  datenschutz: {
+    path: ROUTES.datenschutz,
+    title: "Datenschutz | Toni's Autopflege",
+    description: "Datenschutzerklärung — Toni's Autopflege. Informationen zur Verarbeitung personenbezogener Daten (DSGVO).",
+  },
+  gutscheine: {
+    path: ROUTES.gutscheine,
+    title: "Gutscheine Autopflege | Toni's Autopflege",
+    description:
+      "Geschenkgutscheine für Autoaufbereitung — wählen Sie einen Wert und kontaktieren Sie Toni's Autopflege per WhatsApp.",
+  },
+};

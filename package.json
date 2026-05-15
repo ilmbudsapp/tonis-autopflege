@@ -12,7 +12,8 @@
     "gallery:galeria": "node scripts/build-gallery-from-galeria.mjs",
     "videos:work": "node scripts/build-work-videos-from-folder.mjs",
     "brands:proizvodi": "node scripts/build-brands-from-proizvodi.mjs",
-    "icon:apple": "node scripts/generate-apple-touch-icon.mjs"
+    "icon:apple": "node scripts/generate-apple-touch-icon.mjs",
+    "icon:brand": "node scripts/generate-brand-icons.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.38.0",
@@ -35,6 +36,7 @@
     "globals": "^15.9.0",
     "sharp": "^0.34.5",
     "tailwindcss": "^4.3.0",
+    "to-ico": "^1.1.5",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.0",
     "vite": "^5.4.0"

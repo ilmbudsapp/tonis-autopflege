@@ -74,7 +74,12 @@ export default function SiteLayout() {
 
       <SiteHeader />
 
-      <main id="main-content" role="main" className="relative z-[2] pt-24 lg:pt-20">
+      <main
+        id="main-content"
+        role="main"
+        aria-label="Hauptinhalt"
+        className="relative z-[2] pt-24 lg:pt-20"
+      >
         <Outlet />
       </main>
 

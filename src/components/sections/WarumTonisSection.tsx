@@ -67,13 +67,13 @@ export function WarumTonisSection() {
             </SectionSummary>
             <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-zinc-500 md:text-base">
               Ich arbeite mit ruhiger Hand und klaren Abläufen. Mein Team und ich setzen auf Profi-Produkte, damit Ihr
-              Fahrzeug langfristig glänzt. Wir garantieren transparente Schritte — folglich wissen Sie immer, was als
-              Nächstes passiert. Darüber hinaus erkläre ich jeden Arbeitsschritt verständlich.
+              Fahrzeug langfristig glänzt. Demzufolge wissen Sie immer, was als Nächstes passiert. Gleichermaßen erkläre
+              ich jeden Arbeitsschritt verständlich.
             </p>
             <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-zinc-500 md:text-base">
-              Ich kombiniere bewährte Handarbeit mit modernen Systemen. Wir passen jedes Paket an Ihr Fahrzeug an; zudem
-              berate ich ehrlich, welche Leistungen nötig sind. Ebenso setzen wir keine Kompromisse bei Material und Zeit.
-              Infolgedessen erhalten Sie ein Ergebnis, das hält — unser Team in Göppingen steht dafür.
+              Ich kombiniere bewährte Handarbeit mit modernen Systemen. Mein Team und ich passen jedes Paket an Ihr
+              Fahrzeug an. Ebenso berate ich ehrlich, welche Leistungen nötig sind. Infolgedessen erhalten Sie ein
+              Ergebnis, das hält — folglich vertrauen Kunden in Göppingen auf unsere Werkstatt.
             </p>
           </motion.div>
 

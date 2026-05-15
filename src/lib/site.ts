@@ -2,6 +2,9 @@ export const CANONICAL_ORIGIN = "https://www.tonis-autopflege-goeppingen.de";
 
 export const SITE_NAME = "Toni's Autopflege";
 
+/** Must match <title> and homepage <h1> byte-for-byte (ASCII hyphen). */
+export const HOME_PAGE_TITLE = "Toni's Autopflege - Profi-Aufbereitung Göppingen";
+
 export const ROUTES = {
   home: "/",
   leistungen: "/leistungen",
@@ -62,7 +65,7 @@ export type PageMetaConfig = {
 export const PAGE_META: Record<string, PageMetaConfig> = {
   home: {
     path: ROUTES.home,
-    title: "Toni's Autopflege - Profi-Aufbereitung Göppingen",
+    title: HOME_PAGE_TITLE,
     description:
       "Ich biete Profi-Lackpolitur, Innenreinigung & Keramik in Göppingen. Wir bringen Ihr Auto mit Koch-Chemie & Sonax zum Glänzen — Termin per WhatsApp.",
   },

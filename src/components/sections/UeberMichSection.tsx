@@ -82,20 +82,14 @@ export function UeberMichSection() {
             </SectionSummary>
             <div className="w-full space-y-5 text-left sm:space-y-6">
               <p className="text-pretty text-base leading-relaxed text-zinc-300 md:text-lg">
-                Mein Name ist Jeton Shala und ich arbeite seit über{" "}
-                <strong className="font-semibold text-[#e8cf7a]">10 Jahren</strong> mit{" "}
-                <strong className="font-semibold text-[#e8cf7a]">Leidenschaft</strong> in der Autoaufbereitung. Für
-                mich sind Autos nicht nur Fahrzeuge – sie sind eine{" "}
-                <strong className="font-semibold text-[#e8cf7a]">Leidenschaft</strong>, die Pflege, Qualität und{" "}
-                <strong className="font-semibold text-[#e8cf7a]">Wertschätzung</strong> verdient. Darüber hinaus lege ich
-                Wert auf ehrliche Beratung statt unnötiger Zusatzpakete. Zudem steht unser Team für Sie bereit, wenn es
-                um Termine, Materialwahl und Nachbetreuung geht.
+                Ich bin Jeton Shala (Toni) und arbeite seit über zehn Jahren mit Leidenschaft in der Autoaufbereitung.
+                Mein Team und ich behandeln jedes Fahrzeug mit Pflege, Qualität und Wertschätzung. Demzufolge lege ich
+                Wert auf ehrliche Beratung statt unnötiger Zusatzpakete.
               </p>
               <p className="text-pretty text-base leading-relaxed text-zinc-400 md:text-lg">
-                Ich persönlich begleite jeden Auftrag von der ersten Nachricht bis zur Übergabe. Des Weiteren stimmen wir
-                im Folgenden jeden Arbeitsschritt ab — zusätzlich erhalten Sie von mir konkrete Pflegehinweise für zu
-                Hause. Dennoch gilt: weniger ist manchmal mehr; deshalb empfehle ich nur Leistungen, die Ihrem Fahrzeug
-                wirklich nutzen.
+                Ich begleite jeden Auftrag von der ersten Nachricht bis zur Übergabe. In meiner Werkstatt in Zell unter
+                Aichelberg stimmen wir jeden Arbeitsschritt ab. Gleichermaßen erhalten Sie von mir konkrete Pflegehinweise
+                für zu Hause — infolgedessen empfehle ich nur Leistungen, die Ihrem Fahrzeug wirklich nutzen.
               </p>
               <blockquote
                 cite={UEBER_MICH_CITE}

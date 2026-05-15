@@ -36,9 +36,9 @@ export function UnserProzessSection() {
             Ich führe Sie in fünf klaren Schritten von der Beratung bis zur Übergabe — transparent in Göppingen.
           </SectionSummary>
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-zinc-500 md:text-base">
-            In meiner Werkstatt in Zell unter Aichelberg plane ich jeden Auftrag persönlich. Mein Team und ich
-            dokumentieren die Schritte; wir garantieren, dass Sie vorab wissen, was passiert. Folglich bleibt die
-            Qualität planbar.
+            Ich plane in meiner Werkstatt in Zell unter Aichelberg jeden Auftrag persönlich. Mein Team und ich
+            dokumentieren die Schritte. Demzufolge wissen Sie vorab, was passiert. Gleichermaßen bleibt die Qualität
+            planbar — infolgedessen vermeiden wir Überraschungen bei der Übergabe.
           </p>
         </motion.header>
 

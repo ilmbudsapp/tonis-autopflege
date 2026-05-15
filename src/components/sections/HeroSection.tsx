@@ -19,7 +19,7 @@ import {
   LOGO_HERO_SRC, TONI_WA_HREF, toniWaHrefWithPrefill,
 } from "@/lib/assets";
 import { EASE_OUT_CUBIC } from "@/lib/motion";
-import { ROUTES } from "@/lib/site";
+import { HOME_PAGE_TITLE, ROUTES } from "@/lib/site";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import { GoldIconFrame, LucideInGold, SvgGoogleGCorner } from "@/components/ui/GoldIcons";
@@ -159,7 +159,7 @@ export function HeroSection() {
                   "0 2px 3px rgba(0,0,0,0.85), 0 12px 48px rgba(0,0,0,0.75), 0 0 1px rgba(0,0,0,1)",
               }}
             >
-              Toni&apos;s Autopflege - Profi-Aufbereitung Göppingen
+              {HOME_PAGE_TITLE}
             </motion.h1>
             <motion.p
               variants={fadeUp}
@@ -180,26 +180,23 @@ export function HeroSection() {
               variants={fadeUp}
               className="mx-auto mt-6 max-w-xl text-pretty text-base leading-relaxed text-zinc-300 [text-shadow:0_1px_14px_rgba(0,0,0,0.78)] md:text-lg"
             >
-              <strong className="font-semibold text-zinc-100">
-                Ich biete Profi-Aufbereitung in Göppingen — Mein Team und ich garantieren Qualität bei jedem Fahrzeug.
-              </strong>
+              Ich biete Profi-Aufbereitung in Göppingen — Mein Team und ich garantieren Qualität bei jedem Fahrzeug.
             </motion.p>
             <motion.p
               variants={fadeUp}
               className="mx-auto mt-4 max-w-xl text-pretty text-base leading-relaxed text-zinc-300 [text-shadow:0_1px_14px_rgba(0,0,0,0.78)] md:text-lg"
             >
-              Ich sorge persönlich für Lackaufbereitung, Innenreinigung, Politur und Keramik. Wir garantieren ruhige
-              Handarbeit mit Koch-Chemie und Sonax in Zell unter Aichelberg. Darüber hinaus berate ich Sie ehrlich; zudem
-              stimmen wir Termine flexibel ab. Folglich wissen Sie vorab, was wir leisten und was es kostet. Ebenso
-              vermeiden wir unnötige Zusatzpakete — infolgedessen bleibt Ihr Budget planbar.
+              Ich sorge persönlich für Lackaufbereitung, Innenreinigung, Politur und Keramik. In meiner Werkstatt in Zell
+              unter Aichelberg arbeiten wir mit Koch-Chemie und Sonax. Demzufolge wissen Sie vorab, was wir leisten.
+              Gleichermaßen berate ich Sie ehrlich zu jedem Paket — infolgedessen bleibt Ihr Budget planbar.
             </motion.p>
             <motion.p
               variants={fadeUp}
-              className="mx-auto mt-4 max-w-xl text-pretty text-sm leading-relaxed text-zinc-400 [text-shadow:0_1px_14px_rgba(0,0,0,0.78)] md:text-base"
+              className="mx-auto mt-4 max-w-xl text-pretty text-base leading-relaxed text-zinc-300 [text-shadow:0_1px_14px_rgba(0,0,0,0.78)] md:text-lg"
             >
-              Mein Team und ich kümmern uns um Außenpflege, Innenraum und Finish. Ich plane jeden Auftrag persönlich; wir
-              dokumentieren Schritte transparent. Unser Team in Göppingen ist für Sie erreichbar — ich freue mich auf Ihre
-              Anfrage per WhatsApp oder Telefon.
+              Ich plane jeden Auftrag persönlich und koordiniere Termine flexibel. Mein Team und ich kümmern uns um
+              Außenpflege, Innenraum und Finish. Folglich dokumentieren wir jeden Schritt transparent. Ebenso freue ich
+              mich auf Ihre Anfrage per WhatsApp oder Telefon.
             </motion.p>
             <motion.div variants={fadeUp} className="mt-10 flex flex-wrap justify-center gap-4">
               <motion.div whileHover={reduceMotion ? {} : { scale: 1.04 }} whileTap={{ scale: 0.98 }}>

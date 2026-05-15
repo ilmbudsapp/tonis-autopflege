@@ -86,13 +86,13 @@ export function MobilerServiceSection() {
                 in unserer Werkstatt — folglich müssen Sie nicht zu uns fahren.
               </p>
               <p>
-                Ich bin für Göppingen, Zell unter Aichelberg und die Region da; wir fahren nach Absprache auch deutschlandweit
-                und in Nachbarländer. Darüber hinaus prüfen wir Wasser, Strom und Witterung vorab. Zudem stimmen wir den
+                Ich bin für Göppingen, Zell unter Aichelberg und die Region da. Mein Team und ich fahren nach Absprache auch
+                deutschlandweit. Demzufolge prüfen wir Wasser, Strom und Witterung vorab. Gleichermaßen stimmen wir den
                 Ablauf mit Ihnen ab — ebenso bringt unser Team die passende Ausstattung mit.
               </p>
               <p>
-                Ich koordiniere Termine persönlich; wir kommunizieren klar per WhatsApp. Infolgedessen sparen Sie Zeit ohne
-                Qualitätsverlust. Ebenso bleiben unsere Standards identisch — unser Team garantiert Profi-Ergebnisse bei
+                Ich koordiniere Termine persönlich und kommuniziere klar per WhatsApp. Infolgedessen sparen Sie Zeit ohne
+                Qualitätsverlust. Folglich bleiben unsere Standards identisch — mein Team garantiert Profi-Ergebnisse bei
                 Ihnen vor Ort.
               </p>
             </div>

@@ -213,37 +213,37 @@ export const FAQ_ITEMS = [
   {
     question: "Wie lange dauert eine Aufbereitung?",
     answer:
-      "Die Dauer hängt vom Zustand Ihres Fahrzeugs, der gewünschten Leistungen und der Fahrzeuggröße ab. Eine kompakte Außenaufbereitung kann wenige Stunden dauern, während eine umfassende Innen- und Außenreinigung inklusive Politur oder Keramikversiegelung mehrere Arbeitsschritte über einen Tag verteilt erfordern kann. Vorab klären wir den Umfang per WhatsApp oder vor Ort in Zell unter Aichelberg und geben Ihnen eine realistische Zeiteinschätzung.",
+      "Ich kläre die Dauer mit Ihnen vorab — sie hängt vom Zustand, den Leistungen und der Fahrzeuggröße ab. Mein Team und ich nennen eine realistische Zeiteinschätzung per WhatsApp oder in Zell unter Aichelberg. Demzufolge planen Sie Ihren Tag sicher; gleichermaßen vermeiden wir unnötige Wartezeiten.",
   },
   {
     question: "Was kostet eine Keramikversiegelung?",
     answer:
-      "Der Preis richtet sich nach Lackzustand, Fahrzeuggröße und gewünschtem Versiegelungssystem (z. B. Gyeon, CarPro). Nach Sichtung oder Fotos nennen wir Ihnen ein transparentes Angebot — ohne versteckte Zusatzkosten. Gern beraten wir, ob Keramik für Ihr Nutzungsprofil sinnvoll ist oder ob zunächst Politur und Versiegelung ausreichen.",
+      "Ich berate Sie ehrlich, ob Keramik zu Ihrem Nutzungsprofil passt. Der Preis richtet sich nach Lackzustand, Größe und Systemwahl — folglich nennen wir nach Fotos ein transparentes Angebot. Mein Team und ich vermeiden versteckte Zusatzkosten; infolgedessen bleibt Ihr Budget planbar.",
   },
   {
     question: "Welche Marken und Systeme nutzen Sie konkret?",
     answer:
-      "Wir setzen auf bewährte Profi-Chemie wie Koch-Chemie und Sonax für Reinigung, Vorbehandlung und Finish. Ergänzend arbeiten wir mit Keramiksystemen führender Hersteller und pflegen unser Netzwerk — etwa zu HYLA Germany GmbH für Reinigungstechnik und Hygiene. So bleiben Prozesse reproduzierbar und das Ergebnis planbar.",
+      "Ich setze auf Koch-Chemie und Sonax für Reinigung und Finish. Mein Team arbeitet mit Keramiksystemen führender Hersteller; ebenso nutzen wir Partner wie HYLA Germany GmbH für Hygiene. Infolgedessen bleiben unsere Prozesse reproduzierbar — demzufolge ist das Ergebnis planbar.",
   },
   {
     question: "Bieten Sie einen mobilen Service in der Region an?",
     answer:
-      "Ja — nach Absprache kommen wir mit geeigneter Ausstattung zu Ihnen (z. B. Zell unter Aichelberg, Göppingen und Umgebung). Bitte nennen Sie Fahrzeugtyp, gewünschte Leistungen und den gewünschten Zeitraum per WhatsApp; wir prüfen Kapazität und logistische Machbarkeit und schlagen Ihnen einen Termin vor.",
+      "Ich plane mobile Einsätze in Göppingen, Zell unter Aichelberg und Umgebung nach Absprache. Mein Team prüft Kapazität, Wasser und Strom vorab. Folglich wissen Sie, ob ein Termin bei Ihnen vor Ort machbar ist — ich bestätige alles persönlich per WhatsApp.",
   },
   {
     question: "Warum sollte ich Toni's Autopflege in Göppingen wählen?",
     answer:
-      "Ich, Jeton Shala (Toni), führe die Aufbereitung mit über zehn Jahren Erfahrung — unser Team setzt auf Koch-Chemie, Sonax und handwerkliche Präzision. Wir garantieren ehrliche Beratung ohne unnötige Pakete und dokumentieren jeden Schritt. Folglich erhalten Sie reproduzierbare Qualität in Zell unter Aichelberg und Umgebung.",
+      "Ich, Jeton Shala (Toni), führe die Aufbereitung mit über zehn Jahren Erfahrung. Mein Team und ich setzen auf Koch-Chemie, Sonax und handwerkliche Präzision. Folglich erhalten Sie ehrliche Beratung ohne unnötige Pakete — gleichermaßen dokumentieren wir jeden Schritt in Zell unter Aichelberg.",
   },
   {
     question: "Was beinhaltet eine Komplettaufbereitung bei Ihnen?",
     answer:
-      "Eine Komplettaufbereitung umfasst typischerweise Außenwäsche, Lackdekontamination, Politur oder Versiegelung sowie Innenraum-Tiefenreinigung — abhängig vom Zustand. Ich passe den Umfang mit Ihnen ab; wir nennen vorab Dauer und Kosten. Zudem können wir mobile Einsätze in Göppingen planen.",
+      "Ich passe den Umfang mit Ihnen ab: Außenwäsche, Dekontamination, Politur oder Versiegelung plus Innenraum. Mein Team nennt vorab Dauer und Kosten. Demzufolge wissen Sie genau, was enthalten ist; ebenso können wir mobile Termine in Göppingen planen.",
   },
   {
     question: "Wie bereite ich mein Fahrzeug auf den Termin vor?",
     answer:
-      "Bitte entfernen Sie lose Gegenstände und nennen Sie uns Kratzer, Flecken oder Gerüche. Ich berate Sie per WhatsApp, welche Fotos helfen. Wir garantieren, dass wir Material und Zugang (Strom/Wasser bei mobilen Einsätzen) vorab klären — folglich starten wir effizient.",
+      "Ich berate Sie per WhatsApp, welche Fotos und Angaben helfen. Bitte entfernen Sie lose Gegenstände und nennen Sie Kratzer oder Gerüche. Mein Team klärt Material und Zugang vorab — infolgedessen starten wir effizient bei Ihnen oder in meiner Werkstatt.",
   },
 ] as const;
 

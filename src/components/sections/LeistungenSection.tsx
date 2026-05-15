@@ -43,12 +43,12 @@ export function LeistungenSection({ pageTitle }: LeistungenSectionProps) {
             <p className="mx-auto mt-5 max-w-3xl text-sm leading-relaxed text-zinc-400 md:text-base">
               Ich biete professionelle Fahrzeugpflege auf höchstem Niveau — für maximalen Glanz, Werterhalt und einen
               perfekten ersten Eindruck. Mein Team und ich kombinieren hochwertige Pflegeprodukte mit modernen Techniken.
-              Wir garantieren Liebe zum Detail bei jeder Aufbereitung. Darüber hinaus setzen wir auf{" "}
-              <strong className="font-semibold text-zinc-200">Koch-Chemie</strong> und{" "}
-              <strong className="font-semibold text-zinc-200">Sonax</strong>; zudem ergänzt unser Netzwerk u. a.{" "}
-              <strong className="font-semibold text-zinc-200">HYLA Germany GmbH</strong> für Hygiene. Folglich bleiben
-              Prozesse reproduzierbar. Ebenso passen wir jedes Paket an Ihr Fahrzeug an — infolgedessen zahlen Sie nur,
-              was Sie wirklich brauchen.
+              Demzufolge garantieren wir Liebe zum Detail bei jeder Aufbereitung.
+            </p>
+            <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-zinc-400 md:text-base">
+              Ich setze in meiner Werkstatt auf Koch-Chemie und Sonax; gleichermaßen ergänzt unser Netzwerk HYLA Germany
+              GmbH für Hygiene. Ebenso passe ich jedes Paket an Ihr Fahrzeug an. Infolgedessen zahlen Sie nur, was Sie
+              wirklich brauchen — folglich bleiben unsere Prozesse reproduzierbar.
             </p>
             <dl className="mx-auto mt-8 max-w-3xl space-y-4 rounded-2xl border border-white/[0.08] bg-black/30 px-5 py-6 text-left md:px-8">
               {SERVICE_DEFINITIONS.map((def) => (

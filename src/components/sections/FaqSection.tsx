@@ -45,9 +45,14 @@ export function FaqSection({ pageTitle }: FaqSectionProps) {
             persönlich.
           </SectionSummary>
           <p className="mx-auto mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-zinc-500 md:text-base">
-            Darüber hinaus finden Sie hier meine Antworten in Kurzform. Zusätzlich können Sie mich jederzeit per
-            WhatsApp kontaktieren — im Gegensatz dazu zu allgemeinen Ratgebern berate ich Sie konkret zu Ihrem Fahrzeug.
-            Mein Team in Göppingen antwortet persönlich; ich prüfe Sonderfälle vorab, damit Termine realistisch bleiben.
+            Ich beantworte hier die häufigsten Fragen in Kurzform. Mein Team und ich beraten Sie konkret zu Ihrem Fahrzeug
+            — demzufolge vermeiden wir allgemeine Ratgeber-Antworten. Gleichermaßen können Sie mich jederzeit per
+            WhatsApp kontaktieren.
+          </p>
+          <p className="mx-auto mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-zinc-500 md:text-base">
+            Ich prüfe Sonderfälle vorab, damit Termine realistisch bleiben. Infolglich planen wir Dauer und Kosten
+            transparent. Ebenso antwortet unser Team in Göppingen persönlich — folglich wissen Sie immer, wer Ihr
+            Ansprechpartner ist.
           </p>
         </header>
 

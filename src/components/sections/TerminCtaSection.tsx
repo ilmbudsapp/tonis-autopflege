@@ -65,13 +65,13 @@ export function TerminCtaSection() {
             </SectionSummary>
             <p className="text-pretty text-base font-medium leading-relaxed text-zinc-200 md:text-lg">
               Ich berate Sie per WhatsApp zu Innenraum, Lackaufbereitung oder Keramik. Mein Team und ich stimmen Termine
-              flexibel ab; wir garantieren eine klare Einschätzung zu Dauer und Kosten. Darüber hinaus antworte ich
-              persönlich — folglich haben Sie einen festen Ansprechpartner.
+              flexibel ab. Demzufolge garantieren wir eine klare Einschätzung zu Dauer und Kosten. Gleichermaßen antworte
+              ich persönlich — folglich haben Sie einen festen Ansprechpartner.
             </p>
             <p className="mt-4 text-pretty text-sm leading-relaxed text-zinc-400 md:text-base">
-              Ich plane realistische Zeitfenster für Politur und Versiegelung. Wir bitten gern um Fotos von Schäden; zudem
-              erklären wir jeden Schritt. Ebenso vermeiden wir Hektik — infolgedessen bleibt die Qualität hoch. Gemeinsam
-              bringen wir Ihr Fahrzeug auf Hochglanz; ich freue mich auf Ihre Nachricht.
+              Ich plane realistische Zeitfenster für Politur und Versiegelung. Mein Team bittet gern um Fotos von Schäden.
+              Ebenso erklären wir jeden Schritt. Infolgedessen vermeiden wir Hektik — demzufolge bleibt die Qualität hoch.
+              Ich freue mich auf Ihre Nachricht.
             </p>
             <motion.a
               href={TONI_WA_HREF}

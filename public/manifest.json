@@ -1,0 +1,27 @@
+{
+  "name": "Toni's Autopflege",
+  "short_name": "Toni's Autopflege",
+  "description": "Professionelle Autoaufbereitung in Göppingen: Lackpolitur, Innenreinigung und Keramikversiegelung.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#030306",
+  "theme_color": "#030306",
+  "lang": "de",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

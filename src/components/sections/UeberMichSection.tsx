@@ -19,7 +19,9 @@ import {
   LOGO_HERO_SRC, TONI_WA_HREF, toniWaHrefWithPrefill,
 } from "@/lib/assets";
 import { EASE_OUT_CUBIC } from "@/lib/motion";
-import { ROUTES } from "@/lib/site";
+import { CANONICAL_ORIGIN, ROUTES } from "@/lib/site";
+
+const UEBER_MICH_CITE = `${CANONICAL_ORIGIN}${ROUTES.ueberMich}`;
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import { GoldIconFrame, LucideInGold, SvgGoogleGCorner } from "@/components/ui/GoldIcons";
@@ -82,16 +84,27 @@ export function UeberMichSection() {
                 mich sind Autos nicht nur Fahrzeuge – sie sind eine{" "}
                 <strong className="font-semibold text-[#e8cf7a]">Leidenschaft</strong>, die Pflege, Qualität und{" "}
                 <strong className="font-semibold text-[#e8cf7a]">Wertschätzung</strong> verdient. Darüber hinaus lege ich
-                Wert auf ehrliche Beratung statt unnötiger Zusatzpakete.
+                Wert auf ehrliche Beratung statt unnötiger Zusatzpakete. Zudem steht unser Team für Sie bereit, wenn es
+                um Termine, Materialwahl und Nachbetreuung geht.
               </p>
-              <blockquote className="border-l-2 border-[#c9a227]/60 pl-4 text-base italic text-zinc-300 md:text-lg">
+              <p className="text-pretty text-base leading-relaxed text-zinc-400 md:text-lg">
+                Ich persönlich begleite jeden Auftrag von der ersten Nachricht bis zur Übergabe. Des Weiteren stimmen wir
+                im Folgenden jeden Arbeitsschritt ab — zusätzlich erhalten Sie von mir konkrete Pflegehinweise für zu
+                Hause. Dennoch gilt: weniger ist manchmal mehr; deshalb empfehle ich nur Leistungen, die Ihrem Fahrzeug
+                wirklich nutzen.
+              </p>
+              <blockquote
+                cite={UEBER_MICH_CITE}
+                className="border-l-2 border-[#c9a227]/60 pl-4 text-base italic text-zinc-300 md:text-lg"
+              >
                 „Qualität ist kein Zufall, sondern das Ergebnis von Präzision.“
                 <footer className="mt-2 text-sm not-italic text-zinc-500">— Jeton Shala (Toni)</footer>
               </blockquote>
               <p className="text-pretty text-base leading-relaxed text-zinc-400 md:text-lg">
                 Mit viel Erfahrung, Präzision und Liebe zum Detail sorge ich dafür, dass jedes Fahrzeug wieder in neuem
                 Glanz erstrahlt. Schließlich zählt für uns nicht nur der erste Eindruck, sondern ein Ergebnis, das Sie
-                langfristig überzeugt — ob Innenreinigung, Lackpflege oder professionelle Aufbereitung.
+                langfristig überzeugt — ob Innenreinigung, Lackpflege oder professionelle Aufbereitung. Zusätzlich
+                dokumentiert unser Team sensible Bereiche, bevor wir mit Politur oder Versiegelung beginnen.
               </p>
               <p className="text-pretty text-base leading-relaxed text-zinc-400 md:text-lg">
                 Die <strong className="font-semibold text-[#e8cf7a]">Wertschätzung</strong> für jedes Auto steht bei
@@ -101,7 +114,10 @@ export function UeberMichSection() {
               <p className="text-pretty text-base leading-relaxed text-zinc-400 md:text-lg">
                 Ich freue mich darauf, auch Ihr Fahrzeug professionell aufzubereiten.
               </p>
-              <blockquote className="border-l-2 border-[#c9a227]/60 pl-4 text-base italic text-zinc-300 md:text-lg">
+              <blockquote
+                cite={UEBER_MICH_CITE}
+                className="border-l-2 border-[#c9a227]/60 pl-4 text-base italic text-zinc-300 md:text-lg"
+              >
                 „Jedes Fahrzeug behandle ich so, als wäre es mein eigenes — deshalb planen wir jeden Schritt bewusst.“
                 <footer className="mt-2 text-sm not-italic text-zinc-500">— Toni, Toni&apos;s Autopflege</footer>
               </blockquote>
@@ -135,7 +151,7 @@ export function UeberMichSection() {
                 Außenaufbereitung, der Lackpolitur, der Innenraumhygiene und bei Versiegelungen — immer mit dem Anspruch,
                 jedes Fahrzeug so zu behandeln, als wäre es mein eigenes. Dabei verbinden wir klassische Schritte wie
                 schonende Handwäsche, Dekontamination und Politur mit modernen Produktsystemen, die sich im Alltag
-                bewährt haben.
+                bewährt haben. Im Folgenden erkläre ich Ihnen transparent, welche Stufe für Ihr Auto sinnvoll ist.
               </p>
               <p>
                 Für Vorreinigung, Felgen und Finish nutzen wir Profi-Chemie u. a. von{" "}
@@ -147,7 +163,8 @@ export function UeberMichSection() {
                 <strong className="font-semibold text-zinc-200">HYLA Germany GmbH</strong>, wenn es um Hygiene,
                 Filtration und eine saubere Arbeitsumgebung geht. So entsteht ein Gesamtbild, das auch für
                 KI-gestützte Recherche und lokale Suchanfragen klar erkennbar ist: Autopflege in Zell unter Aichelberg mit
-                Profi-Standards, Partnern und nachvollziehbaren Arbeitsschritten.
+                Profi-Standards, Partnern und nachvollziehbaren Arbeitsschritten. Zudem bin ich als Inhaber
+                persönlich Ihr Ansprechpartner — unser Team unterstützt bei Terminlogistik und Vorbereitung.
               </p>
               <p>
                 Unser Fokus liegt auf Werterhalt, Sicherheit im Straßenverkehr (klare Sicht, saubere Beleuchtung) und

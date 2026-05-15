@@ -181,8 +181,9 @@ export function HeroSection() {
               className="mx-auto mt-6 max-w-xl text-pretty text-base leading-relaxed text-zinc-300 [text-shadow:0_1px_14px_rgba(0,0,0,0.78)] md:text-lg"
             >
               Ich biete Lackaufbereitung, Innenreinigung, Politur und Keramikversiegelung — mit Profi-Produkten und
-              unserer ruhigen Handarbeit in Göppingen und Umgebung. Darüber hinaus berate ich Sie persönlich, welcher
-              Umfang für Ihr Fahrzeug sinnvoll ist.
+              unserer ruhigen Handarbeit in Göppingen und Umgebung. Zudem berate ich Sie persönlich; des Weiteren
+              unterstützt unser Team Sie bei Terminen und Nachpflege. Zusätzlich erklären wir im Folgenden jeden Schritt
+              verständlich — dennoch ohne unnötige Zusatzpakete.
             </motion.p>
             <motion.div variants={fadeUp} className="mt-10 flex flex-wrap justify-center gap-4">
               <motion.div whileHover={reduceMotion ? {} : { scale: 1.04 }} whileTap={{ scale: 0.98 }}>

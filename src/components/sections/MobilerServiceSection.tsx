@@ -87,6 +87,11 @@ export function MobilerServiceSection() {
                 <span className="whitespace-nowrap">Nachbarländern</span> für Sie da: Österreich, Schweiz, Italien,
                 Frankreich und Belgien.
               </p>
+              <p>
+                Zudem prüfen wir vorab Wasser, Strom und Witterung — des Weiteren stimmen wir im Folgenden den genauen
+                Ablauf mit Ihnen ab. Zusätzlich bringt unser Team die passende Ausstattung mit; dennoch bleibt die
+                Qualität dieselbe wie in unserer Werkstatt in Zell unter Aichelberg.
+              </p>
             </div>
             <motion.div
               initial={reduceMotion ? false : { opacity: 0, y: 16 }}

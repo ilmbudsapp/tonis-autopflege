@@ -66,6 +66,11 @@ export function WarumTonisSection() {
               langfristig glänzt und an Wert gewinnt. Schließlich ist Vertrauen die Basis jeder guten Aufbereitung;
               deshalb erklären wir jeden Schritt verständlich.
             </p>
+            <p className="mx-auto mt-4 max-w-2xl text-sm text-zinc-500 md:text-base">
+              Zudem kombinieren wir bewährte Handarbeit mit modernen Produktsystemen. Des Weiteren passen wir jedes Paket
+              an Ihr Fahrzeug an — im Folgenden sehen Sie unsere Stärken auf einen Blick. Zusätzlich beraten wir Sie
+              ehrlich, welche Leistungen wirklich nötig sind; dennoch setzen wir keine Kompromisse bei Material und Zeit.
+            </p>
           </motion.div>
 
           <motion.div

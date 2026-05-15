@@ -25,8 +25,11 @@ export function GalerieSection() {
           >
             Galerie
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-sm text-zinc-500 md:text-base">
-            Vorher-Nachher und Referenzbilder aus der professionellen Autoaufbereitung — optimiert für schnelles Laden.
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-zinc-500 md:text-base">
+            Vorher-Nachher und Referenzbilder aus meiner professionellen Autoaufbereitung in Göppingen und Zell unter
+            Aichelberg. Zudem zeigen die Aufnahmen Lackpolitur, Innenraum und Finish — des Weiteren sind alle Bilder für
+            schnelles Laden optimiert. Zusätzlich dokumentiert unser Team echte Kundenfahrzeuge; dennoch bleibt jedes
+            Ergebnis individuell, weil Zustand und Wünsche unterschiedlich sind.
           </p>
         </motion.div>
 

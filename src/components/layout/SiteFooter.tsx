@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Building2, Mail, MapPin, Music2, Phone } from "lucide-react";
 import { EASE_OUT_CUBIC } from "@/lib/motion";
+import { LAST_UPDATED_LABEL } from "@/lib/seoContent";
 import { AGR_SITE_URL, CANONICAL_ORIGIN, FIRMENFOOTER, NAV_LINKS, ROUTES } from "@/lib/site";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
@@ -12,7 +13,11 @@ export default function SiteFooter() {
   const { fontDisplay } = useSiteTypography();
 
   return (
-    <footer className="border-t border-white/[0.06] bg-[#020208] py-14 md:py-16">
+    <footer
+      role="contentinfo"
+      aria-label="Website-Fußzeile"
+      className="border-t border-white/[0.06] bg-[#020208] py-14 md:py-16"
+    >
       <motion.div
         className="mx-auto max-w-4xl px-5 sm:px-6 md:px-8"
         initial={reduceMotion ? false : { opacity: 0, y: 20 }}
@@ -170,6 +175,10 @@ export default function SiteFooter() {
             AGB
           </Link>
         </nav>
+
+        <p className="mt-6 text-center text-[11px] text-zinc-500">
+          <time dateTime="2026-05">{LAST_UPDATED_LABEL}</time>
+        </p>
 
         <p className="mt-3 text-center text-[10px] text-zinc-600 sm:text-[11px]">
           <a

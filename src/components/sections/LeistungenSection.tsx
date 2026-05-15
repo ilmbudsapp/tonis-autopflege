@@ -1,43 +1,23 @@
-import { useEffect, useMemo, useRef, useState } from "react";
-import { Link } from "react-router-dom";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import {
-  AirVent, Armchair, BrushCleaning, Building2, Car, Check, ChevronDown, Droplets,
-  FileCheck, Focus, Gift, Hammer, Mail, MapPin, MessageCircle, Music2, Phone, Quote,
-  Shield, Sparkles, Star, Sun, Tags, TrendingUp, Wind, Wrench,
-} from "lucide-react";
-import { GALLERY_WEBP_FILENAMES } from "@/generated/galleryWebp";
-import { WORK_VIDEO_CLIPS } from "@/generated/workVideos";
-import { PREMIUM_BRANDS } from "@/data/premiumBrands";
-import {
-  FAQ_ITEMS, GUTSCHEIN_BETRAEGE, INNENRAUM_CATEGORIES, KUNDEN_TESTIMONIALS,
-  LEISTUNGEN_CATEGORIES, PARTNER_NETZWERK_NAMEN,
-  PREMIUM_SERVICES, PRODUKTE, REPARATUR_SPEZIAL_SERVICES, WARUM_TONIS_ITEMS,
-} from "@/data/siteContent";
-import {
-  BASE, HERO_POSTER, HERO_VIDEO_PRIMARY, KONTAKT_TERMIN_ANFRAGE_WA_TEXT,
-  LOGO_HERO_SRC, TONI_WA_HREF, toniWaHrefWithPrefill,
-} from "@/lib/assets";
+import { motion } from "framer-motion";
+import { Check } from "lucide-react";
+import { LEISTUNGEN_CATEGORIES, REPARATUR_SPEZIAL_SERVICES } from "@/data/siteContent";
 import { EASE_OUT_CUBIC } from "@/lib/motion";
-import { ROUTES } from "@/lib/site";
+import {
+  KERAMIK_MULTIPERSPECTIVE,
+  SERVICE_DEFINITIONS,
+} from "@/lib/seoContent";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
-import { GoldIconFrame, LucideInGold, SvgGoogleGCorner } from "@/components/ui/GoldIcons";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SectionSummary } from "@/components/ui/SectionSummary";
 
-const GALLERY = GALLERY_WEBP_FILENAMES.map((f) => `${BASE}assets/gallery-webp/${f}`);
-const WORK_VIDEO_BASE = `${BASE}assets/videos/work/`;
-const WORK_VIDEOS = WORK_VIDEO_CLIPS.map((c, i) => ({
-  src: `${WORK_VIDEO_BASE}${c.file}`,
-  poster: `${WORK_VIDEO_BASE}posters/${c.poster}`,
-  title: `Referenzvideo ${i + 1}`,
-  text: "Ausschnitt aus der Aufbereitung — Politur, Innenraum oder Finish.",
-}));
+type LeistungenSectionProps = {
+  pageTitle?: string;
+};
 
-
-export function LeistungenSection() {
-  const { reduceMotion, containerSlow, fadeUp, cardPop } = useMotionVariants();
-  const { fontDisplay, fontHeroHeadline } = useSiteTypography();
+export function LeistungenSection({ pageTitle }: LeistungenSectionProps) {
+  const { reduceMotion, cardPop } = useMotionVariants();
+  const { fontDisplay } = useSiteTypography();
 
   return (
     <>
@@ -51,12 +31,12 @@ export function LeistungenSection() {
             className="mb-14 text-center md:mb-16"
           >
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.4em] text-[#c9a227]/80">Premium</p>
-            <h2
+            <SectionHeading
+              pageTitle={pageTitle}
+              defaultText="Welche Leistungen bietet Toni&apos;s Autopflege?"
               className="mx-auto max-w-4xl text-pretty px-1 text-[13px] font-extrabold leading-[1.22] tracking-tight text-white min-[361px]:text-base sm:text-lg md:px-0 md:text-4xl md:leading-tight md:tracking-normal lg:text-5xl"
               style={{ fontFamily: fontDisplay }}
-            >
-              Welche Leistungen bietet Toni&apos;s Autopflege?
-            </h2>
+            />
             <SectionSummary>
               Außen, Lack, Keramik und Innenraum — ich biete strukturierte Pakete mit Profi-Produkten in Göppingen.
             </SectionSummary>
@@ -70,6 +50,14 @@ export function LeistungenSection() {
               Prozesse reproduzierbar. Ebenso passen wir jedes Paket an Ihr Fahrzeug an — infolgedessen zahlen Sie nur,
               was Sie wirklich brauchen.
             </p>
+            <dl className="mx-auto mt-8 max-w-3xl space-y-4 rounded-2xl border border-white/[0.08] bg-black/30 px-5 py-6 text-left md:px-8">
+              {SERVICE_DEFINITIONS.map((def) => (
+                <div key={def.term}>
+                  <dt className="text-sm font-bold text-[#c9a227]/90">{def.term}</dt>
+                  <dd className="mt-1 text-sm leading-relaxed text-zinc-400">{def.definition}</dd>
+                </div>
+              ))}
+            </dl>
             <div className="mx-auto mt-10 max-w-4xl rounded-2xl border border-white/[0.08] bg-black/35 px-4 py-6 sm:px-6 md:py-8">
               <p className="mb-4 text-center text-xs font-bold uppercase tracking-[0.28em] text-[#c9a227]/80">
                 Alle Leistungen im Überblick (Tabelle)
@@ -149,6 +137,9 @@ export function LeistungenSection() {
                     </div>
                   </div>
                   <p className="relative mb-6 text-sm leading-relaxed text-zinc-400">{cat.description}</p>
+                  {cat.id === "keramik" ? (
+                    <p className="relative mb-6 text-sm leading-relaxed text-zinc-500">{KERAMIK_MULTIPERSPECTIVE}</p>
+                  ) : null}
                   <p className="relative mb-3 text-[10px] font-bold uppercase tracking-[0.35em] text-[#c9a227]/75">
                     {cat.listLabel}
                   </p>

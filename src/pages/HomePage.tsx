@@ -5,6 +5,7 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { MobilerServiceSection } from "@/components/sections/MobilerServiceSection";
 import { TerminCtaSection } from "@/components/sections/TerminCtaSection";
 import { LeistungenSection } from "@/components/sections/LeistungenSection";
+import { UnserProzessSection } from "@/components/sections/UnserProzessSection";
 import { WarumTonisSection } from "@/components/sections/WarumTonisSection";
 import { PAGE_META } from "@/lib/site";
 
@@ -18,6 +19,7 @@ export default function HomePage() {
       <HeroSection />
       <WarumTonisSection />
       <LeistungenSection />
+      <UnserProzessSection />
       <MobilerServiceSection />
       <TerminCtaSection />
     </>

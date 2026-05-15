@@ -23,6 +23,7 @@ import { ROUTES } from "@/lib/site";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import { GoldIconFrame, LucideInGold, SvgGoogleGCorner } from "@/components/ui/GoldIcons";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SectionSummary } from "@/components/ui/SectionSummary";
 
 const GALLERY = GALLERY_WEBP_FILENAMES.map((f) => `${BASE}assets/gallery-webp/${f}`);
@@ -35,7 +36,9 @@ const WORK_VIDEOS = WORK_VIDEO_CLIPS.map((c, i) => ({
 }));
 
 
-export function KontaktSection() {
+type KontaktSectionProps = { pageTitle?: string };
+
+export function KontaktSection({ pageTitle }: KontaktSectionProps) {
   const { reduceMotion, containerSlow, fadeUp, cardPop } = useMotionVariants();
   const { fontDisplay, fontHeroHeadline } = useSiteTypography();
 
@@ -49,12 +52,12 @@ export function KontaktSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: EASE_OUT_CUBIC }}
           >
-            <h2
+            <SectionHeading
+              pageTitle={pageTitle}
+              defaultText="Kontakt"
               className="mb-2 text-balance break-words text-center text-3xl font-extrabold leading-[1.15] tracking-tight text-white md:text-4xl md:leading-tight md:tracking-normal lg:text-5xl"
               style={{ fontFamily: fontDisplay }}
-            >
-              Kontakt
-            </h2>
+            />
             <SectionSummary className="mb-6">
               Schreiben Sie mir — ich antworte persönlich per WhatsApp, Telefon oder E-Mail aus Göppingen.
             </SectionSummary>
@@ -118,6 +121,7 @@ export function KontaktSection() {
               </div>
 
               <motion.form
+                aria-label="Kontaktformular per E-Mail"
                 className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-zinc-900/30 p-8 shadow-[0_0_80px_rgba(201,162,39,0.06)] backdrop-blur-xl"
                 initial={reduceMotion ? false : { opacity: 0, rotateX: 8 }}
                 whileInView={{ opacity: 1, rotateX: 0 }}

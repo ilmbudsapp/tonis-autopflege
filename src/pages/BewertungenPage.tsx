@@ -7,7 +7,7 @@ export default function BewertungenPage() {
   return (
     <>
       <PageMeta {...meta} />
-      <BewertungenSection />
+      <BewertungenSection pageTitle={meta.title} />
     </>
   );
 }

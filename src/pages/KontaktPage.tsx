@@ -9,7 +9,7 @@ export default function KontaktPage() {
     <>
       <PageMeta {...meta} />
       <LocalBusinessJsonLd />
-      <KontaktSection />
+      <KontaktSection pageTitle={meta.title} />
     </>
   );
 }

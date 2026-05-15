@@ -24,6 +24,7 @@ import { ROUTES } from "@/lib/site";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import { GoldIconFrame, LucideInGold, SvgGoogleGCorner } from "@/components/ui/GoldIcons";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SectionSummary } from "@/components/ui/SectionSummary";
 
 const GALLERY = GALLERY_WEBP_FILENAMES.map((f) => `${BASE}assets/gallery-webp/${f}`);
@@ -36,7 +37,9 @@ const WORK_VIDEOS = WORK_VIDEO_CLIPS.map((c, i) => ({
 }));
 
 
-export function PremiumPartnerSection() {
+type PremiumPartnerSectionProps = { pageTitle?: string };
+
+export function PremiumPartnerSection({ pageTitle }: PremiumPartnerSectionProps) {
   const { reduceMotion, containerSlow, fadeUp, cardPop } = useMotionVariants();
   const { fontDisplay, fontHeroHeadline } = useSiteTypography();
   const [premiumCardTap, setPremiumCardTap] = useState<string | null>(null);
@@ -74,13 +77,13 @@ export function PremiumPartnerSection() {
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.4em] text-[#c9a227]/80">
               Unsere Premium Partner &amp; Produkte
             </p>
-            <h2
+            <SectionHeading
+              pageTitle={pageTitle}
+              defaultText="Qualität ohne Kompromisse"
               id="premium-partner-heading"
               className="mx-auto max-w-4xl text-balance break-words text-2xl font-extrabold leading-[1.15] tracking-tight text-white md:text-4xl md:leading-tight md:tracking-normal lg:text-5xl"
               style={{ fontFamily: fontDisplay }}
-            >
-              Qualität ohne Kompromisse
-            </h2>
+            />
             <SectionSummary>
               Ich setze auf Premium-Marken — unser Team vertraut Koch-Chemie, Sonax, Gyeon und weiteren Profi-Systemen.
             </SectionSummary>

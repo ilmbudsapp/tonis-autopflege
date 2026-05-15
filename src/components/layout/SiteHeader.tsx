@@ -26,6 +26,7 @@ export default function SiteHeader() {
     <>
       <header
         id="site-header"
+        role="banner"
         className="fixed inset-x-0 top-0 z-50 border-b border-zinc-200/90 bg-zinc-100/95 shadow-[0_1px_0_rgba(255,255,255,0.8),0_8px_30px_rgba(0,0,0,0.06)] backdrop-blur-xl backdrop-saturate-150"
       >
         <motion.div

@@ -9,7 +9,7 @@ export default function PartnerPage() {
   return (
     <>
       <PageMeta {...meta} />
-      <PremiumPartnerSection />
+      <PremiumPartnerSection pageTitle={meta.title} />
       <ProdukteSection />
       <PartnerSection />
     </>

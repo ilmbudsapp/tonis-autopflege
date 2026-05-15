@@ -75,7 +75,7 @@ export function UeberMichSection() {
               className="mb-8 text-balance break-words text-2xl font-extrabold leading-[1.15] tracking-tight text-white md:text-4xl md:leading-tight md:tracking-normal lg:text-5xl"
               style={{ fontFamily: fontDisplay }}
             >
-              Über Toni — Toni&apos;s Autopflege Göppingen
+              Über Toni - Toni&apos;s Autopflege Göppingen
             </h1>
             <SectionSummary>
               Ich, Jeton Shala (Toni), führe die Aufbereitung persönlich — unser Team in Göppingen steht für Qualität.

@@ -24,7 +24,7 @@ export function GalerieSection() {
             className="text-balance break-words text-2xl font-extrabold leading-[1.15] tracking-tight text-white md:text-4xl md:leading-tight lg:text-5xl"
             style={{ fontFamily: fontDisplay }}
           >
-            Galerie — Toni&apos;s Autopflege Göppingen
+            Galerie - Toni&apos;s Autopflege Göppingen
           </h1>
           <SectionSummary>
             Referenzbilder aus meiner Profi-Aufbereitung in Göppingen — Vorher-Nachher aus Politur, Innenraum und Finish.

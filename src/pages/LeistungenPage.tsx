@@ -9,7 +9,7 @@ export default function LeistungenPage() {
   return (
     <>
       <PageMeta {...meta} />
-      <LeistungenSection />
+      <LeistungenSection pageTitle={meta.title} />
       <InnenraumSection />
       <PremiumServicesSection />
     </>

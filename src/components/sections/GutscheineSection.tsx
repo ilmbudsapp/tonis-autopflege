@@ -5,9 +5,12 @@ import { toniWaHrefWithPrefill } from "@/lib/assets";
 import { EASE_OUT_CUBIC } from "@/lib/motion";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SectionSummary } from "@/components/ui/SectionSummary";
 
-export function GutscheineSection() {
+type GutscheineSectionProps = { pageTitle?: string };
+
+export function GutscheineSection({ pageTitle }: GutscheineSectionProps) {
   const { reduceMotion } = useMotionVariants();
   const { fontDisplay } = useSiteTypography();
 
@@ -37,13 +40,13 @@ export function GutscheineSection() {
             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#c9a227]/45 bg-[#c9a227]/10 text-[#f0d78c] shadow-[0_0_28px_rgba(201,162,39,0.2)]">
               <Gift className="h-6 w-6" strokeWidth={1.75} aria-hidden />
             </div>
-            <h2
+            <SectionHeading
+              pageTitle={pageTitle}
+              defaultText="Verschenken Sie Glanz: Unsere Gutscheine"
               id="gutschein-heading"
               className="max-w-4xl text-pretty font-extrabold leading-[1.15] tracking-tight text-white max-md:px-0.5 max-md:text-[clamp(13px,3.5vw,1.25rem)] md:text-4xl md:leading-tight lg:text-5xl"
               style={{ fontFamily: fontDisplay }}
-            >
-              Verschenken Sie Glanz: Unsere Gutscheine
-            </h2>
+            />
           </div>
           <SectionSummary>
             Ich berate Sie zum passenden Gutscheinwert — alle Beträge gelten für unsere komplette Autopflege.

@@ -19,6 +19,7 @@ import {
   LOGO_HERO_SRC, TONI_WA_HREF, toniWaHrefWithPrefill,
 } from "@/lib/assets";
 import { EASE_OUT_CUBIC } from "@/lib/motion";
+import { INNENRAUM_MULTIPERSPECTIVE } from "@/lib/seoContent";
 import { ROUTES } from "@/lib/site";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
@@ -64,6 +65,9 @@ export function InnenraumSection() {
               Darüber hinaus behandeln wir Leder, Alcantara und Stoff individuell. Zusätzlich neutralisieren wir Gerüche;
               im Gegensatz dazu zu oberflächlicher Reinigung erreichen wir auch Lüftung, Matten und schwer zugängliche Bereiche.
               Ich plane den Umfang mit Ihnen — unser Team in Göppingen setzt auf Koch-Chemie und ruhige Handarbeit.
+            </p>
+            <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-zinc-500 md:text-base">
+              {INNENRAUM_MULTIPERSPECTIVE}
             </p>
           </motion.div>
           <motion.div

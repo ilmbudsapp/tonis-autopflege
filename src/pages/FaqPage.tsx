@@ -9,7 +9,7 @@ export default function FaqPage() {
     <>
       <PageMeta {...meta} />
       <FaqPageJsonLd />
-      <FaqSection />
+      <FaqSection pageTitle={meta.title} />
     </>
   );
 }

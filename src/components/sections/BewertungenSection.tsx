@@ -24,6 +24,7 @@ import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import { GoldIconFrame, LucideInGold, SvgGoogleGCorner } from "@/components/ui/GoldIcons";
 import { CANONICAL_ORIGIN, ROUTES } from "@/lib/site";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SectionSummary } from "@/components/ui/SectionSummary";
 
 const GALLERY = GALLERY_WEBP_FILENAMES.map((f) => `${BASE}assets/gallery-webp/${f}`);
@@ -36,7 +37,9 @@ const WORK_VIDEOS = WORK_VIDEO_CLIPS.map((c, i) => ({
 }));
 
 
-export function BewertungenSection() {
+type BewertungenSectionProps = { pageTitle?: string };
+
+export function BewertungenSection({ pageTitle }: BewertungenSectionProps) {
   const { reduceMotion, containerSlow, fadeUp, cardPop } = useMotionVariants();
   const { fontDisplay, fontHeroHeadline } = useSiteTypography();
 
@@ -56,13 +59,13 @@ export function BewertungenSection() {
             className="mb-12 text-center"
           >
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.35em] text-[#c9a227]/75">Google Rezensionen</p>
-            <h2
+            <SectionHeading
+              pageTitle={pageTitle}
+              defaultText="Was berichten Kunden über Toni&apos;s Autopflege?"
               id="kundenstimmen-heading"
               className="text-balance break-words text-2xl font-extrabold leading-[1.15] tracking-tight text-white md:text-4xl md:leading-tight md:tracking-normal lg:text-5xl"
               style={{ fontFamily: fontDisplay }}
-            >
-              Was berichten Kunden über Toni&apos;s Autopflege?
-            </h2>
+            />
             <SectionSummary>
               Echte Google-Bewertungen — ich freue mich über Feedback zu Politur, Keramik und Innenraum.
             </SectionSummary>

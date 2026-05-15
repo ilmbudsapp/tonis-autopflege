@@ -42,7 +42,7 @@ export function VideoSection() {
             className="text-balance break-words text-2xl font-extrabold leading-[1.15] tracking-tight text-white md:text-4xl md:leading-tight lg:text-5xl"
             style={{ fontFamily: fontDisplay }}
           >
-            Videos — Toni&apos;s Autopflege Göppingen
+            Videos - Toni&apos;s Autopflege Göppingen
           </h1>
           <SectionSummary>
             Einblicke in Politur, Innenraum und Finish — ich zeige unsere Arbeit transparent im Video.

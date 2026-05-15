@@ -7,7 +7,7 @@ export default function GutscheinePage() {
   return (
     <>
       <PageMeta {...meta} />
-      <GutscheineSection />
+      <GutscheineSection pageTitle={meta.title} />
     </>
   );
 }

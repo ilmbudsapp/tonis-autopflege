@@ -11,12 +11,16 @@ export const ROUTES = {
   impressum: "/impressum",
   datenschutz: "/datenschutz",
   gutscheine: "/gutscheine",
+  galerie: "/galerie",
+  video: "/video",
 } as const;
 
 export type RoutePath = (typeof ROUTES)[keyof typeof ROUTES];
 
 export const NAV_LINKS: { to: RoutePath; label: string }[] = [
   { to: ROUTES.leistungen, label: "Leistungen" },
+  { to: ROUTES.galerie, label: "Galerie" },
+  { to: ROUTES.video, label: "Video" },
   { to: ROUTES.gutscheine, label: "Gutscheine" },
   { to: ROUTES.partner, label: "Partner" },
   { to: ROUTES.ueberMich, label: "Über mich" },
@@ -110,5 +114,17 @@ export const PAGE_META: Record<string, PageMetaConfig> = {
     title: "Gutscheine Autopflege | Toni's Autopflege",
     description:
       "Geschenkgutscheine für Autoaufbereitung — wählen Sie einen Wert und kontaktieren Sie Toni's Autopflege per WhatsApp.",
+  },
+  galerie: {
+    path: ROUTES.galerie,
+    title: "Galerie | Toni's Autopflege Göppingen",
+    description:
+      "Unsere Ergebnisse: Vorher-Nachher Bilder der professionellen Autoaufbereitung.",
+  },
+  video: {
+    path: ROUTES.video,
+    title: "Videos | Toni's Autopflege Göppingen",
+    description:
+      "Einblicke in unsere Arbeit: Professionelle Fahrzeugpflege im Video-Format.",
   },
 };

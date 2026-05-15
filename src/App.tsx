@@ -5,8 +5,10 @@ import { useDemoFonts } from "@/hooks/useDemoFonts";
 import BewertungenPage from "@/pages/BewertungenPage";
 import DatenschutzPage from "@/pages/DatenschutzPage";
 import FaqPage from "@/pages/FaqPage";
+import GaleriePage from "@/pages/GaleriePage";
 import GutscheinePage from "@/pages/GutscheinePage";
 import HomePage from "@/pages/HomePage";
+import VideoPage from "@/pages/VideoPage";
 import ImpressumPage from "@/pages/ImpressumPage";
 import KontaktPage from "@/pages/KontaktPage";
 import LeistungenPage from "@/pages/LeistungenPage";
@@ -24,6 +26,8 @@ export default function App() {
         <Route element={<SiteLayout />}>
           <Route path={ROUTES.home} element={<HomePage />} />
           <Route path={ROUTES.leistungen} element={<LeistungenPage />} />
+          <Route path={ROUTES.galerie} element={<GaleriePage />} />
+          <Route path={ROUTES.video} element={<VideoPage />} />
           <Route path={ROUTES.ueberMich} element={<UeberMichPage />} />
           <Route path={ROUTES.faq} element={<FaqPage />} />
           <Route path={ROUTES.partner} element={<PartnerPage />} />

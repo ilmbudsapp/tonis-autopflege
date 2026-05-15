@@ -5,19 +5,20 @@ import { BASE, TONI_WA_HREF } from "@/lib/assets";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
-
+import { BreadcrumbListJsonLd } from "@/components/seo/JsonLd";
 export default function SiteLayout() {
   const reduceMotion = useReducedMotion();
   const { fontSans } = useSiteTypography();
 
   useEffect(() => {
+    document.documentElement.classList.add("tonis-app-ready");
     const prevLang = document.documentElement.lang;
     document.documentElement.lang = "de";
     return () => {
+      document.documentElement.classList.remove("tonis-app-ready");
       document.documentElement.lang = prevLang;
     };
   }, []);
-
   return (
     <div
       className="tonis-site-shell relative min-h-[100dvh] overflow-x-hidden bg-[#030306] text-[#ece8e2] antialiased selection:bg-[#c9a227]/35 selection:text-white"
@@ -72,10 +73,10 @@ export default function SiteLayout() {
         aria-hidden="true"
       />
 
+      <BreadcrumbListJsonLd />
       <SiteHeader />
 
-      <main
-        id="main-content"
+      <main        id="main-content"
         role="main"
         aria-label="Hauptinhalt"
         className="relative z-[2] pt-24 lg:pt-20"

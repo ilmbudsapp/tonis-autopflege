@@ -19,7 +19,9 @@ import {
   LOGO_HERO_SRC, TONI_WA_HREF, toniWaHrefWithPrefill,
 } from "@/lib/assets";
 import { EASE_OUT_CUBIC } from "@/lib/motion";
+import { SEO_DATA_POINTS, TONIS_TIPS } from "@/lib/seoContent";
 import { HOME_PAGE_TITLE, ROUTES } from "@/lib/site";
+import { TonisTip } from "@/components/ui/TonisTip";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import { GoldIconFrame, LucideInGold, SvgGoogleGCorner } from "@/components/ui/GoldIcons";
@@ -198,6 +200,15 @@ export function HeroSection() {
               Außenpflege, Innenraum und Finish. Folglich dokumentieren wir jeden Schritt transparent. Ebenso freue ich
               mich auf Ihre Anfrage per WhatsApp oder Telefon.
             </motion.p>
+            <motion.p
+              variants={fadeUp}
+              className="mx-auto mt-4 max-w-xl text-pretty text-sm font-medium text-[#e8cf7a] md:text-base"
+            >
+              {SEO_DATA_POINTS.customers} · {SEO_DATA_POINTS.experience}
+            </motion.p>
+            <motion.div variants={fadeUp} className="mx-auto mt-6 max-w-xl">
+              <TonisTip>{TONIS_TIPS.hero}</TonisTip>
+            </motion.div>
             <motion.div variants={fadeUp} className="mt-10 flex flex-wrap justify-center gap-4">
               <motion.div whileHover={reduceMotion ? {} : { scale: 1.04 }} whileTap={{ scale: 0.98 }}>
                 <Link

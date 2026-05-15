@@ -3,7 +3,9 @@ import { WORKFLOW_STEPS } from "@/lib/seoContent";
 import { EASE_OUT_CUBIC } from "@/lib/motion";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
+import { TONIS_TIPS } from "@/lib/seoContent";
 import { SectionSummary } from "@/components/ui/SectionSummary";
+import { TonisTip } from "@/components/ui/TonisTip";
 
 export function UnserProzessSection() {
   const { reduceMotion } = useMotionVariants();
@@ -40,6 +42,7 @@ export function UnserProzessSection() {
             dokumentieren die Schritte. Demzufolge wissen Sie vorab, was passiert. Gleichermaßen bleibt die Qualität
             planbar — infolgedessen vermeiden wir Überraschungen bei der Übergabe.
           </p>
+          <TonisTip className="mx-auto mt-6 max-w-2xl">{TONIS_TIPS.prozess}</TonisTip>
         </motion.header>
 
         <motion.ol

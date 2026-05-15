@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Toni's Autopflege - Profi-Aufbereitung Göppingen</title>
+    <link>https://www.tonis-autopflege-goeppingen.de/</link>
+    <description>Ich biete Profi-Lackpolitur, Innenreinigung und Keramik in Göppingen. Wir bringen Ihr Auto mit Koch-Chemie und Sonax zum Glänzen.</description>
+    <language>de-DE</language>
+    <lastBuildDate>Fri, 15 May 2026 12:00:00 +0200</lastBuildDate>
+    <atom:link href="https://www.tonis-autopflege-goeppingen.de/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leistungen: Politur, Keramik und Innenraum</title>
+      <link>https://www.tonis-autopflege-goeppingen.de/leistungen</link>
+      <description>Außenaufbereitung, Lackpolitur, Keramikversiegelung und Innenraumaufbereitung in Zell unter Aichelberg.</description>
+      <guid isPermaLink="true">https://www.tonis-autopflege-goeppingen.de/leistungen</guid>
+    </item>
+    <item>
+      <title>Über Toni - 10+ Jahre Erfahrung</title>
+      <link>https://www.tonis-autopflege-goeppingen.de/ueber-mich</link>
+      <description>Jeton Shala (Toni) — inhabergeführte Autoaufbereitung mit über 10 Jahren Erfahrung in Göppingen.</description>
+      <guid isPermaLink="true">https://www.tonis-autopflege-goeppingen.de/ueber-mich</guid>
+    </item>
+    <item>
+      <title>FAQ Autoaufbereitung Göppingen</title>
+      <link>https://www.tonis-autopflege-goeppingen.de/faq</link>
+      <description>Häufige Fragen zu Dauer, Keramik, Marken und mobilem Service bei Toni's Autopflege.</description>
+      <guid isPermaLink="true">https://www.tonis-autopflege-goeppingen.de/faq</guid>
+    </item>
+    <item>
+      <title>Kontakt und Termin anfragen</title>
+      <link>https://www.tonis-autopflege-goeppingen.de/kontakt</link>
+      <description>Termin per WhatsApp, Telefon oder E-Mail — Boschstr. 23/1, Zell unter Aichelberg.</description>
+      <guid isPermaLink="true">https://www.tonis-autopflege-goeppingen.de/kontakt</guid>
+    </item>
+  </channel>
+</rss>

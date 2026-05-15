@@ -23,7 +23,9 @@ import { ROUTES } from "@/lib/site";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import { GoldIconFrame, LucideInGold, SvgGoogleGCorner } from "@/components/ui/GoldIcons";
+import { TONIS_TIPS } from "@/lib/seoContent";
 import { SectionSummary } from "@/components/ui/SectionSummary";
+import { TonisTip } from "@/components/ui/TonisTip";
 
 const GALLERY = GALLERY_WEBP_FILENAMES.map((f) => `${BASE}assets/gallery-webp/${f}`);
 const WORK_VIDEO_BASE = `${BASE}assets/videos/work/`;
@@ -73,6 +75,7 @@ export function TerminCtaSection() {
               Ebenso erklären wir jeden Schritt. Infolgedessen vermeiden wir Hektik — demzufolge bleibt die Qualität hoch.
               Ich freue mich auf Ihre Nachricht.
             </p>
+            <TonisTip className="mt-6">{TONIS_TIPS.termin}</TonisTip>
             <motion.a
               href={TONI_WA_HREF}
               target="_blank"

@@ -23,7 +23,9 @@ import { ROUTES } from "@/lib/site";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import { GoldIconFrame, LucideInGold, SvgGoogleGCorner } from "@/components/ui/GoldIcons";
+import { TONIS_TIPS } from "@/lib/seoContent";
 import { SectionSummary } from "@/components/ui/SectionSummary";
+import { TonisTip } from "@/components/ui/TonisTip";
 
 const GALLERY = GALLERY_WEBP_FILENAMES.map((f) => `${BASE}assets/gallery-webp/${f}`);
 const WORK_VIDEO_BASE = `${BASE}assets/videos/work/`;
@@ -95,6 +97,7 @@ export function MobilerServiceSection() {
                 Qualitätsverlust. Folglich bleiben unsere Standards identisch — mein Team garantiert Profi-Ergebnisse bei
                 Ihnen vor Ort.
               </p>
+              <TonisTip className="mt-6">{TONIS_TIPS.mobil}</TonisTip>
             </div>
             <motion.div
               initial={reduceMotion ? false : { opacity: 0, y: 16 }}

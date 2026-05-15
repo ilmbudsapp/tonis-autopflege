@@ -4,8 +4,11 @@ import { LEISTUNGEN_CATEGORIES, REPARATUR_SPEZIAL_SERVICES } from "@/data/siteCo
 import { EASE_OUT_CUBIC } from "@/lib/motion";
 import {
   KERAMIK_MULTIPERSPECTIVE,
+  SEO_DATA_POINTS,
   SERVICE_DEFINITIONS,
+  TONIS_TIPS,
 } from "@/lib/seoContent";
+import { TonisTip } from "@/components/ui/TonisTip";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -49,6 +52,9 @@ export function LeistungenSection({ pageTitle }: LeistungenSectionProps) {
               Ich setze in meiner Werkstatt auf Koch-Chemie und Sonax; gleichermaßen ergänzt unser Netzwerk HYLA Germany
               GmbH für Hygiene. Ebenso passe ich jedes Paket an Ihr Fahrzeug an. Infolgedessen zahlen Sie nur, was Sie
               wirklich brauchen — folglich bleiben unsere Prozesse reproduzierbar.
+            </p>
+            <p className="mx-auto mt-4 max-w-3xl text-center text-sm font-medium text-[#c9a227]/90 md:text-base">
+              {SEO_DATA_POINTS.customers} · {SEO_DATA_POINTS.experience}
             </p>
             <dl className="mx-auto mt-8 max-w-3xl space-y-4 rounded-2xl border border-white/[0.08] bg-black/30 px-5 py-6 text-left md:px-8">
               {SERVICE_DEFINITIONS.map((def) => (
@@ -105,6 +111,12 @@ export function LeistungenSection({ pageTitle }: LeistungenSectionProps) {
           >
             {LEISTUNGEN_CATEGORIES.map((cat) => {
               const Icon = cat.Icon;
+              const tip =
+                cat.id === "aussen"
+                  ? TONIS_TIPS.aussen
+                  : cat.id === "lack"
+                    ? TONIS_TIPS.lack
+                    : TONIS_TIPS.keramik;
               return (
                 <motion.article
                   key={cat.id}
@@ -140,9 +152,13 @@ export function LeistungenSection({ pageTitle }: LeistungenSectionProps) {
                   {cat.id === "keramik" ? (
                     <p className="relative mb-6 text-sm leading-relaxed text-zinc-500">{KERAMIK_MULTIPERSPECTIVE}</p>
                   ) : null}
-                  <p className="relative mb-3 text-[10px] font-bold uppercase tracking-[0.35em] text-[#c9a227]/75">
+                  <TonisTip className="relative mb-5">{tip}</TonisTip>
+                  <h4
+                    className="relative mb-3 text-[10px] font-bold uppercase tracking-[0.35em] text-[#c9a227]/75"
+                    style={{ fontFamily: fontDisplay }}
+                  >
                     {cat.listLabel}
-                  </p>
+                  </h4>
                   <ul className="relative mt-auto space-y-3">
                     {cat.items.map((line) => (
                       <li key={line} className="flex gap-3 text-sm leading-snug text-zinc-200">

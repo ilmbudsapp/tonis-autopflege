@@ -23,7 +23,9 @@ import { ROUTES } from "@/lib/site";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import { GoldIconFrame, LucideInGold, SvgGoogleGCorner } from "@/components/ui/GoldIcons";
+import { SEO_DATA_POINTS, TONIS_TIPS } from "@/lib/seoContent";
 import { SectionSummary } from "@/components/ui/SectionSummary";
+import { TonisTip } from "@/components/ui/TonisTip";
 
 const GALLERY = GALLERY_WEBP_FILENAMES.map((f) => `${BASE}assets/gallery-webp/${f}`);
 const WORK_VIDEO_BASE = `${BASE}assets/videos/work/`;
@@ -75,6 +77,10 @@ export function WarumTonisSection() {
               Fahrzeug an. Ebenso berate ich ehrlich, welche Leistungen nötig sind. Infolgedessen erhalten Sie ein
               Ergebnis, das hält — folglich vertrauen Kunden in Göppingen auf unsere Werkstatt.
             </p>
+            <p className="mx-auto mt-4 max-w-2xl text-center text-sm font-medium text-[#c9a227]/90 md:text-base">
+              {SEO_DATA_POINTS.customers}
+            </p>
+            <TonisTip className="mx-auto mt-6 max-w-2xl">{TONIS_TIPS.aussen}</TonisTip>
           </motion.div>
 
           <motion.div

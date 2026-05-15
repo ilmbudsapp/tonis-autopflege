@@ -24,6 +24,18 @@ function upsertCanonical(href: string) {
   canonical.setAttribute("href", href);
 }
 
+function upsertLink(rel: string, href: string, type?: string) {
+  const selector = type ? `link[rel="${rel}"][type="${type}"]` : `link[rel="${rel}"]`;
+  let el = document.querySelector(selector) as HTMLLinkElement | null;
+  if (!el) {
+    el = document.createElement("link");
+    el.rel = rel;
+    if (type) el.type = type;
+    document.head.appendChild(el);
+  }
+  el.href = href;
+}
+
 function upsertHreflang(hreflang: string, href: string) {
   let el = document.querySelector(`link[rel="alternate"][hreflang="${hreflang}"]`) as HTMLLinkElement | null;
   if (!el) {
@@ -44,6 +56,7 @@ export default function PageMeta({ title, description, path }: PageMetaProps) {
     upsertCanonical(canonicalHref);
     upsertHreflang("de", canonicalHref);
     upsertHreflang("x-default", canonicalHref);
+    upsertLink("alternate", `${CANONICAL_ORIGIN}/feed.xml`, "application/rss+xml");
 
     upsertMeta("property", "og:site_name", SITE_NAME);
     upsertMeta("property", "og:title", title);

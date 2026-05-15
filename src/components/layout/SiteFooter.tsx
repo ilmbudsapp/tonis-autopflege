@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Building2, Mail, MapPin, Music2, Phone } from "lucide-react";
 import { EASE_OUT_CUBIC } from "@/lib/motion";
-import { AGR_SITE_URL, FIRMENFOOTER, NAV_LINKS, ROUTES } from "@/lib/site";
+import { AGR_SITE_URL, CANONICAL_ORIGIN, FIRMENFOOTER, NAV_LINKS, ROUTES } from "@/lib/site";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import { GoldIconFrame, LucideInGold, SvgFacebookGold, SvgInstagramGold } from "@/components/ui/GoldIcons";
@@ -30,7 +30,10 @@ export default function SiteFooter() {
           </h2>
         </div>
 
-        <blockquote className="mx-auto mb-10 max-w-2xl border-l-2 border-[#c9a227]/50 pl-4 text-left text-sm italic text-zinc-400 md:text-base">
+        <blockquote
+          cite={`${CANONICAL_ORIGIN}${ROUTES.ueberMich}`}
+          className="mx-auto mb-10 max-w-2xl border-l-2 border-[#c9a227]/50 pl-4 text-left text-sm italic text-zinc-400 md:text-base"
+        >
           <p>Unsere Leidenschaft ist Ihr Glanz. Wir setzen auf Premium-Produkte von Koch-Chemie und Sonax.</p>
           <footer className="mt-2 text-xs not-italic text-zinc-500">— Toni, Toni&apos;s Autopflege Zell unter Aichelberg</footer>
         </blockquote>

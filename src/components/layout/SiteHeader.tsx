@@ -53,6 +53,7 @@ export default function SiteHeader() {
           </motion.div>
           <motion.div className="flex min-w-0 flex-1 items-center justify-end gap-3 md:gap-4">
             <nav
+              role="navigation"
               className="hidden flex-wrap items-center justify-end gap-x-6 gap-y-2 text-[12px] font-semibold uppercase tracking-[0.16em] text-zinc-950 lg:flex"
               aria-label="Main navigation"
             >

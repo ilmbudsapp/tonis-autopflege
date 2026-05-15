@@ -11,7 +11,7 @@ import { WORK_VIDEO_CLIPS } from "@/generated/workVideos";
 import { PREMIUM_BRANDS } from "@/data/premiumBrands";
 import {
   FAQ_ITEMS, GUTSCHEIN_BETRAEGE, INNENRAUM_CATEGORIES, KUNDEN_TESTIMONIALS,
-  LEISTUNGEN_ALLE_LINIEN, LEISTUNGEN_CATEGORIES, PARTNER_NETZWERK_NAMEN,
+  LEISTUNGEN_CATEGORIES, PARTNER_NETZWERK_NAMEN,
   PREMIUM_SERVICES, PRODUKTE, REPARATUR_SPEZIAL_SERVICES, WARUM_TONIS_ITEMS,
 } from "@/data/siteContent";
 import {
@@ -61,29 +61,20 @@ export function LeistungenSection() {
               Außen, Lack, Keramik und Innenraum — ich biete strukturierte Pakete mit Profi-Produkten in Göppingen.
             </SectionSummary>
             <p className="mx-auto mt-5 max-w-3xl text-sm leading-relaxed text-zinc-400 md:text-base">
-              Bei Toni&apos;s Autopflege erhalten Sie professionelle Fahrzeugpflege auf höchstem Niveau – für maximalen
-              Glanz, Werterhalt und einen perfekten ersten Eindruck. Wir kombinieren hochwertige Pflegeprodukte mit
-              modernsten Techniken und der Liebe zum Detail. Für Reinigung und Finish setzen wir u. a. auf Profi-Linien
-              wie <strong className="font-semibold text-zinc-200">Koch-Chemie</strong> und{" "}
-              <strong className="font-semibold text-zinc-200">Sonax</strong>; im Netzwerk ergänzt u. a.{" "}
-              <strong className="font-semibold text-zinc-200">HYLA Germany GmbH</strong> die Themen Hygiene und
-              saubere Arbeitsumgebung.
+              Ich biete professionelle Fahrzeugpflege auf höchstem Niveau — für maximalen Glanz, Werterhalt und einen
+              perfekten ersten Eindruck. Mein Team und ich kombinieren hochwertige Pflegeprodukte mit modernen Techniken.
+              Wir garantieren Liebe zum Detail bei jeder Aufbereitung. Darüber hinaus setzen wir auf{" "}
+              <strong className="font-semibold text-zinc-200">Koch-Chemie</strong> und{" "}
+              <strong className="font-semibold text-zinc-200">Sonax</strong>; zudem ergänzt unser Netzwerk u. a.{" "}
+              <strong className="font-semibold text-zinc-200">HYLA Germany GmbH</strong> für Hygiene. Folglich bleiben
+              Prozesse reproduzierbar. Ebenso passen wir jedes Paket an Ihr Fahrzeug an — infolgedessen zahlen Sie nur,
+              was Sie wirklich brauchen.
             </p>
             <div className="mx-auto mt-10 max-w-4xl rounded-2xl border border-white/[0.08] bg-black/35 px-4 py-6 sm:px-6 md:py-8">
               <p className="mb-4 text-center text-xs font-bold uppercase tracking-[0.28em] text-[#c9a227]/80">
-                Alle Leistungen im Überblick
+                Alle Leistungen im Überblick (Tabelle)
               </p>
-              <ul className="columns-1 gap-x-8 gap-y-2 text-sm text-zinc-300 sm:columns-2 md:text-[15px] md:leading-relaxed">
-                {LEISTUNGEN_ALLE_LINIEN.map((line) => (
-                  <li key={line} className="break-inside-avoid py-0.5 pl-1">
-                    <span className="text-[#c9a227]/80" aria-hidden>
-                      ·{" "}
-                    </span>
-                    {line}
-                  </li>
-                ))}
-              </ul>
-              <div className="mx-auto mt-8 overflow-x-auto rounded-xl border border-white/[0.08] bg-black/20">
+              <div className="mx-auto overflow-x-auto rounded-xl border border-white/[0.08] bg-black/20">
                 <table className="w-full min-w-[min(100%,520px)] border-collapse text-left text-sm text-zinc-300 md:text-[15px]">
                   <caption className="caption-bottom px-3 pb-3 pt-2 text-center text-xs leading-snug text-zinc-500">
                     Strukturierte Leistungsliste (Kategorie und Einzelleistung) für Suchmaschinen und KI-Auswertung.

@@ -65,15 +65,15 @@ export function WarumTonisSection() {
             <SectionSummary>
               Ich stehe persönlich für jedes Ergebnis — unser Team in Göppingen verbindet Handarbeit mit Profi-Produkten.
             </SectionSummary>
-            <p className="mx-auto mt-4 max-w-2xl text-sm text-zinc-500 md:text-base">
-              Ich arbeite mit ruhiger Hand und klaren Abläufen — unser Team setzt auf Profi-Produkte, damit Ihr Fahrzeug
-              langfristig glänzt und an Wert gewinnt. Schließlich ist Vertrauen die Basis jeder guten Aufbereitung;
-              deshalb erklären wir jeden Schritt verständlich.
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-zinc-500 md:text-base">
+              Ich arbeite mit ruhiger Hand und klaren Abläufen. Mein Team und ich setzen auf Profi-Produkte, damit Ihr
+              Fahrzeug langfristig glänzt. Wir garantieren transparente Schritte — folglich wissen Sie immer, was als
+              Nächstes passiert. Darüber hinaus erkläre ich jeden Arbeitsschritt verständlich.
             </p>
-            <p className="mx-auto mt-4 max-w-2xl text-sm text-zinc-500 md:text-base">
-              Zudem kombinieren wir bewährte Handarbeit mit modernen Produktsystemen. Des Weiteren passen wir jedes Paket
-              an Ihr Fahrzeug an — im Folgenden sehen Sie unsere Stärken auf einen Blick. Zusätzlich beraten wir Sie
-              ehrlich, welche Leistungen wirklich nötig sind; dennoch setzen wir keine Kompromisse bei Material und Zeit.
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-zinc-500 md:text-base">
+              Ich kombiniere bewährte Handarbeit mit modernen Systemen. Wir passen jedes Paket an Ihr Fahrzeug an; zudem
+              berate ich ehrlich, welche Leistungen nötig sind. Ebenso setzen wir keine Kompromisse bei Material und Zeit.
+              Infolgedessen erhalten Sie ein Ergebnis, das hält — unser Team in Göppingen steht dafür.
             </p>
           </motion.div>
 

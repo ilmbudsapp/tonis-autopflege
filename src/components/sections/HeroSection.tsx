@@ -159,7 +159,7 @@ export function HeroSection() {
                   "0 2px 3px rgba(0,0,0,0.85), 0 12px 48px rgba(0,0,0,0.75), 0 0 1px rgba(0,0,0,1)",
               }}
             >
-              Toni&apos;s Autopflege — Profi-Aufbereitung Göppingen
+              Toni&apos;s Autopflege - Profi-Aufbereitung Göppingen
             </motion.h1>
             <motion.p
               variants={fadeUp}
@@ -180,10 +180,26 @@ export function HeroSection() {
               variants={fadeUp}
               className="mx-auto mt-6 max-w-xl text-pretty text-base leading-relaxed text-zinc-300 [text-shadow:0_1px_14px_rgba(0,0,0,0.78)] md:text-lg"
             >
-              Ich sorge persönlich für Ihr Auto — unser Team in Göppingen garantiert Qualität bei Lackaufbereitung,
-              Innenreinigung, Politur und Keramik. Darüber hinaus berate ich Sie ehrlich; zusätzlich stimmen wir Termine
-              flexibel ab. Im Gegensatz dazu zu anonymen Waschanlagen arbeiten wir mit Koch-Chemie, Sonax und ruhiger
-              Handarbeit in Zell unter Aichelberg.
+              <strong className="font-semibold text-zinc-100">
+                Ich biete Profi-Aufbereitung in Göppingen — Mein Team und ich garantieren Qualität bei jedem Fahrzeug.
+              </strong>
+            </motion.p>
+            <motion.p
+              variants={fadeUp}
+              className="mx-auto mt-4 max-w-xl text-pretty text-base leading-relaxed text-zinc-300 [text-shadow:0_1px_14px_rgba(0,0,0,0.78)] md:text-lg"
+            >
+              Ich sorge persönlich für Lackaufbereitung, Innenreinigung, Politur und Keramik. Wir garantieren ruhige
+              Handarbeit mit Koch-Chemie und Sonax in Zell unter Aichelberg. Darüber hinaus berate ich Sie ehrlich; zudem
+              stimmen wir Termine flexibel ab. Folglich wissen Sie vorab, was wir leisten und was es kostet. Ebenso
+              vermeiden wir unnötige Zusatzpakete — infolgedessen bleibt Ihr Budget planbar.
+            </motion.p>
+            <motion.p
+              variants={fadeUp}
+              className="mx-auto mt-4 max-w-xl text-pretty text-sm leading-relaxed text-zinc-400 [text-shadow:0_1px_14px_rgba(0,0,0,0.78)] md:text-base"
+            >
+              Mein Team und ich kümmern uns um Außenpflege, Innenraum und Finish. Ich plane jeden Auftrag persönlich; wir
+              dokumentieren Schritte transparent. Unser Team in Göppingen ist für Sie erreichbar — ich freue mich auf Ihre
+              Anfrage per WhatsApp oder Telefon.
             </motion.p>
             <motion.div variants={fadeUp} className="mt-10 flex flex-wrap justify-center gap-4">
               <motion.div whileHover={reduceMotion ? {} : { scale: 1.04 }} whileTap={{ scale: 0.98 }}>

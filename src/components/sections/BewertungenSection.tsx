@@ -23,6 +23,7 @@ import { GOOGLE_MAPS_BUSINESS_URL } from "@/lib/site";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import { GoldIconFrame, LucideInGold, SvgGoogleGCorner } from "@/components/ui/GoldIcons";
+import { CANONICAL_ORIGIN, ROUTES } from "@/lib/site";
 import { SectionSummary } from "@/components/ui/SectionSummary";
 
 const GALLERY = GALLERY_WEBP_FILENAMES.map((f) => `${BASE}assets/gallery-webp/${f}`);
@@ -102,7 +103,10 @@ export function BewertungenSection() {
                       />
                     ))}
                   </div>
-                  <blockquote className="mt-4 flex-1 text-pretty text-sm leading-relaxed text-zinc-400">
+                  <blockquote
+                    cite={`${CANONICAL_ORIGIN}${ROUTES.ueberMich}`}
+                    className="mt-4 flex-1 text-pretty text-sm leading-relaxed text-zinc-400"
+                  >
                     <span className="text-zinc-600">&ldquo;</span>
                     {t.text}
                     <span className="text-zinc-600">&rdquo;</span>

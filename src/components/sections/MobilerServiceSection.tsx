@@ -80,21 +80,20 @@ export function MobilerServiceSection() {
             </SectionSummary>
             <div className="mx-auto max-w-3xl space-y-5 text-pretty text-sm leading-relaxed text-zinc-300 md:text-base md:leading-relaxed">
               <p>
-                Ja — wir bringen unsere{" "}
-                <span className="whitespace-nowrap">Premium-Fahrzeugpflege</span> direkt zu Ihnen. Ob privat bei Ihnen
-                zu Hause, in Ihrer Firma oder an einem Ort Ihrer Wahl: Ich plane den Einsatz so, dass Qualität und Logistik
-                zusammenpassen.
+                Ich bringe unsere{" "}
+                <span className="whitespace-nowrap">Premium-Fahrzeugpflege</span> direkt zu Ihnen. Mein Team und ich planen
+                jeden mobilen Einsatz so, dass Qualität und Logistik zusammenpassen. Wir garantieren dieselbe Sorgfalt wie
+                in unserer Werkstatt — folglich müssen Sie nicht zu uns fahren.
               </p>
               <p>
-                Neben Göppingen und der Region um Zell unter Aichelberg sind wir nach Absprache auch in ganz Deutschland
-                und für exklusive Einsätze in den{" "}
-                <span className="whitespace-nowrap">Nachbarländern</span> für Sie da: Österreich, Schweiz, Italien,
-                Frankreich und Belgien.
+                Ich bin für Göppingen, Zell unter Aichelberg und die Region da; wir fahren nach Absprache auch deutschlandweit
+                und in Nachbarländer. Darüber hinaus prüfen wir Wasser, Strom und Witterung vorab. Zudem stimmen wir den
+                Ablauf mit Ihnen ab — ebenso bringt unser Team die passende Ausstattung mit.
               </p>
               <p>
-                Zudem prüfen wir vorab Wasser, Strom und Witterung — des Weiteren stimmen wir im Folgenden den genauen
-                Ablauf mit Ihnen ab. Zusätzlich bringt unser Team die passende Ausstattung mit; dennoch bleibt die
-                Qualität dieselbe wie in unserer Werkstatt in Zell unter Aichelberg.
+                Ich koordiniere Termine persönlich; wir kommunizieren klar per WhatsApp. Infolgedessen sparen Sie Zeit ohne
+                Qualitätsverlust. Ebenso bleiben unsere Standards identisch — unser Team garantiert Profi-Ergebnisse bei
+                Ihnen vor Ort.
               </p>
             </div>
             <motion.div

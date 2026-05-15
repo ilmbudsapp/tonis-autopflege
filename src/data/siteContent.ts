@@ -230,6 +230,21 @@ export const FAQ_ITEMS = [
     answer:
       "Ja — nach Absprache kommen wir mit geeigneter Ausstattung zu Ihnen (z. B. Zell unter Aichelberg, Göppingen und Umgebung). Bitte nennen Sie Fahrzeugtyp, gewünschte Leistungen und den gewünschten Zeitraum per WhatsApp; wir prüfen Kapazität und logistische Machbarkeit und schlagen Ihnen einen Termin vor.",
   },
+  {
+    question: "Warum sollte ich Toni's Autopflege in Göppingen wählen?",
+    answer:
+      "Ich, Jeton Shala (Toni), führe die Aufbereitung mit über zehn Jahren Erfahrung — unser Team setzt auf Koch-Chemie, Sonax und handwerkliche Präzision. Wir garantieren ehrliche Beratung ohne unnötige Pakete und dokumentieren jeden Schritt. Folglich erhalten Sie reproduzierbare Qualität in Zell unter Aichelberg und Umgebung.",
+  },
+  {
+    question: "Was beinhaltet eine Komplettaufbereitung bei Ihnen?",
+    answer:
+      "Eine Komplettaufbereitung umfasst typischerweise Außenwäsche, Lackdekontamination, Politur oder Versiegelung sowie Innenraum-Tiefenreinigung — abhängig vom Zustand. Ich passe den Umfang mit Ihnen ab; wir nennen vorab Dauer und Kosten. Zudem können wir mobile Einsätze in Göppingen planen.",
+  },
+  {
+    question: "Wie bereite ich mein Fahrzeug auf den Termin vor?",
+    answer:
+      "Bitte entfernen Sie lose Gegenstände und nennen Sie uns Kratzer, Flecken oder Gerüche. Ich berate Sie per WhatsApp, welche Fotos helfen. Wir garantieren, dass wir Material und Zugang (Strom/Wasser bei mobilen Einsätzen) vorab klären — folglich starten wir effizient.",
+  },
 ] as const;
 
 export const PARTNER_NETZWERK_NAMEN = [

@@ -64,14 +64,14 @@ export function TerminCtaSection() {
               Schreiben Sie mir per WhatsApp — ich berate Sie persönlich und unser Team findet einen passenden Termin.
             </SectionSummary>
             <p className="text-pretty text-base font-medium leading-relaxed text-zinc-200 md:text-lg">
-              Schreiben Sie uns per WhatsApp — ich berate Sie persönlich zu Innenraum, Lackaufbereitung oder
-              Keramikversiegelung. Zudem kann unser Team Termine flexibel abstimmen; des Weiteren erhalten Sie im
-              Folgenden eine klare Einschätzung zu Dauer und Kosten.
+              Ich berate Sie per WhatsApp zu Innenraum, Lackaufbereitung oder Keramik. Mein Team und ich stimmen Termine
+              flexibel ab; wir garantieren eine klare Einschätzung zu Dauer und Kosten. Darüber hinaus antworte ich
+              persönlich — folglich haben Sie einen festen Ansprechpartner.
             </p>
             <p className="mt-4 text-pretty text-sm leading-relaxed text-zinc-400 md:text-base">
-              Zusätzlich helfen Fotos von Schäden oder Problemzonen bei der Planung. Dennoch gilt: Qualität braucht Zeit
-              — deshalb planen wir realistische Fenster, damit Politur, Trocknung und Versiegelung sauber ablaufen.
-              Gemeinsam bringen wir Ihr Fahrzeug wieder auf Hochglanz.
+              Ich plane realistische Zeitfenster für Politur und Versiegelung. Wir bitten gern um Fotos von Schäden; zudem
+              erklären wir jeden Schritt. Ebenso vermeiden wir Hektik — infolgedessen bleibt die Qualität hoch. Gemeinsam
+              bringen wir Ihr Fahrzeug auf Hochglanz; ich freue mich auf Ihre Nachricht.
             </p>
             <motion.a
               href={TONI_WA_HREF}

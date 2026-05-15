@@ -7,13 +7,14 @@ const indexPath = path.join(root, "index.html");
 const noscriptBody = fs.readFileSync(path.join(root, "scripts", "noscript-home.html"), "utf8");
 
 let html = fs.readFileSync(indexPath, "utf8");
-const start = html.indexOf("<noscript>");
+const bodyIdx = html.indexOf("<body>");
+if (bodyIdx === -1) throw new Error("<body> not found");
+const start = html.indexOf("<noscript>", bodyIdx);
 const end = html.indexOf("</noscript>", start) + "</noscript>".length;
-
-if (start === -1 || end === -1) throw new Error("noscript block not found");
+if (start === -1 || end === -1) throw new Error("noscript block in body not found");
 
 const openDiv = "<" + "div";
-const closeDiv = "</" + "motion.div>".replace("motion.", "");
+const closeDiv = "</" + "div>";
 
 const block = [
   "<noscript>",

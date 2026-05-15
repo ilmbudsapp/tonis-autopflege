@@ -23,6 +23,7 @@ import { ROUTES } from "@/lib/site";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import { GoldIconFrame, LucideInGold, SvgGoogleGCorner } from "@/components/ui/GoldIcons";
+import { SectionSummary } from "@/components/ui/SectionSummary";
 
 const GALLERY = GALLERY_WEBP_FILENAMES.map((f) => `${BASE}assets/gallery-webp/${f}`);
 const WORK_VIDEO_BASE = `${BASE}assets/videos/work/`;
@@ -56,6 +57,14 @@ export function InnenraumSection() {
             >
               Innenraum{"\u00ad"}aufbereitung
             </h2>
+            <SectionSummary>
+              Ich reinige Innenräume gründlich — unser Team nutzt Dampf, Tornado und materialschonende Pflege.
+            </SectionSummary>
+            <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-zinc-500 md:text-base">
+              Darüber hinaus behandeln wir Leder, Alcantara und Stoff individuell. Zusätzlich neutralisieren wir Gerüche;
+              im Gegensatz dazu zu oberflächlicher Reinigung erreichen wir auch Lüftung, Matten und schwer zugängliche Bereiche.
+              Ich plane den Umfang mit Ihnen — unser Team in Göppingen setzt auf Koch-Chemie und ruhige Handarbeit.
+            </p>
           </motion.div>
           <motion.div
             className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-7"

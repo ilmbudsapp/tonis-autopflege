@@ -23,6 +23,7 @@ import { ROUTES } from "@/lib/site";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import { GoldIconFrame, LucideInGold, SvgGoogleGCorner } from "@/components/ui/GoldIcons";
+import { SectionSummary } from "@/components/ui/SectionSummary";
 
 const GALLERY = GALLERY_WEBP_FILENAMES.map((f) => `${BASE}assets/gallery-webp/${f}`);
 const WORK_VIDEO_BASE = `${BASE}assets/videos/work/`;
@@ -54,9 +55,13 @@ export function KontaktSection() {
             >
               Kontakt
             </h2>
-            <p className="mb-12 text-center text-zinc-500">
-              Unverbindliche Anfrage — wir melden uns mit Terminvorschlägen. Alle Angaben können vor dem Livegang
-              finalisiert werden.
+            <SectionSummary className="mb-6">
+              Schreiben Sie mir — ich antworte persönlich per WhatsApp, Telefon oder E-Mail aus Göppingen.
+            </SectionSummary>
+            <p className="mb-12 text-center text-sm leading-relaxed text-zinc-500 md:text-base">
+              Darüber hinaus planen wir Termine flexibel nach Ihrem Fahrzeugzustand. Zusätzlich finden Sie uns in Zell
+              unter Aichelberg, Boschstr. 23/1 — im Gegensatz dazu zu anonymen Formularen berät Sie unser Team direkt.
+              Ich freue mich auf Ihre Anfrage; wir melden uns mit realistischen Terminvorschlägen.
             </p>
 
             <div className="grid gap-12 lg:grid-cols-2 lg:gap-14">

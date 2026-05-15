@@ -23,6 +23,7 @@ import { ROUTES } from "@/lib/site";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import { GoldIconFrame, LucideInGold, SvgGoogleGCorner } from "@/components/ui/GoldIcons";
+import { SectionSummary } from "@/components/ui/SectionSummary";
 
 const GALLERY = GALLERY_WEBP_FILENAMES.map((f) => `${BASE}assets/gallery-webp/${f}`);
 const WORK_VIDEO_BASE = `${BASE}assets/videos/work/`;
@@ -56,6 +57,14 @@ export function PremiumServicesSection() {
             >
               Premium Services
             </h2>
+            <SectionSummary>
+              Exklusive Zusatzleistungen — ich biete sie gezielt an, wenn Ihr Fahrzeug mehr als Standard braucht.
+            </SectionSummary>
+            <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-zinc-500 md:text-base">
+              Darüber hinaus umfassen Premium Services Spezialpolitur, Übergabe-Finish und Firmenflotten-Pflege.
+              Zusätzlich stimmen wir Umfang und Zeitfenster persönlich ab — im Gegensatz dazu zu Standardpaketen planen
+              wir exklusive Einsätze. Unser Team in Göppingen setzt dabei auf bewährte Profi-Produkte und ruhige Handarbeit.
+            </p>
           </motion.div>
 
           <div className="flex flex-col gap-8 lg:flex-row lg:gap-5">

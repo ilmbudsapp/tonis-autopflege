@@ -25,6 +25,7 @@ const UEBER_MICH_CITE = `${CANONICAL_ORIGIN}${ROUTES.ueberMich}`;
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import { GoldIconFrame, LucideInGold, SvgGoogleGCorner } from "@/components/ui/GoldIcons";
+import { SectionSummary } from "@/components/ui/SectionSummary";
 
 const GALLERY = GALLERY_WEBP_FILENAMES.map((f) => `${BASE}assets/gallery-webp/${f}`);
 const WORK_VIDEO_BASE = `${BASE}assets/videos/work/`;
@@ -69,13 +70,16 @@ export function UeberMichSection() {
             transition={{ duration: 0.6, ease: EASE_OUT_CUBIC, delay: reduceMotion ? 0 : 0.04 }}
             className="flex flex-col items-center"
           >
-            <h2
+            <h1
               id="ueber-mich-heading"
               className="mb-8 text-balance break-words text-2xl font-extrabold leading-[1.15] tracking-tight text-white md:text-4xl md:leading-tight md:tracking-normal lg:text-5xl"
               style={{ fontFamily: fontDisplay }}
             >
-              Wer steckt hinter Toni&apos;s Autopflege?
-            </h2>
+              Über Toni — Toni&apos;s Autopflege Göppingen
+            </h1>
+            <SectionSummary>
+              Ich, Jeton Shala (Toni), führe die Aufbereitung persönlich — unser Team in Göppingen steht für Qualität.
+            </SectionSummary>
             <div className="w-full space-y-5 text-left sm:space-y-6">
               <p className="text-pretty text-base leading-relaxed text-zinc-300 md:text-lg">
                 Mein Name ist Jeton Shala und ich arbeite seit über{" "}

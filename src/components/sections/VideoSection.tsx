@@ -6,6 +6,7 @@ import { EASE_OUT_CUBIC } from "@/lib/motion";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import { GoldIconFrame, SvgInstagramGold } from "@/components/ui/GoldIcons";
+import { SectionSummary } from "@/components/ui/SectionSummary";
 
 const SOCIAL_VIDEO_LINKS = [
   {
@@ -41,10 +42,15 @@ export function VideoSection() {
             className="text-balance break-words text-2xl font-extrabold leading-[1.15] tracking-tight text-white md:text-4xl md:leading-tight lg:text-5xl"
             style={{ fontFamily: fontDisplay }}
           >
-            Videos
+            Videos — Toni&apos;s Autopflege Göppingen
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-sm text-zinc-500 md:text-base">
-            Professionelle Fahrzeugpflege im Video — optimiert für Mobilgeräte mit Vorschaubild und nativen Steuerelementen.
+          <SectionSummary>
+            Einblicke in Politur, Innenraum und Finish — ich zeige unsere Arbeit transparent im Video.
+          </SectionSummary>
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-zinc-500 md:text-base">
+            Darüber hinaus sind die Clips für Mobilgeräte optimiert. Zusätzlich finden Sie uns auf Instagram und TikTok —
+            im Gegensatz dazu zu statischen Bildern sehen Sie Ablauf und Ergebnis live. Unser Team in Göppingen dokumentiert
+            echte Aufbereitungen; ich wähle Ausschnitte, die Qualität und Sorgfalt zeigen.
           </p>
         </motion.div>
 
@@ -91,6 +97,13 @@ export function VideoSection() {
           >
             Reels &amp; Social Media
           </h2>
+          <SectionSummary>
+            Folgen Sie uns auf Instagram und TikTok — ich teile dort aktuelle Aufbereitungen und Ergebnisse.
+          </SectionSummary>
+          <p className="mx-auto mb-6 max-w-2xl text-sm leading-relaxed text-zinc-500 md:text-base">
+            Darüber hinaus finden Sie Kurzclips und Behind-the-Scenes. Zusätzlich können Sie uns direkt anschreiben —
+            im Gegensatz dazu zu reinen Werbevideos zeigen wir echte Kundenfahrzeuge aus Göppingen und Umgebung.
+          </p>
           <div className="mx-auto grid max-w-2xl gap-4 sm:grid-cols-2">
             {SOCIAL_VIDEO_LINKS.map((item) => (
               <a

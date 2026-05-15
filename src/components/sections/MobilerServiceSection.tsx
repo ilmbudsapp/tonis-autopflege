@@ -23,6 +23,7 @@ import { ROUTES } from "@/lib/site";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import { GoldIconFrame, LucideInGold, SvgGoogleGCorner } from "@/components/ui/GoldIcons";
+import { SectionSummary } from "@/components/ui/SectionSummary";
 
 const GALLERY = GALLERY_WEBP_FILENAMES.map((f) => `${BASE}assets/gallery-webp/${f}`);
 const WORK_VIDEO_BASE = `${BASE}assets/videos/work/`;
@@ -74,6 +75,9 @@ export function MobilerServiceSection() {
                 Kommen wir auch mobil zu Ihnen?
               </h2>
             </div>
+            <SectionSummary className="max-w-3xl">
+              Ja — ich bringe Premium-Aufbereitung zu Ihnen; unser Team plant Einsätze in Göppingen und nach Absprache deutschlandweit.
+            </SectionSummary>
             <div className="mx-auto max-w-3xl space-y-5 text-pretty text-sm leading-relaxed text-zinc-300 md:text-base md:leading-relaxed">
               <p>
                 Ja — wir bringen unsere{" "}

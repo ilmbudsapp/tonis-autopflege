@@ -14,7 +14,11 @@ export function useDemoFonts() {
       link.id = id;
       link.rel = "stylesheet";
       link.href = googleHref;
-      link.onload = markReady;
+      link.media = "print";
+      link.onload = () => {
+        link.media = "all";
+        markReady();
+      };
       link.onerror = markReady;
       document.head.appendChild(link);
     } else {

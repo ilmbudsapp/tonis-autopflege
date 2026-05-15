@@ -3,6 +3,7 @@ import { GALLERY_IMAGE_URLS } from "@/lib/media";
 import { EASE_OUT_CUBIC } from "@/lib/motion";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
+import { SectionSummary } from "@/components/ui/SectionSummary";
 
 export function GalerieSection() {
   const { reduceMotion } = useMotionVariants();
@@ -23,8 +24,11 @@ export function GalerieSection() {
             className="text-balance break-words text-2xl font-extrabold leading-[1.15] tracking-tight text-white md:text-4xl md:leading-tight lg:text-5xl"
             style={{ fontFamily: fontDisplay }}
           >
-            Galerie
+            Galerie — Toni&apos;s Autopflege Göppingen
           </h1>
+          <SectionSummary>
+            Referenzbilder aus meiner Profi-Aufbereitung in Göppingen — Vorher-Nachher aus Politur, Innenraum und Finish.
+          </SectionSummary>
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-zinc-500 md:text-base">
             Vorher-Nachher und Referenzbilder aus meiner professionellen Autoaufbereitung in Göppingen und Zell unter
             Aichelberg. Zudem zeigen die Aufnahmen Lackpolitur, Innenraum und Finish — des Weiteren sind alle Bilder für

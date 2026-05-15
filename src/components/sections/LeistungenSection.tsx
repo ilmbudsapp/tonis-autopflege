@@ -23,6 +23,7 @@ import { ROUTES } from "@/lib/site";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import { GoldIconFrame, LucideInGold, SvgGoogleGCorner } from "@/components/ui/GoldIcons";
+import { SectionSummary } from "@/components/ui/SectionSummary";
 
 const GALLERY = GALLERY_WEBP_FILENAMES.map((f) => `${BASE}assets/gallery-webp/${f}`);
 const WORK_VIDEO_BASE = `${BASE}assets/videos/work/`;
@@ -56,6 +57,9 @@ export function LeistungenSection() {
             >
               Welche Leistungen bietet Toni&apos;s Autopflege?
             </h2>
+            <SectionSummary>
+              Außen, Lack, Keramik und Innenraum — ich biete strukturierte Pakete mit Profi-Produkten in Göppingen.
+            </SectionSummary>
             <p className="mx-auto mt-5 max-w-3xl text-sm leading-relaxed text-zinc-400 md:text-base">
               Bei Toni&apos;s Autopflege erhalten Sie professionelle Fahrzeugpflege auf höchstem Niveau – für maximalen
               Glanz, Werterhalt und einen perfekten ersten Eindruck. Wir kombinieren hochwertige Pflegeprodukte mit

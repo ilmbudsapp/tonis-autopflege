@@ -54,7 +54,7 @@ export default function SiteHeader() {
           <motion.div className="flex min-w-0 flex-1 items-center justify-end gap-3 md:gap-4">
             <nav
               className="hidden flex-wrap items-center justify-end gap-x-6 gap-y-2 text-[12px] font-semibold uppercase tracking-[0.16em] text-zinc-950 lg:flex"
-              aria-label="Hauptmenü"
+              aria-label="Main navigation"
             >
               {NAV_LINKS.map(({ to, label }) => (
                 <Link
@@ -118,7 +118,7 @@ export default function SiteHeader() {
           <nav
             id="mobile-nav-panel"
             role="navigation"
-            aria-label="Hauptmenü mobil"
+            aria-label="Main navigation"
             className="relative z-10 mt-auto flex max-h-[min(82dvh,calc(100dvh-6rem))] w-full flex-col overflow-hidden rounded-t-2xl border border-b-0 border-zinc-200 bg-zinc-50 shadow-[0_-12px_48px_rgba(0,0,0,0.2)]"
           >
             <ul className="max-h-[min(70dvh,520px)] space-y-0.5 overflow-y-auto overscroll-contain px-3 py-4">

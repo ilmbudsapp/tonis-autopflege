@@ -24,6 +24,7 @@ import { ROUTES } from "@/lib/site";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import { GoldIconFrame, LucideInGold, SvgGoogleGCorner } from "@/components/ui/GoldIcons";
+import { SectionSummary } from "@/components/ui/SectionSummary";
 
 const GALLERY = GALLERY_WEBP_FILENAMES.map((f) => `${BASE}assets/gallery-webp/${f}`);
 const WORK_VIDEO_BASE = `${BASE}assets/videos/work/`;
@@ -80,8 +81,13 @@ export function PremiumPartnerSection() {
             >
               Qualität ohne Kompromisse
             </h2>
+            <SectionSummary>
+              Ich setze auf Premium-Marken — unser Team vertraut Koch-Chemie, Sonax, Gyeon und weiteren Profi-Systemen.
+            </SectionSummary>
             <p className="mx-auto mt-5 max-w-3xl text-sm leading-relaxed text-zinc-400 md:text-base">
-              Wir arbeiten ausschließlich mit den weltweit führenden Herstellern der Fahrzeugpflege.
+              Darüber hinaus arbeiten wir ausschließlich mit führenden Herstellern der Fahrzeugpflege. Zusätzlich testen
+              wir Produkte vorab — im Gegensatz dazu zu Hausmarken bleiben Ergebnisse reproduzierbar. Ich wähle Systeme,
+              die zu Lack und Material passen; unser Team in Göppingen garantiert sachgerechte Anwendung.
             </p>
           </motion.div>
 

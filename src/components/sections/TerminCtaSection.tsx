@@ -23,6 +23,7 @@ import { ROUTES } from "@/lib/site";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import { GoldIconFrame, LucideInGold, SvgGoogleGCorner } from "@/components/ui/GoldIcons";
+import { SectionSummary } from "@/components/ui/SectionSummary";
 
 const GALLERY = GALLERY_WEBP_FILENAMES.map((f) => `${BASE}assets/gallery-webp/${f}`);
 const WORK_VIDEO_BASE = `${BASE}assets/videos/work/`;
@@ -59,6 +60,9 @@ export function TerminCtaSection() {
             >
               Wie sichere ich meinen Termin?
             </h2>
+            <SectionSummary className="text-zinc-300">
+              Schreiben Sie mir per WhatsApp — ich berate Sie persönlich und unser Team findet einen passenden Termin.
+            </SectionSummary>
             <p className="text-pretty text-base font-medium leading-relaxed text-zinc-200 md:text-lg">
               Schreiben Sie uns per WhatsApp — ich berate Sie persönlich zu Innenraum, Lackaufbereitung oder
               Keramikversiegelung. Zudem kann unser Team Termine flexibel abstimmen; des Weiteren erhalten Sie im

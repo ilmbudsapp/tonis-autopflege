@@ -23,6 +23,7 @@ import { GOOGLE_MAPS_BUSINESS_URL } from "@/lib/site";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import { GoldIconFrame, LucideInGold, SvgGoogleGCorner } from "@/components/ui/GoldIcons";
+import { SectionSummary } from "@/components/ui/SectionSummary";
 
 const GALLERY = GALLERY_WEBP_FILENAMES.map((f) => `${BASE}assets/gallery-webp/${f}`);
 const WORK_VIDEO_BASE = `${BASE}assets/videos/work/`;
@@ -61,8 +62,13 @@ export function BewertungenSection() {
             >
               Was berichten Kunden über Toni&apos;s Autopflege?
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-pretty text-sm text-zinc-500 md:text-base">
-              Echte Stimmen von Google — Qualität und Zuverlässigkeit, die man spürt.
+            <SectionSummary>
+              Echte Google-Bewertungen — ich freue mich über Feedback zu Politur, Keramik und Innenraum.
+            </SectionSummary>
+            <p className="mx-auto mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-zinc-500 md:text-base">
+              Darüber hinaus dokumentieren Kundenstimmen unsere Zuverlässigkeit in Göppingen. Zusätzlich zeigen sie,
+              wie unser Team arbeitet — im Gegensatz dazu zu anonymen Portalen sind es echte Aufträge. Ich nehme jedes
+              Feedback ernst; deshalb verbessern wir Abläufe kontinuierlich gemeinsam mit Ihnen.
             </p>
           </motion.div>
 

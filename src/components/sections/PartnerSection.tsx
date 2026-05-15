@@ -23,6 +23,7 @@ import { ROUTES } from "@/lib/site";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import { GoldIconFrame, LucideInGold, SvgGoogleGCorner } from "@/components/ui/GoldIcons";
+import { SectionSummary } from "@/components/ui/SectionSummary";
 
 const GALLERY = GALLERY_WEBP_FILENAMES.map((f) => `${BASE}assets/gallery-webp/${f}`);
 const WORK_VIDEO_BASE = `${BASE}assets/videos/work/`;
@@ -62,8 +63,13 @@ export function PartnerSection() {
             >
               Mit wem arbeitet Toni&apos;s Autopflege zusammen?
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-pretty text-sm text-zinc-500 md:text-base">
-              Partner &amp; Netzwerk — ausgewählte Betriebe rund um Lack, Service und Fahrzeugpflege.
+            <SectionSummary>
+              Wir arbeiten mit ausgewählten Partnern — ich wähle Marken und Betriebe, die unsere Qualität stützen.
+            </SectionSummary>
+            <p className="mx-auto mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-zinc-500 md:text-base">
+              Darüber hinaus ergänzt unser Netzwerk Lack, Service und Fahrzeugpflege. Zusätzlich profitieren Sie von
+              Spezialwissen — im Gegensatz dazu zu Einzelanbietern bündeln wir Kompetenz für komplexe Fälle. Ich stehe
+              persönlich für die Abstimmung; unser Team in Göppingen koordiniert Partnerleistungen transparent.
             </p>
           </motion.div>
 

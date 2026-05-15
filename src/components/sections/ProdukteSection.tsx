@@ -23,6 +23,7 @@ import { ROUTES } from "@/lib/site";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import { GoldIconFrame, LucideInGold, SvgGoogleGCorner } from "@/components/ui/GoldIcons";
+import { SectionSummary } from "@/components/ui/SectionSummary";
 
 const GALLERY = GALLERY_WEBP_FILENAMES.map((f) => `${BASE}assets/gallery-webp/${f}`);
 const WORK_VIDEO_BASE = `${BASE}assets/videos/work/`;
@@ -56,8 +57,11 @@ export function ProdukteSection() {
             >
               Unsere Premium Produkte
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-sm text-zinc-500 md:text-base">
-              Marken, die in Deutschland Vertrauen schaffen — u. a.{" "}
+            <SectionSummary>
+              Profi-Chemie von Koch-Chemie, Sonax und Partnern — ich wähle Produkte, die zu Ihrem Lack passen.
+            </SectionSummary>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-zinc-500 md:text-base">
+              Darüber hinaus setzen wir auf Marken, die in Deutschland Vertrauen schaffen — u. a.{" "}
               <strong className="font-semibold text-zinc-300">Koch-Chemie</strong>,{" "}
               <strong className="font-semibold text-zinc-300">Sonax</strong> und{" "}
               <strong className="font-semibold text-zinc-300">HYLA</strong> für Hygiene und Systempflege. Wir arbeiten

@@ -151,7 +151,7 @@ export function HeroSection() {
             </motion.p>
             <motion.h1
               variants={fadeUp}
-              className="text-balance break-words text-2xl font-black leading-tight tracking-tight text-white sm:text-3xl md:text-5xl md:leading-tight"
+              className="text-balance break-words text-2xl font-black leading-tight tracking-tight text-white sm:text-3xl md:text-4xl md:leading-tight lg:text-5xl"
               style={{
                 fontFamily: fontDisplay,
                 fontWeight: 800,
@@ -159,9 +159,9 @@ export function HeroSection() {
                   "0 2px 3px rgba(0,0,0,0.85), 0 12px 48px rgba(0,0,0,0.75), 0 0 1px rgba(0,0,0,1)",
               }}
             >
-              Toni&apos;s Autopflege
+              Toni&apos;s Autopflege — Profi-Aufbereitung Göppingen
             </motion.h1>
-            <motion.h2
+            <motion.p
               variants={fadeUp}
               className="mt-4 text-balance break-words text-3xl font-black leading-[1.1] tracking-tight text-white sm:text-4xl md:mt-5 md:text-6xl md:leading-[1.08] md:tracking-[0.02em] lg:text-7xl"
               style={{
@@ -175,15 +175,15 @@ export function HeroSection() {
               <span className="mt-2 block text-[#f4e4a8] md:text-[#fcefb7]" style={{ textShadow: "0 2px 4px rgba(0,0,0,0.9), 0 0 40px rgba(201,162,39,0.45)" }}>
                 Perfektion im Detail.
               </span>
-            </motion.h2>
+            </motion.p>
             <motion.p
               variants={fadeUp}
               className="mx-auto mt-6 max-w-xl text-pretty text-base leading-relaxed text-zinc-300 [text-shadow:0_1px_14px_rgba(0,0,0,0.78)] md:text-lg"
             >
-              Ich biete Lackaufbereitung, Innenreinigung, Politur und Keramikversiegelung — mit Profi-Produkten und
-              unserer ruhigen Handarbeit in Göppingen und Umgebung. Zudem berate ich Sie persönlich; des Weiteren
-              unterstützt unser Team Sie bei Terminen und Nachpflege. Zusätzlich erklären wir im Folgenden jeden Schritt
-              verständlich — dennoch ohne unnötige Zusatzpakete.
+              Ich sorge persönlich für Ihr Auto — unser Team in Göppingen garantiert Qualität bei Lackaufbereitung,
+              Innenreinigung, Politur und Keramik. Darüber hinaus berate ich Sie ehrlich; zusätzlich stimmen wir Termine
+              flexibel ab. Im Gegensatz dazu zu anonymen Waschanlagen arbeiten wir mit Koch-Chemie, Sonax und ruhiger
+              Handarbeit in Zell unter Aichelberg.
             </motion.p>
             <motion.div variants={fadeUp} className="mt-10 flex flex-wrap justify-center gap-4">
               <motion.div whileHover={reduceMotion ? {} : { scale: 1.04 }} whileTap={{ scale: 0.98 }}>

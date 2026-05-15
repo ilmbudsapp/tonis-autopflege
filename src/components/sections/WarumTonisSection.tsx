@@ -23,6 +23,7 @@ import { ROUTES } from "@/lib/site";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import { GoldIconFrame, LucideInGold, SvgGoogleGCorner } from "@/components/ui/GoldIcons";
+import { SectionSummary } from "@/components/ui/SectionSummary";
 
 const GALLERY = GALLERY_WEBP_FILENAMES.map((f) => `${BASE}assets/gallery-webp/${f}`);
 const WORK_VIDEO_BASE = `${BASE}assets/videos/work/`;
@@ -61,6 +62,9 @@ export function WarumTonisSection() {
             >
               Warum vertrauen Kunden in Göppingen auf uns?
             </h2>
+            <SectionSummary>
+              Ich stehe persönlich für jedes Ergebnis — unser Team in Göppingen verbindet Handarbeit mit Profi-Produkten.
+            </SectionSummary>
             <p className="mx-auto mt-4 max-w-2xl text-sm text-zinc-500 md:text-base">
               Ich arbeite mit ruhiger Hand und klaren Abläufen — unser Team setzt auf Profi-Produkte, damit Ihr Fahrzeug
               langfristig glänzt und an Wert gewinnt. Schließlich ist Vertrauen die Basis jeder guten Aufbereitung;

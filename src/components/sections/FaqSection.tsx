@@ -23,6 +23,7 @@ import { ROUTES } from "@/lib/site";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import { GoldIconFrame, LucideInGold, SvgGoogleGCorner } from "@/components/ui/GoldIcons";
+import { SectionSummary } from "@/components/ui/SectionSummary";
 
 const GALLERY = GALLERY_WEBP_FILENAMES.map((f) => `${BASE}assets/gallery-webp/${f}`);
 const WORK_VIDEO_BASE = `${BASE}assets/videos/work/`;
@@ -63,8 +64,13 @@ export function FaqSection() {
             >
               Häufig gestellte Fragen
             </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-pretty text-sm text-zinc-500 md:text-base">
-              Antworten auf typische Fragen zu Dauer, Kosten, Marken und mobilem Service — für schnelle Orientierung.
+            <SectionSummary>
+              Kurze Antworten zu Dauer, Keramik, Marken und mobilem Service — ich erkläre es verständlich.
+            </SectionSummary>
+            <p className="mx-auto mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-zinc-500 md:text-base">
+              Darüber hinaus finden Sie hier unsere häufigsten Kundenfragen. Zusätzlich können Sie uns jederzeit per WhatsApp
+              kontaktieren — im Gegensatz dazu zu allgemeinen Ratgebern beraten wir Sie konkret zu Ihrem Fahrzeug. Unser Team
+              in Göppingen antwortet persönlich; ich prüfe Sonderfälle vorab, damit Termine realistisch bleiben.
             </p>
           </motion.div>
           <div className="space-y-3">

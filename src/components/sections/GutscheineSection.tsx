@@ -5,6 +5,7 @@ import { toniWaHrefWithPrefill } from "@/lib/assets";
 import { EASE_OUT_CUBIC } from "@/lib/motion";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
+import { SectionSummary } from "@/components/ui/SectionSummary";
 
 export function GutscheineSection() {
   const { reduceMotion } = useMotionVariants();
@@ -44,24 +45,42 @@ export function GutscheineSection() {
               Verschenken Sie Glanz: Unsere Gutscheine
             </h2>
           </div>
-          <p className="mx-auto max-w-2xl text-pretty text-sm leading-relaxed text-zinc-400 md:text-base">
+          <SectionSummary>
+            Ich berate Sie zum passenden Gutscheinwert — alle Beträge gelten für unsere komplette Autopflege.
+          </SectionSummary>
+          <p className="mx-auto mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-zinc-400 md:text-base">
             Das perfekte Geschenk für Autoliebhaber. Zudem berate ich Sie persönlich, welcher Gutscheinwert passt — des
             Weiteren können Sie im Folgenden einen Betrag wählen und uns direkt per WhatsApp kontaktieren. Zusätzlich gilt
             der Gutschein für alle unsere Leistungen; dennoch empfehle ich eine kurze Abstimmung, damit der Beschenkte
             genau die richtige Aufbereitung erhält.
           </p>
-          <dl className="mx-auto mt-8 max-w-lg text-left text-sm text-zinc-300">
-            <dt className="mb-2 text-xs font-bold uppercase tracking-wider text-[#c9a227]/80">Gutscheinwerte</dt>
-            {GUTSCHEIN_BETRAEGE.map((g) => (
-              <div
-                key={g.label}
-                className="grid grid-cols-[1fr_auto] gap-x-4 border-b border-white/[0.06] py-2 last:border-0"
-              >
-                <dt className="font-medium text-zinc-200">Gutschein {g.label}</dt>
-                <dd className="text-right text-zinc-400">per WhatsApp anfragen</dd>
-              </div>
-            ))}
-          </dl>
+          <div className="mx-auto mt-8 max-w-lg overflow-x-auto rounded-xl border border-white/[0.08] bg-black/25">
+            <table className="w-full min-w-[280px] border-collapse text-left text-sm text-zinc-300">
+              <caption className="caption-top px-4 py-3 text-xs font-bold uppercase tracking-wider text-[#c9a227]/80">
+                Gutscheinwerte
+              </caption>
+              <thead>
+                <tr className="border-b border-white/[0.1] text-[11px] uppercase tracking-wider text-zinc-500">
+                  <th scope="col" className="px-4 py-2 font-semibold">
+                    Betrag
+                  </th>
+                  <th scope="col" className="px-4 py-2 font-semibold">
+                    Anfrage
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {GUTSCHEIN_BETRAEGE.map((g) => (
+                  <tr key={g.label} className="border-b border-white/[0.06] last:border-b-0">
+                    <th scope="row" className="px-4 py-2.5 font-medium text-zinc-200">
+                      Gutschein {g.label}
+                    </th>
+                    <td className="px-4 py-2.5 text-right text-zinc-400">per WhatsApp anfragen</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </motion.div>
 
         <div className="mx-auto grid w-full max-w-sm grid-cols-2 justify-items-stretch gap-x-3 gap-y-4 sm:max-w-md sm:gap-x-4 sm:gap-y-5 md:max-w-5xl md:grid-cols-4 md:gap-x-5 md:gap-y-6">

@@ -42,11 +42,16 @@ export function LocalBusinessJsonLd() {
   );
 }
 
-export function FaqPageJsonLd() {
+type FaqPageJsonLdProps = {
+  /** Canonical URL for this FAQ block (home or /faq). */
+  pageUrl?: string;
+};
+
+export function FaqPageJsonLd({ pageUrl = `${CANONICAL_ORIGIN}/faq` }: FaqPageJsonLdProps) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    url: `${CANONICAL_ORIGIN}/faq`,
+    url: pageUrl,
     author: { "@type": "Person", name: "Jeton Shala" },
     mainEntity: FAQ_ITEMS.map((item) => ({
       "@type": "Question",

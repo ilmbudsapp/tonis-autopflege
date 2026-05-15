@@ -53,9 +53,15 @@ export function TerminCtaSection() {
             transition={{ duration: 0.65, ease: EASE_OUT_CUBIC }}
             className="rounded-3xl border border-[#c9a227]/30 bg-black/35 px-6 py-10 shadow-[0_0_60px_rgba(201,162,39,0.08)] backdrop-blur-sm md:px-12 md:py-12"
           >
+            <h2
+              className="mb-4 text-balance text-xl font-bold text-white md:text-2xl"
+              style={{ fontFamily: fontDisplay }}
+            >
+              Wie sichere ich meinen Termin?
+            </h2>
             <p className="text-pretty text-base font-medium leading-relaxed text-zinc-200 md:text-lg">
-              Ihr Fahrzeug verdient die beste Pflege. Ob Innenraumreinigung, Lackaufbereitung oder Keramikversiegelung —
-              wir bringen Ihr Fahrzeug wieder auf Hochglanz.
+              Schreiben Sie uns per WhatsApp — ich berate Sie persönlich zu Innenraum, Lackaufbereitung oder
+              Keramikversiegelung. Gemeinsam bringen wir Ihr Fahrzeug wieder auf Hochglanz.
             </p>
             <motion.a
               href={TONI_WA_HREF}

@@ -59,9 +59,9 @@ export type PageMetaConfig = {
 export const PAGE_META: Record<string, PageMetaConfig> = {
   home: {
     path: ROUTES.home,
-    title: "Toni's Autopflege | Professionelle Aufbereitung Zell unter Aichelberg",
+    title: "Toni's Autopflege | Profi-Aufbereitung Göppingen",
     description:
-      "Toni's Autopflege in Zell unter Aichelberg (Boschstr. 23/1): Profi-Lackpolitur, Innenreinigung & Keramikversiegelung. Region Göppingen — jetzt glänzendes Ergebnis sichern!",
+      "Ich biete Profi-Lackpolitur, Innenreinigung & Keramik in Göppingen. Wir bringen Ihr Auto mit Koch-Chemie & Sonax zum Glänzen — Termin per WhatsApp.",
   },
   leistungen: {
     path: ROUTES.leistungen,

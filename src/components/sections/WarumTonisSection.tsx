@@ -59,8 +59,12 @@ export function WarumTonisSection() {
               className="text-balance break-words text-2xl font-extrabold leading-[1.15] tracking-tight text-white md:text-4xl md:leading-tight md:tracking-normal lg:text-5xl"
               style={{ fontFamily: fontDisplay }}
             >
-              Warum Toni&apos;s Autopflege?
+              Warum vertrauen Kunden in Göppingen auf uns?
             </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-sm text-zinc-500 md:text-base">
+              Ich arbeite mit ruhiger Hand und klaren Abläufen — unser Team setzt auf Profi-Produkte, damit Ihr Fahrzeug
+              langfristig glänzt und an Wert gewinnt.
+            </p>
           </motion.div>
 
           <motion.div

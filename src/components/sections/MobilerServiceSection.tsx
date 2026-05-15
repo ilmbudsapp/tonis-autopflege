@@ -71,17 +71,19 @@ export function MobilerServiceSection() {
                 className="text-pretty font-extrabold leading-[1.18] tracking-tight text-white max-md:px-0.5 max-md:text-[clamp(13px,3.6vw,1.25rem)] md:text-4xl md:leading-tight lg:text-5xl"
                 style={{ fontFamily: fontDisplay }}
               >
-                Mobiler Vor-Ort-Service
+                Kommen wir auch mobil zu Ihnen?
               </h2>
             </div>
             <div className="mx-auto max-w-3xl space-y-5 text-pretty text-sm leading-relaxed text-zinc-300 md:text-base md:leading-relaxed">
               <p>
-                Wir bringen unsere{" "}
+                Ja — wir bringen unsere{" "}
                 <span className="whitespace-nowrap">Premium-Fahrzeugpflege</span> direkt zu Ihnen. Ob privat bei Ihnen
-                zu Hause, in Ihrer Firma oder an einem Ort Ihrer Wahl – wir sind für Sie mobiler denn je.
+                zu Hause, in Ihrer Firma oder an einem Ort Ihrer Wahl: Ich plane den Einsatz so, dass Qualität und Logistik
+                zusammenpassen.
               </p>
               <p>
-                Neben Zell unter Aichelberg, der Region um Göppingen und ganz Deutschland sind wir auch für exklusive Einsätze in den{" "}
+                Neben Göppingen und der Region um Zell unter Aichelberg sind wir nach Absprache auch in ganz Deutschland
+                und für exklusive Einsätze in den{" "}
                 <span className="whitespace-nowrap">Nachbarländern</span> für Sie da: Österreich, Schweiz, Italien,
                 Frankreich und Belgien.
               </p>

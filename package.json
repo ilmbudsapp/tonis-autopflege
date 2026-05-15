@@ -11,7 +11,8 @@
     "tonis:convert": "node scripts/convert-tonis-assets.mjs",
     "gallery:galeria": "node scripts/build-gallery-from-galeria.mjs",
     "videos:work": "node scripts/build-work-videos-from-folder.mjs",
-    "brands:proizvodi": "node scripts/build-brands-from-proizvodi.mjs"
+    "brands:proizvodi": "node scripts/build-brands-from-proizvodi.mjs",
+    "icon:apple": "node scripts/generate-apple-touch-icon.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.38.0",

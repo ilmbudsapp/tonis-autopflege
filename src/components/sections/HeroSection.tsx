@@ -147,7 +147,7 @@ export function HeroSection() {
               variants={fadeUp}
               className="mb-4 text-xs font-bold uppercase tracking-[0.45em] text-[#d4b84a] md:text-sm"
             >
-              Premium Autopflege · Zell unter Aichelberg
+              Premium Autopflege · Göppingen
             </motion.p>
             <motion.h1
               variants={fadeUp}
@@ -180,8 +180,8 @@ export function HeroSection() {
               variants={fadeUp}
               className="mx-auto mt-6 max-w-xl text-pretty text-base leading-relaxed text-zinc-300 [text-shadow:0_1px_14px_rgba(0,0,0,0.78)] md:text-lg"
             >
-              Lackaufbereitung, Innenreinigung, Politur und Keramikversiegelung — mit professionellen Produkten und
-              ruhiger Handarbeit.
+              Ich biete Lackaufbereitung, Innenreinigung, Politur und Keramikversiegelung — mit Profi-Produkten und
+              unserer ruhigen Handarbeit in Göppingen und Umgebung.
             </motion.p>
             <motion.div variants={fadeUp} className="mt-10 flex flex-wrap justify-center gap-4">
               <motion.div whileHover={reduceMotion ? {} : { scale: 1.04 }} whileTap={{ scale: 0.98 }}>

@@ -43,7 +43,7 @@ export const FIRMENFOOTER = {
   ort: "73119 Zell unter Aichelberg",
   telefonLabel: "+49 174 8564830",
   telefonHref: "tel:+491748564830",
-  email: "info.tonisautopflege@gmx.de",
+  email: "tonis-autopflege@gmx.de",
   facebook: { label: "Toni's Autopflege", href: "https://www.facebook.com/TonisAutopflege" },
   instagram: { label: "tonisautopflege1", href: "https://www.instagram.com/tonisautopflege1/" },
   tiktok: { label: "toni03_3", href: "https://www.tiktok.com/@toni03_3" },

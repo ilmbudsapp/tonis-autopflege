@@ -57,7 +57,7 @@ export const privacyPolicy = {
       title: "5. Kontaktformular, E-Mail & WhatsApp",
       paragraphs: [
         "Wenn Sie uns per E-Mail, Telefon, WhatsApp-Link oder über das Kontaktformular erreichen, verarbeiten wir Ihre Angaben (z. B. Name, E-Mail, Telefon, Nachricht, Fahrzeugdetails) zur Bearbeitung Ihrer Anfrage.",
-        "Das Kontaktformular öffnet Ihr E-Mail-Programm per mailto:-Link (kontakt@tonis-autopflege.de). Es werden keine Formulardaten an einen externen Formular-Dienst übermittelt. WhatsApp-Links (wa.me) führen zu WhatsApp/Meta; beim Anklicken gelten die Datenschutzhinweise von Meta.",
+        `Das Kontaktformular öffnet Ihr E-Mail-Programm per mailto:-Link (${FIRMENFOOTER.email}). Es werden keine Formulardaten an einen externen Formular-Dienst übermittelt. WhatsApp-Links (wa.me) führen zu WhatsApp/Meta; beim Anklicken gelten die Datenschutzhinweise von Meta.`,
         "Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Kommunikation) bzw. lit. f DSGVO (allgemeine Kontaktanfragen).",
       ],
     },

@@ -484,7 +484,7 @@ const FIRMENFOOTER = {
   ort: "73119 Zell unter Aichelberg",
   telefonLabel: "+49 174 8564830",
   telefonHref: "tel:+491748564830",
-  email: "info.tonisautopflege@gmx.de",
+  email: "tonis-autopflege@gmx.de",
   facebook: { label: "Toni's Autopflege", href: "https://www.facebook.com/TonisAutopflege" },
   instagram: { label: "tonisautopflege1", href: "https://www.instagram.com/tonisautopflege1/" },
   tiktok: { label: "toni03_3", href: "https://www.tiktok.com/@toni03_3" },
@@ -2356,7 +2356,7 @@ export default function TonisLanding() {
                   const email = String(fd.get("email") ?? "").trim();
                   const msg = String(fd.get("message") ?? "").trim();
                   const body = encodeURIComponent(`Name: ${name}\nE-Mail: ${email}\n\nNachricht:\n${msg}`);
-                  window.location.href = `mailto:kontakt@tonis-autopflege.de?subject=${encodeURIComponent("Anfrage Autopflege")}&body=${body}`;
+                  window.location.href = `mailto:${FIRMENFOOTER.email}?subject=${encodeURIComponent("Anfrage Autopflege")}&body=${body}`;
                 }}
               >
                 {!reduceMotion && (

@@ -35,8 +35,8 @@ Date: **Mai 2026**
 
 ## Kontaktformular
 
-- Uses `mailto:kontakt@tonis-autopflege.de` — no third-party form API.
-- Primary business email in footer: `info.tonisautopflege@gmx.de` — both documented.
+- Uses `mailto:tonis-autopflege@gmx.de` — no third-party form API.
+- Business email in footer and legal pages: `tonis-autopflege@gmx.de`.
 
 ## Legacy code note
 
@@ -49,7 +49,7 @@ Date: **Mai 2026**
 | USt-IdNr. | Not applicable (Kleinunternehmer §19 UStG) — documented |
 | Steuernummer | `6339616878` — included in Impressum |
 | Vercel DPA | Accept in Vercel dashboard if not done |
-| kontakt@ vs info.tonisautopflege@gmx.de | Confirm both emails are active |
+| Email address | `tonis-autopflege@gmx.de` — single contact email site-wide |
 | Google Business / Maps listing | Owner maintains separately |
 
 ## Verification checklist

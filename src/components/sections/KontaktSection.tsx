@@ -19,7 +19,7 @@ import {
   LOGO_HERO_SRC, TONI_WA_HREF, toniWaHrefWithPrefill,
 } from "@/lib/assets";
 import { EASE_OUT_CUBIC } from "@/lib/motion";
-import { GOOGLE_MAPS_BUSINESS_URL, GOOGLE_MAPS_EMBED_URL, ROUTES } from "@/lib/site";
+import { FIRMENFOOTER, GOOGLE_MAPS_BUSINESS_URL, GOOGLE_MAPS_EMBED_URL, ROUTES } from "@/lib/site";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import { ConsentGate } from "@/components/CookieConsent";
@@ -155,7 +155,7 @@ export function KontaktSection({ pageTitle }: KontaktSectionProps) {
                   const email = String(fd.get("email") ?? "").trim();
                   const msg = String(fd.get("message") ?? "").trim();
                   const body = encodeURIComponent(`Name: ${name}\nE-Mail: ${email}\n\nNachricht:\n${msg}`);
-                  window.location.href = `mailto:kontakt@tonis-autopflege.de?subject=${encodeURIComponent("Anfrage Autopflege")}&body=${body}`;
+                  window.location.href = `mailto:${FIRMENFOOTER.email}?subject=${encodeURIComponent("Anfrage Autopflege")}&body=${body}`;
                 }}
               >
                 {!reduceMotion && (

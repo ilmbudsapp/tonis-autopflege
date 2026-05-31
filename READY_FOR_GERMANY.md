@@ -23,7 +23,7 @@
 - **Inhaber:** Jeton Shala — Toni
 - **Adresse:** Boschstr. 23/1, 73119 Zell unter Aichelberg
 - **Telefon:** +49 174 8564830
-- **E-Mail:** info.tonisautopflege@gmx.de
+- **E-Mail:** tonis-autopflege@gmx.de
 - **Steuernummer:** 6339616878
 - **Kleinunternehmer** § 19 UStG
 
@@ -39,7 +39,7 @@
 ## Owner action items (optional)
 
 1. Confirm Vercel Data Processing Agreement accepted.
-2. Verify both email addresses (info.tonisautopflege@gmx.de and kontakt@tonis-autopflege.de) are monitored.
+2. Confirm `tonis-autopflege@gmx.de` is monitored for customer inquiries.
 3. Remove or archive legacy `TonisLanding.tsx` when convenient (not in production bundle).
 
 ## QA performed

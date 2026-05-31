@@ -22,5 +22,6 @@
 - `vercel.json` CSP: Google Fonts Domains entfernt
 - `form-action` um `mailto:` ergänzt (Kontaktformular)
 
-### Dokumentation
-- `PRIVACY_AUDIT.md`, `READY_FOR_GERMANY.md` hinzugefügt
+### Kontakt-E-Mail vereinheitlicht (Mai 2026)
+- Einzige Kontaktadresse site-weit: `tonis-autopflege@gmx.de`
+- Ersetzt u. a. `info.tonisautopflege@gmx.de` und `kontakt@tonis-autopflege.de`

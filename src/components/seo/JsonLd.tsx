@@ -35,6 +35,8 @@ export function LocalBusinessJsonLd() {
 
     telephone: FIRMENFOOTER.telefonLabel,
 
+    email: FIRMENFOOTER.email,
+
     url: `${CANONICAL_ORIGIN}/`,
 
     openingHoursSpecification: [

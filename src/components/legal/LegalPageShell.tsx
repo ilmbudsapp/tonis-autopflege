@@ -6,10 +6,11 @@ import { useSiteTypography } from "@/hooks/useSiteTypography";
 
 type LegalPageShellProps = {
   title: string;
+  subtitle?: string;
   children: ReactNode;
 };
 
-export default function LegalPageShell({ title, children }: LegalPageShellProps) {
+export default function LegalPageShell({ title, subtitle, children }: LegalPageShellProps) {
   const { reduceMotion } = useMotionVariants();
   const { fontDisplay } = useSiteTypography();
 
@@ -22,11 +23,16 @@ export default function LegalPageShell({ title, children }: LegalPageShellProps)
         transition={{ duration: 0.6, ease: EASE_OUT_CUBIC }}
       >
         <h1
-          className="mb-8 text-2xl font-bold tracking-tight text-white md:text-3xl"
+          className="mb-3 text-2xl font-bold tracking-tight text-white md:text-3xl"
           style={{ fontFamily: fontDisplay }}
         >
           {title}
         </h1>
+        {subtitle ? (
+          <p className="mb-8 text-sm text-zinc-500">{subtitle}</p>
+        ) : (
+          <div className="mb-8" />
+        )}
         <motion.div className="space-y-4 rounded-2xl border border-white/[0.08] bg-black/25 px-4 py-8 text-left text-sm leading-relaxed text-zinc-400 md:px-8">
           {children}
         </motion.div>

@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "@/components/layout/ScrollToTop";
 import SiteLayout from "@/components/layout/SiteLayout";
-import { useDemoFonts } from "@/hooks/useDemoFonts";
 import BewertungenPage from "@/pages/BewertungenPage";
 import AgbPage from "@/pages/AgbPage";
 import DatenschutzPage from "@/pages/DatenschutzPage";
@@ -18,8 +17,6 @@ import UeberMichPage from "@/pages/UeberMichPage";
 import { ROUTES } from "@/lib/site";
 
 export default function App() {
-  useDemoFonts();
-
   return (
     <BrowserRouter>
       <ScrollToTop />

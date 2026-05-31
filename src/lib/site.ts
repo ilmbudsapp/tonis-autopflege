@@ -54,6 +54,9 @@ export const KLEINUNTERNEHMER_STEUERNUMMER = "6339616878";
 export const GOOGLE_MAPS_BUSINESS_URL =
   "https://www.google.com/maps/search/?api=1&query=Tonis+Autopflege+Boschstr+23%2F1+73119+Zell+unter+Aichelberg";
 
+export const GOOGLE_MAPS_EMBED_URL =
+  "https://www.google.com/maps?q=Boschstr.+23%2F1%2C+73119+Zell+unter+Aichelberg&z=15&hl=de&output=embed";
+
 export const AGR_SITE_URL = import.meta.env.VITE_AGR_SITE_URL ?? "https://agrmultimedia.eu";
 
 export type PageMetaConfig = {

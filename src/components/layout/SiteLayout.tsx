@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import { BASE, TONI_WA_HREF } from "@/lib/assets";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
+import CookieConsent from "@/components/CookieConsent";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
 import { BreadcrumbListJsonLd } from "@/components/seo/JsonLd";
@@ -85,6 +86,8 @@ export default function SiteLayout() {
       </main>
 
       <SiteFooter />
+
+      <CookieConsent />
 
       <motion.a
         href={TONI_WA_HREF}

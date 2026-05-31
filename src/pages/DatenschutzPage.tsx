@@ -1,5 +1,7 @@
-import LegalPageShell from "@/components/legal/LegalPageShell";
 import PageMeta from "@/components/layout/PageMeta";
+import LegalPageShell from "@/components/legal/LegalPageShell";
+import LegalSections from "@/components/legal/LegalSections";
+import { privacyPolicy } from "@/legal/legalContent";
 import { PAGE_META } from "@/lib/site";
 
 export default function DatenschutzPage() {
@@ -7,11 +9,9 @@ export default function DatenschutzPage() {
   return (
     <>
       <PageMeta {...meta} />
-      <LegalPageShell title="Datenschutzerklärung">
-        <p>
-          Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen
-          Datenschutzvorschriften (DSGVO). Kontaktanfragen über WhatsApp erfolgen freiwillig.
-        </p>
+      <LegalPageShell title={privacyPolicy.title} subtitle={privacyPolicy.subtitle}>
+        <p className="mb-6 text-xs text-zinc-500">Stand: {privacyPolicy.lastUpdated}</p>
+        <LegalSections sections={privacyPolicy.sections} />
       </LegalPageShell>
     </>
   );

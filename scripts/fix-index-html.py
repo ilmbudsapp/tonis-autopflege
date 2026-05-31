@@ -4,21 +4,7 @@ import re
 p = Path(__file__).resolve().parents[1] / "index.html"
 h = p.read_text(encoding="utf-8")
 
-# Async Google Fonts (non-blocking)
-h = h.replace(
-    """    <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@500;600;700;800&display=swap"
-      as="style"
-    />""",
-    """    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@500;600;700;800&display=swap"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@500;600;700;800&display=swap" /></noscript>""",
-)
+# Async Google Fonts removed — fonts are self-hosted via @fontsource in src/styles/fonts.css
 
 # Move JSON-LD out of head
 pat = r'    <script type="application/ld\+json">.*?</script>\n'

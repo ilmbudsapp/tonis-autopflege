@@ -16,6 +16,8 @@
     "icon:brand": "node scripts/generate-brand-icons.mjs"
   },
   "dependencies": {
+    "@fontsource/plus-jakarta-sans": "^5.2.8",
+    "@fontsource/syne": "^5.2.7",
     "framer-motion": "^12.38.0",
     "lucide-react": "^1.14.0",
     "react": "^18.3.1",

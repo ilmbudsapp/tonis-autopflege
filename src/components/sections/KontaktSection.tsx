@@ -19,9 +19,10 @@ import {
   LOGO_HERO_SRC, TONI_WA_HREF, toniWaHrefWithPrefill,
 } from "@/lib/assets";
 import { EASE_OUT_CUBIC } from "@/lib/motion";
-import { ROUTES } from "@/lib/site";
+import { GOOGLE_MAPS_BUSINESS_URL, GOOGLE_MAPS_EMBED_URL, ROUTES } from "@/lib/site";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
+import { ConsentGate } from "@/components/CookieConsent";
 import { GoldIconFrame, LucideInGold, SvgGoogleGCorner } from "@/components/ui/GoldIcons";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SectionSummary } from "@/components/ui/SectionSummary";
@@ -72,13 +73,32 @@ export function KontaktSection({ pageTitle }: KontaktSectionProps) {
                 <div>
                   <h3 className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-[#c9a227]/90">Standort</h3>
                   <div className="aspect-[4/3] w-full max-h-[320px] overflow-hidden rounded-2xl border border-white/[0.1] bg-zinc-900/50 shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
-                    <iframe
-                      title="Karte — Toni's Autopflege, Zell unter Aichelberg"
-                      className="h-full min-h-[240px] w-full"
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      src="https://www.google.com/maps?q=Boschstr.+23%2F1%2C+73119+Zell+unter+Aichelberg&z=15&hl=de&output=embed"
-                    />
+                    <ConsentGate
+                      fallback={
+                        <div className="flex h-full min-h-[240px] flex-col items-center justify-center gap-4 px-6 text-center">
+                          <MapPin className="h-8 w-8 text-[#c9a227]/70" strokeWidth={1.75} aria-hidden />
+                          <p className="text-sm text-zinc-400">
+                            Die Karte wird nur nach Cookie-Einwilligung geladen.
+                          </p>
+                          <a
+                            href={GOOGLE_MAPS_BUSINESS_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="rounded-full border border-[#c9a227]/35 bg-black/50 px-4 py-2 text-xs font-semibold text-[#f0d78c] transition hover:border-[#c9a227]/55 hover:text-white sm:text-sm"
+                          >
+                            In Google Maps öffnen
+                          </a>
+                        </div>
+                      }
+                    >
+                      <iframe
+                        title="Karte — Toni's Autopflege, Zell unter Aichelberg"
+                        className="h-full min-h-[240px] w-full"
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        src={GOOGLE_MAPS_EMBED_URL}
+                      />
+                    </ConsentGate>
                   </div>
                   <p className="mt-3 text-xs text-zinc-500">
                     Boschstr. 23/1, 73119 Zell unter Aichelberg — Standort der Autopflege.

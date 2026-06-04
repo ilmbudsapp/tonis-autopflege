@@ -1,6 +1,5 @@
 import PageMeta from "@/components/layout/PageMeta";
-import { FaqPageJsonLd, LocalBusinessJsonLd } from "@/components/seo/JsonLd";
-import { CANONICAL_ORIGIN } from "@/lib/site";
+import { HomePageJsonLd } from "@/components/seo/JsonLd";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { MobilerServiceSection } from "@/components/sections/MobilerServiceSection";
 import { TerminCtaSection } from "@/components/sections/TerminCtaSection";
@@ -14,8 +13,7 @@ export default function HomePage() {
   return (
     <>
       <PageMeta {...meta} />
-      <LocalBusinessJsonLd />
-      <FaqPageJsonLd pageUrl={`${CANONICAL_ORIGIN}/`} />
+      <HomePageJsonLd />
       <HeroSection />
       <WarumTonisSection />
       <LeistungenSection />

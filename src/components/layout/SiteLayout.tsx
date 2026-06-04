@@ -1,13 +1,16 @@
 import { useEffect } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import { BASE, TONI_WA_HREF } from "@/lib/assets";
+import { ROUTES } from "@/lib/site";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import CookieConsent from "@/components/CookieConsent";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
 import { BreadcrumbListJsonLd } from "@/components/seo/JsonLd";
 export default function SiteLayout() {
+  const { pathname } = useLocation();
+  const isHome = pathname === ROUTES.home || pathname === "";
   const reduceMotion = useReducedMotion();
   const { fontSans } = useSiteTypography();
 
@@ -74,7 +77,7 @@ export default function SiteLayout() {
         aria-hidden="true"
       />
 
-      <BreadcrumbListJsonLd />
+      {!isHome && <BreadcrumbListJsonLd />}
       <SiteHeader />
 
       <main        id="main-content"

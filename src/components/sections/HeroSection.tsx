@@ -20,7 +20,7 @@ import {
 } from "@/lib/assets";
 import { EASE_OUT_CUBIC } from "@/lib/motion";
 import { SEO_DATA_POINTS, TONIS_TIPS } from "@/lib/seoContent";
-import { HOME_PAGE_TITLE, ROUTES } from "@/lib/site";
+import { HOME_H1, ROUTES } from "@/lib/site";
 import { TonisTip } from "@/components/ui/TonisTip";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
@@ -40,7 +40,7 @@ export function HeroSection() {
   const { reduceMotion, containerSlow, fadeUp, cardPop } = useMotionVariants();
   const { fontDisplay, fontHeroHeadline } = useSiteTypography();
   const HeroLogoImg = ({ className }: { className?: string }) => (
-    <img src={LOGO_HERO_SRC} width={480} height={140} alt="Toni's Autopflege" className={className} decoding="async" fetchPriority="high" />
+    <img src={LOGO_HERO_SRC} width={480} height={140} alt="Toni's Autopflege — Autopflege Göppingen" className={className} decoding="async" fetchPriority="high" />
   );
 
   const heroRef = useRef<HTMLElement | null>(null);
@@ -161,11 +161,11 @@ export function HeroSection() {
                   "0 2px 3px rgba(0,0,0,0.85), 0 12px 48px rgba(0,0,0,0.75), 0 0 1px rgba(0,0,0,1)",
               }}
             >
-              {HOME_PAGE_TITLE}
+              {HOME_H1}
             </motion.h1>
             <motion.p
               variants={fadeUp}
-              className="mt-4 text-balance break-words text-3xl font-black leading-[1.1] tracking-tight text-white sm:text-4xl md:mt-5 md:text-6xl md:leading-[1.08] md:tracking-[0.02em] lg:text-7xl"
+              className="mt-4 text-balance text-3xl font-black leading-[1.1] tracking-tight text-white sm:text-4xl md:mt-5 md:text-6xl md:leading-[1.08] md:tracking-[0.02em] lg:text-7xl"
               style={{
                 fontFamily: fontHeroHeadline,
                 fontWeight: 900,
@@ -182,23 +182,18 @@ export function HeroSection() {
               variants={fadeUp}
               className="mx-auto mt-6 max-w-xl text-pretty text-base leading-relaxed text-zinc-300 [text-shadow:0_1px_14px_rgba(0,0,0,0.78)] md:text-lg"
             >
-              Ich biete Profi-Aufbereitung in Göppingen — Mein Team und ich garantieren Qualität bei jedem Fahrzeug.
+              Als Spezialist für Autopflege in Göppingen biete ich Autoaufbereitung, Fahrzeugpflege und Lackaufbereitung
+              in unserer Werkstatt in Zell unter Aichelberg — mit Koch-Chemie, Sonax und persönlicher Beratung.
             </motion.p>
             <motion.p
               variants={fadeUp}
               className="mx-auto mt-4 max-w-xl text-pretty text-base leading-relaxed text-zinc-300 [text-shadow:0_1px_14px_rgba(0,0,0,0.78)] md:text-lg"
             >
-              Ich sorge persönlich für Lackaufbereitung, Innenreinigung, Politur und Keramik. In meiner Werkstatt in Zell
-              unter Aichelberg arbeiten wir mit Koch-Chemie und Sonax. Demzufolge wissen Sie vorab, was wir leisten.
-              Gleichermaßen berate ich Sie ehrlich zu jedem Paket — infolgedessen bleibt Ihr Budget planbar.
-            </motion.p>
-            <motion.p
-              variants={fadeUp}
-              className="mx-auto mt-4 max-w-xl text-pretty text-base leading-relaxed text-zinc-300 [text-shadow:0_1px_14px_rgba(0,0,0,0.78)] md:text-lg"
-            >
-              Ich plane jeden Auftrag persönlich und koordiniere Termine flexibel. Mein Team und ich kümmern uns um
-              Außenpflege, Innenraum und Finish. Folglich dokumentieren wir jeden Schritt transparent. Ebenso freue ich
-              mich auf Ihre Anfrage per WhatsApp oder Telefon.
+              Ob Keramikversiegelung, Innenraumreinigung oder Vorbereitung auf die Leasingrückgabe: Mein Team und ich
+              planen jeden Auftrag transparent.{" "}
+              <Link to={ROUTES.autopflegeGoeppingen} className="font-medium text-[#f0d78c] underline-offset-2 hover:underline">
+                Mehr zur Autopflege in Göppingen
+              </Link>
             </motion.p>
             <motion.p
               variants={fadeUp}

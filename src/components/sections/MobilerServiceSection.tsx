@@ -95,7 +95,10 @@ export function MobilerServiceSection() {
               <p>
                 Ich koordiniere Termine persönlich und kommuniziere klar per WhatsApp. Infolgedessen sparen Sie Zeit ohne
                 Qualitätsverlust. Folglich bleiben unsere Standards identisch — mein Team garantiert Profi-Ergebnisse bei
-                Ihnen vor Ort.
+                Ihnen vor Ort.{" "}
+                <Link to={ROUTES.autopflegeGoeppingen} className="font-medium text-[#f0d78c] underline-offset-2 hover:underline">
+                  Autopflege Göppingen im Überblick
+                </Link>
               </p>
               <TonisTip className="mt-6">{TONIS_TIPS.mobil}</TonisTip>
             </div>

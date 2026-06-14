@@ -2,11 +2,15 @@ export const CANONICAL_ORIGIN = "https://www.tonis-autopflege-goeppingen.de";
 
 export const SITE_NAME = "Toni's Autopflege";
 
-/** Must match <title> and homepage <h1> byte-for-byte (ASCII hyphen). */
-export const HOME_PAGE_TITLE = "Toni's Autopflege - Profi-Aufbereitung Göppingen";
+/** Document title for homepage (browser tab / SERP). */
+export const HOME_PAGE_TITLE = "Autopflege Göppingen | Lackaufbereitung, Keramik & Innenraum — Toni's Autopflege";
+
+/** Single homepage H1 — contains primary local keyword. */
+export const HOME_H1 = "Autopflege Göppingen — professionelle Fahrzeugaufbereitung bei Toni";
 
 export const ROUTES = {
   home: "/",
+  autopflegeGoeppingen: "/autopflege-goeppingen",
   leistungen: "/leistungen",
   ueberMich: "/ueber-mich",
   faq: "/faq",
@@ -70,7 +74,13 @@ export const PAGE_META: Record<string, PageMetaConfig> = {
     path: ROUTES.home,
     title: HOME_PAGE_TITLE,
     description:
-      "Ich biete Profi-Lackpolitur, Innenreinigung & Keramik in Göppingen. Wir bringen Ihr Auto mit Koch-Chemie & Sonax zum Glänzen — Termin per WhatsApp.",
+      "Autopflege Göppingen: Toni's Autopflege in Zell unter Aichelberg — Autoaufbereitung, Lackaufbereitung, Keramikversiegelung & Innenraumreinigung. Termin per WhatsApp.",
+  },
+  autopflegeGoeppingen: {
+    path: ROUTES.autopflegeGoeppingen,
+    title: "Autopflege Göppingen — Autoaufbereitung & Fahrzeugpflege | Toni's Autopflege",
+    description:
+      "Autopflege Göppingen: professionelle Autoaufbereitung, Lackaufbereitung, Keramikversiegelung und Innenraumreinigung. Werkstatt in Zell unter Aichelberg — Termin bei Toni's Autopflege.",
   },
   leistungen: {
     path: ROUTES.leistungen,

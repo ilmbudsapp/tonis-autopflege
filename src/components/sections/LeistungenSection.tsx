@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
 import { LEISTUNGEN_CATEGORIES, REPARATUR_SPEZIAL_SERVICES } from "@/data/siteContent";
 import { EASE_OUT_CUBIC } from "@/lib/motion";
@@ -13,6 +14,7 @@ import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SectionSummary } from "@/components/ui/SectionSummary";
+import { ROUTES } from "@/lib/site";
 
 type LeistungenSectionProps = {
   pageTitle?: string;
@@ -236,6 +238,14 @@ export function LeistungenSection({ pageTitle }: LeistungenSectionProps) {
               );
             })}
           </motion.div>
+
+          <p className="mx-auto mt-12 max-w-2xl text-center text-sm leading-relaxed text-zinc-500 md:text-base">
+            Ausführliche Informationen zu Autoaufbereitung, Fahrzeugpflege und Leasingrückgabe finden Sie auf unserer{" "}
+            <Link to={ROUTES.autopflegeGoeppingen} className="font-medium text-[#f0d78c] underline-offset-2 hover:underline">
+              Autopflege-Göppingen-Seite
+            </Link>
+            .
+          </p>
         </div>
       </section>
 

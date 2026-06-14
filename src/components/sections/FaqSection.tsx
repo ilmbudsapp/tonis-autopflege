@@ -32,7 +32,7 @@ export function FaqSection({ pageTitle }: FaqSectionProps) {
         transition={{ duration: 0.6, ease: EASE_OUT_CUBIC }}
       >
         <header className="mb-10 text-center">
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.35em] text-[#c9a227]/75">AEO / FAQ</p>
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.35em] text-[#c9a227]/75">FAQ</p>
           <SectionHeading
             pageTitle={pageTitle}
             defaultText="Häufig gestellte Fragen"

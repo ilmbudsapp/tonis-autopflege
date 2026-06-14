@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Toni's Autopflege - Profi-Aufbereitung Göppingen</title>
+    <title>Autopflege Göppingen | Toni's Autopflege</title>
     <link>https://www.tonis-autopflege-goeppingen.de/</link>
-    <description>Ich biete Profi-Lackpolitur, Innenreinigung und Keramik in Göppingen. Wir bringen Ihr Auto mit Koch-Chemie und Sonax zum Glänzen.</description>
+    <description>Autopflege Göppingen: Autoaufbereitung, Lackaufbereitung, Keramikversiegelung und Innenraumreinigung in Zell unter Aichelberg.</description>
     <language>de-DE</language>
-    <lastBuildDate>Fri, 15 May 2026 12:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 03 Jun 2026 12:00:00 +0200</lastBuildDate>
     <atom:link href="https://www.tonis-autopflege-goeppingen.de/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Autopflege Göppingen — Autoaufbereitung &amp; Fahrzeugpflege</title>
+      <link>https://www.tonis-autopflege-goeppingen.de/autopflege-goeppingen</link>
+      <description>Professionelle Autopflege in Göppingen: Lackaufbereitung, Keramikversiegelung, Innenraumreinigung und Leasingrückgabe Aufbereitung.</description>
+      <guid isPermaLink="true">https://www.tonis-autopflege-goeppingen.de/autopflege-goeppingen</guid>
+    </item>
     <item>
       <title>Leistungen: Politur, Keramik und Innenraum</title>
       <link>https://www.tonis-autopflege-goeppingen.de/leistungen</link>

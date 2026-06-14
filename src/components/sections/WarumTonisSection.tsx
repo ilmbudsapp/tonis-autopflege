@@ -74,8 +74,11 @@ export function WarumTonisSection() {
             </p>
             <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-zinc-500 md:text-base">
               Ich kombiniere bewährte Handarbeit mit modernen Systemen. Mein Team und ich passen jedes Paket an Ihr
-              Fahrzeug an. Ebenso berate ich ehrlich, welche Leistungen nötig sind. Infolgedessen erhalten Sie ein
-              Ergebnis, das hält — folglich vertrauen Kunden in Göppingen auf unsere Werkstatt.
+              Fahrzeug an. Ebenso berate ich ehrlich, welche Leistungen nötig sind — von Lackaufbereitung bis
+              Keramikversiegelung.{" "}
+              <Link to={ROUTES.autopflegeGoeppingen} className="font-medium text-[#f0d78c] underline-offset-2 hover:underline">
+                Mehr zur professionellen Autopflege in Göppingen
+              </Link>
             </p>
             <p className="mx-auto mt-4 max-w-2xl text-center text-sm font-medium text-[#c9a227]/90 md:text-base">
               {SEO_DATA_POINTS.customers}

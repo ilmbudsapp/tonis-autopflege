@@ -7,6 +7,7 @@ import DatenschutzPage from "@/pages/DatenschutzPage";
 import FaqPage from "@/pages/FaqPage";
 import GaleriePage from "@/pages/GaleriePage";
 import GutscheinePage from "@/pages/GutscheinePage";
+import AutopflegeGoeppingenPage from "@/pages/AutopflegeGoeppingenPage";
 import HomePage from "@/pages/HomePage";
 import VideoPage from "@/pages/VideoPage";
 import ImpressumPage from "@/pages/ImpressumPage";
@@ -23,6 +24,7 @@ export default function App() {
       <Routes>
         <Route element={<SiteLayout />}>
           <Route path={ROUTES.home} element={<HomePage />} />
+          <Route path={ROUTES.autopflegeGoeppingen} element={<AutopflegeGoeppingenPage />} />
           <Route path={ROUTES.leistungen} element={<LeistungenPage />} />
           <Route path={ROUTES.galerie} element={<GaleriePage />} />
           <Route path={ROUTES.video} element={<VideoPage />} />

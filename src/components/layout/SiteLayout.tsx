@@ -7,6 +7,7 @@ import { useSiteTypography } from "@/hooks/useSiteTypography";
 import CookieConsent from "@/components/CookieConsent";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
+import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import { BreadcrumbListJsonLd } from "@/components/seo/JsonLd";
 export default function SiteLayout() {
   const { pathname } = useLocation();
@@ -79,6 +80,8 @@ export default function SiteLayout() {
 
       {!isHome && <BreadcrumbListJsonLd />}
       <SiteHeader />
+
+      <BreadcrumbNav />
 
       <main        id="main-content"
         role="main"

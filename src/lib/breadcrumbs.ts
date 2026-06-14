@@ -6,6 +6,7 @@ export type BreadcrumbItem = {
 };
 
 const PAGE_LABELS: Record<string, string> = {
+  [ROUTES.autopflegeGoeppingen]: "Autopflege Göppingen",
   [ROUTES.leistungen]: "Leistungen",
   [ROUTES.galerie]: "Galerie",
   [ROUTES.video]: "Videos",

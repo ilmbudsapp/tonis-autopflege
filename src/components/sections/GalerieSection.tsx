@@ -4,6 +4,7 @@ import { EASE_OUT_CUBIC } from "@/lib/motion";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
 import { SectionSummary } from "@/components/ui/SectionSummary";
+import { galleryImageAlt } from "@/lib/galleryAlt";
 
 export function GalerieSection() {
   const { reduceMotion } = useMotionVariants();
@@ -43,7 +44,7 @@ export function GalerieSection() {
               <div className="group overflow-hidden rounded-2xl border border-white/[0.08] bg-zinc-900/40 shadow-[0_20px_50px_rgba(0,0,0,0.45)]">
                 <img
                   src={src}
-                  alt={`Vorher-Nachher Referenz ${i + 1} — Toni's Autopflege`}
+                  alt={galleryImageAlt(i)}
                   width={900}
                   height={1200}
                   className="h-auto w-full object-cover transition duration-700 group-hover:scale-[1.03]"

@@ -37,7 +37,20 @@ html {
   }
 }
 
-/* Mobile: disable all scroll-snap (avoids jump/stutter with columns, carousels, etc.). */
+/* Hero H1: Syne on desktop; narrower Plus Jakarta on mobile so long words fit. */
+.tonis-hero-h1 {
+  font-family: "Syne", system-ui, sans-serif;
+}
+
+@media (max-width: 767px) {
+  .tonis-hero-h1 {
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    font-size: clamp(0.94rem, 3.25vw, 1.125rem);
+    line-height: 1.22;
+    letter-spacing: -0.015em;
+    padding-inline: 0.75rem;
+  }
+}
 @media (max-width: 767px) {
   *,
   *::before,

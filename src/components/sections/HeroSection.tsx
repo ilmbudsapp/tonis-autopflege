@@ -38,7 +38,7 @@ const WORK_VIDEOS = WORK_VIDEO_CLIPS.map((c, i) => ({
 
 export function HeroSection() {
   const { reduceMotion, containerSlow, fadeUp, cardPop } = useMotionVariants();
-  const { fontDisplay, fontHeroHeadline } = useSiteTypography();
+  const { fontHeroHeadline } = useSiteTypography();
   const HeroLogoImg = ({ className }: { className?: string }) => (
     <img src={LOGO_HERO_SRC} width={480} height={140} alt="Toni's Autopflege — Autopflege Göppingen" className={className} decoding="async" fetchPriority="high" />
   );
@@ -153,9 +153,8 @@ export function HeroSection() {
             </motion.p>
             <motion.h1
               variants={fadeUp}
-              className="text-balance break-words text-2xl font-black leading-tight tracking-tight text-white sm:text-3xl md:text-4xl md:leading-tight lg:text-5xl"
+              className="tonis-hero-h1 text-pretty break-words text-2xl font-black leading-tight tracking-tight text-white sm:text-3xl md:text-4xl md:leading-tight md:tracking-tight lg:text-5xl"
               style={{
-                fontFamily: fontDisplay,
                 fontWeight: 800,
                 textShadow:
                   "0 2px 3px rgba(0,0,0,0.85), 0 12px 48px rgba(0,0,0,0.75), 0 0 1px rgba(0,0,0,1)",

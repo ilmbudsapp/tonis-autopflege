@@ -45,10 +45,10 @@ html {
 @media (max-width: 767px) {
   .tonis-hero-h1 {
     font-family: "Plus Jakarta Sans", system-ui, sans-serif;
-    font-size: clamp(0.94rem, 3.25vw, 1.125rem);
-    line-height: 1.22;
-    letter-spacing: -0.015em;
-    padding-inline: 0.75rem;
+    font-size: clamp(1.08rem, 4.2vw, 1.32rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    padding-inline: 0.5rem;
   }
 }
 @media (max-width: 767px) {

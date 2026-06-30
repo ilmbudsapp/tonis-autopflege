@@ -20,7 +20,7 @@ import {
 } from "@/lib/assets";
 import { EASE_OUT_CUBIC } from "@/lib/motion";
 import { SEO_DATA_POINTS, TONIS_TIPS } from "@/lib/seoContent";
-import { ROUTES } from "@/lib/site";
+import { HOME_H1_LINES, ROUTES } from "@/lib/site";
 import { TonisTip } from "@/components/ui/TonisTip";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
@@ -153,16 +153,25 @@ export function HeroSection() {
             </motion.p>
             <motion.h1
               variants={fadeUp}
-              className="tonis-hero-h1 text-pretty font-extrabold leading-tight tracking-tight text-white"
+              className="tonis-hero-h1 text-pretty font-extrabold tracking-tight text-white"
               style={{
                 fontWeight: 800,
                 textShadow:
                   "0 2px 3px rgba(0,0,0,0.85), 0 12px 48px rgba(0,0,0,0.75), 0 0 1px rgba(0,0,0,1)",
               }}
             >
-              <span className="tonis-hero-h1__line">Autopflege Göppingen —</span>
-              <span className="tonis-hero-h1__line">professionelle Fahrzeugaufbereitung</span>
-              <span className="tonis-hero-h1__line">bei Toni</span>
+              {HOME_H1_LINES.map((line, index) => (
+                <span
+                  key={line}
+                  className={
+                    index === HOME_H1_LINES.length - 1
+                      ? "tonis-hero-h1__line tonis-hero-h1__line--closing"
+                      : "tonis-hero-h1__line"
+                  }
+                >
+                  {line}
+                </span>
+              ))}
             </motion.h1>
             <motion.p
               variants={fadeUp}

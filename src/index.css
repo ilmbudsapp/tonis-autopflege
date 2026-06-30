@@ -57,6 +57,18 @@ html {
   display: block;
 }
 
+.tonis-hero-h1__line + .tonis-hero-h1__line {
+  margin-top: 0.14em;
+}
+
+.tonis-hero-h1__line--closing {
+  margin-top: 0.28em;
+  font-size: 0.88em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  opacity: 0.96;
+}
+
 @media (max-width: 767px) {
   .tonis-hero-h1 {
     font-size: clamp(1.08rem, 4.2vw, 1.32rem);

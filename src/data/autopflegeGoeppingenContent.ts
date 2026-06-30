@@ -10,7 +10,7 @@ export type AutopflegeContentSection = {
   list?: string[];
 };
 
-export const AUTOPFLEGE_LANDING_H1 = "Autopflege Göppingen — professionelle Fahrzeugaufbereitung bei Toni";
+export const AUTOPFLEGE_LANDING_H1 = "Autopflege Göppingen Professionelle Fahrzeugaufbereitung bei Toni";
 
 export const AUTOPFLEGE_LANDING_SECTIONS: AutopflegeContentSection[] = [
   {

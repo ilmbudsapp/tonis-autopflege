@@ -5,8 +5,15 @@ export const SITE_NAME = "Toni's Autopflege";
 /** Document title for homepage (browser tab / SERP). */
 export const HOME_PAGE_TITLE = "Autopflege Göppingen | Lackaufbereitung, Keramik & Innenraum — Toni's Autopflege";
 
-/** Single homepage H1 — contains primary local keyword. */
-export const HOME_H1 = "Autopflege Göppingen — professionelle Fahrzeugaufbereitung bei Toni";
+/** Homepage H1 lines (visual stack). */
+export const HOME_H1_LINES = [
+  "Autopflege Göppingen",
+  "Professionelle Fahrzeugaufbereitung",
+  "bei Toni",
+] as const;
+
+/** Single homepage H1 string — contains primary local keyword. */
+export const HOME_H1 = HOME_H1_LINES.join(" ");
 
 export const ROUTES = {
   home: "/",

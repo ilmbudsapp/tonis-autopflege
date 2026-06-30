@@ -20,7 +20,7 @@ import {
 } from "@/lib/assets";
 import { EASE_OUT_CUBIC } from "@/lib/motion";
 import { SEO_DATA_POINTS, TONIS_TIPS } from "@/lib/seoContent";
-import { HOME_H1, ROUTES } from "@/lib/site";
+import { ROUTES } from "@/lib/site";
 import { TonisTip } from "@/components/ui/TonisTip";
 import { useMotionVariants } from "@/hooks/useMotionVariants";
 import { useSiteTypography } from "@/hooks/useSiteTypography";
@@ -153,14 +153,16 @@ export function HeroSection() {
             </motion.p>
             <motion.h1
               variants={fadeUp}
-              className="tonis-hero-h1 text-pretty break-words text-2xl font-black leading-tight tracking-tight text-white sm:text-3xl md:text-4xl md:leading-tight md:tracking-tight lg:text-5xl"
+              className="tonis-hero-h1 text-pretty font-extrabold leading-tight tracking-tight text-white"
               style={{
                 fontWeight: 800,
                 textShadow:
                   "0 2px 3px rgba(0,0,0,0.85), 0 12px 48px rgba(0,0,0,0.75), 0 0 1px rgba(0,0,0,1)",
               }}
             >
-              {HOME_H1}
+              <span className="tonis-hero-h1__line">Autopflege Göppingen —</span>
+              <span className="tonis-hero-h1__line">professionelle Fahrzeugaufbereitung</span>
+              <span className="tonis-hero-h1__line">bei Toni</span>
             </motion.h1>
             <motion.p
               variants={fadeUp}

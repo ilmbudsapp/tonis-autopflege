@@ -37,21 +37,34 @@ html {
   }
 }
 
-/* Hero H1: Syne on desktop; narrower Plus Jakarta on mobile so long words fit. */
+/* Hero H1: Plus Jakarta — clean word breaks; no mid-word splits on long German terms. */
 .tonis-hero-h1 {
-  font-family: "Syne", system-ui, sans-serif;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: manual;
+}
+
+@media (min-width: 768px) {
+  .tonis-hero-h1 {
+    font-size: clamp(1.65rem, 2.8vw, 2.65rem);
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+  }
+}
+
+.tonis-hero-h1__line {
+  display: block;
 }
 
 @media (max-width: 767px) {
   .tonis-hero-h1 {
-    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
     font-size: clamp(1.08rem, 4.2vw, 1.32rem);
     line-height: 1.2;
     letter-spacing: -0.01em;
     padding-inline: 0.5rem;
   }
-}
-@media (max-width: 767px) {
+
   *,
   *::before,
   *::after {

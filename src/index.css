@@ -47,9 +47,9 @@ html {
 
 @media (min-width: 768px) {
   .tonis-hero-h1 {
-    font-size: clamp(1.65rem, 2.8vw, 2.65rem);
-    line-height: 1.18;
-    letter-spacing: -0.02em;
+    font-size: clamp(2.125rem, 3.8vw, 3.25rem);
+    line-height: 1.14;
+    letter-spacing: -0.025em;
   }
 }
 

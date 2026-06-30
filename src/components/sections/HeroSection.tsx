@@ -143,7 +143,7 @@ export function HeroSection() {
             variants={containerSlow}
             initial="hidden"
             animate="visible"
-            className="max-w-3xl"
+            className="max-w-3xl md:max-w-4xl"
           >
             <motion.p
               variants={fadeUp}

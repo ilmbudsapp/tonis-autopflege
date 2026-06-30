@@ -160,15 +160,8 @@ export function HeroSection() {
                   "0 2px 3px rgba(0,0,0,0.85), 0 12px 48px rgba(0,0,0,0.75), 0 0 1px rgba(0,0,0,1)",
               }}
             >
-              {HOME_H1_LINES.map((line, index) => (
-                <span
-                  key={line}
-                  className={
-                    index === HOME_H1_LINES.length - 1
-                      ? "tonis-hero-h1__line tonis-hero-h1__line--closing"
-                      : "tonis-hero-h1__line"
-                  }
-                >
+              {HOME_H1_LINES.map((line) => (
+                <span key={line} className="tonis-hero-h1__line">
                   {line}
                 </span>
               ))}

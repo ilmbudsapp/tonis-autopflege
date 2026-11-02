@@ -96,7 +96,7 @@ export const privacyPolicy = {
       id: "external",
       title: "10. Externe Inhalte & Links",
       paragraphs: [
-        `Die Website enthält Links zu WhatsApp (wa.me), Facebook, Instagram, TikTok, Google Maps (${GOOGLE_MAPS_BUSINESS_URL}), agrmultimedia.eu (Webdesign-Credit) und Wikipedia/Wikidata (SEO-Referenzen). Beim Anklicken gelten die Datenschutzhinweise des jeweiligen Anbieters.`,
+        `Die Website enthält Links zu WhatsApp (wa.me), Facebook, Instagram, TikTok, Google Maps (${GOOGLE_MAPS_BUSINESS_URL}), agrmultimedia.com (Webdesign-Credit) und Wikipedia/Wikidata (SEO-Referenzen). Beim Anklicken gelten die Datenschutzhinweise des jeweiligen Anbieters.`,
         "Eingebettete Google-Maps-Karten laden nur nach Ihrer Einwilligung über den Cookie-Banner. Videos auf der Website werden selbst gehostet (MP4 aus dem eigenen /assets/-Verzeichnis), nicht über YouTube.",
       ],
     },

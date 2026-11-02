@@ -113,7 +113,11 @@ const GUTSCHEIN_BETRAEGE = [
 ] as const;
 const HERO_POSTER = `${BASE}assets/images/hero-poster.webp`;
 
-const AGR_SITE_URL = import.meta.env.VITE_AGR_SITE_URL ?? "https://agrmultimedia.eu";
+const agrSiteUrlEnv = import.meta.env.VITE_AGR_SITE_URL;
+const AGR_SITE_URL =
+  !agrSiteUrlEnv || agrSiteUrlEnv.includes("agrmultimedia.eu")
+    ? "https://www.agrmultimedia.com"
+    : agrSiteUrlEnv;
 const GALLERY = GALLERY_WEBP_FILENAMES.map((f) => `${BASE}assets/gallery-webp/${f}`);
 
 type LeistungKategorie = {
